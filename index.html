@@ -200,6 +200,25 @@
 #contact a:hover {
   text-decoration: underline;
 }
+  nav {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background: #084d2b;
+}
 </style>
 </head>
 
@@ -207,16 +226,22 @@
 
   <header>
     <h1>Greenway Express</h1>
-    <p>Fast, Safe & Reliable Delivery</p>
+    <p>Fast, Safe & Reliable Delivery</p><nav>
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#tracking">Track</a>
+  <a href="#how-it-works">How It Works</a>
+  <a href="#contact">Contact</a>
+    </nav>
   </header>
-<section class="home">
+<section class="home" id="home">
   <h2>Fast, Safe & Reliable Delivery</h2>
   <p>We deliver your packages safely and on time, wherever they need to go.</p>
   <a href="#tracking">
     <button type="button">Track Your Package</button>
   </a>
 </section>
-<section class="services">
+<section class="services" id="services">
   <h2>Our Services</h2>
   <p>Reliable delivery solutions for individuals and businesses.</p>
 
@@ -272,7 +297,7 @@
       <div id="result"></div>
     </div>
   </section>
-<section class="how-it-works">
+<section class="how-it-works" id="how-it-works">
   <h2>How It Works</h2>
   <p>Getting your package delivered with Greenway Express is simple.</p>
 
