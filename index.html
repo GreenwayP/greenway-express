@@ -159,7 +159,27 @@
   <p>© 2026 Greenway Express. All rights reserved.</p>
   <p>Fast • Safe • Reliable</p>
 </footer>
+<script>
+function trackShipment() {
+  const number = document.getElementById("trackingNumber").value.trim();
 
+  const result = document.getElementById("result");
+
+  if (number === "GX123456") {
+    result.innerHTML =
+      "✅ Shipment Found<br><br>" +
+      "Tracking Number: GX123456<br>" +
+      "Status: In Transit 🚚<br>" +
+      "Origin: Port Harcourt<br>" +
+      "Destination: Lagos";
+  } else if (number === "") {
+    result.innerHTML = "⚠️ Please enter a tracking number.";
+  } else {
+    result.innerHTML =
+      "❌ No shipment found. Please check your tracking number.";
+  }
+}
+</script>
 </body>
 </html>
   <h1>Greenway Express</h1>
