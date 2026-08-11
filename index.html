@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenway Express | Shipment Tracking</title>
+<meta name="description" content="Greenway Express delivery and consignment shipment tracking.">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#07140d;color:#fff}
+header{padding:18px 6%;background:#0b1d13;border-bottom:1px solid #294634}
+.logo{font-size:22px;font-weight:bold;color:#42d477}
+.hero{text-align:center;padding:70px 6%;background:linear-gradient(135deg,#0b2b19,#07140d)}
+h1{font-size:45px;margin:10px 0}
+p{color:#b8cbbf;font-size:17px}
+.tracker{max-width:650px;margin:30px auto;display:flex;gap:10px}
+input{flex:1;padding:16px;border-radius:8px;border:1px solid #355540;background:#102219;color:white;font-size:16px}
+button{padding:16px 22px;border:0;border-radius:8px;background:#39c86c;color:#031008;font-weight:bold}
+.container{max-width:900px;margin:30px auto;padding:20px}
+.card{background:#0c1c13;border:1px solid #294634;border-radius:15px;padding:25px;margin-bottom:20px}
+.hidden{display:none}
+.status{display:inline-block;padding:8px 14px;border-radius:20px;background:#174c2b;color:#91f0ae;font-weight:bold}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}
+.info div{background:#102219;padding:18px;border-radius:10px}
+.label{color:#8da79a;font-size:13px}
+.value{display:block;margin-top:6px;font-weight:bold}
+#message{color:#ffd166}
+footer{text-align:center;padding:30px;color:#82968b;border-top:1px solid #294634}
+@media(max-width:600px){
+h1{font-size:36px}
+.tracker{flex-direction:column}
+.info{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🚚 Greenway Express</div>
+</header>
+
+<section class="hero">
+
+<h1>Track Your Shipment</h1>
+
+<p>
+Fast, safe and reliable delivery and consignment services.
+</p>
+
+<div class="tracker">
+<input id="trackingNumber" placeholder="Enter tracking number">
+<button onclick="trackShipment()">Track Package</button>
+</div>
+
+<p id="message"></p>
+
+</section>
+
+<div class="container">
+
+<div id="result" class="card hidden">
+
+<h2>Shipment Information</h2>
+
+<p>
+Tracking Number:
+<strong id="tracking"></strong>
+</p>
+
+<p>
+Status:
+<span id="status" class="status"></span>
+</p>
+
+<div class="info">
+
+<div>
+<span class="label">Pickup Location</span>
+<span id="pickup" class="value"></span>
+</div>
+
+<div>
+<span class="label">Destination</span>
+<span id="destination" class="value"></span>
+</div>
+
+<div>
+<span class="label">Package Type</span>
+<span id="package" class="value"></span>
+</div>
+
+<div>
+<span class="label">Last Updated</span>
+<span id="updated" class="value"></span>
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+<h2>About Greenway Express</h2>
+
+<p>
+Greenway Express provides dependable delivery and
+consignment services. Customers can track their
+shipments using their tracking number.
+</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Greenway Express. All Rights Reserved.
+</footer>
+
+<script>
+
+function trackShipment(){
+
+let number =
+document.getElementById("trackingNumber").value.trim();
+
+let message =
+document.getElementById("message");
+
+let result =
+document.getElementById("result");
+
+if(!number){
+message.textContent =
+"Please enter your tracking number.";
+return;
+}
+
+if(number.toUpperCase() !== "GWE-2026-0001"){
+message.textContent =
+"No shipment found with that tracking number.";
+result.classList.add("hidden");
+return;
+}
+
+document.getElementById("tracking").textContent =
+"GWE-2026-0001";
+
+document.getElementById("status").textContent =
+"In Transit";
+
+document.getElementById("pickup").textContent =
+"Lagos, Nigeria";
+
+document.getElementById("destination").textContent =
+"Abuja, Nigeria";
+
+document.getElementById("package").textContent =
+"Parcel";
+
+document.getElementById("updated").textContent =
+new Date().toLocaleString();
+
+message.textContent = "";
+
+result.classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
