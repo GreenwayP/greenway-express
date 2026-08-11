@@ -161,22 +161,15 @@
 </footer>
 <script>
 function trackShipment() {
-  const number = document.getElementById("trackingNumber").value.trim();
-
-  const result = document.getElementById("result");
+  var number = document.getElementById("trackingNumber").value.trim();
+  var result = document.getElementById("result");
 
   if (number === "GX123456") {
-    result.innerHTML =
-      "✅ Shipment Found<br><br>" +
-      "Tracking Number: GX123456<br>" +
-      "Status: In Transit 🚚<br>" +
-      "Origin: Port Harcourt<br>" +
-      "Destination: Lagos";
+    result.innerHTML = "Shipment Found<br><br>Status: In Transit<br>Origin: Port Harcourt<br>Destination: Lagos";
   } else if (number === "") {
-    result.innerHTML = "⚠️ Please enter a tracking number.";
+    result.innerHTML = "Please enter a tracking number";
   } else {
-    result.innerHTML =
-      "❌ No shipment found. Please check your tracking number.";
+    result.innerHTML = "No shipment found. Please check your tracking number";
   }
 }
 </script>
