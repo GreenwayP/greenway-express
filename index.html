@@ -383,33 +383,61 @@ nav a:hover {
   </footer>
 
   <script>
-    document.getElementById("trackButton").addEventListener("click", function () {
+  document.getElementById("trackButton").addEventListener("click", function () {
 
-      var number = document.getElementById("trackingNumber").value.trim();
-      var result = document.getElementById("result");
+    var number = document.getElementById("trackingNumber").value.trim().toUpperCase();
+    var result = document.getElementById("result");
 
-      if (number === "GX123456") {
+    var shipments = {
+      "GX123456": {
+        status: "In Transit 🚚",
+        origin: "Port Harcourt",
+        destination: "Lagos"
+      },
 
-        result.innerHTML =
-          "<strong>Shipment Found ✅</strong><br><br>" +
-          "Tracking Number: GX123456<br>" +
-          "Status: In Transit 🚚<br>" +
-          "Origin: Port Harcourt<br>" +
-          "Destination: Lagos";
+      "GX654321": {
+        status: "Picked Up 📦",
+        origin: "Port Harcourt",
+        destination: "Abuja"
+      },
 
-      } else if (number === "") {
+      "GX789012": {
+        status: "Out for Delivery 📍",
+        origin: "Port Harcourt",
+        destination: "Warri"
+      },
 
-        result.innerHTML =
-          "Please enter a tracking number.";
-
-      } else {
-
-        result.innerHTML =
-          "No shipment found. Please check your tracking number.";
-
+      "GX345678": {
+        status: "Delivered ✅",
+        origin: "Lagos",
+        destination: "Port Harcourt"
       }
+    };
 
-    });
+    if (number === "") {
+
+      result.innerHTML =
+        "Please enter a tracking number.";
+
+    } else if (shipments[number]) {
+
+      var shipment = shipments[number];
+
+      result.innerHTML =
+        "<strong>Shipment Found ✅</strong><br><br>" +
+        "Tracking Number: " + number + "<br>" +
+        "Status: " + shipment.status + "<br>" +
+        "Origin: " + shipment.origin + "<br>" +
+        "Destination: " + shipment.destination;
+
+    } else {
+
+      result.innerHTML =
+        "No shipment found. Please check your tracking number.";
+
+    }
+
+  });
   </script>
 
 </body>
