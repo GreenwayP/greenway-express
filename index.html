@@ -415,7 +415,8 @@ nav a:hover {
 
     if (error) {
       console.error(error);
-      result.innerHTML = "Unable to check the shipment right now. Please try again.";
+      result.innerHTML =
+  "Database error: " + error.message;
       return;
     }
 
