@@ -420,12 +420,11 @@ nav a:hover {
       return;
     }
 
-    if (!data) {
-      result.innerHTML =
-        "No shipment found. Please check your tracking number.";
-      return;
-    }
-
+  if (!data) {
+  result.innerHTML =
+    "No shipment found. Database returned: " + JSON.stringify(data);
+  return;
+}      
     result.innerHTML =
       "<strong>Shipment Found ✅</strong><br><br>" +
       "Tracking Number: " + data.tracking_number + "<br>" +
