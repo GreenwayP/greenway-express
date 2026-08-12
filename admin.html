@@ -4,125 +4,300 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Greenway Express Admin</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f4f7f6;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .header {
+      background: #087f5b;
+      color: white;
+      padding: 22px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .header h1 {
+      margin: 0 0 6px;
+    }
+
+    .header p {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    h2 {
+      color: #087f5b;
+      margin-top: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #087f5b;
+    }
+
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-size: 15px;
+      cursor: pointer;
+      background: #087f5b;
+      color: white;
+      margin-right: 6px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .logout-btn {
+      background: #6b7280;
+    }
+
+    .edit-btn {
+      background: #2563eb;
+    }
+
+    .delete-btn {
+      background: #dc2626;
+    }
+
+    .shipment-card {
+      border: 1px solid #e5e7eb;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    .shipment-card strong {
+      font-size: 18px;
+      color: #087f5b;
+    }
+
+    .button-row {
+      margin-top: 14px;
+    }
+
+    .result {
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .header,
+      .card {
+        padding: 16px;
+      }
+
+      button {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Greenway Express Admin</h1>
+<div class="container">
 
-<h2>Admin Login</h2>
-
-<input
-  type="email"
-  id="adminEmail"
-  placeholder="Your email"
->
-
-<br><br>
-
-<input
-  type="password"
-  id="adminPassword"
-  placeholder="Your password"
->
-
-<br><br>
-
-<button type="button" onclick="adminLogin()">Login</button>
-
-<p id="loginResult"></p>
-
-<button type="button" onclick="adminLogout()">Logout</button>
-
-<hr>
-
-
-<!-- ADMIN AREA -->
-
-<div id="adminTools" style="display: none;">
-
-  <h2>Create New Shipment</h2>
-
-  <input
-    type="text"
-    id="newTrackingNumber"
-    placeholder="Tracking number"
-  >
-
-  <br><br>
-
-  <input
-    type="text"
-    id="newStatus"
-    placeholder="Status"
-  >
-
-  <br><br>
-
-  <input
-    type="text"
-    id="newOrigin"
-    placeholder="Origin"
-  >
-
-  <br><br>
-
-  <input
-    type="text"
-    id="newDestination"
-    placeholder="Destination"
-  >
-
-  <br><br>
-
-  <input
-    type="text"
-    id="newLocation"
-    placeholder="Current location"
-  >
-
-  <br><br>
-
-  <input
-    type="text"
-    id="newDelivery"
-    placeholder="Estimated delivery"
-  >
-
-  <br><br>
-
-  <button type="button" onclick="createShipment()">
-    Create Shipment
-  </button>
-
-  <p id="createResult"></p>
-
-
-  <h2>All Shipments</h2>
-
-  <div id="allShipments">
-    Shipments will appear here.
+  <div class="header">
+    <h1>🚚 Greenway Express</h1>
+    <p>Admin Dashboard</p>
   </div>
 
 
-  <br>
+  <!-- LOGIN -->
 
-  <h2>Shipment Management</h2>
+  <div class="card">
 
-  <input
-    type="text"
-    id="trackingNumber"
-    placeholder="Enter tracking number"
-  >
+    <h2>🔐 Admin Login</h2>
 
-  <button
-    type="button"
-    onclick="findShipment()"
-  >
-    Find Shipment
-  </button>
+    <input
+      type="email"
+      id="adminEmail"
+      placeholder="Your email"
+    >
 
-  <div id="shipmentResult"></div>
+    <br><br>
+
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Your password"
+    >
+
+    <br><br>
+
+    <button type="button" onclick="adminLogin()">
+      Login
+    </button>
+
+    <p id="loginResult" class="result"></p>
+
+    <button
+      type="button"
+      class="logout-btn"
+      onclick="adminLogout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+
+  <!-- ADMIN AREA -->
+
+  <div id="adminTools" style="display: none;">
+
+
+    <!-- CREATE SHIPMENT -->
+
+    <div class="card">
+
+      <h2>📦 Create New Shipment</h2>
+
+      <input
+        type="text"
+        id="newTrackingNumber"
+        placeholder="Tracking number"
+      >
+
+      <br><br>
+
+      <input
+        type="text"
+        id="newStatus"
+        placeholder="Status"
+      >
+
+      <br><br>
+
+      <input
+        type="text"
+        id="newOrigin"
+        placeholder="Origin"
+      >
+
+      <br><br>
+
+      <input
+        type="text"
+        id="newDestination"
+        placeholder="Destination"
+      >
+
+      <br><br>
+
+      <input
+        type="text"
+        id="newLocation"
+        placeholder="Current location"
+      >
+
+      <br><br>
+
+      <input
+        type="text"
+        id="newDelivery"
+        placeholder="Estimated delivery"
+      >
+
+      <br><br>
+
+      <button
+        type="button"
+        onclick="createShipment()"
+      >
+        + Create Shipment
+      </button>
+
+      <p id="createResult" class="result"></p>
+
+    </div>
+
+
+    <!-- ALL SHIPMENTS -->
+
+    <div class="card">
+
+      <h2>📋 All Shipments</h2>
+
+      <div id="allShipments">
+        Shipments will appear here.
+      </div>
+
+    </div>
+
+
+    <!-- SHIPMENT MANAGEMENT -->
+
+    <div class="card">
+
+      <h2>🔎 Shipment Management</h2>
+
+      <input
+        type="text"
+        id="trackingNumber"
+        placeholder="Enter tracking number"
+      >
+
+      <br><br>
+
+      <button
+        type="button"
+        onclick="findShipment()"
+      >
+        Find Shipment
+      </button>
+
+      <div id="shipmentResult"></div>
+
+    </div>
+
+  </div>
 
 </div>
 
@@ -396,19 +571,13 @@ async function loadAllShipments() {
   container.innerHTML =
     data.map(shipment => `
 
-      <div
-        style="
-          border:1px solid #ccc;
-          padding:10px;
-          margin-bottom:10px;
-        "
-      >
+      <div class="shipment-card">
 
         <strong>
           ${shipment.tracking_number}
         </strong>
 
-        <br>
+        <br><br>
 
         Status:
         ${shipment.status}
@@ -433,18 +602,77 @@ async function loadAllShipments() {
         Estimated Delivery:
         ${shipment.estimated_delivery}
 
-        <br><br>
+        <div class="button-row">
 
-        <button
-          type="button"
-          onclick="findShipment('${shipment.tracking_number}')"
-        >
-          Edit Shipment
-        </button>
+          <button
+            type="button"
+            class="edit-btn"
+            onclick="findShipment('${shipment.tracking_number}')"
+          >
+            ✏️ Edit
+          </button>
+
+          <button
+            type="button"
+            class="delete-btn"
+            onclick="deleteShipment('${shipment.tracking_number}')"
+          >
+            🗑️ Delete
+          </button>
+
+        </div>
 
       </div>
 
     `).join("");
+}
+
+
+/* =========================
+   DELETE SHIPMENT
+========================= */
+
+async function deleteShipment(trackingNumber) {
+
+  const confirmed =
+    confirm(
+      "Are you sure you want to delete shipment " +
+      trackingNumber +
+      "?"
+    );
+
+  if (!confirmed) {
+    return;
+  }
+
+  const { error } =
+    await supabaseClient
+      .from("Shipments")
+      .delete()
+      .eq(
+        "tracking_number",
+        trackingNumber
+      );
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      "Delete failed: " +
+      error.message
+    );
+
+    return;
+  }
+
+  alert(
+    "Shipment " +
+    trackingNumber +
+    " deleted successfully! ✅"
+  );
+
+  loadAllShipments();
 }
 
 
@@ -507,7 +735,7 @@ async function findShipment(
 
     <h3>Shipment Found</h3>
 
-    <label>Status:</label><br>
+    <label>Status:</label>
 
     <input
       id="editStatus"
@@ -516,7 +744,7 @@ async function findShipment(
 
     <br><br>
 
-    <label>Origin:</label><br>
+    <label>Origin:</label>
 
     <input
       id="editOrigin"
@@ -525,7 +753,7 @@ async function findShipment(
 
     <br><br>
 
-    <label>Destination:</label><br>
+    <label>Destination:</label>
 
     <input
       id="editDestination"
@@ -534,7 +762,7 @@ async function findShipment(
 
     <br><br>
 
-    <label>Current Location:</label><br>
+    <label>Current Location:</label>
 
     <input
       id="editLocation"
@@ -543,7 +771,7 @@ async function findShipment(
 
     <br><br>
 
-    <label>Estimated Delivery:</label><br>
+    <label>Estimated Delivery:</label>
 
     <input
       id="editDelivery"
@@ -556,7 +784,7 @@ async function findShipment(
       type="button"
       onclick="updateShipment('${data.tracking_number}')"
     >
-      Save Changes
+      💾 Save Changes
     </button>
 
   `;
@@ -621,7 +849,6 @@ async function updateShipment(
 /* =========================
    STARTUP
 ========================= */
-
 
 checkAdminSession();
 
