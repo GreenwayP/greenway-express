@@ -247,8 +247,7 @@ createResult.textContent =
         return;
       }
 
-      result.innerHTfindShipmenting...";
-
+      result.innerHTML = "Searching...";
       const { data, error } =
         await supabaseClient
           .from("Shipments")
@@ -344,8 +343,8 @@ createResult.textContent =
         "Shipment updated successfully! ✅"
       );
     }
-</div>
-  </script>
 
+  </script>
+</div>
 </body>
 </html>
