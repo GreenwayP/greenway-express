@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,95 +8,103 @@
 
 <body>
 
-  <h1>Greenway Express Admin</h1>
+<h1>Greenway Express Admin</h1>
 
-  <h2>Admin Login</h2>
+<h2>Admin Login</h2>
 
-  <input
-    type="email"
-    id="adminEmail"
-    placeholder="Your email"
-  >
+<input
+  type="email"
+  id="adminEmail"
+  placeholder="Your email"
+>
 
-  <br><br>
+<br><br>
 
-  <input
-    type="password"
-    id="adminPassword"
-    placeholder="Your password"
-  >
+<input
+  type="password"
+  id="adminPassword"
+  placeholder="Your password"
+>
 
-  <br><br>
+<br><br>
 
-  <button onclick="adminLogin()">Login</button>
+<button onclick="adminLogin()">Login</button>
 
-  <p id="loginResult"></p>
+<p id="loginResult"></p>
+
 <button onclick="adminLogout()">Logout</button>
-  <hr>
+
 <hr>
+
+<!-- ADMIN TOOLS -->
 <div id="adminTools" style="display:none;">
-<h2>Create New Shipment</h2>
 
-<input
-  type="text"
-  id="newTrackingNumber"
-  placeholder="Tracking number"
->
+  <h2>Create New Shipment</h2>
 
-<br><br>
+  <input
+    type="text"
+    id="newTrackingNumber"
+    placeholder="Tracking number"
+  >
 
-<input
-  type="text"
-  id="newStatus"
-  placeholder="Status"
->
+  <br><br>
 
-<br><br>
+  <input
+    type="text"
+    id="newStatus"
+    placeholder="Status"
+  >
 
-<input
-  type="text"
-  id="newOrigin"
-  placeholder="Origin"
->
+  <br><br>
 
-<br><br>
+  <input
+    type="text"
+    id="newOrigin"
+    placeholder="Origin"
+  >
 
-<input
-  type="text"
-  id="newDestination"
-  placeholder="Destination"
->
+  <br><br>
 
-<br><br>
+  <input
+    type="text"
+    id="newDestination"
+    placeholder="Destination"
+  >
 
-<input
-  type="text"
-  id="newLocation"
-  placeholder="Current location"
->
+  <br><br>
 
-<br><br>
+  <input
+    type="text"
+    id="newLocation"
+    placeholder="Current location"
+  >
 
-<input
-  type="text"
-  id="newDelivery"
-  placeholder="Estimated delivery"
->
+  <br><br>
 
-<br><br>
+  <input
+    type="text"
+    id="newDelivery"
+    placeholder="Estimated delivery"
+  >
 
-<button onclick="createShipment()">
-  Create Shipment
-</button>
+  <br><br>
 
-<p id="createResult"></p> 
+  <button onclick="createShipment()">
+    Create Shipment
+  </button>
+
+  <p id="createResult"></p>
+
+
   <h2>All Shipments</h2>
 
-<div id="allShipments">
-  Shipments will appear here.
-</div>
+  <div id="allShipments">
+    Shipments will appear here.
+  </div>
 
-<br>
+
+  <br>
+
   <h2>Shipment Management</h2>
 
   <input
@@ -106,114 +113,178 @@
     placeholder="Enter tracking number"
   >
 
-  <button onclick="findShipment()">Find Shipment</button>
+  <button onclick="findShipment()">
+    Find Shipment
+  </button>
 
   <div id="shipmentResult"></div>
 
+</div>
+<!-- END ADMIN TOOLS -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-     const supabaseClient = supabase.createClient(
+<script>
+
+const supabaseClient = supabase.createClient(
   "https://zrmelabkasdnockpaylj.supabase.co",
-  "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt"
+  "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmvT"
 );
 
 
-    async function adminLogin() {
+/* =========================
+   ADMIN LOGIN
+========================= */
 
-      const email = document
-        .getElementById("adminEmail")
-        .value
-        .trim();
+async function adminLogin() {
 
-      const password = document
-        .getElementById("adminPassword")
-        .value;
+  const email =
+    document.getElementById("adminEmail").value.trim();
 
-      const loginResult =
-        document.getElementById("loginResult");
+  const password =
+    document.getElementById("adminPassword").value;
 
-      if (!email || !password) {
-        loginResult.textContent =
-          "Please enter your email and password.";
-        return;
-      }
+  const loginResult =
+    document.getElementById("loginResult");
 
-      loginResult.textContent = "Logging in...";
+  if (!email || !password) {
 
-      const { data, error } =
-        await supabaseClient.auth.signInWithPassword({
-          email: email,
-          password: password
-        });
+    loginResult.textContent =
+      "Please enter your email and password.";
 
-      if (error) {
-        console.error(error);
-        loginResult.textContent =
-          "Login failed: " + error.message;
-        return;
-      }
+    return;
+  }
 
-      loginResult.textContent =
-        "Login successful ✅";
-    document.getElementById("adminTools").style.display = "block";  
-    loadAllShipments();
-    } async function checkAdminSession() {
+  loginResult.textContent =
+    "Logging in...";
+
+  const { data, error } =
+    await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+  if (error) {
+
+    console.error(error);
+
+    loginResult.textContent =
+      "Login failed: " + error.message;
+
+    return;
+  }
+
+  loginResult.textContent =
+    "Login successful ✅";
+
+  document.getElementById("adminTools").style.display =
+    "block";
+
+  loadAllShipments();
+}
+
+
+/* =========================
+   CHECK LOGIN AFTER REFRESH
+========================= */
+
+async function checkAdminSession() {
+
   const { data, error } =
     await supabaseClient.auth.getSession();
 
   if (error) {
-    console.error("Session check failed:", error);
+
+    console.error(
+      "Session check failed:",
+      error
+    );
+
     return;
   }
 
   if (data.session) {
-    document.getElementById("adminTools").style.display = "block";
+
+    document.getElementById("adminTools").style.display =
+      "block";
+
+    document.getElementById("loginResult").textContent =
+      "Admin session active ✅";
+
     loadAllShipments();
+
+  } else {
+
+    document.getElementById("adminTools").style.display =
+      "none";
   }
-    }
-    async function adminLogout() {
-  const { error } = await supabaseClient.auth.signOut();
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function adminLogout() {
+
+  const { error } =
+    await supabaseClient.auth.signOut();
 
   const loginResult =
     document.getElementById("loginResult");
 
   if (error) {
+
     loginResult.textContent =
       "Logout failed: " + error.message;
+
     return;
   }
 
   loginResult.textContent =
     "Logged out successfully.";
 
-  document.getElementById("adminTools").style.display = "none";
-document.getElementById("adminEmail").value = "";
-document.getElementById("adminPassword").value = "";
-    }
-  
+  document.getElementById("adminTools").style.display =
+    "none";
+
+  document.getElementById("adminEmail").value =
+    "";
+
+  document.getElementById("adminPassword").value =
+    "";
+}
 
 
-    async function createShipment() {
+/* =========================
+   CREATE SHIPMENT
+========================= */
+
+async function createShipment() {
+
   const trackingNumber =
-    document.getElementById("newTrackingNumber").value.trim();
+    document.getElementById("newTrackingNumber")
+      .value.trim();
 
   const status =
-    document.getElementById("newStatus").value.trim();
+    document.getElementById("newStatus")
+      .value.trim();
 
   const origin =
-    document.getElementById("newOrigin").value.trim();
+    document.getElementById("newOrigin")
+      .value.trim();
 
   const destination =
-    document.getElementById("newDestination").value.trim();
+    document.getElementById("newDestination")
+      .value.trim();
 
   const currentLocation =
-    document.getElementById("newLocation").value.trim();
+    document.getElementById("newLocation")
+      .value.trim();
 
   const estimatedDelivery =
-    document.getElementById("newDelivery").value.trim();
+    document.getElementById("newDelivery")
+      .value.trim();
 
   const createResult =
     document.getElementById("createResult");
@@ -226,38 +297,51 @@ document.getElementById("adminPassword").value = "";
     !currentLocation ||
     !estimatedDelivery
   ) {
+
     createResult.textContent =
       "Please fill in all fields.";
+
     return;
   }
 
   createResult.textContent =
     "Creating shipment...";
-const { error } =
-  await supabaseClient
-    .from("Shipments")
-    .insert({
-      tracking_number: trackingNumber,
-      status: status,
-      origin: origin,
-      destination: destination,
-      current_location: currentLocation,
-      estimated_delivery: estimatedDelivery
-    });
 
-if (error) {
-  console.error(error);
+  const { error } =
+    await supabaseClient
+      .from("Shipments")
+      .insert({
+        tracking_number: trackingNumber,
+        status: status,
+        origin: origin,
+        destination: destination,
+        current_location: currentLocation,
+        estimated_delivery: estimatedDelivery
+      });
+
+  if (error) {
+
+    console.error(error);
+
+    createResult.textContent =
+      "Creation failed: " + error.message;
+
+    return;
+  }
 
   createResult.textContent =
-    "Creation failed: " + error.message;
+    "Shipment created successfully! ✅";
 
-  return;
+  loadAllShipments();
 }
 
-createResult.textContent =
-  "Shipment created successfully! ✅";
-    } 
- async function loadAllShipments() {
+
+/* =========================
+   LOAD ALL SHIPMENTS
+========================= */
+
+async function loadAllShipments() {
+
   const container =
     document.getElementById("allShipments");
 
@@ -270,6 +354,7 @@ createResult.textContent =
       .select("*");
 
   if (error) {
+
     console.error(error);
 
     container.innerHTML =
@@ -280,6 +365,7 @@ createResult.textContent =
   }
 
   if (!data || data.length === 0) {
+
     container.innerHTML =
       "No shipments found.";
 
@@ -287,139 +373,235 @@ createResult.textContent =
   }
 
   container.innerHTML =
-  data.map(shipment => `
-    <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+    data.map(shipment => `
 
-      <strong>
-        ${shipment.tracking_number}
-      </strong><br>
+      <div
+        style="
+          border:1px solid #ccc;
+          padding:10px;
+          margin-bottom:10px;
+        "
+      >
 
-      Status: ${shipment.status}<br>
-      Origin: ${shipment.origin}<br>
-      Destination: ${shipment.destination}<br>
-      Current Location:
-      ${shipment.current_location}<br>
-      Estimated Delivery:
-      ${shipment.estimated_delivery}<br><br>
+        <strong>
+          ${shipment.tracking_number}
+        </strong>
 
-      <button onclick="findShipment('${shipment.tracking_number}')">
-        Edit Shipment
-      </button>
+        <br>
 
-    </div>
-  `).join("");
-}
-   async function findShipment(trackingNumberFromList) {   
-     const number =
-  trackingNumberFromList ||
-  document.getElementById("trackingNumber").value.trim();
-      const result =
-        document.getElementById("shipmentResult");
+        Status:
+        ${shipment.status}
 
-      if (!number) {
-        result.innerHTML =
-          "Please enter a tracking number.";
-        return;
-      }
+        <br>
 
-      result.innerHTML = "Searching...";
-      const { data, error } =
-        await supabaseClient
-          .from("Shipments")
-          .select("*")
-          .eq("tracking_number", number)
-          .maybeSingle();
+        Origin:
+        ${shipment.origin}
 
-      if (error) {
-        console.error(error);
-        result.innerHTML =
-          "Database error: " + error.message;
-        return;
-      }
+        <br>
 
-      if (!data) {
-        result.innerHTML =
-          "Shipment not found.";
-        return;
-      }
+        Destination:
+        ${shipment.destination}
 
-      result.innerHTML = `
-        <hr>
+        <br>
 
-        <h3>Shipment Found</h3>
+        Current Location:
+        ${shipment.current_location}
 
-        <label>Status:</label><br>
-        <input id="editStatus"
-          value="${data.status || ""}">
+        <br>
+
+        Estimated Delivery:
+        ${shipment.estimated_delivery}
+
         <br><br>
 
-        <label>Origin:</label><br>
-        <input id="editOrigin"
-          value="${data.origin || ""}">
-        <br><br>
-
-        <label>Destination:</label><br>
-        <input id="editDestination"
-          value="${data.destination || ""}">
-        <br><br>
-
-        <label>Current Location:</label><br>
-        <input id="editLocation"
-          value="${data.current_location || ""}">
-        <br><br>
-
-        <label>Estimated Delivery:</label><br>
-        <input id="editDelivery"
-          value="${data.estimated_delivery || ""}">
-        <br><br>
-
-        <button onclick="updateShipment('${data.tracking_number}')">
-          Save Changes
+        <button
+          onclick="findShipment('${shipment.tracking_number}')"
+        >
+          Edit Shipment
         </button>
-      `;
-    }
+
+      </div>
+
+    `).join("");
+}
 
 
-    async function updateShipment(trackingNumber) {
+/* =========================
+   FIND SHIPMENT
+========================= */
 
-      const { data, error } =
-        await supabaseClient
-          .from("Shipments")
-          .update({
-            status:
-              document.getElementById("editStatus").value,
+async function findShipment(
+  trackingNumberFromList
+) {
 
-            origin:
-              document.getElementById("editOrigin").value,
+  const number =
+    trackingNumberFromList ||
+    document.getElementById("trackingNumber")
+      .value.trim();
 
-            destination:
-              document.getElementById("editDestination").value,
+  const result =
+    document.getElementById("shipmentResult");
 
-            current_location:
-              document.getElementById("editLocation").value,
+  if (!number) {
 
-            estimated_delivery:
-              document.getElementById("editDelivery").value
-          })
-          .eq("tracking_number", trackingNumber)
-          .select();
+    result.innerHTML =
+      "Please enter a tracking number.";
 
-      if (error) {
-        console.error(error);
+    return;
+  }
 
-        alert(
-          "Update failed: " + error.message
-        );
+  result.innerHTML =
+    "Searching...";
 
-        return;
-      }
+  const { data, error } =
+    await supabaseClient
+      .from("Shipments")
+      .select("*")
+      .eq("tracking_number", number)
+      .maybeSingle();
 
-      alert(
-        "Shipment updated successfully! ✅"
-      );
-    }
+  if (error) {
+
+    console.error(error);
+
+    result.innerHTML =
+      "Database error: " +
+      error.message;
+
+    return;
+  }
+
+  if (!data) {
+
+    result.innerHTML =
+      "Shipment not found.";
+
+    return;
+  }
+
+  result.innerHTML = `
+
+    <hr>
+
+    <h3>Shipment Found</h3>
+
+    <label>Status:</label><br>
+
+    <input
+      id="editStatus"
+      value="${data.status || ""}"
+    >
+
+    <br><br>
+
+    <label>Origin:</label><br>
+
+    <input
+      id="editOrigin"
+      value="${data.origin || ""}"
+    >
+
+    <br><br>
+
+    <label>Destination:</label><br>
+
+    <input
+      id="editDestination"
+      value="${data.destination || ""}"
+    >
+
+    <br><br>
+
+    <label>Current Location:</label><br>
+
+    <input
+      id="editLocation"
+      value="${data.current_location || ""}"
+    >
+
+    <br><br>
+
+    <label>Estimated Delivery:</label><br>
+
+    <input
+      id="editDelivery"
+      value="${data.estimated_delivery || ""}"
+    >
+
+    <br><br>
+
+    <button
+      onclick="updateShipment('${data.tracking_number}')"
+    >
+      Save Changes
+    </button>
+
+  `;
+}
+
+
+/* =========================
+   UPDATE SHIPMENT
+========================= */
+
+async function updateShipment(
+  trackingNumber
+) {
+
+  const { error } =
+    await supabaseClient
+      .from("Shipments")
+      .update({
+
+        status:
+          document.getElementById("editStatus").value,
+
+        origin:
+          document.getElementById("editOrigin").value,
+
+        destination:
+          document.getElementById("editDestination").value,
+
+        current_location:
+          document.getElementById("editLocation").value,
+
+        estimated_delivery:
+          document.getElementById("editDelivery").value
+
+      })
+      .eq(
+        "tracking_number",
+        trackingNumber
+      )
+      .select();
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      "Update failed: " +
+      error.message
+    );
+
+    return;
+  }
+
+  alert(
+    "Shipment updated successfully! ✅"
+  );
+
+  loadAllShipments();
+}
+
+
+/* =========================
+   STARTUP
+========================= */
+
 checkAdminSession();
-  </script>
-</div>
+
+</script>
+
 </body>
 </html>
