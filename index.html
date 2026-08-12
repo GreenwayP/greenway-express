@@ -420,6 +420,7 @@ nav a:hover {
       return;
     }
 console.log("SHIPMENT DATA:", data);
+   result.innerHTML = "Searching for: [" + number + "]"; 
   if (!data) {
   result.innerHTML =
     "No shipment found. Database returned: " + JSON.stringify(data);
