@@ -274,28 +274,32 @@ createResult.textContent =
   }
 
   container.innerHTML =
-    data.map(shipment => `
-      <div>
-        <strong>
-          ${shipment.tracking_number}
-        </strong><br>
+  data.map(shipment => `
+    <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
 
-        Status: ${shipment.status}<br>
-        Origin: ${shipment.origin}<br>
-        Destination: ${shipment.destination}<br>
-        Current Location:
-        ${shipment.current_location}<br>
-        Estimated Delivery:
-        ${shipment.estimated_delivery}
-      </div>
+      <strong>
+        ${shipment.tracking_number}
+      </strong><br>
 
-      <hr>
-    `).join("");
+      Status: ${shipment.status}<br>
+      Origin: ${shipment.origin}<br>
+      Destination: ${shipment.destination}<br>
+      Current Location:
+      ${shipment.current_location}<br>
+      Estimated Delivery:
+      ${shipment.estimated_delivery}<br><br>
+
+      <button onclick="findShipment('${shipment.tracking_number}')">
+        Edit Shipment
+      </button>
+
+    </div>
+  `).join("");
 }
-   async function findShipment() {   
+   async function findShipment(trackingNumberFromList) {   
      const number =
-        document.getElementById("trackingNumber").value.trim();
-
+  trackingNumberFromList ||
+  document.getElementById("trackingNumber").value.trim();
       const result =
         document.getElementById("shipmentResult");
 
