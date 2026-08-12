@@ -408,9 +408,10 @@ nav a:hover {
     result.innerHTML = "Searching for your shipment... 🔍";
 
     const { data, error } = await supabaseClient
-      .from("shipments")
-      .select("*")
-  .limit(1);
+  .from("shipments")
+  .select("*")
+  .eq("tracking_number", number)
+  .maybeSingle();
 
     if (error) {
       console.error(error);
