@@ -162,10 +162,13 @@
   if (error) {
     loginResult.textContent =
       "Logout failed: " + error.message;
-    return;async
+    return;
+  }
+
   loginResult.textContent =
     "Logged out successfully.";
-      document.getElementById("adminTools").style.display = "none";
+
+  document.getElementById("adminTools").style.display = "none";
 }
 
 
