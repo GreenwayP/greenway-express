@@ -3,88 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greenway Express</title>
-<style>
-  .services {
-  padding: 40px 20px;
-  text-align: center;
-}
 
-.services h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
+  <title>Greenway Express | Fast, Safe & Reliable Delivery</title>
 
-.service-card {
-  background: #ffffff;
-  padding: 25px;
-  margin: 20px auto;
-  max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
+  <style>
 
-.service-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-.service-card a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.service-card a:hover {
-  text-decoration: underline;
-}
-  body {
+    body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f4f7f5;
       color: #222;
     }
 
+    /* HEADER */
+
     header {
       background: #0b6b3a;
       color: white;
-      padding: 20px;
+      padding: 22px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
+      font-size: 30px;
     }
 
-    .hero {
+    header p {
+      margin: 6px 0 0;
+    }
+
+    nav {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      background: #084d2b;
+    }
+
+
+    /* HERO */
+
+    .hero-main {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 50px 20px;
-      background: white;
+      padding: 60px 20px;
+
+      background:
+        linear-gradient(
+          rgba(0, 70, 40, 0.72),
+          rgba(0, 70, 40, 0.72)
+        ),
+        url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
     }
 
-    .hero h2 {
+    .hero-content {
+      max-width: 750px;
+      color: white;
+    }
+
+    .hero-content h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: white;
+      color: #0b6b3a;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero-button:hover {
+      background: #eaf5ef;
+    }
+
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 55px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #0b6b3a;
       font-size: 32px;
       margin-bottom: 10px;
     }
 
-    .hero p {
-      font-size: 18px;
+    .section-intro {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 35px;
+      line-height: 1.6;
+    }
+
+
+    /* SERVICES */
+
+    .services-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.10);
+      transition: transform 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 22px;
+    }
+
+    .service-content h3 {
+      color: #0b6b3a;
+      margin-top: 0;
+    }
+
+    .service-content p {
+      line-height: 1.6;
+    }
+
+
+    /* TRACKING */
+
+    .tracking-section {
+      background: white;
+      text-align: center;
     }
 
     .tracking-box {
-      margin: 30px auto;
-      max-width: 500px;
-      padding: 25px;
+      max-width: 550px;
+      margin: 30px auto 0;
+      padding: 30px;
       background: #f4f7f5;
-      border-radius: 12px;
+      border-radius: 15px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
 
     input {
-      width: 90%;
+      width: 100%;
       padding: 14px;
-      margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 7px;
       font-size: 16px;
+      margin-bottom: 15px;
     }
 
     button {
@@ -92,7 +202,7 @@
       background: #0b6b3a;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 7px;
       font-size: 16px;
       cursor: pointer;
     }
@@ -104,339 +214,717 @@
     #result {
       margin-top: 25px;
       font-size: 17px;
+      line-height: 1.8;
+    }
+
+
+    /* GLOBAL DELIVERY */
+
+    .global-section {
+      background: #f4f7f5;
+    }
+
+    .global-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .global-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+    }
+
+    .global-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .global-card div {
+      padding: 20px;
+      text-align: center;
+    }
+
+
+    /* HOW IT WORKS */
+
+    .steps {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+    }
+
+    .step h3 {
+      color: #0b6b3a;
+    }
+
+    .step p {
+      line-height: 1.6;
+    }
+
+
+    /* TEAM */
+
+    .team-section {
+      background: white;
+    }
+
+    .team-card {
+      max-width: 900px;
+      margin: auto;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+    }
+
+    .team-card img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+    }
+
+    .team-text {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .team-text h3 {
+      color: #0b6b3a;
+      font-size: 25px;
+    }
+
+    .team-text p {
+      line-height: 1.7;
+      max-width: 700px;
+      margin: auto;
+    }
+
+
+    /* CONTACT */
+
+    #contact {
+      background: #f4f7f5;
+      text-align: center;
+    }
+
+    #contact h2 {
+      color: #0b6b3a;
+      font-size: 32px;
+    }
+
+    #contact p {
       line-height: 1.7;
     }
+
+    #contact a {
+      color: #0b6b3a;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* FOOTER */
 
     footer {
       background: #222;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    } 
-  .how-it-works {
-  padding: 40px 20px;
-  text-align: center;
-}
+      padding: 30px 20px;
+    }
 
-.how-it-works h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
 
-.step {
-  background: #ffffff;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
 
-.step h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-.how-it-works {
-  padding: 50px 20px;
-  text-align: center;
-  background: #f4f7f5;
-}
+    /* MOBILE */
 
-.how-it-works h2 {
-  font-size: 32px;
-  color: #0b6b3a;
-  margin-bottom: 10px;
-}
+    @media (max-width: 750px) {
 
-.how-it-works > p {
-  max-width: 600px;
-  margin: 0 auto 30px;
-}
+      .hero-content h2 {
+        font-size: 32px;
+      }
 
-.step {
-  background: #ffffff;
-  padding: 25px;
-  margin: 18px auto;
-  max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
+      .hero-content p {
+        font-size: 17px;
+      }
 
-.step h3 {
-  color: #0b6b3a;
-  font-size: 21px;
-  margin-bottom: 10px;
-}
+      .services-grid,
+      .global-grid {
+        grid-template-columns: 1fr;
+      }
 
-.step p {
-  line-height: 1.6;
-  margin: 0;
-  } 
-  #contact {
-  padding: 50px 20px;
-  text-align: center;
-  background: #ffffff;
-}
+      .steps {
+        grid-template-columns: 1fr;
+      }
 
-#contact h2 {
-  font-size: 32px;
-  color: #0b6b3a;
-  margin-bottom: 10px;
-}
+      nav a {
+        font-size: 14px;
+        padding: 7px 9px;
+      }
 
-#contact > p {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  line-height: 1.6;
-}
+    }
 
-#contact a {
-  color: #0b6b3a;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-#contact a:hover {
-  text-decoration: underline;
-}
-  nav {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background: #084d2b;
-}
-  @media (max-width: 600px) {
-  nav {
-    gap: 5px;
-  }
-
-  nav a {
-    padding: 7px 9px;
-    font-size: 14px;
-  }
-
-  .hero h2 {
-    font-size: 26px;
-  }
-
-  .services h2,
-  .how-it-works h2,
-  #contact h2 {
-    font-size: 27px;
-  }
-
-  .service-card,
-  .step {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  button {
-    width: 100%;
-    max-width: 300px;
-  }
-  }
-</style>
+  </style>
 </head>
+
 
 <body>
 
-  <header>
-    <h1>Greenway Express</h1>
-    <p>Fast, Safe & Reliable Delivery</p><nav>
-  <a href="#home">Home</a>
-  <a href="#services">Services</a>
-  <a href="#tracking">Track</a>
-  <a href="#how-it-works">How It Works</a>
-  <a href="#contact">Contact</a>
-    </nav>
-  </header>
-<section class="home" id="home">
-  <h2>Fast, Safe & Reliable Delivery</h2>
-  <p>We deliver your packages safely and on time, wherever they need to go.</p>
-  <a href="#tracking">
-    <button type="button">Track Your Package</button>
-  </a>
-</section>
-<section class="services" id="services">
-  <h2>Our Services</h2>
-  <p>Reliable delivery solutions for individuals and businesses.</p>
 
-  <div class="service-card">
-  <h3><a href="#express">🚚 Express Delivery</a></h3>
-  <p>Fast delivery for urgent packages and important shipments.</p>
+<!-- HEADER -->
+
+<header>
+
+  <h1>🚚 Greenway Express</h1>
+
+  <p>Fast, Safe & Reliable Delivery</p>
+
+  <nav>
+
+    <a href="#home">Home</a>
+
+    <a href="#services">Services</a>
+
+    <a href="#tracking">Track</a>
+
+    <a href="#how-it-works">How It Works</a>
+
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero-main" id="home">
+
+  <div class="hero-content">
+
+    <h2>Fast, Safe & Reliable Delivery</h2>
+
+    <p>
+      We deliver your packages safely and on time,
+      wherever they need to go.
+    </p>
+
+    <a class="hero-button" href="#tracking">
+      📦 Track Your Package
+    </a>
+
   </div>
 
-  <div class="service-card">
-  <h3>
-    <a href="#package">📦 Package Delivery</a>
-  </h3>
-  <p>Safe and reliable delivery for your personal packages.</p>
-  </div>
-
-  <div class="service-card">
-  <h3><a href="./#business">🏢 Business Delivery</a></h3>
-  <p>Dependable delivery support for businesses and online sellers.</p>
-  </div>
 </section>
-<section id="express">
-  <h2>Fast & Reliable Delivery</h2>
-  <p>Need your package delivered quickly? Greenway Express provides fast and reliable delivery for urgent shipments.</p>
-  <p>Our team focuses on safe handling and timely delivery.</p>
-</section>
- <section id="package">
-  <h2>Safe & Reliable Package Delivery</h2>
-  <p>We handle your packages with care and deliver them safely to their destination.</p>
-  <p>Greenway Express makes package delivery simple, dependable and convenient.</p>
-</section> 
-  <section id="business">
-  <h2>🏢 Business Delivery Solutions</h2>
-  <p>Reliable delivery support for businesses, online sellers and growing brands.</p>
-  <p>Greenway Express helps businesses move packages safely and efficiently.</p>
-  </section>
-  <section class="hero" id="tracking">
-    <h2>Track Shipment</h2>
-    <p>Enter your Greenway Express tracking number below.</p>
 
-    <div class="tracking-box">
-      <input
-        type="text"
-        id="trackingNumber"
-        placeholder="Enter tracking number"
+
+<!-- SERVICES -->
+
+<section id="services">
+
+  <h2 class="section-title">
+    Our Services
+  </h2>
+
+  <p class="section-intro">
+    Reliable delivery solutions for individuals,
+    businesses and online sellers.
+  </p>
+
+
+  <div class="services-grid">
+
+
+    <div class="service-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=900&q=80"
+        alt="Delivery truck"
       >
 
-      <br>
+      <div class="service-content">
 
-      <button type="button" id="trackButton">
-        Track Shipment
-      </button>
+        <h3>🚚 Express Delivery</h3>
 
-      <div id="result"></div>
+        <p>
+          Fast delivery for urgent packages
+          and important shipments.
+        </p>
+
+      </div>
+
     </div>
-  </section>
-<section class="how-it-works" id="how-it-works">
-  <h2>How It Works</h2>
-  <p>Getting your package delivered with Greenway Express is simple.</p>
 
-  <div class="step">
-    <h3>1️⃣ Book Your Delivery</h3>
-    <p>Contact Greenway Express and provide your delivery details.</p>
+
+    <div class="service-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80"
+        alt="Packages and logistics"
+      >
+
+      <div class="service-content">
+
+        <h3>📦 Package Delivery</h3>
+
+        <p>
+          Safe and reliable delivery for
+          your personal packages.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="service-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+        alt="Business delivery"
+      >
+
+      <div class="service-content">
+
+        <h3>🏢 Business Delivery</h3>
+
+        <p>
+          Dependable delivery support for
+          businesses and online sellers.
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="step">
-    <h3>2️⃣ We Pick It Up</h3>
-    <p>Our delivery team collects your package safely.</p>
-  </div>
-
-  <div class="step">
-    <h3>3️⃣ Track Your Package</h3>
-    <p>Use your tracking number to follow your shipment.</p>
-  </div>
-
-  <div class="step">
-    <h3>4️⃣ Delivered Safely</h3>
-    <p>Your package arrives safely at its destination.</p>
-  </div>
 </section>
-  <section id="contact">
+
+
+<!-- TRACKING -->
+
+<section class="tracking-section" id="tracking">
+
+  <h2 class="section-title">
+    Track Your Shipment
+  </h2>
+
+  <p class="section-intro">
+    Enter your Greenway Express tracking number
+    below to see your shipment information.
+  </p>
+
+
+  <div class="tracking-box">
+
+    <input
+      type="text"
+      id="trackingNumber"
+      placeholder="Enter tracking number"
+    >
+
+    <button
+      type="button"
+      id="trackButton"
+    >
+      Track Shipment
+    </button>
+
+    <div id="result"></div>
+
+  </div>
+
+</section>
+
+
+<!-- GLOBAL DELIVERY -->
+
+<section class="global-section">
+
+  <h2 class="section-title">
+    🌍 Delivery Around the World
+  </h2>
+
+  <p class="section-intro">
+    Greenway Express connects shipments across
+    roads, air routes and sea routes.
+  </p>
+
+
+  <div class="global-grid">
+
+
+    <div class="global-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80"
+        alt="Road transportation"
+      >
+
+      <div>
+
+        <h3>🚚 Road Delivery</h3>
+
+        <p>
+          Reliable ground transportation
+          for packages and shipments.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="global-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80"
+        alt="Air freight"
+      >
+
+      <div>
+
+        <h3>✈️ Air Freight</h3>
+
+        <p>
+          Fast transportation for
+          time-sensitive shipments.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="global-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=900&q=80"
+        alt="Cargo ship"
+      >
+
+      <div>
+
+        <h3>🚢 Sea Freight</h3>
+
+        <p>
+          Reliable transportation for
+          larger international shipments.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how-it-works">
+
+  <h2 class="section-title">
+    How It Works
+  </h2>
+
+  <p class="section-intro">
+    Getting your package delivered with
+    Greenway Express is simple.
+  </p>
+
+
+  <div class="steps">
+
+
+    <div class="step">
+
+      <h3>1️⃣ Book Your Delivery</h3>
+
+      <p>
+        Contact Greenway Express and provide
+        your delivery details.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <h3>2️⃣ We Pick It Up</h3>
+
+      <p>
+        Our delivery team collects your
+        package safely.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <h3>3️⃣ Track Your Package</h3>
+
+      <p>
+        Use your tracking number to follow
+        your shipment.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <h3>4️⃣ Delivered Safely</h3>
+
+      <p>
+        Your package arrives safely at
+        its destination.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TEAM -->
+
+<section class="team-section">
+
+  <h2 class="section-title">
+    👥 Our Delivery Team
+  </h2>
+
+  <div class="team-card">
+
+    <img
+      src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
+      alt="Professional logistics team"
+    >
+
+    <div class="team-text">
+
+      <h3>People You Can Trust</h3>
+
+      <p>
+        Our team focuses on safe handling,
+        reliable service and timely delivery.
+        Greenway Express is committed to making
+        package delivery simple and dependable.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
   <h2>Contact Greenway Express</h2>
-  <p>Need help with a delivery? Our team is ready to assist you.</p>
 
-  <p>📞 Phone:
-    <a href="tel:+12082973526">+1 208 297 3526</a>
+  <p>
+    Need help with a delivery?
+    Our team is ready to assist you.
   </p>
 
-  <p>💬 Telegram:
-    <a href="https://t.me/+12082973526">Chat with us on Telegram</a>
+  <p>
+    📞 Phone:
+    <a href="tel:+12082973526">
+      +1 208 297 3526
+    </a>
   </p>
 
-  <p>📧 Email:
-    <a href="mailto:greenwayexpress101@gmail.com">greenwayexpress101@gmail.com</a>
+  <p>
+    💬 Telegram:
+    <a href="https://t.me/+12082973526">
+      Chat with us on Telegram
+    </a>
   </p>
-  </section>
-  <footer>
-    <p><strong>Greenway Express</strong></p>
-<p>Fast, Safe & Reliable Delivery</p>
 
-<p>
-  <a href="#home">Home</a> |
-  <a href="#services">Services</a> |
-  <a href="#tracking">Track</a> |
-  <a href="#contact">Contact</a>
-</p>
+  <p>
+    📧 Email:
+    <a href="mailto:greenwayexpress101@gmail.com">
+      greenwayexpress101@gmail.com
+    </a>
+  </p>
 
-<p>&copy; 2026 Greenway Express. All rights reserved.</p>
-  </footer>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    <strong>Greenway Express</strong>
+  </p>
+
+  <p>
+    Fast, Safe & Reliable Delivery
+  </p>
+
+  <p>
+
+    <a href="#home">Home</a> |
+
+    <a href="#services">Services</a> |
+
+    <a href="#tracking">Track</a> |
+
+    <a href="#contact">Contact</a>
+
+  </p>
+
+  <p>
+    &copy; 2026 Greenway Express.
+    All rights reserved.
+  </p>
+
+</footer>
+
+
+<!-- SUPABASE -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-  const SUPABASE_URL = "https://zrmelabkasdnockpaylj.supabase.co";
-  const SUPABASE_KEY = "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt";
 
-  const supabaseClient = window.supabase.createClient(
+<script>
+
+const SUPABASE_URL =
+  "https://zrmelabkasdnockpaylj.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt";
+
+
+const supabaseClient =
+  window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
 
-  document.getElementById("trackButton").addEventListener("click", async function () {
-    const number = document
-      .getElementById("trackingNumber")
-      .value
-      .trim()
-      .toUpperCase();
 
-    const result = document.getElementById("result");
+/* =========================
+   TRACK SHIPMENT
+========================= */
+
+document
+  .getElementById("trackButton")
+  .addEventListener("click", async function () {
+
+    const number =
+      document
+        .getElementById("trackingNumber")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result =
+      document.getElementById("result");
+
 
     if (number === "") {
-      result.innerHTML = "Please enter a tracking number.";
+
+      result.innerHTML =
+        "Please enter a tracking number.";
+
       return;
+
     }
 
-    result.innerHTML = "Searching for your shipment... 🔍";
 
-    const { data, error } = await supabaseClient
-.from("Shipments")
-  .select("*")
-.eq("tracking_number", number)
-.maybeSingle();
+    result.innerHTML =
+      "Searching for your shipment... 🔍";
+
+
+    const { data, error } =
+      await supabaseClient
+        .from("Shipments")
+        .select("*")
+        .eq("tracking_number", number)
+        .maybeSingle();
+
 
     if (error) {
+
       console.error(error);
+
       result.innerHTML =
-  "Database error: " + error.message;
+        "Database error: " +
+        error.message;
+
       return;
+
     }
-console.log("SHIPMENT DATA:", data);
-    
-   
-  if (!data) {
-  result.innerHTML =
-    "No shipment found.<br>Searching for: [" + number + "]<br>Database returned: " + JSON.stringify(data);
-  return;
-      }      
+
+
+    if (!data) {
+
+      result.innerHTML =
+        "No shipment found.";
+
+      return;
+
+    }
+
+
     result.innerHTML =
+
       "<strong>Shipment Found ✅</strong><br><br>" +
-      "Tracking Number: " + data.tracking_number + "<br>" +
-      "Status: " + data.status + "<br>" +
-      "Origin: " + data.origin + "<br>" +
-      "Destination: " + data.destination + "<br>" +
-      "Current Location: " + (data.current_location || "Not available") + "<br>" +
-      "Estimated Delivery: " + (data.estimated_delivery || "Not available");
+
+      "Tracking Number: " +
+      data.tracking_number +
+      "<br>" +
+
+      "Status: " +
+      data.status +
+      "<br>" +
+
+      "Origin: " +
+      data.origin +
+      "<br>" +
+
+      "Destination: " +
+      data.destination +
+      "<br>" +
+
+      "Current Location: " +
+      (data.current_location || "Not available") +
+      "<br>" +
+
+      "Estimated Delivery: " +
+      (data.estimated_delivery || "Not available");
+
   });
-      </script>
+
+</script>
 
 </body>
-</html>
+  </html>
