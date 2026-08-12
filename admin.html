@@ -90,7 +90,14 @@
   Create Shipment
 </button>
 
-<p id="createResult"></p>
+<p id="createResult"></p> 
+  <h2>All Shipments</h2>
+
+<div id="allShipments">
+  Shipments will appear here.
+</div>
+
+<br>
   <h2>Shipment Management</h2>
 
   <input
@@ -152,7 +159,8 @@
       loginResult.textContent =
         "Login successful ✅";
     document.getElementById("adminTools").style.display = "block";  
-    }
+    loadAllShipments();
+    } 
     async function adminLogout() {
   const { error } = await supabaseClient.auth.signOut();
 
@@ -236,7 +244,54 @@ if (error) {
 createResult.textContent =
   "Shipment created successfully! ✅";
     } 
- 
+ async function loadAllShipments() {
+  const container =
+    document.getElementById("allShipments");
+
+  container.innerHTML =
+    "Loading shipments...";
+
+  const { data, error } =
+    await supabaseClient
+      .from("Shipments")
+      .select("*");
+
+  if (error) {
+    console.error(error);
+
+    container.innerHTML =
+      "Failed to load shipments: " +
+      error.message;
+
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    container.innerHTML =
+      "No shipments found.";
+
+    return;
+  }
+
+  container.innerHTML =
+    data.map(shipment => `
+      <div>
+        <strong>
+          ${shipment.tracking_number}
+        </strong><br>
+
+        Status: ${shipment.status}<br>
+        Origin: ${shipment.origin}<br>
+        Destination: ${shipment.destination}<br>
+        Current Location:
+        ${shipment.current_location}<br>
+        Estimated Delivery:
+        ${shipment.estimated_delivery}
+      </div>
+
+      <hr>
+    `).join("");
+}
    async function findShipment() {   
      const number =
         document.getElementById("trackingNumber").value.trim();
