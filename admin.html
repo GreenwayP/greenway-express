@@ -28,16 +28,18 @@
 
 <br><br>
 
-<button onclick="adminLogin()">Login</button>
+<button type="button" onclick="adminLogin()">Login</button>
 
 <p id="loginResult"></p>
 
-<button onclick="adminLogout()">Logout</button>
+<button type="button" onclick="adminLogout()">Logout</button>
 
 <hr>
 
-<!-- ADMIN TOOLS -->
-<div id="adminTools" style="display:none;">
+
+<!-- ADMIN AREA -->
+
+<div id="adminTools" hidden>
 
   <h2>Create New Shipment</h2>
 
@@ -89,7 +91,7 @@
 
   <br><br>
 
-  <button onclick="createShipment()">
+  <button type="button" onclick="createShipment()">
     Create Shipment
   </button>
 
@@ -113,15 +115,19 @@
     placeholder="Enter tracking number"
   >
 
-  <button onclick="findShipment()">
+  <button
+    type="button"
+    onclick="findShipment()"
+  >
     Find Shipment
   </button>
 
   <div id="shipmentResult"></div>
 
 </div>
-<!-- END ADMIN TOOLS -->
 
+
+<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -132,8 +138,22 @@ const supabaseClient = supabase.createClient(
   "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt"
 );
 
+
 /* =========================
-   ADMIN LOGIN
+   SHOW / HIDE ADMIN AREA
+========================= */
+
+function showAdminTools() {
+  document.getElementById("adminTools").hidden = false;
+}
+
+function hideAdminTools() {
+  document.getElementById("adminTools").hidden = true;
+}
+
+
+/* =========================
+   LOGIN
 ========================= */
 
 async function adminLogin() {
@@ -171,21 +191,22 @@ async function adminLogin() {
     loginResult.textContent =
       "Login failed: " + error.message;
 
+    hideAdminTools();
+
     return;
   }
 
   loginResult.textContent =
     "Login successful ✅";
 
-  document.getElementById("adminTools").style.display =
-    "block";
+  showAdminTools();
 
   loadAllShipments();
 }
 
 
 /* =========================
-   CHECK LOGIN AFTER REFRESH
+   CHECK SESSION
 ========================= */
 
 async function checkAdminSession() {
@@ -200,13 +221,14 @@ async function checkAdminSession() {
       error
     );
 
+    hideAdminTools();
+
     return;
   }
 
   if (data.session) {
 
-    document.getElementById("adminTools").style.display =
-      "block";
+    showAdminTools();
 
     document.getElementById("loginResult").textContent =
       "Admin session active ✅";
@@ -215,8 +237,8 @@ async function checkAdminSession() {
 
   } else {
 
-    document.getElementById("adminTools").style.display =
-      "none";
+    hideAdminTools();
+
   }
 }
 
@@ -241,11 +263,10 @@ async function adminLogout() {
     return;
   }
 
+  hideAdminTools();
+
   loginResult.textContent =
     "Logged out successfully.";
-
-  document.getElementById("adminTools").style.display =
-    "none";
 
   document.getElementById("adminEmail").value =
     "";
@@ -323,7 +344,8 @@ async function createShipment() {
     console.error(error);
 
     createResult.textContent =
-      "Creation failed: " + error.message;
+      "Creation failed: " +
+      error.message;
 
     return;
   }
@@ -414,6 +436,7 @@ async function loadAllShipments() {
         <br><br>
 
         <button
+          type="button"
           onclick="findShipment('${shipment.tracking_number}')"
         >
           Edit Shipment
@@ -530,6 +553,7 @@ async function findShipment(
     <br><br>
 
     <button
+      type="button"
       onclick="updateShipment('${data.tracking_number}')"
     >
       Save Changes
@@ -597,6 +621,8 @@ async function updateShipment(
 /* =========================
    STARTUP
 ========================= */
+
+hideAdminTools();
 
 checkAdminSession();
 
