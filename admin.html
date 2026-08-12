@@ -144,11 +144,11 @@ const supabaseClient = supabase.createClient(
 ========================= */
 
 function showAdminTools() {
-  document.getElementById("adminTools").hidden = false;
+  document.getElementById("adminTools").style.display = "block";
 }
 
 function hideAdminTools() {
-  document.getElementById("adminTools").hidden = true;
+  document.getElementById("adminTools").style.display = "none";
 }
 
 
@@ -622,7 +622,7 @@ async function updateShipment(
    STARTUP
 ========================= */
 
-hideAdminTools();
+<div id="adminTools" style="display: none;">
 
 checkAdminSession();
 
