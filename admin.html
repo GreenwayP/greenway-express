@@ -116,9 +116,16 @@
   <script>
 
     const supabaseClient = supabase.createClient(
-      "https://zrmelabkasdnockpaylj.supabase.co",
-      "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt"
-    );
+  "https://zrmelabkasdnockpaylj.supabase.co",
+  "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt",
+  {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
+    }
+  }
+);
 
 
     async function adminLogin() {
