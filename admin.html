@@ -151,7 +151,7 @@
 
   <!-- LOGIN -->
 
-  <div class="card">
+  <div class="card" id="loginCard">
 
     <h2>🔐 Admin Login</h2>
 
@@ -176,14 +176,6 @@
     </button>
 
     <p id="loginResult" class="result"></p>
-
-    <button
-      type="button"
-      class="logout-btn"
-      onclick="adminLogout()"
-    >
-      Logout
-    </button>
 
   </div>
 
@@ -293,6 +285,14 @@
         Find Shipment
       </button>
 
+      <button
+        type="button"
+        class="logout-btn"
+        onclick="adminLogout()"
+      >
+        🚪 Logout
+      </button>
+
       <div id="shipmentResult"></div>
 
     </div>
@@ -319,11 +319,22 @@ const supabaseClient = supabase.createClient(
 ========================= */
 
 function showAdminTools() {
-  document.getElementById("adminTools").style.display = "block";
+
+  document.getElementById("adminTools")
+    .style.display = "block";
+
+  document.getElementById("loginCard")
+    .style.display = "none";
 }
 
+
 function hideAdminTools() {
-  document.getElementById("adminTools").style.display = "none";
+
+  document.getElementById("adminTools")
+    .style.display = "none";
+
+  document.getElementById("loginCard")
+    .style.display = "block";
 }
 
 
@@ -334,10 +345,12 @@ function hideAdminTools() {
 async function adminLogin() {
 
   const email =
-    document.getElementById("adminEmail").value.trim();
+    document.getElementById("adminEmail")
+      .value.trim();
 
   const password =
-    document.getElementById("adminPassword").value;
+    document.getElementById("adminPassword")
+      .value;
 
   const loginResult =
     document.getElementById("loginResult");
@@ -371,9 +384,6 @@ async function adminLogin() {
     return;
   }
 
-  loginResult.textContent =
-    "Login successful ✅";
-
   showAdminTools();
 
   loadAllShipments();
@@ -404,9 +414,6 @@ async function checkAdminSession() {
   if (data.session) {
 
     showAdminTools();
-
-    document.getElementById("loginResult").textContent =
-      "Admin session active ✅";
 
     loadAllShipments();
 
@@ -443,11 +450,11 @@ async function adminLogout() {
   loginResult.textContent =
     "Logged out successfully.";
 
-  document.getElementById("adminEmail").value =
-    "";
+  document.getElementById("adminEmail")
+    .value = "";
 
-  document.getElementById("adminPassword").value =
-    "";
+  document.getElementById("adminPassword")
+    .value = "";
 }
 
 
@@ -672,7 +679,7 @@ async function deleteShipment(trackingNumber) {
     " deleted successfully! ✅"
   );
 
-  loadAllShipments();
+  await loadAllShipments();
 }
 
 
@@ -805,19 +812,24 @@ async function updateShipment(
       .update({
 
         status:
-          document.getElementById("editStatus").value,
+          document.getElementById("editStatus")
+            .value,
 
         origin:
-          document.getElementById("editOrigin").value,
+          document.getElementById("editOrigin")
+            .value,
 
         destination:
-          document.getElementById("editDestination").value,
+          document.getElementById("editDestination")
+            .value,
 
         current_location:
-          document.getElementById("editLocation").value,
+          document.getElementById("editLocation")
+            .value,
 
         estimated_delivery:
-          document.getElementById("editDelivery").value
+          document.getElementById("editDelivery")
+            .value
 
       })
       .eq(
