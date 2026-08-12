@@ -408,9 +408,10 @@ nav a:hover {
     result.innerHTML = "Searching for your shipment... 🔍";
 
     const { data, error } = await supabaseClient
-  .from("shipments")
+.from("Shipments")
   .select("*")
-  .limit(1);
+.eq("tracking_number", number)
+.maybeSingle();
 
     if (error) {
       console.error(error);
@@ -420,8 +421,7 @@ nav a:hover {
     }
 console.log("SHIPMENT DATA:", data);
     
-   result.innerHTML = "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
-return; 
+   
   if (!data) {
   result.innerHTML =
     "No shipment found.<br>Searching for: [" + number + "]<br>Database returned: " + JSON.stringify(data);
