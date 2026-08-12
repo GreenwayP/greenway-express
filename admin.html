@@ -169,7 +169,10 @@
     "Logged out successfully.";
 
   document.getElementById("adminTools").style.display = "none";
-}
+document.getElementById("adminEmail").value = "";
+document.getElementById("adminPassword").value = "";
+    }
+  
 
 
     async function createShipment() {
