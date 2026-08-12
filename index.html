@@ -410,8 +410,7 @@ nav a:hover {
     const { data, error } = await supabaseClient
       .from("shipments")
       .select("*")
-      .eq("tracking_number", number)
-      .maybeSingle();
+    .limit(1);
 
     if (error) {
       console.error(error);
