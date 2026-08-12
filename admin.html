@@ -160,7 +160,15 @@
         "Login successful ✅";
     document.getElementById("adminTools").style.display = "block";  
     loadAllShipments();
-    } 
+    } async function checkAdminSession() {
+  const { data } =
+    await supabaseClient.auth.getSession();
+
+  if (data.session) {
+    document.getElementById("adminTools").style.display = "block";
+    loadAllShipments();
+  }
+    }
     async function adminLogout() {
   const { error } = await supabaseClient.auth.signOut();
 
