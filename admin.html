@@ -32,7 +32,7 @@
   <button onclick="adminLogin()">Login</button>
 
   <p id="loginResult"></p>
-
+<button onclick="adminLogout()">Logout</button>
   <hr>
 
   <h2>Shipment Management</h2>
@@ -97,7 +97,21 @@
         "Login successful ✅";
     }
 
+async function adminLogout() {
+  const { error } = await supabaseClient.auth.signOut();
 
+  const loginResult =
+    document.getElementById("loginResult");
+
+  if (error) {
+    loginResult.textContent =
+      "Logout failed: " + error.message;
+    return;
+  }
+
+  loginResult.textContent =
+    "Logged out successfully.";
+}
     async function findShipment() {
 
       const number =
