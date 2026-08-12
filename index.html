@@ -423,9 +423,9 @@ console.log("SHIPMENT DATA:", data);
    result.innerHTML = "Searching for: [" + number + "]"; 
   if (!data) {
   result.innerHTML =
-    "No shipment found. Database returned: " + JSON.stringify(data);
+    "No shipment found.<br>Searching for: [" + number + "]<br>Database returned: " + JSON.stringify(data);
   return;
-}      
+      }      
     result.innerHTML =
       "<strong>Shipment Found ✅</strong><br><br>" +
       "Tracking Number: " + data.tracking_number + "<br>" +
