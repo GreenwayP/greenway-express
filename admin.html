@@ -35,7 +35,7 @@
 <button onclick="adminLogout()">Logout</button>
   <hr>
 <hr>
-
+<div id="adminTools" style="display:none;">
 <h2>Create New Shipment</h2>
 
 <input
@@ -151,8 +151,9 @@
 
       loginResult.textContent =
         "Login successful ✅";
-      
-    }async function adminLogout() {
+    document.getElementById("adminTools").style.display = "block";  
+    }
+    async function adminLogout() {
   const { error } = await supabaseClient.auth.signOut();
 
   const loginResult =
@@ -161,11 +162,10 @@
   if (error) {
     loginResult.textContent =
       "Logout failed: " + error.message;
-    return;
-  }
-
+    return;async
   loginResult.textContent =
     "Logged out successfully.";
+      document.getElementById("adminTools").style.display = "none";
 }
 
 
@@ -341,7 +341,7 @@ createResult.textContent =
         "Shipment updated successfully! ✅"
       );
     }
-
+</div>
   </script>
 
 </body>
