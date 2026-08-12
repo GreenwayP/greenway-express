@@ -34,7 +34,63 @@
   <p id="loginResult"></p>
 <button onclick="adminLogout()">Logout</button>
   <hr>
+<hr>
 
+<h2>Create New Shipment</h2>
+
+<input
+  type="text"
+  id="newTrackingNumber"
+  placeholder="Tracking number"
+>
+
+<br><br>
+
+<input
+  type="text"
+  id="newStatus"
+  placeholder="Status"
+>
+
+<br><br>
+
+<input
+  type="text"
+  id="newOrigin"
+  placeholder="Origin"
+>
+
+<br><br>
+
+<input
+  type="text"
+  id="newDestination"
+  placeholder="Destination"
+>
+
+<br><br>
+
+<input
+  type="text"
+  id="newLocation"
+  placeholder="Current location"
+>
+
+<br><br>
+
+<input
+  type="text"
+  id="newDelivery"
+  placeholder="Estimated delivery"
+>
+
+<br><br>
+
+<button onclick="createShipment()">
+  Create Shipment
+</button>
+
+<p id="createResult"></p>
   <h2>Shipment Management</h2>
 
   <input
@@ -95,9 +151,8 @@
 
       loginResult.textContent =
         "Login successful ✅";
-    }
-
-async function adminLogout() {
+      
+    }async function adminLogout() {
   const { error } = await supabaseClient.auth.signOut();
 
   const loginResult =
@@ -112,9 +167,72 @@ async function adminLogout() {
   loginResult.textContent =
     "Logged out successfully.";
 }
-    async function findShipment() {
 
-      const number =
+
+    async function createShipment() {
+  const trackingNumber =
+    document.getElementById("newTrackingNumber").value.trim();
+
+  const status =
+    document.getElementById("newStatus").value.trim();
+
+  const origin =
+    document.getElementById("newOrigin").value.trim();
+
+  const destination =
+    document.getElementById("newDestination").value.trim();
+
+  const currentLocation =
+    document.getElementById("newLocation").value.trim();
+
+  const estimatedDelivery =
+    document.getElementById("newDelivery").value.trim();
+
+  const createResult =
+    document.getElementById("createResult");
+
+  if (
+    !trackingNumber ||
+    !status ||
+    !origin ||
+    !destination ||
+    !currentLocation ||
+    !estimatedDelivery
+  ) {
+    createResult.textContent =
+      "Please fill in all fields.";
+    return;
+  }
+
+  createResult.textContent =
+    "Creating shipment...";
+const { error } =
+  await supabaseClient
+    .from("Shipments")
+    .insert({
+      tracking_number: trackingNumber,
+      status: status,
+      origin: origin,
+      destination: destination,
+      current_location: currentLocation,
+      estimated_delivery: estimatedDelivery
+    });
+
+if (error) {
+  console.error(error);
+
+  createResult.textContent =
+    "Creation failed: " + error.message;
+
+  return;
+}
+
+createResult.textContent =
+  "Shipment created successfully! ✅";
+    } 
+ 
+   async function findShipment() {   
+     const number =
         document.getElementById("trackingNumber").value.trim();
 
       const result =
@@ -126,7 +244,7 @@ async function adminLogout() {
         return;
       }
 
-      result.innerHTML = "Searching...";
+      result.innerHTfindShipmenting...";
 
       const { data, error } =
         await supabaseClient
