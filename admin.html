@@ -1,1 +1,216 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenway Express Admin</title>
+</head>
+
+<body>
+
+  <h1>Greenway Express Admin</h1>
+
+  <h2>Admin Login</h2>
+
+  <input
+    type="email"
+    id="adminEmail"
+    placeholder="Your email"
+  >
+
+  <br><br>
+
+  <input
+    type="password"
+    id="adminPassword"
+    placeholder="Your password"
+  >
+
+  <br><br>
+
+  <button onclick="adminLogin()">Login</button>
+
+  <p id="loginResult"></p>
+
+  <hr>
+
+  <h2>Shipment Management</h2>
+
+  <input
+    type="text"
+    id="trackingNumber"
+    placeholder="Enter tracking number"
+  >
+
+  <button onclick="findShipment()">Find Shipment</button>
+
+  <div id="shipmentResult"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+
+    const supabaseClient = supabase.createClient(
+      "https://zrmelabkasdnockpaylj.supabase.co",
+      "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt"
+    );
+
+
+    async function adminLogin() {
+
+      const email = document
+        .getElementById("adminEmail")
+        .value
+        .trim();
+
+      const password = document
+        .getElementById("adminPassword")
+        .value;
+
+      const loginResult =
+        document.getElementById("loginResult");
+
+      if (!email || !password) {
+        loginResult.textContent =
+          "Please enter your email and password.";
+        return;
+      }
+
+      loginResult.textContent = "Logging in...";
+
+      const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+
+      if (error) {
+        console.error(error);
+        loginResult.textContent =
+          "Login failed: " + error.message;
+        return;
+      }
+
+      loginResult.textContent =
+        "Login successful ✅";
+    }
+
+
+    async function findShipment() {
+
+      const number =
+        document.getElementById("trackingNumber").value.trim();
+
+      const result =
+        document.getElementById("shipmentResult");
+
+      if (!number) {
+        result.innerHTML =
+          "Please enter a tracking number.";
+        return;
+      }
+
+      result.innerHTML = "Searching...";
+
+      const { data, error } =
+        await supabaseClient
+          .from("Shipments")
+          .select("*")
+          .eq("tracking_number", number)
+          .maybeSingle();
+
+      if (error) {
+        console.error(error);
+        result.innerHTML =
+          "Database error: " + error.message;
+        return;
+      }
+
+      if (!data) {
+        result.innerHTML =
+          "Shipment not found.";
+        return;
+      }
+
+      result.innerHTML = `
+        <hr>
+
+        <h3>Shipment Found</h3>
+
+        <label>Status:</label><br>
+        <input id="editStatus"
+          value="${data.status || ""}">
+        <br><br>
+
+        <label>Origin:</label><br>
+        <input id="editOrigin"
+          value="${data.origin || ""}">
+        <br><br>
+
+        <label>Destination:</label><br>
+        <input id="editDestination"
+          value="${data.destination || ""}">
+        <br><br>
+
+        <label>Current Location:</label><br>
+        <input id="editLocation"
+          value="${data.current_location || ""}">
+        <br><br>
+
+        <label>Estimated Delivery:</label><br>
+        <input id="editDelivery"
+          value="${data.estimated_delivery || ""}">
+        <br><br>
+
+        <button onclick="updateShipment('${data.tracking_number}')">
+          Save Changes
+        </button>
+      `;
+    }
+
+
+    async function updateShipment(trackingNumber) {
+
+      const { data, error } =
+        await supabaseClient
+          .from("Shipments")
+          .update({
+            status:
+              document.getElementById("editStatus").value,
+
+            origin:
+              document.getElementById("editOrigin").value,
+
+            destination:
+              document.getElementById("editDestination").value,
+
+            current_location:
+              document.getElementById("editLocation").value,
+
+            estimated_delivery:
+              document.getElementById("editDelivery").value
+          })
+          .eq("tracking_number", trackingNumber)
+          .select();
+
+      if (error) {
+        console.error(error);
+
+        alert(
+          "Update failed: " + error.message
+        );
+
+        return;
+      }
+
+      alert(
+        "Shipment updated successfully! ✅"
+      );
+    }
+
+  </script>
+
+</body>
+</html>
