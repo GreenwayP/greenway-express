@@ -7,7 +7,6 @@
   <title>Greenway Express | Fast, Safe & Reliable Delivery</title>
 
   <style>
-
     * {
       box-sizing: border-box;
       scroll-behavior: smooth;
@@ -58,6 +57,24 @@
       background: #084d2b;
     }
 
+    /* LANGUAGE */
+
+    .language-box {
+      margin-top: 15px;
+    }
+
+    .language-box label {
+      font-size: 14px;
+      margin-right: 6px;
+    }
+
+    #languageSelect {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 7px;
+      font-size: 14px;
+      cursor: pointer;
+    }
 
     /* HERO */
 
@@ -108,7 +125,6 @@
       background: #eaf5ef;
     }
 
-
     /* GENERAL SECTIONS */
 
     section {
@@ -128,7 +144,6 @@
       margin: 0 auto 35px;
       line-height: 1.6;
     }
-
 
     /* SERVICES */
 
@@ -171,7 +186,6 @@
       line-height: 1.6;
     }
 
-
     /* TRACKING */
 
     .tracking-section {
@@ -180,7 +194,7 @@
     }
 
     .tracking-box {
-      max-width: 550px;
+      max-width: 600px;
       margin: 30px auto 0;
       padding: 30px;
       background: #f4f7f5;
@@ -211,12 +225,109 @@
       background: #084d2b;
     }
 
+    /* PROFESSIONAL TRACKING RESULT */
+
     #result {
       margin-top: 25px;
-      font-size: 17px;
-      line-height: 1.8;
+      text-align: left;
     }
 
+    .tracking-result {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+      border: 1px solid #e1e8e4;
+    }
+
+    .tracking-result-header {
+      background: #0b6b3a;
+      color: white;
+      padding: 20px;
+    }
+
+    .tracking-result-header h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+
+    .tracking-result-header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 14px;
+    }
+
+    .tracking-number-display {
+      padding: 15px 20px;
+      background: #eaf5ef;
+      color: #0b6b3a;
+      font-weight: bold;
+      border-bottom: 1px solid #dce9e2;
+    }
+
+    .shipment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 20px;
+    }
+
+    .shipment-info {
+      background: #f7faf8;
+      border: 1px solid #e2e9e5;
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .shipment-info .info-icon {
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    .shipment-info .info-label {
+      display: block;
+      color: #6b7280;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .shipment-info .info-value {
+      display: block;
+      color: #1f2937;
+      font-weight: bold;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .status-box {
+      margin: 0 20px 20px;
+      padding: 15px;
+      border-radius: 12px;
+      background: #eaf5ef;
+      border-left: 5px solid #0b6b3a;
+    }
+
+    .status-box strong {
+      color: #0b6b3a;
+    }
+
+    .tracking-error {
+      background: #fff4f4;
+      color: #a61b1b;
+      border: 1px solid #f0cccc;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .tracking-loading {
+      background: #eaf5ef;
+      color: #0b6b3a;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
 
     /* GLOBAL DELIVERY */
 
@@ -250,7 +361,6 @@
       text-align: center;
     }
 
-
     /* HOW IT WORKS */
 
     .steps {
@@ -275,7 +385,6 @@
     .step p {
       line-height: 1.6;
     }
-
 
     /* TEAM */
 
@@ -313,7 +422,6 @@
       margin: auto;
     }
 
-
     /* CONTACT */
 
     #contact {
@@ -340,7 +448,6 @@
       text-decoration: underline;
     }
 
-
     /* FOOTER */
 
     footer {
@@ -354,7 +461,6 @@
       color: white;
       text-decoration: none;
     }
-
 
     /* MOBILE */
 
@@ -377,19 +483,27 @@
         grid-template-columns: 1fr;
       }
 
+      .shipment-grid {
+        grid-template-columns: 1fr;
+      }
+
       nav a {
         font-size: 14px;
         padding: 7px 9px;
       }
 
-    }
+      .tracking-box {
+        padding: 20px;
+      }
 
+      .tracking-result-header h3 {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 
-
 <body>
-
 
 <!-- HEADER -->
 
@@ -397,21 +511,36 @@
 
   <h1>🚚 Greenway Express</h1>
 
-  <p>Fast, Safe & Reliable Delivery</p>
+  <p data-i18n="tagline">
+    Fast, Safe & Reliable Delivery
+  </p>
 
   <nav>
 
-    <a href="#home">Home</a>
+    <a href="#home" data-i18n="home">Home</a>
 
-    <a href="#services">Services</a>
+    <a href="#services" data-i18n="services">Services</a>
 
-    <a href="#tracking">Track</a>
+    <a href="#tracking" data-i18n="track">Track</a>
 
-    <a href="#how-it-works">How It Works</a>
+    <a href="#how-it-works" data-i18n="how">How It Works</a>
 
-    <a href="#contact">Contact</a>
+    <a href="#contact" data-i18n="contact">Contact</a>
 
   </nav>
+
+  <div class="language-box">
+
+    <label for="languageSelect">🌐</label>
+
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+    </select>
+
+  </div>
 
 </header>
 
@@ -422,14 +551,16 @@
 
   <div class="hero-content">
 
-    <h2>Fast, Safe & Reliable Delivery</h2>
+    <h2 data-i18n="heroTitle">
+      Fast, Safe & Reliable Delivery
+    </h2>
 
-    <p>
+    <p data-i18n="heroText">
       We deliver your packages safely and on time,
       wherever they need to go.
     </p>
 
-    <a class="hero-button" href="#tracking">
+    <a class="hero-button" href="#tracking" data-i18n="trackPackage">
       📦 Track Your Package
     </a>
 
@@ -442,18 +573,16 @@
 
 <section id="services">
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="ourServices">
     Our Services
   </h2>
 
-  <p class="section-intro">
+  <p class="section-intro" data-i18n="servicesIntro">
     Reliable delivery solutions for individuals,
     businesses and online sellers.
   </p>
 
-
   <div class="services-grid">
-
 
     <div class="service-card">
 
@@ -464,9 +593,11 @@
 
       <div class="service-content">
 
-        <h3>🚚 Express Delivery</h3>
+        <h3 data-i18n="expressDelivery">
+          🚚 Express Delivery
+        </h3>
 
-        <p>
+        <p data-i18n="expressText">
           Fast delivery for urgent packages
           and important shipments.
         </p>
@@ -474,7 +605,6 @@
       </div>
 
     </div>
-
 
     <div class="service-card">
 
@@ -485,9 +615,11 @@
 
       <div class="service-content">
 
-        <h3>📦 Package Delivery</h3>
+        <h3 data-i18n="packageDelivery">
+          📦 Package Delivery
+        </h3>
 
-        <p>
+        <p data-i18n="packageText">
           Safe and reliable delivery for
           your personal packages.
         </p>
@@ -495,7 +627,6 @@
       </div>
 
     </div>
-
 
     <div class="service-card">
 
@@ -506,9 +637,11 @@
 
       <div class="service-content">
 
-        <h3>🏢 Business Delivery</h3>
+        <h3 data-i18n="businessDelivery">
+          🏢 Business Delivery
+        </h3>
 
-        <p>
+        <p data-i18n="businessText">
           Dependable delivery support for
           businesses and online sellers.
         </p>
@@ -526,15 +659,14 @@
 
 <section class="tracking-section" id="tracking">
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="trackShipment">
     Track Your Shipment
   </h2>
 
-  <p class="section-intro">
+  <p class="section-intro" data-i18n="trackingIntro">
     Enter your Greenway Express tracking number
     below to see your shipment information.
   </p>
-
 
   <div class="tracking-box">
 
@@ -542,11 +674,13 @@
       type="text"
       id="trackingNumber"
       placeholder="Enter tracking number"
+      data-placeholder="trackingPlaceholder"
     >
 
     <button
       type="button"
       id="trackButton"
+      data-i18n="trackButton"
     >
       Track Shipment
     </button>
@@ -562,18 +696,16 @@
 
 <section class="global-section">
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="worldDelivery">
     🌍 Delivery Around the World
   </h2>
 
-  <p class="section-intro">
+  <p class="section-intro" data-i18n="worldIntro">
     Greenway Express connects shipments across
     roads, air routes and sea routes.
   </p>
 
-
   <div class="global-grid">
-
 
     <div class="global-card">
 
@@ -584,9 +716,11 @@
 
       <div>
 
-        <h3>🚚 Road Delivery</h3>
+        <h3 data-i18n="roadDelivery">
+          🚚 Road Delivery
+        </h3>
 
-        <p>
+        <p data-i18n="roadText">
           Reliable ground transportation
           for packages and shipments.
         </p>
@@ -594,7 +728,6 @@
       </div>
 
     </div>
-
 
     <div class="global-card">
 
@@ -605,9 +738,11 @@
 
       <div>
 
-        <h3>✈️ Air Freight</h3>
+        <h3 data-i18n="airFreight">
+          ✈️ Air Freight
+        </h3>
 
-        <p>
+        <p data-i18n="airText">
           Fast transportation for
           time-sensitive shipments.
         </p>
@@ -615,7 +750,6 @@
       </div>
 
     </div>
-
 
     <div class="global-card">
 
@@ -626,9 +760,11 @@
 
       <div>
 
-        <h3>🚢 Sea Freight</h3>
+        <h3 data-i18n="seaFreight">
+          🚢 Sea Freight
+        </h3>
 
-        <p>
+        <p data-i18n="seaText">
           Reliable transportation for
           larger international shipments.
         </p>
@@ -646,60 +782,63 @@
 
 <section id="how-it-works">
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="howTitle">
     How It Works
   </h2>
 
-  <p class="section-intro">
+  <p class="section-intro" data-i18n="howIntro">
     Getting your package delivered with
     Greenway Express is simple.
   </p>
 
-
   <div class="steps">
-
 
     <div class="step">
 
-      <h3>1️⃣ Book Your Delivery</h3>
+      <h3 data-i18n="step1">
+        1️⃣ Book Your Delivery
+      </h3>
 
-      <p>
+      <p data-i18n="step1Text">
         Contact Greenway Express and provide
         your delivery details.
       </p>
 
     </div>
 
-
     <div class="step">
 
-      <h3>2️⃣ We Pick It Up</h3>
+      <h3 data-i18n="step2">
+        2️⃣ We Pick It Up
+      </h3>
 
-      <p>
+      <p data-i18n="step2Text">
         Our delivery team collects your
         package safely.
       </p>
 
     </div>
 
-
     <div class="step">
 
-      <h3>3️⃣ Track Your Package</h3>
+      <h3 data-i18n="step3">
+        3️⃣ Track Your Package
+      </h3>
 
-      <p>
+      <p data-i18n="step3Text">
         Use your tracking number to follow
         your shipment.
       </p>
 
     </div>
 
-
     <div class="step">
 
-      <h3>4️⃣ Delivered Safely</h3>
+      <h3 data-i18n="step4">
+        4️⃣ Delivered Safely
+      </h3>
 
-      <p>
+      <p data-i18n="step4Text">
         Your package arrives safely at
         its destination.
       </p>
@@ -715,7 +854,7 @@
 
 <section class="team-section">
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="teamTitle">
     👥 Our Delivery Team
   </h2>
 
@@ -728,9 +867,11 @@
 
     <div class="team-text">
 
-      <h3>People You Can Trust</h3>
+      <h3 data-i18n="teamHeading">
+        People You Can Trust
+      </h3>
 
-      <p>
+      <p data-i18n="teamText">
         Our team focuses on safe handling,
         reliable service and timely delivery.
         Greenway Express is committed to making
@@ -748,9 +889,11 @@
 
 <section id="contact">
 
-  <h2>Contact Greenway Express</h2>
+  <h2 data-i18n="contactTitle">
+    Contact Greenway Express
+  </h2>
 
-  <p>
+  <p data-i18n="contactIntro">
     Need help with a delivery?
     Our team is ready to assist you.
   </p>
@@ -787,25 +930,25 @@
     <strong>Greenway Express</strong>
   </p>
 
-  <p>
+  <p data-i18n="tagline">
     Fast, Safe & Reliable Delivery
   </p>
 
   <p>
 
-    <a href="#home">Home</a> |
+    <a href="#home" data-i18n="home">Home</a> |
 
-    <a href="#services">Services</a> |
+    <a href="#services" data-i18n="services">Services</a> |
 
-    <a href="#tracking">Track</a> |
+    <a href="#tracking" data-i18n="track">Track</a> |
 
-    <a href="#contact">Contact</a>
+    <a href="#contact" data-i18n="contact">Contact</a>
 
   </p>
 
   <p>
     &copy; 2026 Greenway Express.
-    All rights reserved.
+    <span data-i18n="rights">All rights reserved.</span>
   </p>
 
 </footer>
@@ -823,7 +966,6 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
   "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt";
 
-
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
@@ -832,12 +974,278 @@ const supabaseClient =
 
 
 /* =========================
+   LANGUAGE TRANSLATIONS
+========================= */
+
+const translations = {
+
+  en: {
+    tagline: "Fast, Safe & Reliable Delivery",
+    home: "Home",
+    services: "Services",
+    track: "Track",
+    how: "How It Works",
+    contact: "Contact",
+    heroTitle: "Fast, Safe & Reliable Delivery",
+    heroText: "We deliver your packages safely and on time, wherever they need to go.",
+    trackPackage: "📦 Track Your Package",
+    ourServices: "Our Services",
+    servicesIntro: "Reliable delivery solutions for individuals, businesses and online sellers.",
+    expressDelivery: "🚚 Express Delivery",
+    expressText: "Fast delivery for urgent packages and important shipments.",
+    packageDelivery: "📦 Package Delivery",
+    packageText: "Safe and reliable delivery for your personal packages.",
+    businessDelivery: "🏢 Business Delivery",
+    businessText: "Dependable delivery support for businesses and online sellers.",
+    trackShipment: "Track Your Shipment",
+    trackingIntro: "Enter your Greenway Express tracking number below to see your shipment information.",
+    trackingPlaceholder: "Enter tracking number",
+    trackButton: "Track Shipment",
+    worldDelivery: "🌍 Delivery Around the World",
+    worldIntro: "Greenway Express connects shipments across roads, air routes and sea routes.",
+    roadDelivery: "🚚 Road Delivery",
+    roadText: "Reliable ground transportation for packages and shipments.",
+    airFreight: "✈️ Air Freight",
+    airText: "Fast transportation for time-sensitive shipments.",
+    seaFreight: "🚢 Sea Freight",
+    seaText: "Reliable transportation for larger international shipments.",
+    howTitle: "How It Works",
+    howIntro: "Getting your package delivered with Greenway Express is simple.",
+    step1: "1️⃣ Book Your Delivery",
+    step1Text: "Contact Greenway Express and provide your delivery details.",
+    step2: "2️⃣ We Pick It Up",
+    step2Text: "Our delivery team collects your package safely.",
+    step3: "3️⃣ Track Your Package",
+    step3Text: "Use your tracking number to follow your shipment.",
+    step4: "4️⃣ Delivered Safely",
+    step4Text: "Your package arrives safely at its destination.",
+    teamTitle: "👥 Our Delivery Team",
+    teamHeading: "People You Can Trust",
+    teamText: "Our team focuses on safe handling, reliable service and timely delivery. Greenway Express is committed to making package delivery simple and dependable.",
+    contactTitle: "Contact Greenway Express",
+    contactIntro: "Need help with a delivery? Our team is ready to assist you.",
+    rights: "All rights reserved."
+  },
+
+  fr: {
+    tagline: "Livraison rapide, sûre et fiable",
+    home: "Accueil",
+    services: "Services",
+    track: "Suivre",
+    how: "Comment ça marche",
+    contact: "Contact",
+    heroTitle: "Livraison rapide, sûre et fiable",
+    heroText: "Nous livrons vos colis en toute sécurité et à temps, où qu'ils doivent aller.",
+    trackPackage: "📦 Suivre votre colis",
+    ourServices: "Nos services",
+    servicesIntro: "Des solutions de livraison fiables pour les particuliers, les entreprises et les vendeurs en ligne.",
+    expressDelivery: "🚚 Livraison express",
+    expressText: "Livraison rapide pour les colis urgents et les expéditions importantes.",
+    packageDelivery: "📦 Livraison de colis",
+    packageText: "Livraison sûre et fiable de vos colis personnels.",
+    businessDelivery: "🏢 Livraison professionnelle",
+    businessText: "Un service de livraison fiable pour les entreprises et les vendeurs en ligne.",
+    trackShipment: "Suivre votre expédition",
+    trackingIntro: "Entrez votre numéro de suivi Greenway Express pour voir les informations de votre expédition.",
+    trackingPlaceholder: "Entrez le numéro de suivi",
+    trackButton: "Suivre l'expédition",
+    worldDelivery: "🌍 Livraison dans le monde entier",
+    worldIntro: "Greenway Express relie les expéditions par route, air et mer.",
+    roadDelivery: "🚚 Livraison routière",
+    roadText: "Transport terrestre fiable pour les colis et les expéditions.",
+    airFreight: "✈️ Fret aérien",
+    airText: "Transport rapide pour les expéditions urgentes.",
+    seaFreight: "🚢 Fret maritime",
+    seaText: "Transport fiable pour les grandes expéditions internationales.",
+    howTitle: "Comment ça marche",
+    howIntro: "Faire livrer votre colis avec Greenway Express est simple.",
+    step1: "1️⃣ Réservez votre livraison",
+    step1Text: "Contactez Greenway Express et fournissez vos informations de livraison.",
+    step2: "2️⃣ Nous récupérons le colis",
+    step2Text: "Notre équipe récupère votre colis en toute sécurité.",
+    step3: "3️⃣ Suivez votre colis",
+    step3Text: "Utilisez votre numéro de suivi pour suivre votre expédition.",
+    step4: "4️⃣ Livraison sécurisée",
+    step4Text: "Votre colis arrive en toute sécurité à destination.",
+    teamTitle: "👥 Notre équipe de livraison",
+    teamHeading: "Des personnes de confiance",
+    teamText: "Notre équipe se concentre sur la sécurité, la fiabilité et la ponctualité. Greenway Express s'engage à rendre la livraison simple et fiable.",
+    contactTitle: "Contacter Greenway Express",
+    contactIntro: "Besoin d'aide pour une livraison ? Notre équipe est prête à vous aider.",
+    rights: "Tous droits réservés."
+  },
+
+  es: {
+    tagline: "Entrega rápida, segura y confiable",
+    home: "Inicio",
+    services: "Servicios",
+    track: "Rastrear",
+    how: "Cómo funciona",
+    contact: "Contacto",
+    heroTitle: "Entrega rápida, segura y confiable",
+    heroText: "Entregamos sus paquetes de forma segura y puntual, dondequiera que deban llegar.",
+    trackPackage: "📦 Rastrear su paquete",
+    ourServices: "Nuestros servicios",
+    servicesIntro: "Soluciones de entrega confiables para particulares, empresas y vendedores en línea.",
+    expressDelivery: "🚚 Entrega express",
+    expressText: "Entrega rápida para paquetes urgentes y envíos importantes.",
+    packageDelivery: "📦 Entrega de paquetes",
+    packageText: "Entrega segura y confiable para sus paquetes personales.",
+    businessDelivery: "🏢 Entrega empresarial",
+    businessText: "Servicio de entrega confiable para empresas y vendedores en línea.",
+    trackShipment: "Rastrear su envío",
+    trackingIntro: "Introduzca su número de seguimiento de Greenway Express para ver la información de su envío.",
+    trackingPlaceholder: "Introduzca el número de seguimiento",
+    trackButton: "Rastrear envío",
+    worldDelivery: "🌍 Entrega en todo el mundo",
+    worldIntro: "Greenway Express conecta envíos por carretera, aire y mar.",
+    roadDelivery: "🚚 Transporte terrestre",
+    roadText: "Transporte terrestre confiable para paquetes y envíos.",
+    airFreight: "✈️ Transporte aéreo",
+    airText: "Transporte rápido para envíos urgentes.",
+    seaFreight: "🚢 Transporte marítimo",
+    seaText: "Transporte confiable para grandes envíos internacionales.",
+    howTitle: "Cómo funciona",
+    howIntro: "Enviar su paquete con Greenway Express es sencillo.",
+    step1: "1️⃣ Reserve su entrega",
+    step1Text: "Contacte a Greenway Express y proporcione los detalles de su entrega.",
+    step2: "2️⃣ Recogemos su paquete",
+    step2Text: "Nuestro equipo recoge su paquete de forma segura.",
+    step3: "3️⃣ Rastree su paquete",
+    step3Text: "Utilice su número de seguimiento para seguir su envío.",
+    step4: "4️⃣ Entrega segura",
+    step4Text: "Su paquete llega de forma segura a su destino.",
+    teamTitle: "👥 Nuestro equipo de entrega",
+    teamHeading: "Personas de confianza",
+    teamText: "Nuestro equipo se centra en la seguridad, el servicio confiable y la puntualidad. Greenway Express se compromete a hacer que la entrega sea sencilla y confiable.",
+    contactTitle: "Contacte con Greenway Express",
+    contactIntro: "¿Necesita ayuda con una entrega? Nuestro equipo está listo para ayudarle.",
+    rights: "Todos los derechos reservados."
+  },
+
+  pt: {
+    tagline: "Entrega rápida, segura e confiável",
+    home: "Início",
+    services: "Serviços",
+    track: "Rastrear",
+    how: "Como funciona",
+    contact: "Contato",
+    heroTitle: "Entrega rápida, segura e confiável",
+    heroText: "Entregamos seus pacotes com segurança e pontualidade, onde quer que precisem chegar.",
+    trackPackage: "📦 Rastrear seu pacote",
+    ourServices: "Nossos serviços",
+    servicesIntro: "Soluções de entrega confiáveis para pessoas, empresas e vendedores online.",
+    expressDelivery: "🚚 Entrega expressa",
+    expressText: "Entrega rápida para pacotes urgentes e remessas importantes.",
+    packageDelivery: "📦 Entrega de pacotes",
+    packageText: "Entrega segura e confiável para seus pacotes pessoais.",
+    businessDelivery: "🏢 Entrega empresarial",
+    businessText: "Suporte de entrega confiável para empresas e vendedores online.",
+    trackShipment: "Rastrear sua remessa",
+    trackingIntro: "Digite seu número de rastreamento Greenway Express para ver as informações da sua remessa.",
+    trackingPlaceholder: "Digite o número de rastreamento",
+    trackButton: "Rastrear remessa",
+    worldDelivery: "🌍 Entrega ao redor do mundo",
+    worldIntro: "A Greenway Express conecta remessas por estradas, rotas aéreas e marítimas.",
+    roadDelivery: "🚚 Transporte rodoviário",
+    roadText: "Transporte terrestre confiável para pacotes e remessas.",
+    airFreight: "✈️ Transporte aéreo",
+    airText: "Transporte rápido para remessas urgentes.",
+    seaFreight: "🚢 Transporte marítimo",
+    seaText: "Transporte confiável para grandes remessas internacionais.",
+    howTitle: "Como funciona",
+    howIntro: "Enviar seu pacote com a Greenway Express é simples.",
+    step1: "1️⃣ Agende sua entrega",
+    step1Text: "Entre em contato com a Greenway Express e forneça os detalhes da entrega.",
+    step2: "2️⃣ Nós recolhemos",
+    step2Text: "Nossa equipe coleta seu pacote com segurança.",
+    step3: "3️⃣ Rastreie seu pacote",
+    step3Text: "Use seu número de rastreamento para acompanhar sua remessa.",
+    step4: "4️⃣ Entrega segura",
+    step4Text: "Seu pacote chega com segurança ao destino.",
+    teamTitle: "👥 Nossa equipe de entrega",
+    teamHeading: "Pessoas em quem você pode confiar",
+    teamText: "Nossa equipe se concentra no manuseio seguro, serviço confiável e entrega pontual. A Greenway Express está comprometida em tornar a entrega simples e confiável.",
+    contactTitle: "Entre em contato com a Greenway Express",
+    contactIntro: "Precisa de ajuda com uma entrega? Nossa equipe está pronta para ajudar.",
+    rights: "Todos os direitos reservados."
+  }
+
+};
+
+
+/* =========================
+   APPLY LANGUAGE
+========================= */
+
+function applyLanguage(language) {
+
+  const selected =
+    translations[language] || translations.en;
+
+  document
+    .querySelectorAll("[data-i18n]")
+    .forEach(function(element) {
+
+      const key =
+        element.getAttribute("data-i18n");
+
+      if (selected[key]) {
+        element.textContent =
+          selected[key];
+      }
+
+    });
+
+
+  document
+    .querySelectorAll("[data-placeholder]")
+    .forEach(function(element) {
+
+      const key =
+        element.getAttribute("data-placeholder");
+
+      if (selected[key]) {
+        element.placeholder =
+          selected[key];
+      }
+
+    });
+
+
+  localStorage.setItem(
+    "greenwayLanguage",
+    language
+  );
+
+}
+
+
+document
+  .getElementById("languageSelect")
+  .addEventListener("change", function() {
+
+    applyLanguage(this.value);
+
+  });
+
+
+const savedLanguage =
+  localStorage.getItem("greenwayLanguage") || "en";
+
+document.getElementById("languageSelect").value =
+  savedLanguage;
+
+applyLanguage(savedLanguage);
+
+
+/* =========================
    TRACK SHIPMENT
 ========================= */
 
 document
   .getElementById("trackButton")
-  .addEventListener("click", async function () {
+  .addEventListener("click", async function() {
 
     const number =
       document
@@ -853,7 +1261,7 @@ document
     if (number === "") {
 
       result.innerHTML =
-        "Please enter a tracking number.";
+        '<div class="tracking-error">⚠️ Please enter a tracking number.</div>';
 
       return;
 
@@ -861,7 +1269,7 @@ document
 
 
     result.innerHTML =
-      "Searching for your shipment... 🔍";
+      '<div class="tracking-loading">🔍 Searching for your shipment...</div>';
 
 
     const { data, error } =
@@ -877,8 +1285,9 @@ document
       console.error(error);
 
       result.innerHTML =
-        "Database error: " +
-        error.message;
+        '<div class="tracking-error">❌ Database error: ' +
+        error.message +
+        '</div>';
 
       return;
 
@@ -888,43 +1297,128 @@ document
     if (!data) {
 
       result.innerHTML =
-        "No shipment found.";
+        '<div class="tracking-error">❌ No shipment found for tracking number <strong>' +
+        number +
+        '</strong>.</div>';
 
       return;
 
     }
 
 
-    result.innerHTML =
+    result.innerHTML = `
 
-      "<strong>Shipment Found ✅</strong><br><br>" +
+      <div class="tracking-result">
 
-      "Tracking Number: " +
-      data.tracking_number +
-      "<br>" +
+        <div class="tracking-result-header">
 
-      "Status: " +
-      data.status +
-      "<br>" +
+          <h3>📦 Shipment Found ✅</h3>
 
-      "Origin: " +
-      data.origin +
-      "<br>" +
+          <p>Your shipment information is shown below.</p>
 
-      "Destination: " +
-      data.destination +
-      "<br>" +
+        </div>
 
-      "Current Location: " +
-      (data.current_location || "Not available") +
-      "<br>" +
 
-      "Estimated Delivery: " +
-      (data.estimated_delivery || "Not available");
+        <div class="tracking-number-display">
+
+          🔢 Tracking Number:
+          ${data.tracking_number}
+
+        </div>
+
+
+        <div class="shipment-grid">
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">
+              📊
+            </div>
+
+            <span class="info-label">
+              Status
+            </span>
+
+            <span class="info-value">
+              ${data.status || "Not available"}
+            </span>
+
+          </div>
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">
+              📍
+            </div>
+
+            <span class="info-label">
+              Origin
+            </span>
+
+            <span class="info-value">
+              ${data.origin || "Not available"}
+            </span>
+
+          </div>
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">
+              🎯
+            </div>
+
+            <span class="info-label">
+              Destination
+            </span>
+
+            <span class="info-value">
+              ${data.destination || "Not available"}
+            </span>
+
+          </div>
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">
+              🚚
+            </div>
+
+            <span class="info-label">
+              Current Location
+            </span>
+
+            <span class="info-value">
+              ${data.current_location || "Not available"}
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="status-box">
+
+          <strong>📅 Estimated Delivery</strong>
+
+          <br><br>
+
+          ${data.estimated_delivery || "Not available"}
+
+        </div>
+
+
+      </div>
+
+    `;
 
   });
 
 </script>
 
 </body>
-  </html>
+</html>
