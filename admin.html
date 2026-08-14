@@ -211,7 +211,10 @@ font-size:15px;
 border-radius:0
 }
 
-.accordion-header:hover{background:#f8faf9;transform:none}
+.accordion-header:hover{
+background:#f8faf9;
+transform:none
+}
 
 .accordion-title{
 display:flex;
@@ -242,7 +245,9 @@ font-size:18px;
 transition:.2s
 }
 
-.accordion-header.open .accordion-arrow{transform:rotate(180deg)}
+.accordion-header.open .accordion-arrow{
+transform:rotate(180deg)
+}
 
 .accordion-body{
 display:none;
@@ -289,7 +294,10 @@ border-radius:14px;
 background:linear-gradient(145deg,#fff,#fafcfb)
 }
 
-.shipment-card strong{font-size:18px;color:var(--green)}
+.shipment-card strong{
+font-size:18px;
+color:var(--green)
+}
 
 .shipment-info{
 line-height:1.8;
@@ -312,7 +320,11 @@ margin-left:5px
 .approved{background:#ecfdf5;color:#047857}
 .declined{background:#fef2f2;color:#b91c1c}
 
-.divider{height:1px;background:var(--border);margin:20px 0}
+.divider{
+height:1px;
+background:var(--border);
+margin:20px 0
+}
 
 .shop-stats{
 display:grid;
@@ -433,6 +445,10 @@ margin-top:7px;
 color:var(--muted)
 }
 
+/* =========================
+   CHAT
+========================= */
+
 .chat-layout{
 display:grid;
 grid-template-columns:310px 1fr;
@@ -456,7 +472,9 @@ padding:15px;
 border-bottom:1px solid var(--border)
 }
 
-.conversation-top h3{margin:0 0 10px}
+.conversation-top h3{
+margin:0 0 10px
+}
 
 .chat-search{position:relative}
 .chat-search input{padding-left:38px}
@@ -469,7 +487,10 @@ transform:translateY(-50%);
 color:#94a3b8
 }
 
-.conversation-list{flex:1;overflow-y:auto}
+.conversation-list{
+flex:1;
+overflow-y:auto
+}
 
 .conversation-item{
 padding:13px;
@@ -477,7 +498,9 @@ border-bottom:1px solid #edf0ef;
 cursor:pointer
 }
 
-.conversation-item:hover{background:#f1f8f5}
+.conversation-item:hover{
+background:#f1f8f5
+}
 
 .conversation-item.active{
 background:#e7f7f1;
@@ -504,8 +527,15 @@ justify-content:center;
 font-weight:bold
 }
 
-.conversation-details{min-width:0;flex:1}
-.conversation-name{font-weight:bold;font-size:14px}
+.conversation-details{
+min-width:0;
+flex:1
+}
+
+.conversation-name{
+font-weight:bold;
+font-size:14px
+}
 
 .customer-id{
 font-size:10px;
@@ -530,13 +560,17 @@ align-items:flex-end;
 gap:4px
 }
 
-.conversation-time{color:#94a3b8;font-size:9px}
+.conversation-time{
+color:#94a3b8;
+font-size:9px
+}
 
 .chat-window{
 display:flex;
 flex-direction:column;
 min-width:0;
-background:#f8faf9
+background:#f8faf9;
+position:relative
 }
 
 .chat-empty{
@@ -562,13 +596,17 @@ justify-content:center;
 font-size:34px
 }
 
+/* Protected chat header */
 .active-chat-header{
 display:none;
 align-items:center;
 justify-content:space-between;
 padding:13px 16px;
 background:white;
-border-bottom:1px solid var(--border)
+border-bottom:1px solid var(--border);
+position:relative;
+z-index:20;
+flex-shrink:0;
 }
 
 .active-chat-user{
@@ -606,18 +644,34 @@ overflow-y:auto;
 display:flex;
 flex-direction:column;
 gap:9px;
-min-height:0
+min-height:0;
+position:relative
 }
 
-.message-row{display:flex;width:100%}
-.message-row.customer{justify-content:flex-start}
-.message-row.admin{justify-content:flex-end}
+.message-row{
+display:flex;
+width:100%;
+min-width:0
+}
 
+.message-row.customer{
+justify-content:flex-start
+}
+
+.message-row.admin{
+justify-content:flex-end
+}
+
+/* Prevent received content from escaping the bubble */
 .message-bubble{
 max-width:min(75%,500px);
+min-width:0;
+overflow:hidden;
+position:relative;
 padding:10px 12px;
 border-radius:15px;
 word-wrap:break-word;
+overflow-wrap:anywhere;
 box-shadow:0 2px 6px rgba(0,0,0,.04)
 }
 
@@ -636,17 +690,23 @@ border-bottom-right-radius:5px
 .message-text{
 font-size:14px;
 line-height:1.5;
-white-space:pre-wrap
+white-space:pre-wrap;
+overflow-wrap:anywhere
 }
 
+/* Keep received images inside their message bubble */
 .chat-message-image{
-max-width:260px;
-max-height:300px;
-border-radius:10px;
 display:block;
-margin-bottom:7px;
+width:auto;
+max-width:100%;
+max-height:240px;
+height:auto;
+border-radius:10px;
+margin:0 0 7px 0;
 cursor:pointer;
-object-fit:cover
+object-fit:contain;
+position:relative;
+z-index:1
 }
 
 .message-time{
@@ -656,11 +716,15 @@ opacity:.65;
 text-align:right
 }
 
+/* Protected composer */
 .message-composer{
 display:none;
 padding:10px 12px;
 background:white;
-border-top:1px solid var(--border)
+border-top:1px solid var(--border);
+position:relative;
+z-index:20;
+flex-shrink:0;
 }
 
 .composer-row{
@@ -690,8 +754,15 @@ justify-content:center;
 font-size:17px
 }
 
-.attach-button{background:#eef2f1;color:#475569}
-.send-button{background:var(--green)}
+.attach-button{
+background:#eef2f1;
+color:#475569
+}
+
+.send-button{
+background:var(--green)
+}
+
 .hidden-file{display:none}
 
 .chat-image-status{
@@ -740,36 +811,65 @@ border-right:1px solid #edf0ef;
 border-bottom:none
 }
 
-.shop-stats{grid-template-columns:repeat(2,1fr)}
+.shop-stats{
+grid-template-columns:repeat(2,1fr)
+}
 
 }
 
 @media(max-width:700px){
 
 body{padding:10px}
+
 .header{padding:20px}
+
 .header h1{font-size:22px}
+
 .card{padding:14px}
 
-.form-grid{grid-template-columns:1fr}
-.full{grid-column:auto}
+.form-grid{
+grid-template-columns:1fr
+}
+
+.full{
+grid-column:auto
+}
 
 button{font-size:13px}
 
-.shop-stats{grid-template-columns:1fr 1fr}
+.shop-stats{
+grid-template-columns:1fr 1fr
+}
 
-.product-card{grid-template-columns:1fr}
+.product-card{
+grid-template-columns:1fr
+}
 
 .product-image{
 width:100%;
 height:190px
 }
 
-.shop-toolbar input{max-width:none}
+.shop-toolbar input{
+max-width:none
+}
 
-.chat-layout{height:780px}
-.message-bubble{max-width:85%}
-.conversation-panel{height:245px}
+.chat-layout{
+height:780px
+}
+
+.message-bubble{
+max-width:85%
+}
+
+.conversation-panel{
+height:245px
+}
+
+.chat-message-image{
+max-width:100%;
+max-height:220px
+}
 
 }
 
@@ -816,17 +916,26 @@ border-radius:10px
 
 <div class="admin-nav">
 
-<button type="button" class="nav-btn active" id="shipmentsNav" onclick="showAdminSection('shipments')">
+<button type="button"
+class="nav-btn active"
+id="shipmentsNav"
+onclick="showAdminSection('shipments')">
 📦 Shipments
 </button>
 
-<button type="button" class="nav-btn" id="shopNav" onclick="showAdminSection('shop')">
+<button type="button"
+class="nav-btn"
+id="shopNav"
+onclick="showAdminSection('shop')">
 🛍️ Shop
 </button>
 
 <div class="nav-chat-wrap">
 
-<button type="button" class="nav-btn" id="chatNav" onclick="showAdminSection('chat')">
+<button type="button"
+class="nav-btn"
+id="chatNav"
+onclick="showAdminSection('chat')">
 💬 Chat
 </button>
 
@@ -834,11 +943,17 @@ border-radius:10px
 
 </div>
 
-<button type="button" class="nav-btn" onclick="adminLogout()">
+<button type="button"
+class="nav-btn"
+onclick="adminLogout()">
 🚪 Logout
 </button>
 
 </div>
+
+<!-- =========================
+     SHIPMENTS
+========================= -->
 
 <div id="shipmentsSection" class="admin-section active">
 
@@ -848,7 +963,9 @@ border-radius:10px
 
 <div class="accordion">
 
-<button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+<button type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
 
 <span class="accordion-title">
 <span class="accordion-icon">➕</span>
@@ -872,11 +989,13 @@ Shipment Information
 
 <div class="field">
 <label>Tracking Number</label>
-<input id="newTrackingNumber" placeholder="Enter tracking number">
+<input id="newTrackingNumber"
+placeholder="Enter tracking number">
 </div>
 
 <div class="field">
 <label>Status</label>
+
 <select id="newStatus">
 <option>Pending</option>
 <option>Processing</option>
@@ -884,21 +1003,25 @@ Shipment Information
 <option>Out for Delivery</option>
 <option>Delivered</option>
 </select>
+
 </div>
 
 <div class="field">
 <label>Origin / Pickup Location</label>
-<input id="newOrigin" placeholder="Pickup location">
+<input id="newOrigin"
+placeholder="Pickup location">
 </div>
 
 <div class="field">
 <label>Destination Address</label>
-<input id="newDestination" placeholder="Full destination address">
+<input id="newDestination"
+placeholder="Full destination address">
 </div>
 
 <div class="field">
 <label>Current Location</label>
-<input id="newLocation" placeholder="Current shipment location">
+<input id="newLocation"
+placeholder="Current shipment location">
 </div>
 
 <div class="field">
@@ -974,6 +1097,7 @@ Package Details
 
 <div class="field">
 <label>Package Type</label>
+
 <select id="newPackageType">
 <option value="">Select package type</option>
 <option>Parcel</option>
@@ -983,11 +1107,15 @@ Package Details
 <option>Toiletries</option>
 <option>Other</option>
 </select>
+
 </div>
 
 <div class="field">
 <label>Package Weight (kg)</label>
-<input type="number" id="newPackageWeight" min="0" step=".01">
+<input type="number"
+id="newPackageWeight"
+min="0"
+step=".01">
 </div>
 
 <div class="field full">
@@ -997,17 +1125,23 @@ Package Details
 
 <div class="field">
 <label>Service Type</label>
+
 <select id="newServiceType">
 <option value="">Select service type</option>
 <option>Standard Delivery</option>
 <option>Express Delivery</option>
 <option>Priority Delivery</option>
 </select>
+
 </div>
 
 <div class="field">
 <label>Order Total — USD</label>
-<input type="number" id="newOrderTotal" min="0" step=".01" placeholder="0.00">
+<input type="number"
+id="newOrderTotal"
+min="0"
+step=".01"
+placeholder="0.00">
 </div>
 
 <div class="field full">
@@ -1048,7 +1182,8 @@ Service Approval
 
 </div>
 
-<button type="button" onclick="createShipment()">
+<button type="button"
+onclick="createShipment()">
 ➕ Create Shipment
 </button>
 
@@ -1059,7 +1194,9 @@ Service Approval
 
 <div class="accordion">
 
-<button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+<button type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
 
 <span class="accordion-title">
 <span class="accordion-icon">📋</span>
@@ -1072,18 +1209,23 @@ All Shipments
 
 <div class="accordion-body">
 
-<button type="button" onclick="loadAllShipments()">
+<button type="button"
+onclick="loadAllShipments()">
 🔄 Refresh Shipments
 </button>
 
-<div id="allShipments">Loading shipments...</div>
+<div id="allShipments">
+Loading shipments...
+</div>
 
 </div>
 </div>
 
 <div class="accordion">
 
-<button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+<button type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
 
 <span class="accordion-title">
 <span class="accordion-icon">🔎</span>
@@ -1098,10 +1240,12 @@ Shipment Management
 
 <div class="field">
 <label>Tracking Number</label>
-<input id="trackingNumber" placeholder="Enter tracking number">
+<input id="trackingNumber"
+placeholder="Enter tracking number">
 </div>
 
-<button type="button" onclick="findShipment()">
+<button type="button"
+onclick="findShipment()">
 🔎 Find Shipment
 </button>
 
@@ -1113,6 +1257,10 @@ Shipment Management
 </div>
 </div>
 
+<!-- =========================
+     SHOP
+========================= -->
+
 <div id="shopSection" class="admin-section">
 
 <div class="card">
@@ -1120,7 +1268,8 @@ Shipment Management
 <h2>🛍️ Shop Management</h2>
 
 <div class="currency-note">
-💵 Shop prices are displayed and stored in <strong>US Dollars (USD)</strong>.
+💵 Shop prices are displayed and stored in
+<strong>US Dollars (USD)</strong>.
 </div>
 
 <div class="shop-stats">
@@ -1149,7 +1298,9 @@ Low Stock
 
 <div class="accordion">
 
-<button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+<button type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
 
 <span class="accordion-title">
 <span class="accordion-icon">➕</span>
@@ -1173,35 +1324,51 @@ Product Information
 
 <div class="field">
 <label>Product Name</label>
-<input id="shopName" placeholder="Product or asset name">
+<input id="shopName"
+placeholder="Product or asset name">
 </div>
 
 <div class="field">
 <label>Category</label>
-<input id="shopCategory" placeholder="e.g. Electronics">
+<input id="shopCategory"
+placeholder="e.g. Electronics">
 </div>
 
 <div class="field">
 <label>Price — USD ($)</label>
-<input type="number" id="shopPrice" min="0" step=".01" placeholder="0.00">
+<input type="number"
+id="shopPrice"
+min="0"
+step=".01"
+placeholder="0.00">
 </div>
 
 <div class="field">
 <label>Stock Quantity</label>
-<input type="number" id="shopStock" min="0" step="1" placeholder="0">
+<input type="number"
+id="shopStock"
+min="0"
+step="1"
+placeholder="0">
 </div>
 
 <div class="field full">
 
 <label>Product Image</label>
 
-<input type="file" id="shopImageFile" accept="image/*" onchange="previewShopImage(event)">
+<input type="file"
+id="shopImageFile"
+accept="image/*"
+onchange="previewShopImage(event)">
 
-<div class="upload-status" id="shopImageStatus">
+<div class="upload-status"
+id="shopImageStatus">
 Choose an image from your device.
 </div>
 
-<img id="shopImagePreview" class="image-preview" alt="Product image preview">
+<img id="shopImagePreview"
+class="image-preview"
+alt="Product image preview">
 
 </div>
 
@@ -1209,7 +1376,8 @@ Choose an image from your device.
 
 <label>Image URL — Optional</label>
 
-<input id="shopImage" placeholder="https://...">
+<input id="shopImage"
+placeholder="https://...">
 
 <div class="upload-status">
 You can either upload an image above or paste an image URL here.
@@ -1220,7 +1388,9 @@ Uploaded images take priority.
 
 <div class="field full">
 <label>Description</label>
-<textarea id="shopDescription" placeholder="Describe the product or asset"></textarea>
+<textarea id="shopDescription"
+placeholder="Describe the product or asset">
+</textarea>
 </div>
 
 <div class="field">
@@ -1236,7 +1406,8 @@ Uploaded images take priority.
 </div>
 </div>
 
-<button type="button" onclick="addShopProduct()">
+<button type="button"
+onclick="addShopProduct()">
 ➕ Add to Shop
 </button>
 
@@ -1247,7 +1418,9 @@ Uploaded images take priority.
 
 <div class="accordion">
 
-<button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+<button type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
 
 <span class="accordion-title">
 <span class="accordion-icon">📋</span>
@@ -1264,21 +1437,30 @@ Shop Products
 
 <strong>Products / Assets</strong>
 
-<input id="shopSearch" placeholder="Search products..." oninput="filterShopProducts()">
+<input id="shopSearch"
+placeholder="Search products..."
+oninput="filterShopProducts()">
 
 </div>
 
-<button type="button" onclick="loadShopProducts()">
+<button type="button"
+onclick="loadShopProducts()">
 🔄 Refresh Products
 </button>
 
-<div id="shopProducts">Loading products...</div>
+<div id="shopProducts">
+Loading products...
+</div>
 
 </div>
 </div>
 
 </div>
 </div>
+
+<!-- =========================
+     CHAT
+========================= -->
 
 <div id="chatSection" class="admin-section">
 
@@ -1287,13 +1469,19 @@ Shop Products
 <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
 
 <div>
-<h2 style="margin-bottom:4px">💬 Customer Support</h2>
+
+<h2 style="margin-bottom:4px">
+💬 Customer Support
+</h2>
+
 <p style="margin:0;color:#6b7280;font-size:13px">
 Manage customer conversations and support requests.
 </p>
+
 </div>
 
-<button type="button" onclick="loadConversations()">
+<button type="button"
+onclick="loadConversations()">
 🔄 Refresh
 </button>
 
@@ -1313,13 +1501,16 @@ Manage customer conversations and support requests.
 
 <span>🔎</span>
 
-<input id="conversationSearch" placeholder="Search customers..." oninput="filterConversations()">
+<input id="conversationSearch"
+placeholder="Search customers..."
+oninput="filterConversations()">
 
 </div>
 
 </div>
 
-<div class="conversation-list" id="conversationList">
+<div class="conversation-list"
+id="conversationList">
 
 <div class="chat-loading">
 Loading conversations...
@@ -1331,7 +1522,8 @@ Loading conversations...
 
 <main class="chat-window">
 
-<div class="chat-empty" id="chatEmpty">
+<div class="chat-empty"
+id="chatEmpty">
 
 <div>
 
@@ -1347,11 +1539,13 @@ Loading conversations...
 
 </div>
 
-<div class="active-chat-header" id="activeChatHeader">
+<div class="active-chat-header"
+id="activeChatHeader">
 
 <div class="active-chat-user">
 
-<div class="avatar" id="activeChatAvatar">
+<div class="avatar"
+id="activeChatAvatar">
 C
 </div>
 
@@ -1361,7 +1555,8 @@ C
 Customer
 </strong>
 
-<div class="active-customer-id" id="activeCustomerId">
+<div class="active-customer-id"
+id="activeCustomerId">
 Customer ID: —
 </div>
 
@@ -1376,11 +1571,14 @@ Active conversation
 
 <div>
 
-<button type="button" onclick="loadActiveConversation()">
+<button type="button"
+onclick="loadActiveConversation()">
 🔄
 </button>
 
-<button type="button" class="delete-btn" onclick="deleteActiveConversation()">
+<button type="button"
+class="delete-btn"
+onclick="deleteActiveConversation()">
 🗑️
 </button>
 
@@ -1388,27 +1586,45 @@ Active conversation
 
 </div>
 
-<div class="message-area" id="messageArea" style="display:none"></div>
+<div class="message-area"
+id="messageArea"
+style="display:none">
+</div>
 
-<div class="message-composer" id="messageComposer">
+<div class="message-composer"
+id="messageComposer">
 
 <div class="composer-row">
 
-<button type="button" class="icon-button attach-button" onclick="document.getElementById('chatImageInput').click()">
+<button type="button"
+class="icon-button attach-button"
+onclick="document.getElementById('chatImageInput').click()">
 📎
 </button>
 
-<input type="file" id="chatImageInput" class="hidden-file" accept="image/*" onchange="handleImageSelection(event)">
+<input type="file"
+id="chatImageInput"
+class="hidden-file"
+accept="image/*"
+onchange="handleImageSelection(event)">
 
-<textarea id="chatMessageInput" placeholder="Type a message..." rows="1" onkeydown="handleChatKeydown(event)"></textarea>
+<textarea id="chatMessageInput"
+placeholder="Type a message..."
+rows="1"
+onkeydown="handleChatKeydown(event)">
+</textarea>
 
-<button type="button" class="icon-button send-button" onclick="sendChatMessage()">
+<button type="button"
+class="icon-button send-button"
+onclick="sendChatMessage()">
 ➤
 </button>
 
 </div>
 
-<div id="chatImageStatus" class="chat-image-status"></div>
+<div id="chatImageStatus"
+class="chat-image-status">
+</div>
 
 </div>
 
@@ -1419,6 +1635,10 @@ Active conversation
 </div>
 
 </div>
+
+<!-- =========================
+     IMAGE MODAL
+========================= -->
 
 <div id="imageModal"
 style="
@@ -1451,8 +1671,13 @@ onclick="event.stopPropagation();closeImageModal()">
 <img id="modalImage"
 src=""
 alt="Chat image"
-style="max-width:95vw;max-height:90vh;border-radius:12px"
+style="
+max-width:95vw;
+max-height:90vh;
+border-radius:12px"
 onclick="event.stopPropagation()">
+
+</div>
 
 </div>
 
@@ -1479,12 +1704,14 @@ let allShopProducts=[];
 let chatRefreshTimer=null;
 
 function escapeHtml(value){
+
 return String(value??"")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
 .replace(/"/g,"&quot;")
 .replace(/'/g,"&#039;");
+
 }
 
 function escapeAttribute(value){
@@ -1498,7 +1725,7 @@ file.name.includes(".")
 ?file.name.split(".").pop().toLowerCase()
 :"jpg";
 
-return (
+return(
 folder+
 "/"+
 Date.now()+
@@ -1507,33 +1734,44 @@ Math.random().toString(36).slice(2,10)+
 "."+
 extension
 );
+
 }
 
 async function uploadImage(bucket,file,folder){
 
 if(!file){
-return {url:null,path:null,error:null};
+return{
+url:null,
+path:null,
+error:null
+};
 }
 
 if(!file.type.startsWith("image/")){
-return {
+
+return{
 url:null,
 path:null,
 error:"Please select an image file."
 };
+
 }
 
 if(file.size>MAX_IMAGE_SIZE){
-return {
+
+return{
 url:null,
 path:null,
 error:"Image is too large. Maximum size is 10MB."
 };
+
 }
 
 const path=createImagePath(folder,file);
 
-const {error:uploadError}=await supabaseClient
+const{
+error:uploadError
+}=await supabaseClient
 .storage
 .from(bucket)
 .upload(path,file,{
@@ -1543,66 +1781,92 @@ contentType:file.type
 });
 
 if(uploadError){
-return {
+
+return{
 url:null,
 path:null,
 error:uploadError.message
 };
+
 }
 
-const {data}=supabaseClient
+const{data}=supabaseClient
 .storage
 .from(bucket)
 .getPublicUrl(path);
 
-return {
+return{
 url:data?.publicUrl||null,
 path,
 error:null
 };
+
 }
 
 function toggleAccordion(header){
 
 const body=header.nextElementSibling;
-const isOpen=body.classList.contains("open");
+
+const isOpen=
+body.classList.contains("open");
 
 body.classList.toggle("open",!isOpen);
 header.classList.toggle("open",!isOpen);
+
 }
 
 function showAdminTools(){
+
 document.getElementById("adminTools").style.display="block";
 document.getElementById("loginCard").style.display="none";
+
 }
 
 function hideAdminTools(){
+
 document.getElementById("adminTools").style.display="none";
 document.getElementById("loginCard").style.display="block";
+
 }
 
 async function adminLogin(){
 
-const email=document.getElementById("adminEmail").value.trim();
-const password=document.getElementById("adminPassword").value;
-const result=document.getElementById("loginResult");
+const email=
+document.getElementById("adminEmail")
+.value.trim();
+
+const password=
+document.getElementById("adminPassword").value;
+
+const result=
+document.getElementById("loginResult");
 
 if(!email||!password){
-result.textContent="Please enter your email and password.";
+
+result.textContent=
+"Please enter your email and password.";
+
 return;
+
 }
 
 result.textContent="Logging in...";
 
-const {data,error}=await supabaseClient.auth.signInWithPassword({
+const{data,error}=
+await supabaseClient.auth.signInWithPassword({
 email,
 password
 });
 
 if(error){
-result.textContent="Login failed: "+error.message;
+
+result.textContent=
+"Login failed: "+error.message;
+
 hideAdminTools();
+
 return;
+
 }
 
 currentAdminUser=data.user;
@@ -1614,15 +1878,20 @@ await loadShopProducts();
 await loadConversations();
 
 startChatRefresh();
+
 }
 
 async function checkAdminSession(){
 
-const {data,error}=await supabaseClient.auth.getSession();
+const{data,error}=
+await supabaseClient.auth.getSession();
 
 if(error||!data.session){
+
 hideAdminTools();
+
 return;
+
 }
 
 currentAdminUser=data.session.user;
@@ -1634,6 +1903,7 @@ await loadShopProducts();
 await loadConversations();
 
 startChatRefresh();
+
 }
 
 async function adminLogout(){
@@ -1649,6 +1919,7 @@ hideAdminTools();
 
 document.getElementById("adminEmail").value="";
 document.getElementById("adminPassword").value="";
+
 }
 
 function showAdminSection(section){
@@ -1661,130 +1932,182 @@ document.querySelectorAll(".nav-btn")
 
 if(section==="shop"){
 
-document.getElementById("shopSection").classList.add("active");
-document.getElementById("shopNav").classList.add("active");
+document.getElementById("shopSection")
+.classList.add("active");
+
+document.getElementById("shopNav")
+.classList.add("active");
 
 loadShopProducts();
 
 }else if(section==="chat"){
 
-document.getElementById("chatSection").classList.add("active");
-document.getElementById("chatNav").classList.add("active");
+document.getElementById("chatSection")
+.classList.add("active");
+
+document.getElementById("chatNav")
+.classList.add("active");
 
 loadConversations();
 
 }else{
 
-document.getElementById("shipmentsSection").classList.add("active");
-document.getElementById("shipmentsNav").classList.add("active");
+document.getElementById("shipmentsSection")
+.classList.add("active");
+
+document.getElementById("shipmentsNav")
+.classList.add("active");
 
 }
+
 }
 
 async function createShipment(){
 
-const trackingNumber=document.getElementById("newTrackingNumber").value.trim();
-const status=document.getElementById("newStatus").value;
-const origin=document.getElementById("newOrigin").value.trim();
-const destination=document.getElementById("newDestination").value.trim();
+const trackingNumber=
+document.getElementById("newTrackingNumber")
+.value.trim();
+
+const status=
+document.getElementById("newStatus").value;
+
+const origin=
+document.getElementById("newOrigin")
+.value.trim();
+
+const destination=
+document.getElementById("newDestination")
+.value.trim();
 
 if(!trackingNumber||!origin||!destination){
 
-document.getElementById("createResult").textContent=
+document.getElementById("createResult")
+.textContent=
 "Please enter tracking number, origin and destination.";
 
 return;
+
 }
 
 const shipmentData={
 
 tracking_number:trackingNumber,
+
 status,
+
 origin,
+
 destination,
 
 current_location:
-document.getElementById("newLocation").value.trim()||null,
+document.getElementById("newLocation")
+.value.trim()||null,
 
 estimated_delivery:
-document.getElementById("newDelivery").value||null,
+document.getElementById("newDelivery")
+.value||null,
 
 sender_name:
-document.getElementById("newSenderName").value.trim()||null,
+document.getElementById("newSenderName")
+.value.trim()||null,
 
 sender_phone:
-document.getElementById("newSenderPhone").value.trim()||null,
+document.getElementById("newSenderPhone")
+.value.trim()||null,
 
 sender_email:
-document.getElementById("newSenderEmail").value.trim()||null,
+document.getElementById("newSenderEmail")
+.value.trim()||null,
 
 receiver_name:
-document.getElementById("newReceiverName").value.trim()||null,
+document.getElementById("newReceiverName")
+.value.trim()||null,
 
 receiver_phone:
-document.getElementById("newReceiverPhone").value.trim()||null,
+document.getElementById("newReceiverPhone")
+.value.trim()||null,
 
 receiver_email:
-document.getElementById("newReceiverEmail").value.trim()||null,
+document.getElementById("newReceiverEmail")
+.value.trim()||null,
 
 order_items:
-document.getElementById("newOrderItems").value.trim()||null,
+document.getElementById("newOrderItems")
+.value.trim()||null,
 
 order_total:
-document.getElementById("newOrderTotal").value===""
+document.getElementById("newOrderTotal")
+.value===""
 ?null
-:Number(document.getElementById("newOrderTotal").value),
+:Number(
+document.getElementById("newOrderTotal").value
+),
 
 package_description:
-document.getElementById("newPackageDescription").value.trim()||null,
+document.getElementById("newPackageDescription")
+.value.trim()||null,
 
 package_type:
-document.getElementById("newPackageType").value||null,
+document.getElementById("newPackageType")
+.value||null,
 
 package_weight:
-document.getElementById("newPackageWeight").value===""
+document.getElementById("newPackageWeight")
+.value===""
 ?null
-:Number(document.getElementById("newPackageWeight").value),
+:Number(
+document.getElementById("newPackageWeight").value
+),
 
 service_type:
-document.getElementById("newServiceType").value||null,
+document.getElementById("newServiceType")
+.value||null,
 
 special_instructions:
-document.getElementById("newSpecialInstructions").value.trim()||null,
+document.getElementById("newSpecialInstructions")
+.value.trim()||null,
 
 approval_status:
 document.getElementById("newApprovalStatus").value,
 
 decline_reason:
-document.getElementById("newDeclineReason").value.trim()||null
+document.getElementById("newDeclineReason")
+.value.trim()||null
 
 };
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("Shipments")
 .insert(shipmentData);
 
 if(error){
 
-document.getElementById("createResult").textContent=
+document.getElementById("createResult")
+.textContent=
 "Creation failed: "+error.message;
 
 return;
+
 }
 
-document.getElementById("createResult").textContent=
+document.getElementById("createResult")
+.textContent=
 "Shipment created successfully! ✅";
 
 await loadAllShipments();
+
 }
 
 async function loadAllShipments(){
 
-const container=document.getElementById("allShipments");
+const container=
+document.getElementById("allShipments");
 
 container.innerHTML="Loading shipments...";
 
-const {data,error}=await supabaseClient
+const{data,error}=
+await supabaseClient
 .from("Shipments")
 .select("*")
 .order("tracking_number",{ascending:false});
@@ -1792,9 +2115,11 @@ const {data,error}=await supabaseClient
 if(error){
 
 container.innerHTML=
-"Failed to load shipments: "+escapeHtml(error.message);
+"Failed to load shipments: "+
+escapeHtml(error.message);
 
 return;
+
 }
 
 if(!data||!data.length){
@@ -1803,11 +2128,13 @@ container.innerHTML=
 '<div class="empty">📦 No shipments found.</div>';
 
 return;
+
 }
 
 container.innerHTML=data.map(shipment=>{
 
-const approval=shipment.approval_status||"Pending";
+const approval=
+shipment.approval_status||"Pending";
 
 const cls=
 approval==="Approved"
@@ -1816,7 +2143,7 @@ approval==="Declined"
 ?"declined":
 "pending";
 
-return `
+return`
 
 <div class="shipment-card">
 
@@ -1893,13 +2220,16 @@ onclick="deleteShipment('${escapeAttribute(shipment.tracking_number)}')">
 `;
 
 }).join("");
+
 }
 
 async function approveShipment(number){
 
-if(!confirm("Approve shipment "+number+"?"))return;
+if(!confirm("Approve shipment "+number+"?"))
+return;
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("Shipments")
 .update({
 approval_status:"Approved",
@@ -1911,11 +2241,13 @@ if(error){
 
 alert("Approval failed: "+error.message);
 return;
+
 }
 
 alert("Shipment approved successfully! ✅");
 
 loadAllShipments();
+
 }
 
 async function declineShipment(number){
@@ -1930,9 +2262,11 @@ if(!reason.trim()){
 
 alert("Please enter a decline reason.");
 return;
+
 }
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("Shipments")
 .update({
 approval_status:"Declined",
@@ -1944,11 +2278,13 @@ if(error){
 
 alert("Decline failed: "+error.message);
 return;
+
 }
 
 alert("Shipment declined.");
 
 loadAllShipments();
+
 }
 
 async function deleteShipment(number){
@@ -1957,7 +2293,8 @@ if(!confirm(
 "Are you sure you want to delete shipment "+number+"?"
 ))return;
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("Shipments")
 .delete()
 .eq("tracking_number",number);
@@ -1966,30 +2303,38 @@ if(error){
 
 alert("Delete failed: "+error.message);
 return;
+
 }
 
 alert("Shipment deleted successfully! ✅");
 
 loadAllShipments();
+
 }
 
 async function findShipment(numberFromList){
 
 const number=
 numberFromList||
-document.getElementById("trackingNumber").value.trim();
+document.getElementById("trackingNumber")
+.value.trim();
 
-const result=document.getElementById("shipmentResult");
+const result=
+document.getElementById("shipmentResult");
 
 if(!number){
 
-result.innerHTML="Please enter a tracking number.";
+result.innerHTML=
+"Please enter a tracking number.";
+
 return;
+
 }
 
 result.innerHTML="Searching...";
 
-const {data,error}=await supabaseClient
+const{data,error}=
+await supabaseClient
 .from("Shipments")
 .select("*")
 .eq("tracking_number",number)
@@ -1997,14 +2342,20 @@ const {data,error}=await supabaseClient
 
 if(error){
 
-result.innerHTML="Database error: "+escapeHtml(error.message);
+result.innerHTML=
+"Database error: "+
+escapeHtml(error.message);
+
 return;
+
 }
 
 if(!data){
 
 result.innerHTML="Shipment not found.";
+
 return;
+
 }
 
 result.innerHTML=`
@@ -2028,11 +2379,25 @@ value="${escapeAttribute(data.tracking_number||"")}">
 
 <select id="editStatus">
 
-<option ${data.status==="Pending"?"selected":""}>Pending</option>
-<option ${data.status==="Processing"?"selected":""}>Processing</option>
-<option ${data.status==="In Transit"?"selected":""}>In Transit</option>
-<option ${data.status==="Out for Delivery"?"selected":""}>Out for Delivery</option>
-<option ${data.status==="Delivered"?"selected":""}>Delivered</option>
+<option ${data.status==="Pending"?"selected":""}>
+Pending
+</option>
+
+<option ${data.status==="Processing"?"selected":""}>
+Processing
+</option>
+
+<option ${data.status==="In Transit"?"selected":""}>
+In Transit
+</option>
+
+<option ${data.status==="Out for Delivery"?"selected":""}>
+Out for Delivery
+</option>
+
+<option ${data.status==="Delivered"?"selected":""}>
+Delivered
+</option>
 
 </select>
 
@@ -2147,9 +2512,17 @@ value="${data.order_total??""}">
 
 <select id="editApprovalStatus">
 
-<option ${data.approval_status==="Pending"?"selected":""}>Pending</option>
-<option ${data.approval_status==="Approved"?"selected":""}>Approved</option>
-<option ${data.approval_status==="Declined"?"selected":""}>Declined</option>
+<option ${data.approval_status==="Pending"?"selected":""}>
+Pending
+</option>
+
+<option ${data.approval_status==="Approved"?"selected":""}>
+Approved
+</option>
+
+<option ${data.approval_status==="Declined"?"selected":""}>
+Declined
+</option>
 
 </select>
 
@@ -2171,20 +2544,24 @@ onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
 </button>
 
 `;
+
 }
 
 async function updateShipment(oldTrackingNumber){
 
 const newNumber=
-document.getElementById("editTrackingNumber").value.trim();
+document.getElementById("editTrackingNumber")
+.value.trim();
 
 if(!newNumber){
 
 alert("Tracking number cannot be empty.");
 return;
+
 }
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("Shipments")
 .update({
 
@@ -2194,65 +2571,88 @@ status:
 document.getElementById("editStatus").value,
 
 origin:
-document.getElementById("editOrigin").value.trim(),
+document.getElementById("editOrigin")
+.value.trim(),
 
 destination:
-document.getElementById("editDestination").value.trim(),
+document.getElementById("editDestination")
+.value.trim(),
 
 current_location:
-document.getElementById("editLocation").value.trim()||null,
+document.getElementById("editLocation")
+.value.trim()||null,
 
 estimated_delivery:
-document.getElementById("editDelivery").value||null,
+document.getElementById("editDelivery")
+.value||null,
 
 sender_name:
-document.getElementById("editSenderName").value.trim()||null,
+document.getElementById("editSenderName")
+.value.trim()||null,
 
 sender_phone:
-document.getElementById("editSenderPhone").value.trim()||null,
+document.getElementById("editSenderPhone")
+.value.trim()||null,
 
 sender_email:
-document.getElementById("editSenderEmail").value.trim()||null,
+document.getElementById("editSenderEmail")
+.value.trim()||null,
 
 receiver_name:
-document.getElementById("editReceiverName").value.trim()||null,
+document.getElementById("editReceiverName")
+.value.trim()||null,
 
 receiver_phone:
-document.getElementById("editReceiverPhone").value.trim()||null,
+document.getElementById("editReceiverPhone")
+.value.trim()||null,
 
 receiver_email:
-document.getElementById("editReceiverEmail").value.trim()||null,
+document.getElementById("editReceiverEmail")
+.value.trim()||null,
 
 package_type:
-document.getElementById("editPackageType").value||null,
+document.getElementById("editPackageType")
+.value||null,
 
 package_weight:
-document.getElementById("editPackageWeight").value===""
+document.getElementById("editPackageWeight")
+.value===""
 ?null
-:Number(document.getElementById("editPackageWeight").value),
+:Number(
+document.getElementById("editPackageWeight").value
+),
 
 package_description:
-document.getElementById("editPackageDescription").value.trim()||null,
+document.getElementById("editPackageDescription")
+.value.trim()||null,
 
 service_type:
-document.getElementById("editServiceType").value||null,
+document.getElementById("editServiceType")
+.value||null,
 
 order_total:
-document.getElementById("editOrderTotal").value===""
+document.getElementById("editOrderTotal")
+.value===""
 ?null
-:Number(document.getElementById("editOrderTotal").value),
+:Number(
+document.getElementById("editOrderTotal").value
+),
 
 order_items:
-document.getElementById("editOrderItems").value.trim()||null,
+document.getElementById("editOrderItems")
+.value.trim()||null,
 
 special_instructions:
-document.getElementById("editSpecialInstructions").value.trim()||null,
+document.getElementById("editSpecialInstructions")
+.value.trim()||null,
 
 approval_status:
-document.getElementById("editApprovalStatus").value,
+document.getElementById("editApprovalStatus")
+.value,
 
 decline_reason:
-document.getElementById("editDeclineReason").value.trim()||null
+document.getElementById("editDeclineReason")
+.value.trim()||null
 
 })
 .eq("tracking_number",oldTrackingNumber);
@@ -2261,24 +2661,33 @@ if(error){
 
 alert("Update failed: "+error.message);
 return;
+
 }
 
 alert("Shipment updated successfully! ✅");
 
-document.getElementById("shipmentResult").innerHTML="";
+document.getElementById("shipmentResult")
+.innerHTML="";
 
 loadAllShipments();
+
 }
+
+/* =========================
+   SHOP FUNCTIONS
+========================= */
 
 async function loadShopProducts(){
 
-const container=document.getElementById("shopProducts");
+const container=
+document.getElementById("shopProducts");
 
 if(!container)return;
 
 container.innerHTML="Loading shop products...";
 
-const {data,error}=await supabaseClient
+const{data,error}=
+await supabaseClient
 .from("shop_products")
 .select("*")
 .order("created_at",{ascending:false});
@@ -2290,12 +2699,14 @@ container.innerHTML=
 escapeHtml(error.message);
 
 return;
+
 }
 
 allShopProducts=data||[];
 
 updateShopStats();
 renderShopProducts(allShopProducts);
+
 }
 
 function updateShopStats(){
@@ -2303,22 +2714,39 @@ function updateShopStats(){
 const total=allShopProducts.length;
 
 const visible=
-allShopProducts.filter(x=>x.visible!==false).length;
+allShopProducts.filter(
+x=>x.visible!==false
+).length;
 
 const hidden=total-visible;
 
 const lowStock=
-allShopProducts.filter(x=>Number(x.stock||0)<=5).length;
+allShopProducts.filter(
+x=>Number(x.stock||0)<=5
+).length;
 
-document.getElementById("shopTotalProducts").textContent=total;
-document.getElementById("shopVisibleProducts").textContent=visible;
-document.getElementById("shopHiddenProducts").textContent=hidden;
-document.getElementById("shopLowStock").textContent=lowStock;
+document.getElementById(
+"shopTotalProducts"
+).textContent=total;
+
+document.getElementById(
+"shopVisibleProducts"
+).textContent=visible;
+
+document.getElementById(
+"shopHiddenProducts"
+).textContent=hidden;
+
+document.getElementById(
+"shopLowStock"
+).textContent=lowStock;
+
 }
 
 function renderShopProducts(products){
 
-const container=document.getElementById("shopProducts");
+const container=
+document.getElementById("shopProducts");
 
 if(!products.length){
 
@@ -2326,14 +2754,19 @@ container.innerHTML=
 '<div class="empty">🛍️ No products in the shop yet.</div>';
 
 return;
+
 }
 
-container.innerHTML=products.map(product=>{
+container.innerHTML=
+products.map(product=>{
 
-const visible=product.visible!==false;
-const stock=Number(product.stock||0);
+const visible=
+product.visible!==false;
 
-return `
+const stock=
+Number(product.stock||0);
+
+return`
 
 <div class="product-card">
 
@@ -2402,17 +2835,21 @@ ${visible?"🙈 Hide":"👁️ Show"}
 `;
 
 }).join("");
+
 }
 
 function filterShopProducts(){
 
-const input=document.getElementById("shopSearch");
+const input=
+document.getElementById("shopSearch");
 
 if(!input)return;
 
-const query=input.value.toLowerCase().trim();
+const query=
+input.value.toLowerCase().trim();
 
-const filtered=allShopProducts.filter(product=>
+const filtered=
+allShopProducts.filter(product=>
 
 String(product.name||"")
 .toLowerCase()
@@ -2433,23 +2870,31 @@ String(product.description||"")
 );
 
 renderShopProducts(filtered);
+
 }
 
 function previewShopImage(event){
 
-const file=event.target.files[0]||null;
+const file=
+event.target.files[0]||null;
 
 selectedShopImageFile=file;
 
-const preview=document.getElementById("shopImagePreview");
-const status=document.getElementById("shopImageStatus");
+const preview=
+document.getElementById("shopImagePreview");
+
+const status=
+document.getElementById("shopImageStatus");
 
 if(!file){
 
 preview.style.display="none";
 preview.src="";
-status.textContent="Choose an image from your device.";
+status.textContent=
+"Choose an image from your device.";
+
 return;
+
 }
 
 if(!file.type.startsWith("image/")){
@@ -2459,9 +2904,11 @@ selectedShopImageFile=null;
 preview.style.display="none";
 preview.src="";
 
-status.textContent="Please choose an image file.";
+status.textContent=
+"Please choose an image file.";
 
 return;
+
 }
 
 if(file.size>MAX_IMAGE_SIZE){
@@ -2471,12 +2918,15 @@ selectedShopImageFile=null;
 preview.style.display="none";
 preview.src="";
 
-status.textContent="Image is too large. Maximum size is 10MB.";
+status.textContent=
+"Image is too large. Maximum size is 10MB.";
 
 return;
+
 }
 
-const reader=new FileReader();
+const reader=
+new FileReader();
 
 reader.onload=function(e){
 
@@ -2487,14 +2937,23 @@ preview.style.display="block";
 
 reader.readAsDataURL(file);
 
-status.textContent="Selected: "+file.name;
+status.textContent=
+"Selected: "+file.name;
+
 }
 
 async function addShopProduct(){
 
-const name=document.getElementById("shopName").value.trim();
-const price=document.getElementById("shopPrice").value;
-const result=document.getElementById("shopResult");
+const name=
+document.getElementById("shopName")
+.value.trim();
+
+const price=
+document.getElementById("shopPrice")
+.value;
+
+const result=
+document.getElementById("shopResult");
 
 if(!name||price===""){
 
@@ -2502,16 +2961,20 @@ result.textContent=
 "Please enter a product name and price.";
 
 return;
+
 }
 
-result.textContent="Preparing product...";
+result.textContent=
+"Preparing product...";
 
 let imageUrl=
-document.getElementById("shopImage").value.trim()||null;
+document.getElementById("shopImage")
+.value.trim()||null;
 
 if(selectedShopImageFile){
 
-result.textContent="Uploading product image...";
+result.textContent=
+"Uploading product image...";
 
 const upload=
 await uploadImage(
@@ -2527,9 +2990,11 @@ result.textContent=
 upload.error;
 
 return;
+
 }
 
 imageUrl=upload.url;
+
 }
 
 const product={
@@ -2537,26 +3002,33 @@ const product={
 name,
 
 category:
-document.getElementById("shopCategory").value.trim()||"General",
+document.getElementById("shopCategory")
+.value.trim()||"General",
 
 price:Number(price),
 
 stock:
-Number(document.getElementById("shopStock").value||0),
+Number(
+document.getElementById("shopStock")
+.value||0
+),
 
 image_url:imageUrl,
 
 description:
-document.getElementById("shopDescription").value.trim()||null,
+document.getElementById("shopDescription")
+.value.trim()||null,
 
 visible:
-document.getElementById("shopVisible").value==="true"
+document.getElementById("shopVisible")
+.value==="true"
 
 };
 
 result.textContent="Saving product...";
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("shop_products")
 .insert(product);
 
@@ -2567,6 +3039,7 @@ result.textContent=
 error.message;
 
 return;
+
 }
 
 result.textContent=
@@ -2580,26 +3053,40 @@ result.textContent=
 "shopImage",
 "shopDescription"
 ].forEach(id=>{
+
 document.getElementById(id).value="";
+
 });
 
-document.getElementById("shopVisible").value="true";
-document.getElementById("shopImageFile").value="";
+document.getElementById("shopVisible")
+.value="true";
+
+document.getElementById("shopImageFile")
+.value="";
 
 selectedShopImageFile=null;
 
-document.getElementById("shopImagePreview").style.display="none";
-document.getElementById("shopImagePreview").src="";
+document.getElementById(
+"shopImagePreview"
+).style.display="none";
 
-document.getElementById("shopImageStatus").textContent=
+document.getElementById(
+"shopImagePreview"
+).src="";
+
+document.getElementById(
+"shopImageStatus"
+).textContent=
 "Choose an image from your device.";
 
 await loadShopProducts();
+
 }
 
 async function editShopProduct(id){
 
-const product=allShopProducts.find(x=>x.id===id);
+const product=
+allShopProducts.find(x=>x.id===id);
 
 if(!product)return;
 
@@ -2645,7 +3132,8 @@ product.image_url||""
 
 if(image===null)return;
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("shop_products")
 .update({
 
@@ -2669,44 +3157,65 @@ image.trim()||null
 
 if(error){
 
-alert("Product update failed: "+error.message);
+alert(
+"Product update failed: "+
+error.message
+);
+
 return;
+
 }
 
-alert("Product updated successfully! ✅");
+alert(
+"Product updated successfully! ✅"
+);
 
 loadShopProducts();
+
 }
 
 async function deleteShopProduct(id){
 
-const product=allShopProducts.find(x=>x.id===id);
+const product=
+allShopProducts.find(x=>x.id===id);
 
 if(!product)return;
 
 if(!confirm(
-"Delete "+(product.name||"this product")+" from the shop?"
+"Delete "+
+(product.name||"this product")+
+" from the shop?"
 ))return;
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("shop_products")
 .delete()
 .eq("id",id);
 
 if(error){
 
-alert("Delete failed: "+error.message);
+alert(
+"Delete failed: "+
+error.message
+);
+
 return;
+
 }
 
-alert("Product deleted successfully! 🗑️");
+alert(
+"Product deleted successfully! 🗑️"
+);
 
 loadShopProducts();
+
 }
 
 async function toggleShopVisibility(id,current){
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("shop_products")
 .update({
 visible:!current
@@ -2715,21 +3224,33 @@ visible:!current
 
 if(error){
 
-alert("Visibility update failed: "+error.message);
+alert(
+"Visibility update failed: "+
+error.message
+);
+
 return;
+
 }
 
 loadShopProducts();
+
 }
+
+/* =========================
+   CHAT FUNCTIONS
+========================= */
 
 async function loadConversations(){
 
-const list=document.getElementById("conversationList");
+const list=
+document.getElementById("conversationList");
 
 list.innerHTML=
 '<div class="chat-loading">Loading conversations...</div>';
 
-const {data,error}=await supabaseClient
+const{data,error}=
+await supabaseClient
 .from("chat_messages")
 .select("*")
 .order("created_at",{ascending:false});
@@ -2743,6 +3264,7 @@ escapeHtml(error.message)+
 '</div>';
 
 return;
+
 }
 
 if(!data||!data.length){
@@ -2758,13 +3280,15 @@ list.innerHTML=
 updateChatBadge(0);
 
 return;
+
 }
 
 const map=new Map();
 
 data.forEach(message=>{
 
-const customerId=message.customer_id;
+const customerId=
+message.customer_id;
 
 if(!customerId)return;
 
@@ -2788,19 +3312,26 @@ message.sender_name||
 }
 
 map.get(customerId).count++;
+
 });
 
 allConversations=
 Array.from(map.values());
 
-renderConversations(allConversations);
+renderConversations(
+allConversations
+);
 
-updateChatBadge(allConversations.length);
+updateChatBadge(
+allConversations.length
+);
+
 }
 
 function renderConversations(conversations){
 
-const list=document.getElementById("conversationList");
+const list=
+document.getElementById("conversationList");
 
 if(!conversations.length){
 
@@ -2810,6 +3341,7 @@ list.innerHTML=
 '</div>';
 
 return;
+
 }
 
 list.innerHTML=
@@ -2823,14 +3355,15 @@ m.customer_name||
 m.sender_name||
 "Customer";
 
-const initial=name.charAt(0).toUpperCase();
+const initial=
+name.charAt(0).toUpperCase();
 
 const active=
 activeConversationUserId===c.userId
 ?"active"
 :"";
 
-return `
+return`
 
 <div
 class="conversation-item ${active}"
@@ -2852,7 +3385,8 @@ ${escapeHtml(name)}
 </div>
 
 <div class="customer-id">
-Customer ID: ${escapeHtml(c.userId)}
+Customer ID:
+${escapeHtml(c.userId)}
 </div>
 
 <div class="conversation-preview">
@@ -2882,11 +3416,15 @@ ${formatTime(m.created_at)}
 `;
 
 }).join("");
+
 }
 
 function filterConversations(){
 
-const q=document.getElementById("conversationSearch").value.toLowerCase().trim();
+const q=
+document.getElementById(
+"conversationSearch"
+).value.toLowerCase().trim();
 
 const filtered=
 allConversations.filter(c=>{
@@ -2911,6 +3449,7 @@ String(c.userId)
 });
 
 renderConversations(filtered);
+
 }
 
 async function openConversation(userId,name){
@@ -2933,10 +3472,12 @@ document.getElementById("messageComposer")
 .style.display="block";
 
 document.getElementById("activeChatName")
-.textContent=activeConversationName;
+.textContent=
+activeConversationName;
 
 document.getElementById("activeCustomerId")
-.textContent="Customer ID: "+userId;
+.textContent=
+"Customer ID: "+userId;
 
 document.getElementById("activeChatAvatar")
 .textContent=
@@ -2944,21 +3485,26 @@ activeConversationName
 .charAt(0)
 .toUpperCase();
 
-renderConversations(allConversations);
+renderConversations(
+allConversations
+);
 
 await loadActiveConversation();
+
 }
 
 async function loadActiveConversation(){
 
 if(!activeConversationUserId)return;
 
-const area=document.getElementById("messageArea");
+const area=
+document.getElementById("messageArea");
 
 area.innerHTML=
 '<div class="chat-loading">Loading messages...</div>';
 
-const {data,error}=await supabaseClient
+const{data,error}=
+await supabaseClient
 .from("chat_messages")
 .select("*")
 .eq("customer_id",activeConversationUserId)
@@ -2972,6 +3518,7 @@ escapeHtml(error.message)+
 "</div>";
 
 return;
+
 }
 
 if(!data||!data.length){
@@ -2980,13 +3527,15 @@ area.innerHTML=
 '<div class="chat-loading">No messages yet.</div>';
 
 return;
+
 }
 
 area.innerHTML=
 data.map(message=>{
 
 const sender=
-String(message.sender||"").toLowerCase();
+String(message.sender||"")
+.toLowerCase();
 
 const isAdmin=
 sender==="admin"||
@@ -3003,7 +3552,7 @@ message.image_url||
 message.attachment_url||
 null;
 
-return `
+return`
 
 <div class="message-row ${isAdmin?"admin":"customer"}">
 
@@ -3040,7 +3589,9 @@ ${formatTime(message.created_at)}
 
 }).join("");
 
-area.scrollTop=area.scrollHeight;
+area.scrollTop=
+area.scrollHeight;
+
 }
 
 function handleImageSelection(event){
@@ -3049,12 +3600,15 @@ selectedImageFile=
 event.target.files[0]||null;
 
 const status=
-document.getElementById("chatImageStatus");
+document.getElementById(
+"chatImageStatus"
+);
 
 if(!selectedImageFile){
 
 status.textContent="";
 return;
+
 }
 
 if(!selectedImageFile.type.startsWith("image/")){
@@ -3066,6 +3620,7 @@ status.textContent=
 "Please select an image file.";
 
 return;
+
 }
 
 if(selectedImageFile.size>MAX_IMAGE_SIZE){
@@ -3077,10 +3632,14 @@ status.textContent=
 "Image is too large. Maximum size is 10MB.";
 
 return;
+
 }
 
 status.textContent=
-"📷 "+selectedImageFile.name+" selected";
+"📷 "+
+selectedImageFile.name+
+" selected";
+
 }
 
 async function sendChatMessage(){
@@ -3090,12 +3649,15 @@ if(!activeConversationUserId)return;
 if(!currentAdminUser)return;
 
 const input=
-document.getElementById("chatMessageInput");
+document.getElementById(
+"chatMessageInput"
+);
 
 const message=
 input.value.trim();
 
-if(!message&&!selectedImageFile)return;
+if(!message&&!selectedImageFile)
+return;
 
 const sendButton=
 document.querySelector(".send-button");
@@ -3108,16 +3670,11 @@ try{
 
 let imageUrl=null;
 
-/*
-IMPORTANT FIX:
-If an admin selected an image,
-actually upload it to Supabase Storage.
-*/
-
 if(selectedImageFile){
 
-document.getElementById("chatImageStatus")
-.textContent=
+document.getElementById(
+"chatImageStatus"
+).textContent=
 "📤 Uploading image...";
 
 const upload=
@@ -3135,59 +3692,61 @@ upload.error
 );
 
 return;
+
 }
 
 imageUrl=upload.url;
-}
 
-/*
-Save BOTH the message and
-the uploaded image URL.
-*/
+}
 
 const insertData={
 
-customer_id:activeConversationUserId,
+customer_id:
+activeConversationUserId,
 
 sender:"admin",
 
-message:message||null,
+message:
+message||null,
 
-image_url:imageUrl
+image_url:
+imageUrl
 
 };
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("chat_messages")
 .insert(insertData);
 
 if(error){
 
-alert("Message failed: "+error.message);
+alert(
+"Message failed: "+
+error.message
+);
+
 return;
+
 }
 
 input.value="";
 
 selectedImageFile=null;
 
-document.getElementById("chatImageInput").value="";
+document.getElementById(
+"chatImageInput"
+).value="";
 
-document.getElementById("chatImageStatus")
-.textContent="";
-
-/*
-IMPORTANT:
-Do not clear activeConversationUserId.
-This keeps the current chat open.
-*/
+document.getElementById(
+"chatImageStatus"
+).textContent="";
 
 await loadActiveConversation();
 
 await loadConversations();
 
-}
-finally{
+}finally{
 
 if(sendButton){
 sendButton.disabled=false;
@@ -3208,35 +3767,48 @@ if(!confirm(
 "Delete the entire chat with this customer?"
 ))return;
 
-const {error}=await supabaseClient
+const{error}=
+await supabaseClient
 .from("chat_messages")
 .delete()
 .eq("customer_id",customerId);
 
 if(error){
 
-alert("Chat deletion failed: "+error.message);
+alert(
+"Chat deletion failed: "+
+error.message
+);
+
 return;
+
 }
 
-alert("Customer chat deleted successfully! 🗑️");
+alert(
+"Customer chat deleted successfully! 🗑️"
+);
 
 activeConversationUserId=null;
 activeConversationName="Customer";
 
-document.getElementById("activeChatHeader")
-.style.display="none";
+document.getElementById(
+"activeChatHeader"
+).style.display="none";
 
-document.getElementById("messageArea")
-.style.display="none";
+document.getElementById(
+"messageArea"
+).style.display="none";
 
-document.getElementById("messageComposer")
-.style.display="none";
+document.getElementById(
+"messageComposer"
+).style.display="none";
 
-document.getElementById("chatEmpty")
-.style.display="flex";
+document.getElementById(
+"chatEmpty"
+).style.display="flex";
 
 await loadConversations();
+
 }
 
 function handleChatKeydown(event){
@@ -3248,41 +3820,57 @@ event.preventDefault();
 sendChatMessage();
 
 }
+
 }
 
 function openImageModal(url){
 
 if(!url)return;
 
-document.getElementById("modalImage").src=url;
+document.getElementById(
+"modalImage"
+).src=url;
 
-document.getElementById("imageModal").style.display="flex";
+document.getElementById(
+"imageModal"
+).style.display="flex";
+
 }
 
 function closeImageModal(){
 
-document.getElementById("imageModal").style.display="none";
+document.getElementById(
+"imageModal"
+).style.display="none";
 
-document.getElementById("modalImage").src="";
+document.getElementById(
+"modalImage"
+).src="";
+
 }
 
 function updateChatBadge(count){
 
 const badge=
-document.getElementById("chatNavBadge");
+document.getElementById(
+"chatNavBadge"
+);
 
 if(count>0){
 
 badge.style.display="flex";
 
 badge.textContent=
-count>99?"99+":count;
+count>99
+?"99+"
+:count;
 
 }else{
 
 badge.style.display="none";
 
 }
+
 }
 
 function formatTime(value){
@@ -3291,10 +3879,19 @@ if(!value)return"";
 
 const d=new Date(value);
 
-if(isNaN(d.getTime()))return"";
+if(isNaN(d.getTime()))
+return"";
 
 return d.toLocaleString();
+
 }
+
+/*
+IMPORTANT CHAT FIX:
+Refresh every 30 seconds instead of
+rebuilding the active conversation
+every 10 seconds.
+*/
 
 function startChatRefresh(){
 
@@ -3315,7 +3912,7 @@ loadActiveConversation();
 
 }
 
-},10000);
+},30000);
 
 }
 
@@ -3336,4 +3933,4 @@ checkAdminSession();
 </script>
 
 </body>
-   </html>
+</html>
