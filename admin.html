@@ -16,6 +16,7 @@
 --blue:#2563eb;
 --red:#dc2626;
 --orange:#c2410c;
+--purple:#7c3aed;
 --dark:#17212b;
 --muted:#6b7280;
 --border:#e5e7eb;
@@ -26,7 +27,7 @@
 
 body{
 margin:0;
-padding:20px;
+padding:16px;
 font-family:Arial,Helvetica,sans-serif;
 background:
 radial-gradient(circle at top right,rgba(8,127,91,.08),transparent 30%),
@@ -35,36 +36,46 @@ var(--bg);
 color:#1f2937
 }
 
-.container{max-width:1200px;margin:auto}
+.container{
+max-width:1200px;
+margin:auto
+}
 
 .header{
 position:relative;
 overflow:hidden;
 background:linear-gradient(135deg,var(--green),var(--green-dark));
 color:white;
-padding:28px;
+padding:25px;
 border-radius:20px;
-margin-bottom:22px;
+margin-bottom:16px;
 box-shadow:0 10px 30px rgba(8,127,91,.2)
 }
 
-.header h1{margin:0 0 7px;font-size:28px}
-.header p{margin:0;opacity:.9}
+.header h1{
+margin:0 0 6px;
+font-size:27px
+}
+
+.header p{
+margin:0;
+opacity:.9
+}
 
 .header:after{
 content:"✈";
 position:absolute;
 right:25px;
-top:5px;
-font-size:80px;
+top:3px;
+font-size:75px;
 opacity:.1;
 transform:rotate(-15deg)
 }
 
 .card{
 background:rgba(255,255,255,.98);
-padding:22px;
-margin-bottom:20px;
+padding:20px;
+margin-bottom:16px;
 border-radius:18px;
 box-shadow:var(--shadow);
 border:1px solid rgba(229,231,235,.8)
@@ -72,54 +83,49 @@ border:1px solid rgba(229,231,235,.8)
 
 h2{
 color:var(--green);
-margin:0 0 18px;
-font-size:21px
+margin:0 0 15px;
+font-size:20px
 }
 
-h3{margin-top:0;color:var(--green)}
-
-.section-title{
-display:flex;
-align-items:center;
-gap:9px;
-margin:4px 0 15px;
-color:#374151;
-font-size:17px;
-font-weight:bold
+h3{
+margin-top:0;
+color:var(--green)
 }
 
-.section-title span{
-width:35px;
-height:35px;
+button{
+border:none;
 border-radius:10px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-background:var(--green-soft);
-font-size:18px
-}
-
-.form-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px
-}
-
-.full{grid-column:1/-1}
-
-.field{margin-bottom:2px}
-
-label{
-display:block;
-margin-bottom:7px;
-font-weight:bold;
+padding:11px 16px;
 font-size:14px;
-color:#374151
+cursor:pointer;
+background:var(--green);
+color:white;
+margin-right:6px;
+margin-bottom:6px;
+transition:.15s
 }
+
+button:hover{
+opacity:.92;
+transform:translateY(-1px)
+}
+
+button:disabled{
+opacity:.5;
+cursor:not-allowed
+}
+
+.logout-btn{background:#64748b}
+.edit-btn{background:var(--blue)}
+.delete-btn{background:var(--red)}
+.approve-btn{background:var(--green)}
+.decline-btn{background:var(--red)}
+.secondary-btn{background:#475569}
+.shop-btn{background:var(--purple)}
 
 input,select,textarea{
 width:100%;
-padding:12px 13px;
+padding:12px;
 border:1px solid #d1d5db;
 border-radius:10px;
 font-size:15px;
@@ -133,51 +139,41 @@ min-height:90px;
 resize:vertical
 }
 
-input:focus,select:focus,textarea:focus{
+input:focus,
+select:focus,
+textarea:focus{
 outline:none;
 border-color:var(--green);
 box-shadow:0 0 0 3px rgba(8,127,91,.1)
 }
 
-button{
-border:none;
-border-radius:10px;
-padding:11px 17px;
-font-size:15px;
-cursor:pointer;
-background:var(--green);
-color:white;
-margin-right:6px;
-transition:.15s
+label{
+display:block;
+margin-bottom:7px;
+font-weight:bold;
+font-size:13px;
+color:#374151
 }
 
-button:hover{
-opacity:.92;
-transform:translateY(-1px)
+.field{
+margin-bottom:13px
 }
 
-button:disabled{
-opacity:.5;
-cursor:not-allowed;
-transform:none
+.form-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px
 }
 
-.logout-btn{background:#6b7280}
-.edit-btn{background:var(--blue)}
-.delete-btn,.decline-btn{background:var(--red)}
-.approve-btn{background:var(--green)}
-.secondary-btn{background:#475569}
-.shop-btn{background:#7c3aed}
-
-.form-section{
-padding:18px;
-margin-bottom:18px;
-border-radius:14px;
-background:#fbfdfc;
-border:1px solid #e5eee9
+.full{
+grid-column:1/-1
 }
 
-.result{margin-top:12px;font-weight:bold}
+.result{
+margin-top:12px;
+font-weight:bold
+}
+
 .success{color:var(--green)}
 .error{color:var(--red)}
 
@@ -187,12 +183,19 @@ padding:30px;
 color:var(--muted)
 }
 
-/* NAV */
+/* LOGIN */
+
+.login-card{
+max-width:500px;
+margin:40px auto
+}
+
+/* TOP NAV */
 
 .admin-nav{
 display:flex;
 gap:8px;
-margin-bottom:20px;
+margin-bottom:16px;
 background:white;
 padding:8px;
 border-radius:14px;
@@ -205,7 +208,8 @@ overflow:auto
 white-space:nowrap;
 background:transparent;
 color:#475569;
-margin:0
+margin:0;
+border-radius:9px
 }
 
 .nav-btn:hover{
@@ -226,9 +230,9 @@ position:relative
 .nav-chat-badge{
 position:absolute;
 right:1px;
-top:1px;
-min-width:17px;
-height:17px;
+top:-3px;
+min-width:18px;
+height:18px;
 padding:0 5px;
 background:#dc2626;
 color:white;
@@ -240,82 +244,276 @@ justify-content:center;
 font-weight:bold
 }
 
-/* GENERAL SECTIONS */
+/* MAIN SECTIONS */
 
-.admin-section{display:none}
-.admin-section.active{display:block}
+.admin-section{
+display:none
+}
+
+.admin-section.active{
+display:block
+}
+
+/* ACCORDIONS */
+
+.accordion{
+border:1px solid var(--border);
+border-radius:14px;
+overflow:hidden;
+margin-bottom:12px;
+background:white
+}
+
+.accordion-header{
+width:100%;
+margin:0;
+padding:16px;
+background:white;
+color:#1f2937;
+display:flex;
+align-items:center;
+justify-content:space-between;
+text-align:left;
+font-weight:bold;
+font-size:15px;
+border-radius:0
+}
+
+.accordion-header:hover{
+background:#f8faf9;
+transform:none
+}
+
+.accordion-header.open{
+background:var(--green-soft);
+color:var(--green)
+}
+
+.accordion-title{
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.accordion-icon{
+width:36px;
+height:36px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+background:#f1f5f9;
+font-size:18px
+}
+
+.accordion-header.open .accordion-icon{
+background:white
+}
+
+.accordion-arrow{
+font-size:18px;
+transition:.2s
+}
+
+.accordion-header.open .accordion-arrow{
+transform:rotate(180deg)
+}
+
+.accordion-body{
+display:none;
+padding:18px;
+border-top:1px solid var(--border);
+background:#fbfdfc
+}
+
+.accordion-body.open{
+display:block
+}
+
+/* FORM SECTIONS */
+
+.form-section{
+padding:16px;
+margin-bottom:15px;
+border-radius:13px;
+background:white;
+border:1px solid #e5eee9
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:8px;
+margin:0 0 14px;
+color:#374151;
+font-size:16px;
+font-weight:bold
+}
+
+.section-title span{
+width:34px;
+height:34px;
+border-radius:9px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+background:var(--green-soft)
+}
+
+/* SHIPMENTS */
+
+.shipment-card{
+border:1px solid var(--border);
+padding:17px;
+margin-bottom:12px;
+border-radius:14px;
+background:linear-gradient(145deg,#fff,#fafcfb)
+}
+
+.shipment-card strong{
+font-size:18px;
+color:var(--green)
+}
+
+.shipment-info{
+line-height:1.8;
+margin-top:10px;
+font-size:14px
+}
+
+.button-row{
+margin-top:14px
+}
+
+.status-badge{
+display:inline-block;
+padding:5px 9px;
+border-radius:20px;
+font-size:11px;
+font-weight:bold;
+margin-left:5px
+}
+
+.pending{
+background:#fff7ed;
+color:#c2410c
+}
+
+.approved{
+background:#ecfdf5;
+color:#047857
+}
+
+.declined{
+background:#fef2f2;
+color:#b91c1c
+}
+
+.divider{
+height:1px;
+background:var(--border);
+margin:20px 0
+}
 
 /* SHOP */
+
+.shop-stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-bottom:15px
+}
+
+.stat-box{
+padding:15px;
+border-radius:13px;
+background:white;
+border:1px solid #e5eee9
+}
+
+.stat-box strong{
+display:block;
+font-size:23px;
+color:var(--green);
+margin-top:5px
+}
+
+.currency-note{
+padding:10px 13px;
+border-radius:10px;
+background:#eff6ff;
+border:1px solid #bfdbfe;
+color:#1e40af;
+font-size:13px;
+margin-bottom:15px
+}
 
 .shop-toolbar{
 display:flex;
 gap:10px;
 align-items:center;
 justify-content:space-between;
-margin-bottom:18px;
+margin-bottom:15px;
 flex-wrap:wrap
 }
 
-.shop-toolbar input{max-width:400px}
+.shop-toolbar input{
+max-width:400px
+}
 
 .product-card{
 border:1px solid var(--border);
-border-radius:16px;
+border-radius:15px;
 overflow:hidden;
 background:white;
-margin-bottom:15px;
+margin-bottom:12px;
 display:grid;
-grid-template-columns:150px 1fr;
+grid-template-columns:140px 1fr;
 box-shadow:0 5px 18px rgba(0,0,0,.04)
 }
 
 .product-image{
-width:150px;
-height:150px;
+width:140px;
+height:140px;
 object-fit:cover;
 background:#f1f5f9
 }
 
-.product-content{padding:17px}
-
-.product-top{
-display:flex;
-justify-content:space-between;
-gap:10px;
-align-items:flex-start
+.product-content{
+padding:15px
 }
 
 .product-name{
-font-size:18px;
+font-size:17px;
 font-weight:bold;
 color:#17212b
 }
 
 .product-price{
-font-size:19px;
+font-size:18px;
 font-weight:bold;
 color:var(--green);
-margin-top:7px
+margin-top:6px
 }
 
 .product-description{
 color:#64748b;
 font-size:13px;
 line-height:1.5;
-margin:9px 0
+margin:8px 0
 }
 
 .product-meta{
 display:flex;
-gap:7px;
+gap:6px;
 flex-wrap:wrap;
-margin:10px 0
+margin:9px 0
 }
 
 .product-tag{
-padding:5px 9px;
+padding:5px 8px;
 border-radius:20px;
-font-size:11px;
+font-size:10px;
 font-weight:bold;
 background:#f1f5f9;
 color:#475569
@@ -341,132 +539,16 @@ background:#fff7ed;
 color:#c2410c
 }
 
-.product-actions{margin-top:12px}
-
-.shop-stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px;
-margin-bottom:18px
-}
-
-.stat-box{
-padding:17px;
-border-radius:14px;
-background:#fbfdfc;
-border:1px solid #e5eee9
-}
-
-.stat-box strong{
-display:block;
-font-size:24px;
-color:var(--green);
-margin-top:5px
-}
-
-.currency-note{
-padding:10px 13px;
-border-radius:10px;
-background:#eff6ff;
-border:1px solid #bfdbfe;
-color:#1e40af;
-font-size:13px;
-margin-bottom:15px
-}
-
-/* SHIPMENTS */
-
-.shipment-card{
-border:1px solid var(--border);
-padding:18px;
-margin-bottom:13px;
-border-radius:14px;
-background:linear-gradient(145deg,#fff,#fafcfb)
-}
-
-.shipment-card strong{
-font-size:19px;
-color:var(--green)
-}
-
-.shipment-info{
-line-height:1.8;
-margin-top:10px;
-font-size:14px
-}
-
-.button-row{margin-top:15px}
-
-.status-badge{
-display:inline-block;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-margin-left:6px
-}
-
-.pending{background:#fff7ed;color:#c2410c}
-.approved{background:#ecfdf5;color:#047857}
-.declined{background:#fef2f2;color:#b91c1c}
-
-.tracking-box{
-background:#eff6ff;
-border:1px solid #bfdbfe;
-padding:13px;
-border-radius:10px;
-margin-top:13px
-}
-
-.divider{
-height:1px;
-background:var(--border);
-margin:20px 0
-}
-
 /* CHAT */
-
-.chat-section{display:none}
-.chat-section.active{display:block}
-
-.chat-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:15px;
-margin-bottom:16px
-}
-
-.chat-header-title{
-display:flex;
-align-items:center;
-gap:12px
-}
-
-.chat-icon{
-width:48px;
-height:48px;
-border-radius:14px;
-background:linear-gradient(135deg,var(--green),#0b9d70);
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:23px
-}
-
-.chat-header h2{margin:0 0 4px}
-.chat-header p{margin:0;color:var(--muted);font-size:13px}
 
 .chat-layout{
 display:grid;
-grid-template-columns:320px 1fr;
+grid-template-columns:310px 1fr;
 height:650px;
 border:1px solid var(--border);
-border-radius:18px;
+border-radius:16px;
 overflow:hidden;
-background:white;
-box-shadow:0 8px 28px rgba(0,0,0,.06)
+background:white
 }
 
 .conversation-panel{
@@ -474,26 +556,29 @@ border-right:1px solid var(--border);
 background:#fbfdfc;
 display:flex;
 flex-direction:column;
-min-height:0
+min-width:0
 }
 
 .conversation-top{
-padding:17px;
-border-bottom:1px solid var(--border);
-flex-shrink:0
+padding:15px;
+border-bottom:1px solid var(--border)
 }
 
 .conversation-top h3{
-margin:0 0 12px
+margin:0 0 10px
 }
 
-.chat-search{position:relative}
+.chat-search{
+position:relative
+}
 
-.chat-search input{padding-left:39px}
+.chat-search input{
+padding-left:38px
+}
 
 .chat-search span{
 position:absolute;
-left:13px;
+left:12px;
 top:50%;
 transform:translateY(-50%);
 color:#94a3b8
@@ -501,36 +586,35 @@ color:#94a3b8
 
 .conversation-list{
 flex:1;
-overflow-y:auto;
-overflow-x:hidden;
-min-height:0;
--webkit-overflow-scrolling:touch
+overflow-y:auto
 }
 
 .conversation-item{
-padding:15px;
+padding:13px;
 border-bottom:1px solid #edf0ef;
 cursor:pointer
 }
 
-.conversation-item:hover{background:#f1f8f5}
+.conversation-item:hover{
+background:#f1f8f5
+}
 
 .conversation-item.active{
 background:#e7f7f1;
 border-left:4px solid var(--green);
-padding-left:11px
+padding-left:9px
 }
 
 .conversation-row{
 display:flex;
-gap:11px;
+gap:10px;
 align-items:center
 }
 
 .avatar{
-width:43px;
-height:43px;
-flex:0 0 43px;
+width:42px;
+height:42px;
+flex:0 0 42px;
 border-radius:50%;
 background:linear-gradient(135deg,#dff6ed,#bcebd9);
 color:var(--green-dark);
@@ -547,8 +631,7 @@ flex:1
 
 .conversation-name{
 font-weight:bold;
-font-size:14px;
-color:#1f2937
+font-size:14px
 }
 
 .customer-id{
@@ -571,27 +654,18 @@ text-overflow:ellipsis
 display:flex;
 flex-direction:column;
 align-items:flex-end;
-gap:5px
+gap:4px
 }
 
 .conversation-time{
 color:#94a3b8;
-font-size:10px;
-white-space:nowrap
-}
-
-.no-conversations{
-padding:35px 20px;
-text-align:center;
-color:var(--muted);
-font-size:13px
+font-size:9px
 }
 
 .chat-window{
 display:flex;
 flex-direction:column;
 min-width:0;
-min-height:0;
 background:#f8faf9
 }
 
@@ -606,49 +680,31 @@ color:var(--muted)
 }
 
 .chat-empty-icon{
-width:80px;
-height:80px;
-border-radius:25px;
-margin:0 auto 18px;
+width:75px;
+height:75px;
+border-radius:23px;
+margin:0 auto 15px;
 background:var(--green-soft);
 color:var(--green);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:36px
+font-size:34px
 }
 
 .active-chat-header{
 display:none;
 align-items:center;
 justify-content:space-between;
-gap:10px;
-padding:15px 18px;
+padding:13px 16px;
 background:white;
-border-bottom:1px solid var(--border);
-flex-shrink:0
+border-bottom:1px solid var(--border)
 }
 
 .active-chat-user{
 display:flex;
 align-items:center;
-gap:11px;
-min-width:0
-}
-
-.online-status{
-color:var(--green);
-font-size:11px;
-margin-top:3px
-}
-
-.online-dot{
-display:inline-block;
-width:7px;
-height:7px;
-border-radius:50%;
-background:#16a34a;
-margin-right:4px
+gap:10px
 }
 
 .active-customer-id{
@@ -658,13 +714,28 @@ font-family:monospace;
 margin-top:3px
 }
 
+.online-status{
+color:var(--green);
+font-size:10px;
+margin-top:2px
+}
+
+.online-dot{
+display:inline-block;
+width:6px;
+height:6px;
+border-radius:50%;
+background:#16a34a;
+margin-right:3px
+}
+
 .message-area{
 flex:1;
-padding:22px;
+padding:18px;
 overflow-y:auto;
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:9px;
 min-height:0
 }
 
@@ -673,14 +744,18 @@ display:flex;
 width:100%
 }
 
-.message-row.customer{justify-content:flex-start}
-.message-row.admin{justify-content:flex-end}
+.message-row.customer{
+justify-content:flex-start
+}
+
+.message-row.admin{
+justify-content:flex-end
+}
 
 .message-bubble{
 max-width:min(75%,500px);
-padding:11px 13px;
-border-radius:16px;
-position:relative;
+padding:10px 12px;
+border-radius:15px;
 word-wrap:break-word;
 box-shadow:0 2px 6px rgba(0,0,0,.04)
 }
@@ -705,44 +780,43 @@ white-space:pre-wrap
 
 .message-time{
 font-size:9px;
-margin-top:5px;
+margin-top:4px;
 opacity:.65;
 text-align:right
 }
 
 .message-composer{
 display:none;
-padding:12px 15px;
+padding:10px 12px;
 background:white;
-border-top:1px solid var(--border);
-flex-shrink:0
+border-top:1px solid var(--border)
 }
 
 .composer-row{
 display:flex;
 align-items:flex-end;
-gap:8px
+gap:7px
 }
 
 .composer-row textarea{
 flex:1;
-min-height:45px;
-max-height:120px;
+min-height:44px;
+max-height:110px;
 resize:none;
-border-radius:14px
+border-radius:13px
 }
 
 .icon-button{
-width:45px;
-height:45px;
-flex:0 0 45px;
+width:43px;
+height:43px;
+flex:0 0 43px;
 padding:0;
 margin:0;
-border-radius:13px;
+border-radius:12px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:18px
+font-size:17px
 }
 
 .attach-button{
@@ -750,48 +824,26 @@ background:#eef2f1;
 color:#475569
 }
 
-.send-button{background:var(--green)}
+.send-button{
+background:var(--green)
+}
 
-.hidden-file{display:none}
+.hidden-file{
+display:none
+}
 
 .chat-loading{
 text-align:center;
-padding:35px;
-color:var(--muted)
+padding:30px;
+color:var(--muted);
+font-size:13px
 }
 
-/* MODAL */
-
-.image-modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:9999;
-background:rgba(0,0,0,.82);
-align-items:center;
-justify-content:center;
-padding:20px
-}
-
-.image-modal.show{display:flex}
-
-.image-modal img{
-max-width:95vw;
-max-height:90vh;
-border-radius:12px
-}
-
-.close-image{
-position:absolute;
-top:18px;
-right:20px;
-width:42px;
-height:42px;
-padding:0;
-margin:0;
-border-radius:50%;
-background:rgba(255,255,255,.15);
-font-size:20px
+.no-conversations{
+padding:30px 15px;
+text-align:center;
+color:var(--muted);
+font-size:13px
 }
 
 /* RESPONSIVE */
@@ -804,13 +856,21 @@ height:760px
 }
 
 .conversation-panel{
-height:300px;
+height:260px;
 border-right:none;
 border-bottom:1px solid var(--border)
 }
 
 .conversation-list{
-overflow-y:auto
+display:flex;
+overflow-x:auto;
+overflow-y:hidden
+}
+
+.conversation-item{
+min-width:235px;
+border-right:1px solid #edf0ef;
+border-bottom:none
 }
 
 .shop-stats{
@@ -821,21 +881,37 @@ grid-template-columns:repeat(2,1fr)
 
 @media(max-width:700px){
 
-body{padding:12px}
+body{
+padding:10px
+}
 
-.header,.card{padding:16px}
+.header{
+padding:20px
+}
+
+.header h1{
+font-size:22px
+}
+
+.card{
+padding:14px
+}
 
 .form-grid{
 grid-template-columns:1fr
 }
 
-.full{grid-column:auto}
+.full{
+grid-column:auto
+}
 
-.header h1{font-size:23px}
+button{
+font-size:13px
+}
 
-button{margin-bottom:8px}
-
-.message-area{padding:15px}
+.shop-stats{
+grid-template-columns:1fr 1fr
+}
 
 .product-card{
 grid-template-columns:1fr
@@ -846,24 +922,32 @@ width:100%;
 height:190px
 }
 
-.shop-stats{
-grid-template-columns:1fr 1fr
+.shop-toolbar input{
+max-width:none
 }
 
 .chat-layout{
 height:780px
 }
 
-.active-chat-header{
-align-items:flex-start
+.message-bubble{
+max-width:85%
 }
 
-.active-chat-header>div:last-child{
-display:flex;
-flex-wrap:wrap;
-justify-content:flex-end
+.conversation-panel{
+height:245px
 }
 
+}
+
+/* CONFIRM / DELETE CHAT */
+
+.danger-zone{
+margin-top:15px;
+padding:12px;
+border:1px solid #fecaca;
+background:#fef2f2;
+border-radius:10px
 }
 </style>
 </head>
@@ -872,15 +956,16 @@ justify-content:flex-end
 
 <div class="container">
 
+<!-- HEADER -->
+
 <div class="header">
 <h1>🚚 Greenway Express</h1>
 <p>Professional Admin Dashboard</p>
 </div>
 
-
 <!-- LOGIN -->
 
-<div class="card" id="loginCard">
+<div class="card login-card" id="loginCard">
 
 <h2>🔐 Admin Login</h2>
 
@@ -889,14 +974,10 @@ justify-content:flex-end
 <input type="email" id="adminEmail" placeholder="Your email">
 </div>
 
-<br>
-
 <div class="field">
 <label>Password</label>
 <input type="password" id="adminPassword" placeholder="Your password">
 </div>
-
-<br>
 
 <button type="button" onclick="adminLogin()">Login</button>
 
@@ -907,7 +988,9 @@ justify-content:flex-end
 
 <!-- ADMIN -->
 
-<div id="adminTools" style="display:none;">
+<div id="adminTools" style="display:none">
+
+<!-- NAV -->
 
 <div class="admin-nav">
 
@@ -934,28 +1017,55 @@ type="button"
 class="nav-btn"
 id="chatNav"
 onclick="showAdminSection('chat')">
-💬 Customer Chat
+💬 Chat
 </button>
 
-<span class="nav-chat-badge" id="chatNavBadge">0</span>
+<span
+class="nav-chat-badge"
+id="chatNavBadge">
+0
+</span>
 
 </div>
 
 </div>
 
 
-<!-- SHIPMENTS -->
+<!-- ================= SHIPMENTS ================= -->
 
-<div id="shipmentsSection" class="admin-section active">
+<div
+id="shipmentsSection"
+class="admin-section active">
 
 <div class="card">
 
-<h2>📦 Create New Shipment</h2>
+<h2>📦 Shipment Management</h2>
+
+<!-- CREATE SHIPMENT -->
+
+<div class="accordion">
+
+<button
+type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
+
+<span class="accordion-title">
+<span class="accordion-icon">➕</span>
+Create New Shipment
+</span>
+
+<span class="accordion-arrow">▼</span>
+
+</button>
+
+<div class="accordion-body">
 
 <div class="form-section">
 
 <div class="section-title">
-<span>🚚</span> Shipment Information
+<span>🚚</span>
+Shipment Information
 </div>
 
 <div class="form-grid">
@@ -1003,7 +1113,8 @@ onclick="showAdminSection('chat')">
 <div class="form-section">
 
 <div class="section-title">
-<span>👤</span> Sender Details
+<span>👤</span>
+Sender Details
 </div>
 
 <div class="form-grid">
@@ -1030,7 +1141,8 @@ onclick="showAdminSection('chat')">
 <div class="form-section">
 
 <div class="section-title">
-<span>📍</span> Receiver Details
+<span>📍</span>
+Receiver Details
 </div>
 
 <div class="form-grid">
@@ -1057,14 +1169,14 @@ onclick="showAdminSection('chat')">
 <div class="form-section">
 
 <div class="section-title">
-<span>📦</span> Package Details
+<span>📦</span>
+Package Details
 </div>
 
 <div class="form-grid">
 
 <div class="field">
 <label>Package Type</label>
-
 <select id="newPackageType">
 <option value="">Select package type</option>
 <option>Parcel</option>
@@ -1078,7 +1190,11 @@ onclick="showAdminSection('chat')">
 
 <div class="field">
 <label>Package Weight (kg)</label>
-<input type="number" id="newPackageWeight" min="0" step=".01">
+<input
+type="number"
+id="newPackageWeight"
+min="0"
+step=".01">
 </div>
 
 <div class="field full">
@@ -1088,7 +1204,6 @@ onclick="showAdminSection('chat')">
 
 <div class="field">
 <label>Service Type</label>
-
 <select id="newServiceType">
 <option value="">Select service type</option>
 <option>Standard Delivery</option>
@@ -1099,7 +1214,12 @@ onclick="showAdminSection('chat')">
 
 <div class="field">
 <label>Order Total — USD</label>
-<input type="number" id="newOrderTotal" min="0" step=".01" placeholder="0.00">
+<input
+type="number"
+id="newOrderTotal"
+min="0"
+step=".01"
+placeholder="0.00">
 </div>
 
 <div class="field full">
@@ -1119,7 +1239,8 @@ onclick="showAdminSection('chat')">
 <div class="form-section">
 
 <div class="section-title">
-<span>🛡️</span> Service Approval
+<span>🛡️</span>
+Service Approval
 </div>
 
 <div class="field">
@@ -1130,9 +1251,8 @@ onclick="showAdminSection('chat')">
 <option>Approved</option>
 <option>Declined</option>
 </select>
-</div>
 
-<br>
+</div>
 
 <div class="field">
 <label>Decline Reason</label>
@@ -1141,62 +1261,107 @@ onclick="showAdminSection('chat')">
 
 </div>
 
-<button type="button" onclick="createShipment()">
-+ Create Shipment
+<button
+type="button"
+onclick="createShipment()">
+➕ Create Shipment
 </button>
 
 <p id="createResult" class="result"></p>
 
 </div>
-
-
-<div class="card">
-
-<h2>📋 All Shipments</h2>
-
-<div id="allShipments">Loading shipments...</div>
-
 </div>
 
 
-<div class="card">
+<!-- ALL SHIPMENTS -->
 
-<h2>🔎 Shipment Management</h2>
-
-<input
-id="trackingNumber"
-placeholder="Enter tracking number">
-
-<br><br>
-
-<button type="button" onclick="findShipment()">
-Find Shipment
-</button>
+<div class="accordion">
 
 <button
 type="button"
-class="logout-btn"
-onclick="adminLogout()">
-🚪 Logout
+class="accordion-header"
+onclick="toggleAccordion(this)">
+
+<span class="accordion-title">
+<span class="accordion-icon">📋</span>
+All Shipments
+</span>
+
+<span class="accordion-arrow">▼</span>
+
+</button>
+
+<div class="accordion-body">
+
+<button
+type="button"
+onclick="loadAllShipments()">
+🔄 Refresh Shipments
+</button>
+
+<div id="allShipments">
+Loading shipments...
+</div>
+
+</div>
+</div>
+
+
+<!-- FIND SHIPMENT -->
+
+<div class="accordion">
+
+<button
+type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
+
+<span class="accordion-title">
+<span class="accordion-icon">🔎</span>
+Shipment Management
+</span>
+
+<span class="accordion-arrow">▼</span>
+
+</button>
+
+<div class="accordion-body">
+
+<div class="field">
+<label>Tracking Number</label>
+<input
+id="trackingNumber"
+placeholder="Enter tracking number">
+</div>
+
+<button
+type="button"
+onclick="findShipment()">
+🔎 Find Shipment
 </button>
 
 <div id="shipmentResult"></div>
 
 </div>
-
 </div>
 
 
-<!-- SHOP -->
+</div>
+</div>
 
-<div id="shopSection" class="admin-section">
+
+<!-- ================= SHOP ================= -->
+
+<div
+id="shopSection"
+class="admin-section">
 
 <div class="card">
 
 <h2>🛍️ Shop Management</h2>
 
 <div class="currency-note">
-💵 All shop prices are displayed and stored in <strong>US Dollars (USD)</strong>.
+💵 Shop prices are displayed and stored in <strong>US Dollars (USD)</strong>.
 </div>
 
 <div class="shop-stats">
@@ -1223,29 +1388,48 @@ Low Stock
 
 </div>
 
-</div>
 
+<!-- ADD PRODUCT -->
 
-<div class="card">
+<div class="accordion">
 
-<h2>➕ Add Product / Asset</h2>
+<button
+type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
+
+<span class="accordion-title">
+<span class="accordion-icon">➕</span>
+Add Product / Asset
+</span>
+
+<span class="accordion-arrow">▼</span>
+
+</button>
+
+<div class="accordion-body">
 
 <div class="form-section">
 
 <div class="section-title">
-<span>🛍️</span> Product Information
+<span>🛍️</span>
+Product Information
 </div>
 
 <div class="form-grid">
 
 <div class="field">
 <label>Product Name</label>
-<input id="shopName" placeholder="Product or asset name">
+<input
+id="shopName"
+placeholder="Product or asset name">
 </div>
 
 <div class="field">
 <label>Category</label>
-<input id="shopCategory" placeholder="e.g. Electronics">
+<input
+id="shopCategory"
+placeholder="e.g. Electronics">
 </div>
 
 <div class="field">
@@ -1289,62 +1473,88 @@ placeholder="Describe the product or asset"></textarea>
 <option value="true">Visible to Customers</option>
 <option value="false">Hidden from Customers</option>
 </select>
-</div>
 
 </div>
 
 </div>
+</div>
 
-<button type="button" onclick="addShopProduct()">
+<button
+type="button"
+onclick="addShopProduct()">
 ➕ Add to Shop
 </button>
 
 <p id="shopResult" class="result"></p>
 
 </div>
+</div>
 
 
-<div class="card">
+<!-- PRODUCTS -->
+
+<div class="accordion">
+
+<button
+type="button"
+class="accordion-header"
+onclick="toggleAccordion(this)">
+
+<span class="accordion-title">
+<span class="accordion-icon">📋</span>
+Shop Products
+</span>
+
+<span class="accordion-arrow">▼</span>
+
+</button>
+
+<div class="accordion-body">
 
 <div class="shop-toolbar">
 
-<h2 style="margin:0">
-📋 Shop Products
-</h2>
+<strong>Products / Assets</strong>
 
 <input
 id="shopSearch"
 placeholder="Search products..."
-oninput="filterShopProducts()">
+oninput="filterShopProducts">
 
 </div>
+
+<button
+type="button"
+onclick="loadShopProducts()">
+🔄 Refresh Products
+</button>
 
 <div id="shopProducts">
 Loading products...
 </div>
 
 </div>
-
 </div>
 
 
-<!-- CUSTOMER CHAT -->
+</div>
+</div>
 
-<div id="chatSection" class="chat-section">
+
+<!-- ================= CHAT ================= -->
+
+<div
+id="chatSection"
+class="admin-section">
 
 <div class="card">
 
-<div class="chat-header">
-
-<div class="chat-header-title">
-
-<div class="chat-icon">💬</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
 
 <div>
-<h2>Customer Support</h2>
-<p>Manage customer conversations and support requests</p>
-</div>
-
+<h2 style="margin-bottom:4px">💬 Customer Support</h2>
+<p style="margin:0;color:#6b7280;font-size:13px">
+Manage customer conversations and support requests.
+</p>
 </div>
 
 <button
@@ -1355,6 +1565,7 @@ onclick="loadConversations()">
 
 </div>
 
+<br>
 
 <div class="chat-layout">
 
@@ -1362,7 +1573,7 @@ onclick="loadConversations()">
 
 <div class="conversation-top">
 
-<h3>Customers</h3>
+<h3>Conversations</h3>
 
 <div class="chat-search">
 
@@ -1382,7 +1593,7 @@ class="conversation-list"
 id="conversationList">
 
 <div class="chat-loading">
-Loading customers...
+Loading conversations...
 </div>
 
 </div>
@@ -1392,11 +1603,15 @@ Loading customers...
 
 <main class="chat-window">
 
-<div class="chat-empty" id="chatEmpty">
+<div
+class="chat-empty"
+id="chatEmpty">
 
 <div>
 
-<div class="chat-empty-icon">💬</div>
+<div class="chat-empty-icon">
+💬
+</div>
 
 <h3>Customer Support Center</h3>
 
@@ -1413,7 +1628,11 @@ id="activeChatHeader">
 
 <div class="active-chat-user">
 
-<div class="avatar" id="activeChatAvatar">C</div>
+<div
+class="avatar"
+id="activeChatAvatar">
+C
+</div>
 
 <div>
 
@@ -1436,20 +1655,19 @@ Active conversation
 
 </div>
 
-
 <div>
-
-<button
-type="button"
-class="delete-btn"
-onclick="deleteActiveConversation()">
-🗑️ Delete Chat
-</button>
 
 <button
 type="button"
 onclick="loadActiveConversation()">
 🔄
+</button>
+
+<button
+type="button"
+class="delete-btn"
+onclick="deleteActiveConversation()">
+🗑️
 </button>
 
 </div>
@@ -1516,13 +1734,31 @@ onclick="sendChatMessage()">
 <!-- IMAGE MODAL -->
 
 <div
-class="image-modal"
 id="imageModal"
+style="
+display:none;
+position:fixed;
+inset:0;
+z-index:9999;
+background:rgba(0,0,0,.82);
+align-items:center;
+justify-content:center;
+padding:20px"
 onclick="closeImageModal()">
 
 <button
 type="button"
-class="close-image"
+style="
+position:absolute;
+top:18px;
+right:20px;
+width:42px;
+height:42px;
+padding:0;
+margin:0;
+border-radius:50%;
+background:rgba(255,255,255,.15);
+font-size:20px"
 onclick="closeImageModal()">
 ✕
 </button>
@@ -1531,6 +1767,7 @@ onclick="closeImageModal()">
 id="modalImage"
 src=""
 alt="Chat image"
+style="max-width:95vw;max-height:90vh;border-radius:12px"
 onclick="event.stopPropagation()">
 
 </div>
@@ -1570,6 +1807,20 @@ return escapeHtml(value);
 }
 
 
+/* ================= ACCORDION ================= */
+
+function toggleAccordion(header){
+
+const body=header.nextElementSibling;
+
+const isOpen=body.classList.contains("open");
+
+body.classList.toggle("open",!isOpen);
+header.classList.toggle("open",!isOpen);
+
+}
+
+
 /* ================= LOGIN ================= */
 
 function showAdminTools(){
@@ -1588,14 +1839,21 @@ document.getElementById("loginCard").style.display="block";
 
 async function adminLogin(){
 
-const email=document.getElementById("adminEmail").value.trim();
-const password=document.getElementById("adminPassword").value;
-const result=document.getElementById("loginResult");
+const email=document
+.getElementById("adminEmail")
+.value
+.trim();
+
+const password=document
+.getElementById("adminPassword")
+.value;
+
+const result=document
+.getElementById("loginResult");
 
 if(!email||!password){
 
 result.textContent="Please enter your email and password.";
-
 return;
 
 }
@@ -1610,9 +1868,7 @@ password
 if(error){
 
 result.textContent="Login failed: "+error.message;
-
 hideAdminTools();
-
 return;
 
 }
@@ -1636,7 +1892,6 @@ const {data,error}=await supabaseClient.auth.getSession();
 if(error||!data.session){
 
 hideAdminTools();
-
 return;
 
 }
@@ -1674,19 +1929,19 @@ document.getElementById("adminPassword").value="";
 
 function showAdminSection(section){
 
-document.querySelectorAll(".admin-section").forEach(x=>{
-x.classList.remove("active");
-});
+document.querySelectorAll(".admin-section")
+.forEach(x=>x.classList.remove("active"));
 
-document.querySelectorAll(".nav-btn").forEach(x=>{
-x.classList.remove("active");
-});
-
+document.querySelectorAll(".nav-btn")
+.forEach(x=>x.classList.remove("active"));
 
 if(section==="shop"){
 
-document.getElementById("shopSection").classList.add("active");
-document.getElementById("shopNav").classList.add("active");
+document.getElementById("shopSection")
+.classList.add("active");
+
+document.getElementById("shopNav")
+.classList.add("active");
 
 loadShopProducts();
 
@@ -1694,8 +1949,11 @@ loadShopProducts();
 
 else if(section==="chat"){
 
-document.getElementById("chatSection").classList.add("active");
-document.getElementById("chatNav").classList.add("active");
+document.getElementById("chatSection")
+.classList.add("active");
+
+document.getElementById("chatNav")
+.classList.add("active");
 
 loadConversations();
 
@@ -1703,8 +1961,11 @@ loadConversations();
 
 else{
 
-document.getElementById("shipmentsSection").classList.add("active");
-document.getElementById("shipmentsNav").classList.add("active");
+document.getElementById("shipmentsSection")
+.classList.add("active");
+
+document.getElementById("shipmentsNav")
+.classList.add("active");
 
 }
 
@@ -1715,10 +1976,17 @@ document.getElementById("shipmentsNav").classList.add("active");
 
 async function createShipment(){
 
-const trackingNumber=document.getElementById("newTrackingNumber").value.trim();
-const status=document.getElementById("newStatus").value;
-const origin=document.getElementById("newOrigin").value.trim();
-const destination=document.getElementById("newDestination").value.trim();
+const trackingNumber=
+document.getElementById("newTrackingNumber").value.trim();
+
+const status=
+document.getElementById("newStatus").value;
+
+const origin=
+document.getElementById("newOrigin").value.trim();
+
+const destination=
+document.getElementById("newDestination").value.trim();
 
 if(!trackingNumber||!origin||!destination){
 
@@ -1765,7 +2033,8 @@ document.getElementById("newOrderItems").value.trim()||null,
 
 order_total:
 document.getElementById("newOrderTotal").value===""
-?null:Number(document.getElementById("newOrderTotal").value),
+?null
+:Number(document.getElementById("newOrderTotal").value),
 
 package_description:
 document.getElementById("newPackageDescription").value.trim()||null,
@@ -1775,7 +2044,8 @@ document.getElementById("newPackageType").value||null,
 
 package_weight:
 document.getElementById("newPackageWeight").value===""
-?null:Number(document.getElementById("newPackageWeight").value),
+?null
+:Number(document.getElementById("newPackageWeight").value),
 
 service_type:
 document.getElementById("newServiceType").value||null,
@@ -1811,6 +2081,7 @@ await loadAllShipments();
 
 }
 
+
 async function loadAllShipments(){
 
 const container=document.getElementById("allShipments");
@@ -1825,7 +2096,7 @@ const {data,error}=await supabaseClient
 if(error){
 
 container.innerHTML=
-"Failed to load shipments: "+error.message;
+"Failed to load shipments: "+escapeHtml(error.message);
 
 return;
 
@@ -1935,6 +2206,7 @@ onclick="deleteShipment('${escapeAttribute(shipment.tracking_number)}')">
 
 }
 
+
 async function approveShipment(number){
 
 if(!confirm("Approve shipment "+number+"?"))return;
@@ -1950,7 +2222,6 @@ decline_reason:null
 if(error){
 
 alert("Approval failed: "+error.message);
-
 return;
 
 }
@@ -1960,6 +2231,7 @@ alert("Shipment approved successfully! ✅");
 loadAllShipments();
 
 }
+
 
 async function declineShipment(number){
 
@@ -1972,7 +2244,6 @@ if(reason===null)return;
 if(!reason.trim()){
 
 alert("Please enter a decline reason.");
-
 return;
 
 }
@@ -1988,7 +2259,6 @@ decline_reason:reason.trim()
 if(error){
 
 alert("Decline failed: "+error.message);
-
 return;
 
 }
@@ -1998,6 +2268,7 @@ alert("Shipment declined.");
 loadAllShipments();
 
 }
+
 
 async function deleteShipment(number){
 
@@ -2013,7 +2284,6 @@ const {error}=await supabaseClient
 if(error){
 
 alert("Delete failed: "+error.message);
-
 return;
 
 }
@@ -2025,450 +2295,19 @@ loadAllShipments();
 }
 
 
-/* ================= SHOP ================= */
-
-async function loadShopProducts(){
-
-const container=document.getElementById("shopProducts");
-
-container.innerHTML="Loading shop products...";
-
-const {data,error}=await supabaseClient
-.from("shop_products")
-.select("*")
-.order("created_at",{ascending:false});
-
-if(error){
-
-container.innerHTML=
-"Unable to load shop products: "+error.message;
-
-return;
-
-}
-
-allShopProducts=data||[];
-
-updateShopStats();
-
-renderShopProducts(allShopProducts);
-
-}
-
-function updateShopStats(){
-
-const total=allShopProducts.length;
-
-const visible=allShopProducts.filter(
-x=>x.visible!==false
-).length;
-
-const hidden=total-visible;
-
-const lowStock=allShopProducts.filter(
-x=>Number(x.stock||0)<=5
-).length;
-
-document.getElementById(
-"shopTotalProducts"
-).textContent=total;
-
-document.getElementById(
-"shopVisibleProducts"
-).textContent=visible;
-
-document.getElementById(
-"shopHiddenProducts"
-).textContent=hidden;
-
-document.getElementById(
-"shopLowStock"
-).textContent=lowStock;
-
-}
-
-function renderShopProducts(products){
-
-const container=document.getElementById("shopProducts");
-
-if(!products.length){
-
-container.innerHTML=
-'<div class="empty">🛍️ No products in the shop yet.</div>';
-
-return;
-
-}
-
-container.innerHTML=products.map(product=>{
-
-const visible=product.visible!==false;
-
-const stock=Number(product.stock||0);
-
-return `
-
-<div class="product-card">
-
-<img
-class="product-image"
-src="${escapeAttribute(
-product.image_url||
-"https://via.placeholder.com/300x300?text=Product"
-)}"
-alt="${escapeAttribute(product.name||"Product")}"
-onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
-
-<div class="product-content">
-
-<div class="product-top">
-
-<div>
-
-<div class="product-name">
-${escapeHtml(product.name||"Unnamed Product")}
-</div>
-
-<div class="product-price">
-$${Number(product.price||0).toFixed(2)}
-</div>
-
-</div>
-
-</div>
-
-<div class="product-description">
-${escapeHtml(product.description||"No description")}
-</div>
-
-<div class="product-meta">
-
-<span class="product-tag">
-${escapeHtml(product.category||"General")}
-</span>
-
-<span class="product-tag ${visible?"product-visible":"product-hidden"}">
-${visible?"Visible":"Hidden"}
-</span>
-
-<span class="product-tag ${stock<=5?"stock-low":"stock-good"}">
-Stock: ${stock}
-</span>
-
-</div>
-
-<div class="product-actions">
-
-<button
-class="edit-btn"
-onclick="editShopProduct('${escapeAttribute(product.id)}')">
-✏️ Edit
-</button>
-
-<button
-class="delete-btn"
-onclick="deleteShopProduct('${escapeAttribute(product.id)}')">
-🗑️ Delete
-</button>
-
-<button
-class="secondary-btn"
-onclick="toggleShopVisibility(
-'${escapeAttribute(product.id)}',
-${visible}
-)">
-${visible?"🙈 Hide":"👁️ Show"}
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-function filterShopProducts(){
-
-const query=document
-.getElementById("shopSearch")
-.value
-.toLowerCase()
-.trim();
-
-const filtered=allShopProducts.filter(product=>
-String(product.name||"")
-.toLowerCase()
-.includes(query)||
-
-String(product.category||"")
-.toLowerCase()
-.includes(query)||
-
-String(product.description||"")
-.toLowerCase()
-.includes(query)
-);
-
-renderShopProducts(filtered);
-
-}
-
-async function addShopProduct(){
-
-const name=document
-.getElementById("shopName")
-.value
-.trim();
-
-const price=document
-.getElementById("shopPrice")
-.value;
-
-if(!name||price===""){
-
-document.getElementById("shopResult").textContent=
-"Please enter a product name and price.";
-
-return;
-
-}
-
-const product={
-
-name,
-
-category:
-document.getElementById("shopCategory")
-.value
-.trim()||"General",
-
-price:Number(price),
-
-stock:
-Number(
-document.getElementById("shopStock")
-.value||0
-),
-
-image_url:
-document.getElementById("shopImage")
-.value
-.trim()||null,
-
-description:
-document.getElementById("shopDescription")
-.value
-.trim()||null,
-
-visible:
-document.getElementById("shopVisible")
-.value==="true"
-
-};
-
-const {error}=await supabaseClient
-.from("shop_products")
-.insert(product);
-
-if(error){
-
-document.getElementById("shopResult").textContent=
-"Product creation failed: "+error.message;
-
-return;
-
-}
-
-document.getElementById("shopResult").textContent=
-"Product added to shop successfully! ✅";
-
-[
-"shopName",
-"shopCategory",
-"shopPrice",
-"shopStock",
-"shopImage",
-"shopDescription"
-].forEach(id=>{
-document.getElementById(id).value="";
-});
-
-document.getElementById("shopVisible").value="true";
-
-await loadShopProducts();
-
-}
-
-async function editShopProduct(id){
-
-const product=allShopProducts.find(x=>x.id===id);
-
-if(!product)return;
-
-const name=prompt(
-"Product name:",
-product.name||""
-);
-
-if(name===null)return;
-
-const price=prompt(
-"Price in USD:",
-product.price??"0"
-);
-
-if(price===null)return;
-
-const category=prompt(
-"Category:",
-product.category||"General"
-);
-
-if(category===null)return;
-
-const stock=prompt(
-"Stock quantity:",
-product.stock??"0"
-);
-
-if(stock===null)return;
-
-const description=prompt(
-"Description:",
-product.description||""
-);
-
-if(description===null)return;
-
-const image=prompt(
-"Image URL:",
-product.image_url||""
-);
-
-if(image===null)return;
-
-const {error}=await supabaseClient
-.from("shop_products")
-.update({
-
-name:name.trim(),
-
-price:Number(price),
-
-category:category.trim()||"General",
-
-stock:Number(stock)||0,
-
-description:description.trim()||null,
-
-image_url:image.trim()||null
-
-})
-.eq("id",id);
-
-if(error){
-
-alert(
-"Product update failed: "+
-error.message
-);
-
-return;
-
-}
-
-alert(
-"Product updated successfully! ✅"
-);
-
-loadShopProducts();
-
-}
-
-async function deleteShopProduct(id){
-
-const product=allShopProducts.find(x=>x.id===id);
-
-if(!product)return;
-
-if(!confirm(
-"Delete "+
-(product.name||"this product")+
-" from the shop?"
-))return;
-
-const {error}=await supabaseClient
-.from("shop_products")
-.delete()
-.eq("id",id);
-
-if(error){
-
-alert(
-"Delete failed: "+
-error.message
-);
-
-return;
-
-}
-
-alert(
-"Product deleted successfully! 🗑️"
-);
-
-loadShopProducts();
-
-}
-
-async function toggleShopVisibility(id,current){
-
-const {error}=await supabaseClient
-.from("shop_products")
-.update({
-visible:!current
-})
-.eq("id",id);
-
-if(error){
-
-alert(
-"Visibility update failed: "+
-error.message
-);
-
-return;
-
-}
-
-loadShopProducts();
-
-}
-
-
 /* ================= FIND SHIPMENT ================= */
 
 async function findShipment(numberFromList){
 
 const number=
 numberFromList||
-document.getElementById("trackingNumber")
-.value
-.trim();
+document.getElementById("trackingNumber").value.trim();
 
-const result=
-document.getElementById("shipmentResult");
+const result=document.getElementById("shipmentResult");
 
 if(!number){
 
-result.innerHTML=
-"Please enter a tracking number.";
-
+result.innerHTML="Please enter a tracking number.";
 return;
 
 }
@@ -2483,19 +2322,14 @@ const {data,error}=await supabaseClient
 
 if(error){
 
-result.innerHTML=
-"Database error: "+
-error.message;
-
+result.innerHTML="Database error: "+escapeHtml(error.message);
 return;
 
 }
 
 if(!data){
 
-result.innerHTML=
-"Shipment not found.";
-
+result.innerHTML="Shipment not found.";
 return;
 
 }
@@ -2512,52 +2346,44 @@ result.innerHTML=`
 
 <div class="field">
 <label>Tracking Number</label>
-<input id="editTrackingNumber"
+<input
+id="editTrackingNumber"
 value="${escapeAttribute(data.tracking_number||"")}">
 </div>
 
 <div class="field">
 <label>Status</label>
+
 <select id="editStatus">
 
-<option ${data.status==="Pending"?"selected":""}>
-Pending
-</option>
-
-<option ${data.status==="Processing"?"selected":""}>
-Processing
-</option>
-
-<option ${data.status==="In Transit"?"selected":""}>
-In Transit
-</option>
-
-<option ${data.status==="Out for Delivery"?"selected":""}>
-Out for Delivery
-</option>
-
-<option ${data.status==="Delivered"?"selected":""}>
-Delivered
-</option>
+<option ${data.status==="Pending"?"selected":""}>Pending</option>
+<option ${data.status==="Processing"?"selected":""}>Processing</option>
+<option ${data.status==="In Transit"?"selected":""}>In Transit</option>
+<option ${data.status==="Out for Delivery"?"selected":""}>Out for Delivery</option>
+<option ${data.status==="Delivered"?"selected":""}>Delivered</option>
 
 </select>
+
 </div>
 
 <div class="field">
 <label>Origin</label>
-<input id="editOrigin"
+<input
+id="editOrigin"
 value="${escapeAttribute(data.origin||"")}">
 </div>
 
 <div class="field">
 <label>Destination</label>
-<input id="editDestination"
+<input
+id="editDestination"
 value="${escapeAttribute(data.destination||"")}">
 </div>
 
 <div class="field">
 <label>Current Location</label>
-<input id="editLocation"
+<input
+id="editLocation"
 value="${escapeAttribute(data.current_location||"")}">
 </div>
 
@@ -2571,13 +2397,15 @@ value="${escapeAttribute(data.estimated_delivery||"")}">
 
 <div class="field">
 <label>Sender Name</label>
-<input id="editSenderName"
+<input
+id="editSenderName"
 value="${escapeAttribute(data.sender_name||"")}">
 </div>
 
 <div class="field">
 <label>Sender Phone</label>
-<input id="editSenderPhone"
+<input
+id="editSenderPhone"
 value="${escapeAttribute(data.sender_phone||"")}">
 </div>
 
@@ -2590,7 +2418,8 @@ value="${escapeAttribute(data.sender_email||"")}">
 
 <div class="field">
 <label>Receiver Name</label>
-<input id="editReceiverName"
+<input
+id="editReceiverName"
 value="${escapeAttribute(data.receiver_name||"")}">
 </div>
 
@@ -2658,17 +2487,9 @@ value="${data.order_total??""}">
 
 <select id="editApprovalStatus">
 
-<option ${data.approval_status==="Pending"?"selected":""}>
-Pending
-</option>
-
-<option ${data.approval_status==="Approved"?"selected":""}>
-Approved
-</option>
-
-<option ${data.approval_status==="Declined"?"selected":""}>
-Declined
-</option>
+<option ${data.approval_status==="Pending"?"selected":""}>Pending</option>
+<option ${data.approval_status==="Approved"?"selected":""}>Approved</option>
+<option ${data.approval_status==="Declined"?"selected":""}>Declined</option>
 
 </select>
 
@@ -2676,11 +2497,9 @@ Declined
 
 <div class="field">
 <label>Decline Reason</label>
-
 <input
 id="editDeclineReason"
 value="${escapeAttribute(data.decline_reason||"")}">
-
 </div>
 
 </div>
@@ -2689,9 +2508,7 @@ value="${escapeAttribute(data.decline_reason||"")}">
 
 <button
 type="button"
-onclick="updateShipment(
-'${escapeAttribute(data.tracking_number)}'
-)">
+onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
 💾 Save All Changes
 </button>
 
@@ -2699,20 +2516,15 @@ onclick="updateShipment(
 
 }
 
+
 async function updateShipment(oldTrackingNumber){
 
 const newNumber=
-document.getElementById(
-"editTrackingNumber"
-).value
-.trim();
+document.getElementById("editTrackingNumber").value.trim();
 
 if(!newNumber){
 
-alert(
-"Tracking number cannot be empty."
-);
-
+alert("Tracking number cannot be empty.");
 return;
 
 }
@@ -2724,160 +2536,514 @@ const {error}=await supabaseClient
 tracking_number:newNumber,
 
 status:
-document.getElementById("editStatus")
-.value,
+document.getElementById("editStatus").value,
 
 origin:
-document.getElementById("editOrigin")
-.value
-.trim(),
+document.getElementById("editOrigin").value.trim(),
 
 destination:
-document.getElementById("editDestination")
-.value
-.trim(),
+document.getElementById("editDestination").value.trim(),
 
 current_location:
-document.getElementById("editLocation")
-.value
-.trim()||null,
+document.getElementById("editLocation").value.trim()||null,
 
 estimated_delivery:
-document.getElementById("editDelivery")
-.value||null,
+document.getElementById("editDelivery").value||null,
 
 sender_name:
-document.getElementById("editSenderName")
-.value
-.trim()||null,
+document.getElementById("editSenderName").value.trim()||null,
 
 sender_phone:
-document.getElementById("editSenderPhone")
-.value
-.trim()||null,
+document.getElementById("editSenderPhone").value.trim()||null,
 
 sender_email:
-document.getElementById("editSenderEmail")
-.value
-.trim()||null,
+document.getElementById("editSenderEmail").value.trim()||null,
 
 receiver_name:
-document.getElementById("editReceiverName")
-.value
-.trim()||null,
+document.getElementById("editReceiverName").value.trim()||null,
 
 receiver_phone:
-document.getElementById("editReceiverPhone")
-.value
-.trim()||null,
+document.getElementById("editReceiverPhone").value.trim()||null,
 
 receiver_email:
-document.getElementById("editReceiverEmail")
-.value
-.trim()||null,
+document.getElementById("editReceiverEmail").value.trim()||null,
 
 package_type:
-document.getElementById("editPackageType")
-.value||null,
+document.getElementById("editPackageType").value||null,
 
 package_weight:
-document.getElementById("editPackageWeight")
-.value===""
+document.getElementById("editPackageWeight").value===""
 ?null
-:Number(
-document.getElementById("editPackageWeight")
-.value
-),
+:Number(document.getElementById("editPackageWeight").value),
 
 package_description:
-document.getElementById("editPackageDescription")
-.value
-.trim()||null,
+document.getElementById("editPackageDescription").value.trim()||null,
 
 service_type:
-document.getElementById("editServiceType")
-.value||null,
+document.getElementById("editServiceType").value||null,
 
 order_total:
-document.getElementById("editOrderTotal")
-.value===""
+document.getElementById("editOrderTotal").value===""
 ?null
-:Number(
-document.getElementById("editOrderTotal")
-.value
-),
+:Number(document.getElementById("editOrderTotal").value),
 
 order_items:
-document.getElementById("editOrderItems")
-.value
-.trim()||null,
+document.getElementById("editOrderItems").value.trim()||null,
 
 special_instructions:
-document.getElementById("editSpecialInstructions")
-.value
-.trim()||null,
+document.getElementById("editSpecialInstructions").value.trim()||null,
 
 approval_status:
-document.getElementById("editApprovalStatus")
-.value,
+document.getElementById("editApprovalStatus").value,
 
 decline_reason:
-document.getElementById("editDeclineReason")
-.value
-.trim()||null
+document.getElementById("editDeclineReason").value.trim()||null
 
 })
-.eq(
-"tracking_number",
-oldTrackingNumber
-);
+.eq("tracking_number",oldTrackingNumber);
 
 if(error){
 
-alert(
-"Update failed: "+
-error.message
-);
-
+alert("Update failed: "+error.message);
 return;
 
 }
 
-alert(
-"Shipment updated successfully! ✅"
-);
+alert("Shipment updated successfully! ✅");
 
-document.getElementById(
-"shipmentResult"
-).innerHTML="";
+document.getElementById("shipmentResult").innerHTML="";
 
 loadAllShipments();
 
 }
 
 
-/* =====================================================
-   CUSTOMER CHAT
-   IMPORTANT:
-   Uses customer_id, sender, receiver_id.
-   ===================================================== */
+/* ================= SHOP ================= */
+
+async function loadShopProducts(){
+
+const container=document.getElementById("shopProducts");
+
+if(!container)return;
+
+container.innerHTML="Loading shop products...";
+
+const {data,error}=await supabaseClient
+.from("shop_products")
+.select("*")
+.order("created_at",{ascending:false});
+
+if(error){
+
+container.innerHTML=
+"Unable to load shop products: "+
+escapeHtml(error.message);
+
+return;
+
+}
+
+allShopProducts=data||[];
+
+updateShopStats();
+
+renderShopProducts(allShopProducts);
+
+}
+
+
+function updateShopStats(){
+
+const total=allShopProducts.length;
+
+const visible=
+allShopProducts.filter(x=>x.visible!==false).length;
+
+const hidden=total-visible;
+
+const lowStock=
+allShopProducts.filter(x=>Number(x.stock||0)<=5).length;
+
+document.getElementById("shopTotalProducts").textContent=total;
+
+document.getElementById("shopVisibleProducts").textContent=visible;
+
+document.getElementById("shopHiddenProducts").textContent=hidden;
+
+document.getElementById("shopLowStock").textContent=lowStock;
+
+}
+
+
+function renderShopProducts(products){
+
+const container=document.getElementById("shopProducts");
+
+if(!products.length){
+
+container.innerHTML=
+'<div class="empty">🛍️ No products in the shop yet.</div>';
+
+return;
+
+}
+
+container.innerHTML=products.map(product=>{
+
+const visible=product.visible!==false;
+
+const stock=Number(product.stock||0);
+
+return `
+
+<div class="product-card">
+
+<img
+class="product-image"
+src="${escapeAttribute(
+product.image_url||
+"https://via.placeholder.com/300x300?text=Product"
+)}"
+alt="${escapeAttribute(product.name||"Product")}"
+onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
+
+<div class="product-content">
+
+<div class="product-name">
+${escapeHtml(product.name||"Unnamed Product")}
+</div>
+
+<div class="product-price">
+$${Number(product.price||0).toFixed(2)}
+</div>
+
+<div class="product-description">
+${escapeHtml(product.description||"No description")}
+</div>
+
+<div class="product-meta">
+
+<span class="product-tag">
+${escapeHtml(product.category||"General")}
+</span>
+
+<span class="product-tag ${visible?"product-visible":"product-hidden"}">
+${visible?"Visible":"Hidden"}
+</span>
+
+<span class="product-tag ${stock<=5?"stock-low":"stock-good"}">
+Stock: ${stock}
+</span>
+
+</div>
+
+<div>
+
+<button
+class="edit-btn"
+onclick="editShopProduct('${escapeAttribute(product.id)}')">
+✏️ Edit
+</button>
+
+<button
+class="delete-btn"
+onclick="deleteShopProduct('${escapeAttribute(product.id)}')">
+🗑️ Delete
+</button>
+
+<button
+class="secondary-btn"
+onclick="toggleShopVisibility('${escapeAttribute(product.id)}',${visible})">
+${visible?"🙈 Hide":"👁️ Show"}
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+function filterShopProducts(){
+
+const input=document.getElementById("shopSearch");
+
+if(!input)return;
+
+const query=input.value.toLowerCase().trim();
+
+const filtered=allShopProducts.filter(product=>
+
+String(product.name||"")
+.toLowerCase()
+.includes(query)
+
+||
+
+String(product.category||"")
+.toLowerCase()
+.includes(query)
+
+||
+
+String(product.description||"")
+.toLowerCase()
+.includes(query)
+
+);
+
+renderShopProducts(filtered);
+
+}
+
+
+async function addShopProduct(){
+
+const name=
+document.getElementById("shopName").value.trim();
+
+const price=
+document.getElementById("shopPrice").value;
+
+if(!name||price===""){
+
+document.getElementById("shopResult").textContent=
+"Please enter a product name and price.";
+
+return;
+
+}
+
+const product={
+
+name,
+
+category:
+document.getElementById("shopCategory")
+.value.trim()||"General",
+
+price:Number(price),
+
+stock:
+Number(document.getElementById("shopStock").value||0),
+
+image_url:
+document.getElementById("shopImage")
+.value.trim()||null,
+
+description:
+document.getElementById("shopDescription")
+.value.trim()||null,
+
+visible:
+document.getElementById("shopVisible")
+.value==="true"
+
+};
+
+const {error}=await supabaseClient
+.from("shop_products")
+.insert(product);
+
+if(error){
+
+document.getElementById("shopResult").textContent=
+"Product creation failed: "+error.message;
+
+return;
+
+}
+
+document.getElementById("shopResult").textContent=
+"Product added to shop successfully! ✅";
+
+[
+"shopName",
+"shopCategory",
+"shopPrice",
+"shopStock",
+"shopImage",
+"shopDescription"
+].forEach(id=>{
+document.getElementById(id).value="";
+});
+
+document.getElementById("shopVisible").value="true";
+
+await loadShopProducts();
+
+}
+
+
+async function editShopProduct(id){
+
+const product=
+allShopProducts.find(x=>x.id===id);
+
+if(!product)return;
+
+const name=prompt(
+"Product name:",
+product.name||""
+);
+
+if(name===null)return;
+
+const price=prompt(
+"Price in USD:",
+product.price??"0"
+);
+
+if(price===null)return;
+
+const category=prompt(
+"Category:",
+product.category||"General"
+);
+
+if(category===null)return;
+
+const stock=prompt(
+"Stock quantity:",
+product.stock??"0"
+);
+
+if(stock===null)return;
+
+const description=prompt(
+"Description:",
+product.description||""
+);
+
+if(description===null)return;
+
+const image=prompt(
+"Image URL:",
+product.image_url||""
+);
+
+if(image===null)return;
+
+const {error}=await supabaseClient
+.from("shop_products")
+.update({
+
+name:name.trim(),
+
+price:Number(price),
+
+category:
+category.trim()||"General",
+
+stock:Number(stock)||0,
+
+description:
+description.trim()||null,
+
+image_url:
+image.trim()||null
+
+})
+.eq("id",id);
+
+if(error){
+
+alert("Product update failed: "+error.message);
+return;
+
+}
+
+alert("Product updated successfully! ✅");
+
+loadShopProducts();
+
+}
+
+
+async function deleteShopProduct(id){
+
+const product=
+allShopProducts.find(x=>x.id===id);
+
+if(!product)return;
+
+if(!confirm(
+"Delete "+(product.name||"this product")+" from the shop?"
+))return;
+
+const {error}=await supabaseClient
+.from("shop_products")
+.delete()
+.eq("id",id);
+
+if(error){
+
+alert("Delete failed: "+error.message);
+return;
+
+}
+
+alert("Product deleted successfully! 🗑️");
+
+loadShopProducts();
+
+}
+
+
+async function toggleShopVisibility(id,current){
+
+const {error}=await supabaseClient
+.from("shop_products")
+.update({
+visible:!current
+})
+.eq("id",id);
+
+if(error){
+
+alert("Visibility update failed: "+error.message);
+return;
+
+}
+
+loadShopProducts();
+
+}
+
+
+/* ================= CHAT ================= */
+
+/*
+IMPORTANT:
+The chat table was repaired earlier to use:
+customer_id
+sender
+message
+created_at
+
+We therefore identify conversations by customer_id
+instead of sender_id / receiver_id.
+*/
+
 
 async function loadConversations(){
 
 const list=
-document.getElementById(
-"conversationList"
-);
+document.getElementById("conversationList");
 
 list.innerHTML=
-'<div class="chat-loading">Loading customers...</div>';
-
+'<div class="chat-loading">Loading conversations...</div>';
 
 const {data,error}=await supabaseClient
 .from("chat_messages")
 .select("*")
 .order("created_at",{ascending:false});
-
 
 if(error){
 
@@ -2890,7 +3056,6 @@ escapeHtml(error.message)+
 return;
 
 }
-
 
 if(!data||!data.length){
 
@@ -2908,14 +3073,6 @@ return;
 
 }
 
-
-/*
- * One conversation per customer.
- *
- * customer_id is the Greenway customer ID,
- * for example GW-JM1JM3.
- */
-
 const map=new Map();
 
 data.forEach(message=>{
@@ -2924,37 +3081,35 @@ const customerId=message.customer_id;
 
 if(!customerId)return;
 
-const key=String(customerId);
+if(!map.has(customerId)){
 
-if(!map.has(key)){
+map.set(customerId,{
 
-map.set(key,{
-
-userId:key,
+userId:customerId,
 
 lastMessage:message,
 
-count:0
+count:0,
+
+name:
+message.customer_name||
+message.sender_name||
+"Customer"
 
 });
 
 }
 
-map.get(key).count++;
+map.get(customerId).count++;
 
 });
-
 
 allConversations=
 Array.from(map.values());
 
-renderConversations(
-allConversations
-);
+renderConversations(allConversations);
 
-updateChatBadge(
-allConversations.length
-);
+updateChatBadge(allConversations.length);
 
 }
 
@@ -2962,9 +3117,7 @@ allConversations.length
 function renderConversations(conversations){
 
 const list=
-document.getElementById(
-"conversationList"
-);
+document.getElementById("conversationList");
 
 if(!conversations.length){
 
@@ -2977,42 +3130,31 @@ return;
 
 }
 
-
 list.innerHTML=
 conversations.map(c=>{
 
 const m=c.lastMessage;
 
-const customerId=c.userId;
-
 const name=
+c.name||
 m.customer_name||
 m.sender_name||
 "Customer";
 
 const initial=
-name.charAt(0).toUpperCase()||
-"C";
+name.charAt(0).toUpperCase();
 
 const active=
-activeConversationUserId===
-customerId
+activeConversationUserId===c.userId
 ?"active"
 :"";
-
-
-const preview=
-m.message||
-m.content||
-(m.image_url?"📷 Image":"No message");
-
 
 return `
 
 <div
 class="conversation-item ${active}"
 onclick="openConversation(
-'${escapeAttribute(customerId)}',
+'${escapeAttribute(c.userId)}',
 '${escapeAttribute(name)}'
 )">
 
@@ -3029,11 +3171,15 @@ ${escapeHtml(name)}
 </div>
 
 <div class="customer-id">
-Customer ID: ${escapeHtml(customerId)}
+Customer ID: ${escapeHtml(c.userId)}
 </div>
 
 <div class="conversation-preview">
-${escapeHtml(preview)}
+${escapeHtml(
+m.message||
+m.content||
+"Image"
+)}
 </div>
 
 </div>
@@ -3059,26 +3205,23 @@ ${formatTime(m.created_at)}
 
 function filterConversations(){
 
-const q=
-document.getElementById(
-"conversationSearch"
-)
+const q=document
+.getElementById("conversationSearch")
 .value
 .toLowerCase()
 .trim();
-
 
 const filtered=
 allConversations.filter(c=>{
 
 const m=c.lastMessage;
 
-const name=
+return String(
+c.name||
 m.customer_name||
 m.sender_name||
-"Customer";
-
-return String(name)
+"Customer"
+)
 .toLowerCase()
 .includes(q)
 
@@ -3090,68 +3233,45 @@ String(c.userId)
 
 });
 
-
 renderConversations(filtered);
 
 }
 
 
-async function openConversation(
-userId,
-name
-){
+async function openConversation(userId,name){
 
-activeConversationUserId=
-String(userId);
+activeConversationUserId=userId;
 
 activeConversationName=
 name||"Customer";
 
+document.getElementById("chatEmpty")
+.style.display="none";
 
-document.getElementById(
-"chatEmpty"
-).style.display="none";
+document.getElementById("activeChatHeader")
+.style.display="flex";
 
+document.getElementById("messageArea")
+.style.display="flex";
 
-document.getElementById(
-"activeChatHeader"
-).style.display="flex";
+document.getElementById("messageComposer")
+.style.display="block";
 
-
-document.getElementById(
-"messageArea"
-).style.display="flex";
-
-
-document.getElementById(
-"messageComposer"
-).style.display="block";
-
-
-document.getElementById(
-"activeChatName"
-).textContent=
+document.getElementById("activeChatName")
+.textContent=
 activeConversationName;
 
+document.getElementById("activeCustomerId")
+.textContent=
+"Customer ID: "+userId;
 
-document.getElementById(
-"activeCustomerId"
-).textContent=
-"Customer ID: "+
-activeConversationUserId;
-
-
-document.getElementById(
-"activeChatAvatar"
-).textContent=
+document.getElementById("activeChatAvatar")
+.textContent=
 activeConversationName
 .charAt(0)
 .toUpperCase();
 
-
-renderConversations(
-allConversations
-);
+renderConversations(allConversations);
 
 await loadActiveConversation();
 
@@ -3162,28 +3282,17 @@ async function loadActiveConversation(){
 
 if(!activeConversationUserId)return;
 
-
 const area=
-document.getElementById(
-"messageArea"
-);
+document.getElementById("messageArea");
 
 area.innerHTML=
 '<div class="chat-loading">Loading messages...</div>';
 
-
 const {data,error}=await supabaseClient
 .from("chat_messages")
 .select("*")
-.eq(
-"customer_id",
-activeConversationUserId
-)
-.order(
-"created_at",
-{ascending:true}
-);
-
+.eq("customer_id",activeConversationUserId)
+.order("created_at",{ascending:true});
 
 if(error){
 
@@ -3196,47 +3305,36 @@ return;
 
 }
 
-
 if(!data||!data.length){
 
 area.innerHTML=
-'<div class="chat-loading">'+
-'No messages yet.'+
-'</div>';
+'<div class="chat-loading">No messages yet.</div>';
 
 return;
 
 }
 
-
 area.innerHTML=
 data.map(message=>{
 
 const sender=
-String(
-message.sender||""
-)
-.toLowerCase()
-.trim();
-
+String(message.sender||"")
+.toLowerCase();
 
 const isAdmin=
 sender==="admin"||
 sender==="support"||
 sender==="staff";
 
-
 const text=
 message.message||
 message.content||
 "";
 
-
 const image=
 message.image_url||
 message.attachment_url||
 null;
-
 
 return `
 
@@ -3247,14 +3345,12 @@ return `
 ${image?`
 
 <img
-class="message-image"
 src="${escapeAttribute(image)}"
-onclick="openImageModal(
-'${escapeAttribute(image)}'
-)">
+alt="Chat image"
+style="max-width:260px;max-height:300px;border-radius:10px;display:block;margin-bottom:7px;cursor:pointer"
+onclick="openImageModal('${escapeAttribute(image)}')">
 
 `:""}
-
 
 ${text?`
 
@@ -3263,7 +3359,6 @@ ${escapeHtml(text)}
 </div>
 
 `:""}
-
 
 <div class="message-time">
 ${formatTime(message.created_at)}
@@ -3277,89 +3372,55 @@ ${formatTime(message.created_at)}
 
 }).join("");
 
-
-area.scrollTop=
-area.scrollHeight;
+area.scrollTop=area.scrollHeight;
 
 }
 
 
 async function sendChatMessage(){
 
-if(!activeConversationUserId){
+if(!activeConversationUserId)return;
 
-alert(
-"Please select a customer first."
-);
-
-return;
-
-}
-
+if(!currentAdminUser)return;
 
 const input=
-document.getElementById(
-"chatMessageInput"
-);
+document.getElementById("chatMessageInput");
 
 const message=
 input.value.trim();
 
-
-if(!message&&!selectedImageFile){
-
-return;
-
-}
-
+if(!message&&!selectedImageFile)return;
 
 /*
- * Uses the corrected chat schema.
- */
+The repaired chat table uses customer_id and sender.
+*/
 
 const insertData={
 
-customer_id:
-activeConversationUserId,
+customer_id:activeConversationUserId,
 
 sender:"admin",
 
-receiver_id:
-activeConversationUserId,
-
-message:
-message||null,
-
-image_url:null
+message:message||null
 
 };
-
 
 const {error}=await supabaseClient
 .from("chat_messages")
 .insert(insertData);
 
-
 if(error){
 
-alert(
-"Message failed: "+
-error.message
-);
-
+alert("Message failed: "+error.message);
 return;
 
 }
-
 
 input.value="";
 
 selectedImageFile=null;
 
-document.getElementById(
-"chatImageInput"
-).value="";
-
+document.getElementById("chatImageInput").value="";
 
 await loadActiveConversation();
 
@@ -3368,102 +3429,45 @@ await loadConversations();
 }
 
 
-/*
- * Delete ALL messages belonging to
- * the currently selected customer.
- */
-
 async function deleteActiveConversation(){
 
-if(!activeConversationUserId){
-
-alert(
-"Please select a customer first."
-);
-
-return;
-
-}
-
+if(!activeConversationUserId)return;
 
 const customerId=
 activeConversationUserId;
 
-const customerName=
-activeConversationName||
-"this customer";
-
-
-const confirmed=confirm(
-
-"Delete the entire chat with "+
-customerName+
-" ("+
-customerId+
-")?\n\n"+
-"This will permanently delete all messages in this conversation."
-
-);
-
-
-if(!confirmed)return;
-
+if(!confirm(
+"Delete the entire chat with this customer?"
+))return;
 
 const {error}=await supabaseClient
 .from("chat_messages")
 .delete()
-.eq(
-"customer_id",
-customerId
-);
-
+.eq("customer_id",customerId);
 
 if(error){
 
-alert(
-"Unable to delete chat: "+
-error.message
-);
-
+alert("Chat deletion failed: "+error.message);
 return;
 
 }
 
+alert("Customer chat deleted successfully! 🗑️");
 
 activeConversationUserId=null;
-
 activeConversationName="Customer";
 
+document.getElementById("activeChatHeader")
+.style.display="none";
 
-document.getElementById(
-"activeChatHeader"
-).style.display="none";
+document.getElementById("messageArea")
+.style.display="none";
 
+document.getElementById("messageComposer")
+.style.display="none";
 
-document.getElementById(
-"messageArea"
-).style.display="none";
-
-
-document.getElementById(
-"messageComposer"
-).style.display="none";
-
-
-document.getElementById(
-"chatEmpty"
-).style.display="flex";
-
-
-document.getElementById(
-"messageArea"
-).innerHTML="";
-
-
-alert(
-"Conversation deleted successfully! 🗑️"
-);
-
+document.getElementById("chatEmpty")
+.style.display="flex";
 
 await loadConversations();
 
@@ -3472,10 +3476,7 @@ await loadConversations();
 
 function handleChatKeydown(event){
 
-if(
-event.key==="Enter"&&
-!event.shiftKey
-){
+if(event.key==="Enter"&&!event.shiftKey){
 
 event.preventDefault();
 
@@ -3496,26 +3497,18 @@ event.target.files[0]||null;
 
 function openImageModal(url){
 
-document.getElementById(
-"modalImage"
-).src=url;
+document.getElementById("modalImage").src=url;
 
-document.getElementById(
-"imageModal"
-).classList.add("show");
+document.getElementById("imageModal").style.display="flex";
 
 }
 
 
 function closeImageModal(){
 
-document.getElementById(
-"imageModal"
-).classList.remove("show");
+document.getElementById("imageModal").style.display="none";
 
-document.getElementById(
-"modalImage"
-).src="";
+document.getElementById("modalImage").src="";
 
 }
 
@@ -3523,18 +3516,14 @@ document.getElementById(
 function updateChatBadge(count){
 
 const badge=
-document.getElementById(
-"chatNavBadge"
-);
+document.getElementById("chatNavBadge");
 
 if(count>0){
 
 badge.style.display="flex";
 
 badge.textContent=
-count>99
-?"99+"
-:count;
+count>99?"99+":count;
 
 }else{
 
@@ -3600,4 +3589,4 @@ checkAdminSession();
 </script>
 
 </body>
-  </html>
+</html>
