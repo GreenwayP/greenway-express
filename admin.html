@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f5b">
   <title>Greenway Express Admin</title>
 
   <style>
@@ -14,26 +15,42 @@
       margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
-      background: #f4f7f6;
+      background:
+        radial-gradient(circle at top right, rgba(8,127,91,0.08), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(37,99,235,0.06), transparent 28%),
+        #f4f7f6;
       color: #1f2937;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1050px;
       margin: auto;
     }
 
     .header {
-      background: #087f5b;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #087f5b, #075c45);
       color: white;
-      padding: 22px;
-      border-radius: 14px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 28px;
+      border-radius: 18px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 25px rgba(8,127,91,0.20);
+    }
+
+    .header::after {
+      content: "✈";
+      position: absolute;
+      right: 25px;
+      top: 10px;
+      font-size: 75px;
+      opacity: 0.10;
+      transform: rotate(-15deg);
     }
 
     .header h1 {
-      margin: 0 0 6px;
+      margin: 0 0 7px;
+      font-size: 28px;
     }
 
     .header p {
@@ -42,44 +59,118 @@
     }
 
     .card {
-      background: white;
-      padding: 20px;
+      background: rgba(255,255,255,0.98);
+      padding: 22px;
       margin-bottom: 20px;
-      border-radius: 14px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+      border-radius: 17px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      border: 1px solid rgba(229,231,235,0.8);
     }
 
     h2 {
       color: #087f5b;
       margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 21px;
     }
 
-    input {
+    h3 {
+      margin-top: 0;
+      color: #087f5b;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 4px 0 15px;
+      color: #374151;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .section-title span {
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e7f7f1;
+      font-size: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .field {
+      margin-bottom: 2px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    input,
+    select,
+    textarea {
       width: 100%;
-      padding: 12px;
+      padding: 12px 13px;
       border: 1px solid #d1d5db;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 15px;
+      font-family: inherit;
+      background: white;
+      color: #1f2937;
     }
 
-    input:focus {
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
       outline: none;
       border-color: #087f5b;
+      box-shadow: 0 0 0 3px rgba(8,127,91,0.10);
+    }
+
+    .form-section {
+      padding: 18px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: #fbfdfc;
+      border: 1px solid #e5eee9;
     }
 
     button {
       border: none;
-      border-radius: 8px;
-      padding: 11px 16px;
+      border-radius: 10px;
+      padding: 11px 17px;
       font-size: 15px;
       cursor: pointer;
       background: #087f5b;
       color: white;
       margin-right: 6px;
+      transition: transform .15s, opacity .15s;
     }
 
     button:hover {
-      opacity: 0.9;
+      opacity: 0.92;
+      transform: translateY(-1px);
     }
 
     .logout-btn {
@@ -94,21 +185,43 @@
       background: #dc2626;
     }
 
+    .approve-btn {
+      background: #087f5b;
+    }
+
+    .decline-btn {
+      background: #dc2626;
+    }
+
+    .secondary-btn {
+      background: #475569;
+    }
+
     .shipment-card {
       border: 1px solid #e5e7eb;
-      padding: 16px;
-      margin-bottom: 12px;
-      border-radius: 10px;
-      background: #fafafa;
+      padding: 18px;
+      margin-bottom: 13px;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #ffffff, #fafcfb);
     }
 
     .shipment-card strong {
-      font-size: 18px;
+      font-size: 19px;
       color: #087f5b;
     }
 
+    .shipment-info {
+      line-height: 1.8;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .shipment-info b {
+      color: #374151;
+    }
+
     .button-row {
-      margin-top: 14px;
+      margin-top: 15px;
     }
 
     .result {
@@ -116,13 +229,79 @@
       font-weight: bold;
     }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: bold;
+    .success {
+      color: #087f5b;
     }
 
-    @media (max-width: 600px) {
+    .error {
+      color: #dc2626;
+    }
+
+    .approval-box {
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 6px;
+    }
+
+    .pending {
+      background: #fff7ed;
+      color: #c2410c;
+    }
+
+    .approved {
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .declined {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .tracking-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 13px;
+      border-radius: 10px;
+      margin-top: 13px;
+    }
+
+    .small-note {
+      color: #6b7280;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 20px 0;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 700px) {
       body {
         padding: 12px;
       }
@@ -130,6 +309,18 @@
       .header,
       .card {
         padding: 16px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .header h1 {
+        font-size: 23px;
       }
 
       button {
@@ -143,9 +334,11 @@
 
 <div class="container">
 
+  <!-- HEADER -->
+
   <div class="header">
     <h1>🚚 Greenway Express</h1>
-    <p>Admin Dashboard</p>
+    <p>Professional Admin Dashboard</p>
   </div>
 
 
@@ -155,21 +348,27 @@
 
     <h2>🔐 Admin Login</h2>
 
-    <input
-      type="email"
-      id="adminEmail"
-      placeholder="Your email"
-    >
+    <div class="field">
+      <label>Email</label>
+      <input
+        type="email"
+        id="adminEmail"
+        placeholder="Your email"
+      >
+    </div>
 
-    <br><br>
+    <br>
 
-    <input
-      type="password"
-      id="adminPassword"
-      placeholder="Your password"
-    >
+    <div class="field">
+      <label>Password</label>
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Your password"
+      >
+    </div>
 
-    <br><br>
+    <br>
 
     <button type="button" onclick="adminLogin()">
       Login
@@ -182,7 +381,7 @@
 
   <!-- ADMIN AREA -->
 
-  <div id="adminTools" style="display: none;">
+  <div id="adminTools" style="display:none;">
 
 
     <!-- CREATE SHIPMENT -->
@@ -191,53 +390,280 @@
 
       <h2>📦 Create New Shipment</h2>
 
-      <input
-        type="text"
-        id="newTrackingNumber"
-        placeholder="Tracking number"
-      >
+      <!-- BASIC SHIPMENT -->
 
-      <br><br>
+      <div class="form-section">
 
-      <input
-        type="text"
-        id="newStatus"
-        placeholder="Status"
-      >
+        <div class="section-title">
+          <span>🚚</span>
+          Shipment Information
+        </div>
 
-      <br><br>
+        <div class="form-grid">
 
-      <input
-        type="text"
-        id="newOrigin"
-        placeholder="Origin"
-      >
+          <div class="field">
+            <label>Tracking Number</label>
+            <input
+              type="text"
+              id="newTrackingNumber"
+              placeholder="Enter tracking number"
+            >
+          </div>
 
-      <br><br>
+          <div class="field">
+            <label>Status</label>
+            <select id="newStatus">
+              <option value="Pending">Pending</option>
+              <option value="Processing">Processing</option>
+              <option value="In Transit">In Transit</option>
+              <option value="Out for Delivery">Out for Delivery</option>
+              <option value="Delivered">Delivered</option>
+            </select>
+          </div>
 
-      <input
-        type="text"
-        id="newDestination"
-        placeholder="Destination"
-      >
+          <div class="field">
+            <label>Origin / Pickup Location</label>
+            <input
+              type="text"
+              id="newOrigin"
+              placeholder="Pickup location"
+            >
+          </div>
 
-      <br><br>
+          <div class="field">
+            <label>Destination Address</label>
+            <input
+              type="text"
+              id="newDestination"
+              placeholder="Full destination address"
+            >
+          </div>
 
-      <input
-        type="text"
-        id="newLocation"
-        placeholder="Current location"
-      >
+          <div class="field">
+            <label>Current Location</label>
+            <input
+              type="text"
+              id="newLocation"
+              placeholder="Current shipment location"
+            >
+          </div>
 
-      <br><br>
+          <div class="field">
+            <label>Estimated Delivery</label>
+            <input
+              type="date"
+              id="newDelivery"
+            >
+          </div>
 
-      <input
-        type="text"
-        id="newDelivery"
-        placeholder="Estimated delivery"
-      >
+        </div>
 
-      <br><br>
+      </div>
+
+
+      <!-- SENDER -->
+
+      <div class="form-section">
+
+        <div class="section-title">
+          <span>👤</span>
+          Sender Details
+        </div>
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label>Sender Name</label>
+            <input
+              type="text"
+              id="newSenderName"
+              placeholder="Full name"
+            >
+          </div>
+
+          <div class="field">
+            <label>Sender Phone</label>
+            <input
+              type="text"
+              id="newSenderPhone"
+              placeholder="Phone number"
+            >
+          </div>
+
+          <div class="field full">
+            <label>Sender Email</label>
+            <input
+              type="email"
+              id="newSenderEmail"
+              placeholder="Email address"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RECEIVER -->
+
+      <div class="form-section">
+
+        <div class="section-title">
+          <span>📍</span>
+          Receiver Details
+        </div>
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label>Receiver Name</label>
+            <input
+              type="text"
+              id="newReceiverName"
+              placeholder="Full name"
+            >
+          </div>
+
+          <div class="field">
+            <label>Receiver Phone</label>
+            <input
+              type="text"
+              id="newReceiverPhone"
+              placeholder="Phone number"
+            >
+          </div>
+
+          <div class="field full">
+            <label>Receiver Email</label>
+            <input
+              type="email"
+              id="newReceiverEmail"
+              placeholder="Email address"
+            >
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PACKAGE -->
+
+      <div class="form-section">
+
+        <div class="section-title">
+          <span>📦</span>
+          Package Details
+        </div>
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label>Package Type</label>
+            <select id="newPackageType">
+              <option value="">Select package type</option>
+              <option value="Parcel">Parcel</option>
+              <option value="Box">Box</option>
+              <option value="Envelope">Envelope</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Toiletries">Toiletries</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Package Weight (kg)</label>
+            <input
+              type="number"
+              id="newPackageWeight"
+              placeholder="e.g. 5"
+              min="0"
+              step="0.01"
+            >
+          </div>
+
+          <div class="field full">
+            <label>Package Description</label>
+            <textarea
+              id="newPackageDescription"
+              placeholder="Describe the package contents"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label>Service Type</label>
+            <select id="newServiceType">
+              <option value="">Select service type</option>
+              <option value="Standard Delivery">Standard Delivery</option>
+              <option value="Express Delivery">Express Delivery</option>
+              <option value="Priority Delivery">Priority Delivery</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Order Total</label>
+            <input
+              type="number"
+              id="newOrderTotal"
+              placeholder="0.00"
+              min="0"
+              step="0.01"
+            >
+          </div>
+
+          <div class="field full">
+            <label>Order Items</label>
+            <textarea
+              id="newOrderItems"
+              placeholder="Items included in the customer order"
+            ></textarea>
+          </div>
+
+          <div class="field full">
+            <label>Special Instructions</label>
+            <textarea
+              id="newSpecialInstructions"
+              placeholder="Any special instructions"
+            ></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- APPROVAL -->
+
+      <div class="form-section">
+
+        <div class="section-title">
+          <span>🛡️</span>
+          Service Approval
+        </div>
+
+        <div class="field">
+          <label>Approval Status</label>
+
+          <select id="newApprovalStatus">
+            <option value="Pending">Pending Approval</option>
+            <option value="Approved">Approved</option>
+            <option value="Declined">Declined</option>
+          </select>
+        </div>
+
+        <br>
+
+        <div class="field">
+          <label>Decline Reason</label>
+
+          <textarea
+            id="newDeclineReason"
+            placeholder="Only use this when declining a shipment"
+          ></textarea>
+        </div>
+
+      </div>
+
 
       <button
         type="button"
@@ -258,7 +684,7 @@
       <h2>📋 All Shipments</h2>
 
       <div id="allShipments">
-        Shipments will appear here.
+        Loading shipments...
       </div>
 
     </div>
@@ -315,7 +741,7 @@ const supabaseClient = supabase.createClient(
 
 
 /* =========================
-   SHOW / HIDE ADMIN AREA
+   SHOW / HIDE ADMIN
 ========================= */
 
 function showAdminTools() {
@@ -391,7 +817,7 @@ async function adminLogin() {
 
 
 /* =========================
-   CHECK SESSION
+   SESSION
 ========================= */
 
 async function checkAdminSession() {
@@ -450,11 +876,8 @@ async function adminLogout() {
   loginResult.textContent =
     "Logged out successfully.";
 
-  document.getElementById("adminEmail")
-    .value = "";
-
-  document.getElementById("adminPassword")
-    .value = "";
+  document.getElementById("adminEmail").value = "";
+  document.getElementById("adminPassword").value = "";
 }
 
 
@@ -470,7 +893,7 @@ async function createShipment() {
 
   const status =
     document.getElementById("newStatus")
-      .value.trim();
+      .value;
 
   const origin =
     document.getElementById("newOrigin")
@@ -486,44 +909,166 @@ async function createShipment() {
 
   const estimatedDelivery =
     document.getElementById("newDelivery")
+      .value || null;
+
+  const senderName =
+    document.getElementById("newSenderName")
+      .value.trim();
+
+  const senderPhone =
+    document.getElementById("newSenderPhone")
+      .value.trim();
+
+  const senderEmail =
+    document.getElementById("newSenderEmail")
+      .value.trim();
+
+  const receiverName =
+    document.getElementById("newReceiverName")
+      .value.trim();
+
+  const receiverPhone =
+    document.getElementById("newReceiverPhone")
+      .value.trim();
+
+  const receiverEmail =
+    document.getElementById("newReceiverEmail")
+      .value.trim();
+
+  const orderItems =
+    document.getElementById("newOrderItems")
+      .value.trim();
+
+  const orderTotalValue =
+    document.getElementById("newOrderTotal")
+      .value;
+
+  const packageDescription =
+    document.getElementById("newPackageDescription")
+      .value.trim();
+
+  const packageType =
+    document.getElementById("newPackageType")
+      .value;
+
+  const packageWeightValue =
+    document.getElementById("newPackageWeight")
+      .value;
+
+  const serviceType =
+    document.getElementById("newServiceType")
+      .value;
+
+  const specialInstructions =
+    document.getElementById("newSpecialInstructions")
+      .value.trim();
+
+  const approvalStatus =
+    document.getElementById("newApprovalStatus")
+      .value;
+
+  const declineReason =
+    document.getElementById("newDeclineReason")
       .value.trim();
 
   const createResult =
     document.getElementById("createResult");
 
+
   if (
     !trackingNumber ||
     !status ||
     !origin ||
-    !destination ||
-    !currentLocation ||
-    !estimatedDelivery
+    !destination
   ) {
 
+    createResult.className =
+      "result error";
+
     createResult.textContent =
-      "Please fill in all fields.";
+      "Please enter the tracking number, status, origin and destination.";
 
     return;
   }
 
+
+  createResult.className =
+    "result";
+
   createResult.textContent =
     "Creating shipment...";
+
+
+  const shipmentData = {
+
+    tracking_number: trackingNumber,
+
+    status: status,
+
+    origin: origin,
+
+    destination: destination,
+
+    current_location: currentLocation || null,
+
+    estimated_delivery: estimatedDelivery,
+
+    sender_name: senderName || null,
+
+    sender_phone: senderPhone || null,
+
+    sender_email: senderEmail || null,
+
+    receiver_name: receiverName || null,
+
+    receiver_phone: receiverPhone || null,
+
+    receiver_email: receiverEmail || null,
+
+    order_items: orderItems || null,
+
+    order_total:
+      orderTotalValue === ""
+        ? null
+        : Number(orderTotalValue),
+
+    package_description:
+      packageDescription || null,
+
+    package_type:
+      packageType || null,
+
+    package_weight:
+      packageWeightValue === ""
+        ? null
+        : Number(packageWeightValue),
+
+    service_type:
+      serviceType || null,
+
+    special_instructions:
+      specialInstructions || null,
+
+    approval_status:
+      approvalStatus || "Pending",
+
+    decline_reason:
+      declineReason || null
+  };
+
 
   const { error } =
     await supabaseClient
       .from("Shipments")
-      .insert({
-        tracking_number: trackingNumber,
-        status: status,
-        origin: origin,
-        destination: destination,
-        current_location: currentLocation,
-        estimated_delivery: estimatedDelivery
-      });
+      .insert(shipmentData);
+
 
   if (error) {
 
     console.error(error);
+
+    createResult.className =
+      "result error";
 
     createResult.textContent =
       "Creation failed: " +
@@ -532,10 +1077,68 @@ async function createShipment() {
     return;
   }
 
+
+  createResult.className =
+    "result success";
+
   createResult.textContent =
     "Shipment created successfully! ✅";
 
-  loadAllShipments();
+
+  clearCreateForm();
+
+  await loadAllShipments();
+}
+
+
+/* =========================
+   CLEAR CREATE FORM
+========================= */
+
+function clearCreateForm() {
+
+  const ids = [
+
+    "newTrackingNumber",
+    "newOrigin",
+    "newDestination",
+    "newLocation",
+    "newDelivery",
+
+    "newSenderName",
+    "newSenderPhone",
+    "newSenderEmail",
+
+    "newReceiverName",
+    "newReceiverPhone",
+    "newReceiverEmail",
+
+    "newOrderItems",
+    "newOrderTotal",
+
+    "newPackageDescription",
+    "newPackageWeight",
+
+    "newSpecialInstructions",
+    "newDeclineReason"
+
+  ];
+
+  ids.forEach(id => {
+
+    const element =
+      document.getElementById(id);
+
+    if (element) {
+      element.value = "";
+    }
+
+  });
+
+  document.getElementById("newPackageType").value = "";
+  document.getElementById("newServiceType").value = "";
+  document.getElementById("newApprovalStatus").value = "Pending";
+  document.getElementById("newStatus").value = "Pending";
 }
 
 
@@ -551,10 +1154,15 @@ async function loadAllShipments() {
   container.innerHTML =
     "Loading shipments...";
 
+
   const { data, error } =
     await supabaseClient
       .from("Shipments")
-      .select("*");
+      .select("*")
+      .order("tracking_number", {
+        ascending: false
+      });
+
 
   if (error) {
 
@@ -567,71 +1175,296 @@ async function loadAllShipments() {
     return;
   }
 
+
   if (!data || data.length === 0) {
 
     container.innerHTML =
-      "No shipments found.";
+      '<div class="empty">📦 No shipments found.</div>';
 
     return;
   }
 
+
   container.innerHTML =
-    data.map(shipment => `
+    data.map(shipment => {
 
-      <div class="shipment-card">
+      const approval =
+        shipment.approval_status || "Pending";
 
-        <strong>
-          ${shipment.tracking_number}
-        </strong>
+      let approvalClass = "pending";
 
-        <br><br>
+      if (approval === "Approved") {
+        approvalClass = "approved";
+      }
 
-        Status:
-        ${shipment.status}
+      if (approval === "Declined") {
+        approvalClass = "declined";
+      }
 
-        <br>
 
-        Origin:
-        ${shipment.origin}
+      return `
 
-        <br>
+        <div class="shipment-card">
 
-        Destination:
-        ${shipment.destination}
+          <strong>
+            🚚 ${escapeHtml(shipment.tracking_number)}
+          </strong>
 
-        <br>
+          <span class="status-badge ${approvalClass}">
+            ${escapeHtml(approval)}
+          </span>
 
-        Current Location:
-        ${shipment.current_location}
+          <div class="shipment-info">
 
-        <br>
+            <b>Status:</b>
+            ${escapeHtml(shipment.status || "—")}
 
-        Estimated Delivery:
-        ${shipment.estimated_delivery}
+            <br>
 
-        <div class="button-row">
+            <b>Origin:</b>
+            ${escapeHtml(shipment.origin || "—")}
 
-          <button
-            type="button"
-            class="edit-btn"
-            onclick="findShipment('${shipment.tracking_number}')"
-          >
-            ✏️ Edit
-          </button>
+            <br>
 
-          <button
-            type="button"
-            class="delete-btn"
-            onclick="deleteShipment('${shipment.tracking_number}')"
-          >
-            🗑️ Delete
-          </button>
+            <b>Destination:</b>
+            ${escapeHtml(shipment.destination || "—")}
+
+            <br>
+
+            <b>Current Location:</b>
+            ${escapeHtml(shipment.current_location || "—")}
+
+            <br>
+
+            <b>Estimated Delivery:</b>
+            ${escapeHtml(shipment.estimated_delivery || "—")}
+
+            <br>
+
+            <b>Sender:</b>
+            ${escapeHtml(shipment.sender_name || "—")}
+
+            <br>
+
+            <b>Receiver:</b>
+            ${escapeHtml(shipment.receiver_name || "—")}
+
+            <br>
+
+            <b>Package:</b>
+            ${escapeHtml(shipment.package_type || "—")}
+
+            <br>
+
+            <b>Weight:</b>
+            ${
+              shipment.package_weight !== null &&
+              shipment.package_weight !== undefined
+              ? escapeHtml(String(shipment.package_weight)) + " kg"
+              : "—"
+            }
+
+            <br>
+
+            <b>Service:</b>
+            ${escapeHtml(shipment.service_type || "—")}
+
+          </div>
+
+
+          ${
+            approval === "Declined"
+            ? `
+              <div class="approval-box">
+                <b>Decline Reason:</b><br>
+                ${escapeHtml(shipment.decline_reason || "No reason provided.")}
+              </div>
+            `
+            : ""
+          }
+
+
+          <div class="button-row">
+
+            <button
+              type="button"
+              class="edit-btn"
+              onclick="findShipment('${escapeAttribute(shipment.tracking_number)}')"
+            >
+              ✏️ Edit
+            </button>
+
+
+            ${
+              approval !== "Approved"
+              ? `
+                <button
+                  type="button"
+                  class="approve-btn"
+                  onclick="approveShipment('${escapeAttribute(shipment.tracking_number)}')"
+                >
+                  ✅ Approve
+                </button>
+              `
+              : ""
+            }
+
+
+            ${
+              approval !== "Declined"
+              ? `
+                <button
+                  type="button"
+                  class="decline-btn"
+                  onclick="declineShipment('${escapeAttribute(shipment.tracking_number)}')"
+                >
+                  ❌ Decline
+                </button>
+              `
+              : ""
+            }
+
+
+            <button
+              type="button"
+              class="delete-btn"
+              onclick="deleteShipment('${escapeAttribute(shipment.tracking_number)}')"
+            >
+              🗑️ Delete
+            </button>
+
+          </div>
 
         </div>
 
-      </div>
+      `;
 
-    `).join("");
+    }).join("");
+}
+
+
+/* =========================
+   APPROVE SHIPMENT
+========================= */
+
+async function approveShipment(trackingNumber) {
+
+  const confirmed =
+    confirm(
+      "Approve shipment " +
+      trackingNumber +
+      "?"
+    );
+
+  if (!confirmed) {
+    return;
+  }
+
+
+  const { error } =
+    await supabaseClient
+      .from("Shipments")
+      .update({
+
+        approval_status: "Approved",
+
+        decline_reason: null
+
+      })
+      .eq(
+        "tracking_number",
+        trackingNumber
+      );
+
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      "Approval failed: " +
+      error.message
+    );
+
+    return;
+  }
+
+
+  alert(
+    "Shipment approved successfully! ✅"
+  );
+
+
+  await loadAllShipments();
+}
+
+
+/* =========================
+   DECLINE SHIPMENT
+========================= */
+
+async function declineShipment(trackingNumber) {
+
+  const reason =
+    prompt(
+      "Enter the reason for declining this shipment:"
+    );
+
+
+  if (reason === null) {
+    return;
+  }
+
+
+  const cleanReason =
+    reason.trim();
+
+
+  if (!cleanReason) {
+
+    alert(
+      "Please enter a decline reason."
+    );
+
+    return;
+  }
+
+
+  const { error } =
+    await supabaseClient
+      .from("Shipments")
+      .update({
+
+        approval_status: "Declined",
+
+        decline_reason: cleanReason
+
+      })
+      .eq(
+        "tracking_number",
+        trackingNumber
+      );
+
+
+  if (error) {
+
+    console.error(error);
+
+    alert(
+      "Decline failed: " +
+      error.message
+    );
+
+    return;
+  }
+
+
+  alert(
+    "Shipment declined."
+  );
+
+
+  await loadAllShipments();
 }
 
 
@@ -648,9 +1481,11 @@ async function deleteShipment(trackingNumber) {
       "?"
     );
 
+
   if (!confirmed) {
     return;
   }
+
 
   const { error } =
     await supabaseClient
@@ -660,6 +1495,7 @@ async function deleteShipment(trackingNumber) {
         "tracking_number",
         trackingNumber
       );
+
 
   if (error) {
 
@@ -673,11 +1509,13 @@ async function deleteShipment(trackingNumber) {
     return;
   }
 
+
   alert(
     "Shipment " +
     trackingNumber +
     " deleted successfully! ✅"
   );
+
 
   await loadAllShipments();
 }
@@ -696,8 +1534,10 @@ async function findShipment(
     document.getElementById("trackingNumber")
       .value.trim();
 
+
   const result =
     document.getElementById("shipmentResult");
+
 
   if (!number) {
 
@@ -707,15 +1547,21 @@ async function findShipment(
     return;
   }
 
+
   result.innerHTML =
     "Searching...";
+
 
   const { data, error } =
     await supabaseClient
       .from("Shipments")
       .select("*")
-      .eq("tracking_number", number)
+      .eq(
+        "tracking_number",
+        number
+      )
       .maybeSingle();
+
 
   if (error) {
 
@@ -728,6 +1574,7 @@ async function findShipment(
     return;
   }
 
+
   if (!data) {
 
     result.innerHTML =
@@ -736,62 +1583,397 @@ async function findShipment(
     return;
   }
 
+
   result.innerHTML = `
 
-    <hr>
+    <div class="divider"></div>
 
-    <h3>Shipment Found</h3>
+    <h3>📦 Shipment Found</h3>
 
-    <label>Status:</label>
 
-    <input
-      id="editStatus"
-      value="${data.status || ""}"
-    >
+    <div class="form-section">
 
-    <br><br>
+      <div class="section-title">
+        <span>🚚</span>
+        Shipment Information
+      </div>
 
-    <label>Origin:</label>
+      <div class="form-grid">
 
-    <input
-      id="editOrigin"
-      value="${data.origin || ""}"
-    >
+        <div class="field">
+          <label>Tracking Number</label>
 
-    <br><br>
+          <input
+            id="editTrackingNumber"
+            value="${escapeAttribute(data.tracking_number || "")}"
+          >
+        </div>
 
-    <label>Destination:</label>
 
-    <input
-      id="editDestination"
-      value="${data.destination || ""}"
-    >
+        <div class="field">
+          <label>Status</label>
 
-    <br><br>
+          <select id="editStatus">
 
-    <label>Current Location:</label>
+            <option value="Pending"
+              ${data.status === "Pending" ? "selected" : ""}>
+              Pending
+            </option>
 
-    <input
-      id="editLocation"
-      value="${data.current_location || ""}"
-    >
+            <option value="Processing"
+              ${data.status === "Processing" ? "selected" : ""}>
+              Processing
+            </option>
 
-    <br><br>
+            <option value="In Transit"
+              ${data.status === "In Transit" ? "selected" : ""}>
+              In Transit
+            </option>
 
-    <label>Estimated Delivery:</label>
+            <option value="Out for Delivery"
+              ${data.status === "Out for Delivery" ? "selected" : ""}>
+              Out for Delivery
+            </option>
 
-    <input
-      id="editDelivery"
-      value="${data.estimated_delivery || ""}"
-    >
+            <option value="Delivered"
+              ${data.status === "Delivered" ? "selected" : ""}>
+              Delivered
+            </option>
 
-    <br><br>
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label>Origin / Pickup Location</label>
+
+          <input
+            id="editOrigin"
+            value="${escapeAttribute(data.origin || "")}"
+          >
+        </div>
+
+
+        <div class="field">
+          <label>Destination Address</label>
+
+          <input
+            id="editDestination"
+            value="${escapeAttribute(data.destination || "")}"
+          >
+        </div>
+
+
+        <div class="field">
+          <label>Current Location</label>
+
+          <input
+            id="editLocation"
+            value="${escapeAttribute(data.current_location || "")}"
+          >
+        </div>
+
+
+        <div class="field">
+          <label>Estimated Delivery</label>
+
+          <input
+            type="date"
+            id="editDelivery"
+            value="${escapeAttribute(data.estimated_delivery || "")}"
+          >
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="form-section">
+
+      <div class="section-title">
+        <span>👤</span>
+        Sender Details
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Sender Name</label>
+
+          <input
+            id="editSenderName"
+            value="${escapeAttribute(data.sender_name || "")}"
+          >
+        </div>
+
+
+        <div class="field">
+          <label>Sender Phone</label>
+
+          <input
+            id="editSenderPhone"
+            value="${escapeAttribute(data.sender_phone || "")}"
+          >
+        </div>
+
+
+        <div class="field full">
+          <label>Sender Email</label>
+
+          <input
+            id="editSenderEmail"
+            value="${escapeAttribute(data.sender_email || "")}"
+          >
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="form-section">
+
+      <div class="section-title">
+        <span>📍</span>
+        Receiver Details
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Receiver Name</label>
+
+          <input
+            id="editReceiverName"
+            value="${escapeAttribute(data.receiver_name || "")}"
+          >
+        </div>
+
+
+        <div class="field">
+          <label>Receiver Phone</label>
+
+          <input
+            id="editReceiverPhone"
+            value="${escapeAttribute(data.receiver_phone || "")}"
+          >
+        </div>
+
+
+        <div class="field full">
+          <label>Receiver Email</label>
+
+          <input
+            id="editReceiverEmail"
+            value="${escapeAttribute(data.receiver_email || "")}"
+          >
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="form-section">
+
+      <div class="section-title">
+        <span>📦</span>
+        Package Details
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Package Type</label>
+
+          <select id="editPackageType">
+
+            <option value="">Select package type</option>
+
+            <option value="Parcel"
+              ${data.package_type === "Parcel" ? "selected" : ""}>
+              Parcel
+            </option>
+
+            <option value="Box"
+              ${data.package_type === "Box" ? "selected" : ""}>
+              Box
+            </option>
+
+            <option value="Envelope"
+              ${data.package_type === "Envelope" ? "selected" : ""}>
+              Envelope
+            </option>
+
+            <option value="Groceries"
+              ${data.package_type === "Groceries" ? "selected" : ""}>
+              Groceries
+            </option>
+
+            <option value="Toiletries"
+              ${data.package_type === "Toiletries" ? "selected" : ""}>
+              Toiletries
+            </option>
+
+            <option value="Other"
+              ${data.package_type === "Other" ? "selected" : ""}>
+              Other
+            </option>
+
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label>Package Weight (kg)</label>
+
+          <input
+            type="number"
+            id="editPackageWeight"
+            min="0"
+            step="0.01"
+            value="${escapeAttribute(data.package_weight ?? "")}"
+          >
+        </div>
+
+
+        <div class="field full">
+          <label>Package Description</label>
+
+          <textarea
+            id="editPackageDescription"
+          >${escapeHtml(data.package_description || "")}</textarea>
+        </div>
+
+
+        <div class="field">
+          <label>Service Type</label>
+
+          <select id="editServiceType">
+
+            <option value="">Select service type</option>
+
+            <option value="Standard Delivery"
+              ${data.service_type === "Standard Delivery" ? "selected" : ""}>
+              Standard Delivery
+            </option>
+
+            <option value="Express Delivery"
+              ${data.service_type === "Express Delivery" ? "selected" : ""}>
+              Express Delivery
+            </option>
+
+            <option value="Priority Delivery"
+              ${data.service_type === "Priority Delivery" ? "selected" : ""}>
+              Priority Delivery
+            </option>
+
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label>Order Total</label>
+
+          <input
+            type="number"
+            id="editOrderTotal"
+            min="0"
+            step="0.01"
+            value="${escapeAttribute(data.order_total ?? "")}"
+          >
+        </div>
+
+
+        <div class="field full">
+          <label>Order Items</label>
+
+          <textarea
+            id="editOrderItems"
+          >${escapeHtml(data.order_items || "")}</textarea>
+        </div>
+
+
+        <div class="field full">
+          <label>Special Instructions</label>
+
+          <textarea
+            id="editSpecialInstructions"
+          >${escapeHtml(data.special_instructions || "")}</textarea>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="form-section">
+
+      <div class="section-title">
+        <span>🛡️</span>
+        Approval
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>Approval Status</label>
+
+          <select id="editApprovalStatus">
+
+            <option value="Pending"
+              ${data.approval_status === "Pending" ? "selected" : ""}>
+              Pending
+            </option>
+
+            <option value="Approved"
+              ${data.approval_status === "Approved" ? "selected" : ""}>
+              Approved
+            </option>
+
+            <option value="Declined"
+              ${data.approval_status === "Declined" ? "selected" : ""}>
+              Declined
+            </option>
+
+          </select>
+        </div>
+
+
+        <div class="field">
+          <label>Decline Reason</label>
+
+          <input
+            id="editDeclineReason"
+            value="${escapeAttribute(data.decline_reason || "")}"
+          >
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="tracking-box">
+
+      <strong>🔢 Tracking Code</strong>
+
+      <p class="small-note">
+        The tracking number is controlled by the Admin.
+        Customers do not generate their own tracking number.
+      </p>
+
+    </div>
+
+
+    <br>
 
     <button
       type="button"
-      onclick="updateShipment('${data.tracking_number}')"
+      onclick="updateShipment('${escapeAttribute(data.tracking_number)}')"
     >
-      💾 Save Changes
+      💾 Save All Changes
     </button>
 
   `;
@@ -803,40 +1985,131 @@ async function findShipment(
 ========================= */
 
 async function updateShipment(
-  trackingNumber
+  oldTrackingNumber
 ) {
+
+  const newTrackingNumber =
+    document.getElementById("editTrackingNumber")
+      .value.trim();
+
+  if (!newTrackingNumber) {
+
+    alert(
+      "Tracking number cannot be empty."
+    );
+
+    return;
+  }
+
+
+  const orderTotalValue =
+    document.getElementById("editOrderTotal")
+      .value;
+
+  const weightValue =
+    document.getElementById("editPackageWeight")
+      .value;
+
+
+  const updateData = {
+
+    tracking_number:
+      newTrackingNumber,
+
+    status:
+      document.getElementById("editStatus")
+        .value,
+
+    origin:
+      document.getElementById("editOrigin")
+        .value.trim(),
+
+    destination:
+      document.getElementById("editDestination")
+        .value.trim(),
+
+    current_location:
+      document.getElementById("editLocation")
+        .value.trim() || null,
+
+    estimated_delivery:
+      document.getElementById("editDelivery")
+        .value || null,
+
+    sender_name:
+      document.getElementById("editSenderName")
+        .value.trim() || null,
+
+    sender_phone:
+      document.getElementById("editSenderPhone")
+        .value.trim() || null,
+
+    sender_email:
+      document.getElementById("editSenderEmail")
+        .value.trim() || null,
+
+    receiver_name:
+      document.getElementById("editReceiverName")
+        .value.trim() || null,
+
+    receiver_phone:
+      document.getElementById("editReceiverPhone")
+        .value.trim() || null,
+
+    receiver_email:
+      document.getElementById("editReceiverEmail")
+        .value.trim() || null,
+
+    order_items:
+      document.getElementById("editOrderItems")
+        .value.trim() || null,
+
+    order_total:
+      orderTotalValue === ""
+        ? null
+        : Number(orderTotalValue),
+
+    package_description:
+      document.getElementById("editPackageDescription")
+        .value.trim() || null,
+
+    package_type:
+      document.getElementById("editPackageType")
+        .value || null,
+
+    package_weight:
+      weightValue === ""
+        ? null
+        : Number(weightValue),
+
+    service_type:
+      document.getElementById("editServiceType")
+        .value || null,
+
+    special_instructions:
+      document.getElementById("editSpecialInstructions")
+        .value.trim() || null,
+
+    approval_status:
+      document.getElementById("editApprovalStatus")
+        .value,
+
+    decline_reason:
+      document.getElementById("editDeclineReason")
+        .value.trim() || null
+
+  };
+
 
   const { error } =
     await supabaseClient
       .from("Shipments")
-      .update({
-
-        status:
-          document.getElementById("editStatus")
-            .value,
-
-        origin:
-          document.getElementById("editOrigin")
-            .value,
-
-        destination:
-          document.getElementById("editDestination")
-            .value,
-
-        current_location:
-          document.getElementById("editLocation")
-            .value,
-
-        estimated_delivery:
-          document.getElementById("editDelivery")
-            .value
-
-      })
+      .update(updateData)
       .eq(
         "tracking_number",
-        trackingNumber
-      )
-      .select();
+        oldTrackingNumber
+      );
+
 
   if (error) {
 
@@ -850,11 +2123,41 @@ async function updateShipment(
     return;
   }
 
+
   alert(
     "Shipment updated successfully! ✅"
   );
 
-  loadAllShipments();
+
+  document.getElementById("shipmentResult")
+    .innerHTML = "";
+
+  document.getElementById("trackingNumber")
+    .value = newTrackingNumber;
+
+
+  await loadAllShipments();
+}
+
+
+/* =========================
+   SAFE HTML
+========================= */
+
+function escapeHtml(value) {
+
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
+function escapeAttribute(value) {
+
+  return escapeHtml(value);
 }
 
 
@@ -867,4 +2170,4 @@ checkAdminSession();
 </script>
 
 </body>
-</html>
+  </html>
