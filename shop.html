@@ -1,1 +1,1813 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f5b">
+<meta name="description" content="Greenway Express Shop">
+<title>Greenway Express Shop</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --green:#087f5b;
+  --green-dark:#075c45;
+  --green-light:#e8f7f1;
+  --gold:#c6922e;
+  --dark:#14211d;
+  --text:#26332f;
+  --muted:#6b7773;
+  --border:#e5ebe8;
+  --bg:#f5f8f7;
+  --white:#fff;
+  --danger:#c62828;
+  --shadow:0 12px 35px rgba(19,45,36,.08);
+  --radius:18px;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1180px,calc(100% - 30px));
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-weight:800;
+  color:var(--green-dark);
+}
+
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--green),var(--green-dark));
+  color:white;
+  font-size:21px;
+  box-shadow:0 6px 18px rgba(8,127,91,.2);
+}
+
+.brand-text small{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-top:2px;
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-btn{
+  border:1px solid var(--border);
+  background:white;
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:11px;
+  font-weight:700;
+}
+
+.nav-btn:hover{
+  border-color:#b9d9ce;
+  color:var(--green);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  margin:24px 0;
+  min-height:390px;
+  border-radius:26px;
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.18),transparent 25%),
+    radial-gradient(circle at 90% 90%,rgba(198,146,46,.22),transparent 30%),
+    linear-gradient(125deg,#075c45,#087f5b 55%,#0b9d70);
+  color:white;
+  display:flex;
+  align-items:center;
+  box-shadow:0 18px 45px rgba(8,127,91,.18);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:360px;
+  height:360px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:50%;
+  right:-110px;
+  top:-100px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:50%;
+  right:40px;
+  bottom:-150px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:48px;
+  max-width:720px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 11px;
+  border-radius:30px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+
+.hero h1{
+  margin:17px 0 12px;
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.02;
+  letter-spacing:-1.8px;
+}
+
+.hero p{
+  margin:0;
+  max-width:610px;
+  line-height:1.7;
+  color:rgba(255,255,255,.86);
+  font-size:16px;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px;
+}
+
+.primary-btn,
+.secondary-btn{
+  border:0;
+  padding:13px 18px;
+  border-radius:12px;
+  font-weight:800;
+  transition:.18s ease;
+}
+
+.primary-btn{
+  background:white;
+  color:var(--green-dark);
+}
+
+.primary-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(0,0,0,.15);
+}
+
+.secondary-btn{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.25);
+  color:white;
+}
+
+.secondary-btn:hover{
+  background:rgba(255,255,255,.17);
+}
+
+/* ================= TRUST STRIP ================= */
+
+.trust-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:0 0 28px;
+}
+
+.trust-item{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 5px 18px rgba(0,0,0,.03);
+}
+
+.trust-icon{
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:var(--green-light);
+  color:var(--green);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.trust-item strong{
+  display:block;
+  font-size:13px;
+}
+
+.trust-item span{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+  margin:32px 0;
+}
+
+.section-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:15px;
+  margin-bottom:16px;
+}
+
+.section-heading h2{
+  margin:0;
+  color:var(--dark);
+  font-size:25px;
+}
+
+.section-heading p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.section-link{
+  border:0;
+  background:none;
+  color:var(--green);
+  font-weight:800;
+  padding:8px;
+}
+
+/* ================= FEATURED ================= */
+
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.feature-card{
+  position:relative;
+  min-height:220px;
+  border-radius:20px;
+  overflow:hidden;
+  background:
+    linear-gradient(145deg,#173b31,#087f5b);
+  color:white;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.2s ease;
+}
+
+.feature-card:hover{
+  transform:translateY(-4px);
+}
+
+.feature-card:nth-child(2){
+  background:linear-gradient(145deg,#263b36,#496e61);
+}
+
+.feature-card:nth-child(3){
+  background:linear-gradient(145deg,#57411e,#9a742c);
+}
+
+.feature-content{
+  position:absolute;
+  inset:0;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  background:linear-gradient(transparent 20%,rgba(0,0,0,.58));
+}
+
+.feature-label{
+  align-self:flex-start;
+  padding:6px 9px;
+  border-radius:20px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.2);
+  font-size:10px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  margin-bottom:auto;
+}
+
+.feature-card h3{
+  margin:0 0 5px;
+  font-size:20px;
+}
+
+.feature-card p{
+  margin:0;
+  color:rgba(255,255,255,.78);
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* ================= TOOLBAR ================= */
+
+.shop-toolbar{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:14px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.search-wrap{
+  flex:1;
+  min-width:220px;
+  position:relative;
+}
+
+.search-wrap span{
+  position:absolute;
+  left:13px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#9aa6a1;
+}
+
+.search-wrap input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:12px 13px 12px 38px;
+  outline:none;
+}
+
+.search-wrap input:focus{
+  border-color:#9bcdbd;
+  box-shadow:0 0 0 3px rgba(8,127,91,.08);
+}
+
+.category-select{
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:12px 35px 12px 12px;
+  background:white;
+  outline:none;
+  min-width:160px;
+}
+
+/* ================= PRODUCT GRID ================= */
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.product-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 22px rgba(0,0,0,.04);
+  transition:.2s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.product-image-wrap{
+  height:215px;
+  position:relative;
+  background:#eef3f1;
+  overflow:hidden;
+}
+
+.product-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:.25s ease;
+}
+
+.product-card:hover .product-image{
+  transform:scale(1.025);
+}
+
+.product-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:6px 9px;
+  border-radius:20px;
+  background:white;
+  color:var(--green-dark);
+  font-size:10px;
+  font-weight:800;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.stock-badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  padding:6px 9px;
+  border-radius:20px;
+  background:rgba(20,33,29,.78);
+  color:white;
+  font-size:10px;
+  font-weight:800;
+}
+
+.product-body{
+  padding:17px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.product-category{
+  color:var(--green);
+  font-size:10px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+.product-name{
+  margin:6px 0;
+  font-size:18px;
+  color:var(--dark);
+}
+
+.product-description{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55;
+  min-height:38px;
+}
+
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:10px;
+  margin-top:auto;
+  padding-top:15px;
+}
+
+.price-label{
+  color:var(--muted);
+  font-size:10px;
+}
+
+.product-price{
+  color:var(--green-dark);
+  font-size:21px;
+  font-weight:900;
+  margin-top:3px;
+}
+
+.select-btn{
+  border:0;
+  background:var(--green);
+  color:white;
+  padding:10px 13px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+.select-btn:hover{
+  background:var(--green-dark);
+}
+
+/* ================= EMPTY / LOADING ================= */
+
+.state-box{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:45px 20px;
+  text-align:center;
+  color:var(--muted);
+  grid-column:1/-1;
+}
+
+.state-icon{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+/* ================= PURCHASE PANEL ================= */
+
+.purchase-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(12,25,20,.58);
+  backdrop-filter:blur(5px);
+  padding:18px;
+  overflow-y:auto;
+}
+
+.purchase-overlay.show{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.purchase-panel{
+  width:min(680px,100%);
+  background:white;
+  border-radius:22px;
+  box-shadow:0 25px 70px rgba(0,0,0,.22);
+  overflow:hidden;
+  animation:panelIn .18s ease;
+}
+
+@keyframes panelIn{
+  from{transform:translateY(12px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+.purchase-head{
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--border);
+}
+
+.purchase-head h2{
+  margin:0;
+  font-size:19px;
+  color:var(--dark);
+}
+
+.close-btn{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#f0f3f2;
+  color:#46534f;
+  font-size:17px;
+}
+
+.purchase-content{
+  padding:20px;
+}
+
+.selected-asset{
+  display:grid;
+  grid-template-columns:105px 1fr;
+  gap:14px;
+  padding:13px;
+  border:1px solid #dce9e4;
+  background:#f7fbf9;
+  border-radius:15px;
+}
+
+.selected-asset img{
+  width:105px;
+  height:90px;
+  object-fit:cover;
+  border-radius:11px;
+}
+
+.selected-category{
+  color:var(--green);
+  font-size:10px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.selected-asset h3{
+  margin:5px 0;
+  font-size:18px;
+  color:var(--dark);
+}
+
+.market-price{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.market-price strong{
+  color:var(--green-dark);
+}
+
+.purchase-form{
+  margin-top:18px;
+}
+
+.form-label{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:7px;
+}
+
+.purchase-input{
+  width:100%;
+  border:1px solid #ccd8d4;
+  border-radius:12px;
+  padding:13px;
+  font-size:17px;
+  outline:none;
+}
+
+.purchase-input:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(8,127,91,.09);
+}
+
+.input-note{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+  margin-top:6px;
+}
+
+.purchase-summary{
+  margin-top:17px;
+  padding:15px;
+  background:#f8faf9;
+  border:1px solid var(--border);
+  border-radius:13px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin:7px 0;
+  font-size:13px;
+}
+
+.summary-row.total{
+  padding-top:11px;
+  margin-top:11px;
+  border-top:1px solid var(--border);
+  font-size:16px;
+  font-weight:900;
+  color:var(--green-dark);
+}
+
+.purchase-actions{
+  display:flex;
+  gap:9px;
+  margin-top:17px;
+}
+
+.purchase-confirm{
+  flex:1;
+  border:0;
+  background:var(--green);
+  color:white;
+  padding:13px;
+  border-radius:12px;
+  font-weight:900;
+}
+
+.purchase-cancel{
+  border:1px solid var(--border);
+  background:white;
+  color:var(--text);
+  padding:13px 16px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+.purchase-message{
+  margin-top:12px;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.purchase-message.error{
+  color:var(--danger);
+}
+
+.purchase-message.success{
+  color:var(--green-dark);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  margin-top:55px;
+  background:#10221c;
+  color:white;
+  padding:32px 0;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:center;
+}
+
+.footer p{
+  margin:5px 0;
+  color:rgba(255,255,255,.62);
+  font-size:12px;
+}
+
+.footer a{
+  color:#a8d8c8;
+  font-weight:700;
+  font-size:12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+  .product-grid,
+  .featured-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero-content{
+    padding:38px;
+  }
+}
+
+@media(max-width:650px){
+  .container{
+    width:min(100% - 20px,1180px);
+  }
+
+  .nav{
+    min-height:64px;
+  }
+
+  .brand-text{
+    font-size:13px;
+  }
+
+  .brand-mark{
+    width:38px;
+    height:38px;
+  }
+
+  .nav-btn{
+    padding:9px 10px;
+    font-size:12px;
+  }
+
+  .hero{
+    min-height:430px;
+    border-radius:21px;
+  }
+
+  .hero-content{
+    padding:28px 22px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    text-align:center;
+  }
+
+  .trust-strip{
+    grid-template-columns:1fr;
+  }
+
+  .featured-grid,
+  .product-grid{
+    grid-template-columns:1fr;
+  }
+
+  .product-image-wrap{
+    height:225px;
+  }
+
+  .section-heading{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .shop-toolbar{
+    flex-direction:column;
+  }
+
+  .search-wrap,
+  .category-select{
+    width:100%;
+    min-width:0;
+  }
+
+  .selected-asset{
+    grid-template-columns:85px 1fr;
+  }
+
+  .selected-asset img{
+    width:85px;
+    height:80px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+  <div class="container nav">
+
+    <a href="index.html" class="brand">
+      <div class="brand-mark">🚚</div>
+      <div class="brand-text">
+        Greenway Express
+        <small>Marketplace</small>
+      </div>
+    </a>
+
+    <div class="nav-actions">
+      <a href="index.html" class="nav-btn">← Back</a>
+      <button class="nav-btn" type="button" onclick="scrollToProducts()">
+        Browse
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <span class="eyebrow">🛍️ Greenway Express Marketplace</span>
+
+    <h1>Shop with confidence.</h1>
+
+    <p>
+      Discover selected products and assets available through Greenway Express.
+      Browse, compare and choose what you want — all in one professional marketplace.
+    </p>
+
+    <div class="hero-actions">
+      <button
+        class="primary-btn"
+        type="button"
+        onclick="scrollToProducts()">
+        Explore the Shop →
+      </button>
+
+      <button
+        class="secondary-btn"
+        type="button"
+        onclick="scrollToFeatured()">
+        View Featured
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TRUST ================= -->
+
+<section class="trust-strip">
+
+  <div class="trust-item">
+    <div class="trust-icon">🔐</div>
+    <div>
+      <strong>Secure Shopping</strong>
+      <span>Designed with customer security in mind.</span>
+    </div>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">📦</div>
+    <div>
+      <strong>Reliable Delivery</strong>
+      <span>Backed by the Greenway Express service.</span>
+    </div>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">💚</div>
+    <div>
+      <strong>Simple Experience</strong>
+      <span>Browse, select and review before proceeding.</span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ================= FEATURED ================= -->
+
+<section class="section" id="featuredSection">
+
+  <div class="section-heading">
+    <div>
+      <h2>Featured Collection</h2>
+      <p>A few reasons to take a closer look.</p>
+    </div>
+
+    <button
+      class="section-link"
+      type="button"
+      onclick="scrollToProducts()">
+      See all →
+    </button>
+  </div>
+
+  <div class="featured-grid">
+
+    <article
+      class="feature-card"
+      onclick="focusCategory('')">
+
+      <div class="feature-content">
+        <span class="feature-label">Discover</span>
+        <h3>Explore the Collection</h3>
+        <p>Browse the products and assets currently available.</p>
+      </div>
+
+    </article>
+
+    <article
+      class="feature-card"
+      onclick="focusCategory('')">
+
+      <div class="feature-content">
+        <span class="feature-label">Popular</span>
+        <h3>Find Something Useful</h3>
+        <p>Explore the marketplace and choose what suits you.</p>
+      </div>
+
+    </article>
+
+    <article
+      class="feature-card"
+      onclick="focusCategory('')">
+
+      <div class="feature-content">
+        <span class="feature-label">Greenway</span>
+        <h3>Shop &amp; Deliver</h3>
+        <p>A marketplace experience connected to Greenway Express.</p>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="productsSection">
+
+  <div class="section-heading">
+
+    <div>
+      <h2>Shop Products</h2>
+      <p>Select an item to view its details and purchase options.</p>
+    </div>
+
+    <button
+      class="section-link"
+      type="button"
+      onclick="loadProducts()">
+      ↻ Refresh
+    </button>
+
+  </div>
+
+
+  <div class="shop-toolbar">
+
+    <div class="search-wrap">
+      <span>🔎</span>
+      <input
+        id="shopSearch"
+        type="search"
+        placeholder="Search products or assets..."
+        oninput="filterProducts()">
+    </div>
+
+    <select
+      id="categoryFilter"
+      class="category-select"
+      onchange="filterProducts()">
+      <option value="">All categories</option>
+    </select>
+
+  </div>
+
+
+  <div
+    class="product-grid"
+    id="productGrid">
+
+    <div class="state-box">
+      <div class="state-icon">⏳</div>
+      Loading the shop...
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= PURCHASE MODAL ================= -->
+
+<div
+  class="purchase-overlay"
+  id="purchaseOverlay"
+  onclick="closePurchaseFromOverlay(event)">
+
+  <div
+    class="purchase-panel"
+    onclick="event.stopPropagation()">
+
+    <div class="purchase-head">
+
+      <h2>Selected Asset</h2>
+
+      <button
+        type="button"
+        class="close-btn"
+        onclick="closePurchase()">
+        ✕
+      </button>
+
+    </div>
+
+
+    <div class="purchase-content">
+
+      <div class="selected-asset">
+
+        <img
+          id="selectedImage"
+          src=""
+          alt="Selected asset">
+
+        <div>
+
+          <div
+            class="selected-category"
+            id="selectedCategory">
+            Asset
+          </div>
+
+          <h3 id="selectedName">
+            —
+          </h3>
+
+          <div class="market-price">
+            Current listed price:
+            <strong id="selectedMarketPrice">$0.00</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="purchase-form">
+
+        <label
+          class="form-label"
+          for="purchasePrice">
+          Your Purchase Price — USD
+        </label>
+
+        <input
+          id="purchasePrice"
+          class="purchase-input"
+          type="number"
+          min="0.01"
+          step="0.01"
+          placeholder="Enter the amount you want to offer"
+          oninput="updatePurchaseSummary()">
+
+        <div class="input-note">
+          The listed market price is shown for reference. You can enter the
+          purchase amount you want to submit for this selected asset.
+        </div>
+
+      </div>
+
+
+      <div class="purchase-summary">
+
+        <div class="summary-row">
+          <span>Selected asset</span>
+          <strong id="summaryAsset">—</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Listed price</span>
+          <strong id="summaryListed">$0.00</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Your purchase price</span>
+          <strong id="summaryOffer">$0.00</strong>
+        </div>
+
+        <div class="summary-row total">
+          <span>Purchase amount</span>
+          <strong id="summaryTotal">$0.00</strong>
+        </div>
+
+      </div>
+
+
+      <div
+        id="purchaseMessage"
+        class="purchase-message">
+      </div>
+
+
+      <div class="purchase-actions">
+
+        <button
+          type="button"
+          class="purchase-cancel"
+          onclick="closePurchase()">
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="purchase-confirm"
+          onclick="submitPurchase()">
+          Continue Purchase
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+  <div class="container footer-inner">
+
+    <div>
+      <strong>🚚 Greenway Express</strong>
+      <p>Reliable delivery. Convenient shopping.</p>
+    </div>
+
+    <a href="index.html">
+      Return to Greenway Express
+    </a>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= SUPABASE ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+/* =========================================================
+   SUPABASE CONNECTION
+   ========================================================= */
+
+const supabaseClient = supabase.createClient(
+  "https://zrmelabkasdnockpaylj.supabase.co",
+  "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt"
+);
+
+
+/* =========================================================
+   SHOP STATE
+   ========================================================= */
+
+let allProducts = [];
+let filteredProducts = [];
+let selectedProduct = null;
+
+
+/* =========================================================
+   SECURITY / DISPLAY HELPERS
+   ========================================================= */
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function escapeAttribute(value){
+  return escapeHtml(value);
+}
+
+function formatMoney(value){
+  const number = Number(value || 0);
+
+  return number.toLocaleString("en-US",{
+    style:"currency",
+    currency:"USD",
+    minimumFractionDigits:2
+  });
+}
+
+
+/* =========================================================
+   LOAD PRODUCTS
+   ========================================================= */
+
+async function loadProducts(){
+
+  const grid = document.getElementById("productGrid");
+
+  grid.innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">⏳</div>
+      Loading the shop...
+    </div>
+  `;
+
+  const {data,error} = await supabaseClient
+    .from("shop_products")
+    .select("*")
+    .eq("visible",true)
+    .order("created_at",{ascending:false});
+
+  if(error){
+
+    grid.innerHTML = `
+      <div class="state-box">
+        <div class="state-icon">⚠️</div>
+        <strong>Unable to load the shop.</strong>
+        <p>${escapeHtml(error.message)}</p>
+        <button
+          class="select-btn"
+          type="button"
+          onclick="loadProducts()">
+          Try Again
+        </button>
+      </div>
+    `;
+
+    return;
+  }
+
+  allProducts = data || [];
+
+  populateCategories();
+
+  filteredProducts = [...allProducts];
+
+  renderProducts(filteredProducts);
+
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+function populateCategories(){
+
+  const select = document.getElementById("categoryFilter");
+
+  const categories = [
+    ...new Set(
+      allProducts
+        .map(product => String(product.category || "").trim())
+        .filter(Boolean)
+    )
+  ].sort();
+
+  select.innerHTML = `
+    <option value="">All categories</option>
+    ${
+      categories.map(category => `
+        <option value="${escapeAttribute(category)}">
+          ${escapeHtml(category)}
+        </option>
+      `).join("")
+    }
+  `;
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
+
+function renderProducts(products){
+
+  const grid = document.getElementById("productGrid");
+
+  if(!products.length){
+
+    grid.innerHTML = `
+      <div class="state-box">
+        <div class="state-icon">🔎</div>
+        <strong>No matching products found.</strong>
+        <p>Try another search or category.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML = products.map(product => {
+
+    const stock = Number(product.stock || 0);
+
+    const image =
+      product.image_url ||
+      "https://via.placeholder.com/700x500?text=Greenway+Express";
+
+    const stockText =
+      stock > 0
+        ? `${stock} available`
+        : "Currently unavailable";
+
+    const disabled =
+      stock <= 0;
+
+    return `
+
+      <article class="product-card">
+
+        <div
+          class="product-image-wrap"
+          onclick="openPurchase('${escapeAttribute(product.id)}')">
+
+          <img
+            class="product-image"
+            src="${escapeAttribute(image)}"
+            alt="${escapeAttribute(product.name || "Product")}"
+            onerror="this.src='https://via.placeholder.com/700x500?text=Greenway+Express'">
+
+          <span class="product-badge">
+            ${escapeHtml(product.category || "General")}
+          </span>
+
+          <span class="stock-badge">
+            ${escapeHtml(stockText)}
+          </span>
+
+        </div>
+
+
+        <div class="product-body">
+
+          <div class="product-category">
+            ${escapeHtml(product.category || "General")}
+          </div>
+
+          <h3 class="product-name">
+            ${escapeHtml(product.name || "Unnamed Product")}
+          </h3>
+
+          <div class="product-description">
+            ${escapeHtml(
+              product.description ||
+              "More information about this item will be available here."
+            )}
+          </div>
+
+
+          <div class="price-row">
+
+            <div>
+
+              <div class="price-label">
+                Listed price
+              </div>
+
+              <div class="product-price">
+                ${formatMoney(product.price)}
+              </div>
+
+            </div>
+
+
+            <button
+              type="button"
+              class="select-btn"
+              ${disabled ? "disabled" : ""}
+              onclick="openPurchase('${escapeAttribute(product.id)}')">
+
+              ${disabled ? "Unavailable" : "Select"}
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    `;
+
+  }).join("");
+
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function filterProducts(){
+
+  const query =
+    document
+      .getElementById("shopSearch")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const category =
+    document.getElementById("categoryFilter").value;
+
+  filteredProducts = allProducts.filter(product => {
+
+    const searchable = [
+
+      product.name,
+      product.category,
+      product.description
+
+    ].join(" ").toLowerCase();
+
+    const matchesSearch =
+      !query ||
+      searchable.includes(query);
+
+    const matchesCategory =
+      !category ||
+      String(product.category || "") === category;
+
+    return matchesSearch && matchesCategory;
+
+  });
+
+  renderProducts(filteredProducts);
+
+}
+
+
+/* =========================================================
+   OPEN PURCHASE
+   ========================================================= */
+
+function openPurchase(productId){
+
+  const product =
+    allProducts.find(item =>
+      String(item.id) === String(productId)
+    );
+
+  if(!product)return;
+
+  if(Number(product.stock || 0) <= 0){
+
+    alert("This item is currently unavailable.");
+
+    return;
+  }
+
+  selectedProduct = product;
+
+  document.getElementById("selectedImage").src =
+    product.image_url ||
+    "https://via.placeholder.com/500x400?text=Greenway+Express";
+
+  document.getElementById("selectedName").textContent =
+    product.name || "Unnamed Product";
+
+  document.getElementById("selectedCategory").textContent =
+    product.category || "General";
+
+  document.getElementById("selectedMarketPrice").textContent =
+    formatMoney(product.price);
+
+  document.getElementById("summaryAsset").textContent =
+    product.name || "—";
+
+  document.getElementById("summaryListed").textContent =
+    formatMoney(product.price);
+
+  document.getElementById("summaryOffer").textContent =
+    "$0.00";
+
+  document.getElementById("summaryTotal").textContent =
+    "$0.00";
+
+  document.getElementById("purchasePrice").value = "";
+
+  document.getElementById("purchaseMessage").textContent = "";
+
+  document.getElementById("purchaseMessage").className =
+    "purchase-message";
+
+  document
+    .getElementById("purchaseOverlay")
+    .classList.add("show");
+
+  setTimeout(() => {
+    document.getElementById("purchasePrice").focus();
+  },100);
+
+}
+
+
+/* =========================================================
+   PURCHASE SUMMARY
+   ========================================================= */
+
+function updatePurchaseSummary(){
+
+  if(!selectedProduct)return;
+
+  const value =
+    Number(
+      document.getElementById("purchasePrice").value
+    ) || 0;
+
+  document.getElementById("summaryOffer").textContent =
+    formatMoney(value);
+
+  document.getElementById("summaryTotal").textContent =
+    formatMoney(value);
+
+}
+
+
+/* =========================================================
+   CLOSE PURCHASE
+   ========================================================= */
+
+function closePurchase(){
+
+  selectedProduct = null;
+
+  document
+    .getElementById("purchaseOverlay")
+    .classList.remove("show");
+
+}
+
+function closePurchaseFromOverlay(event){
+
+  if(event.target.id === "purchaseOverlay"){
+    closePurchase();
+  }
+
+}
+
+
+/* =========================================================
+   SUBMIT PURCHASE
+   ========================================================= */
+
+async function submitPurchase(){
+
+  const message =
+    document.getElementById("purchaseMessage");
+
+  if(!selectedProduct){
+
+    message.className = "purchase-message error";
+    message.textContent =
+      "Please select an asset first.";
+
+    return;
+  }
+
+  const purchasePrice =
+    Number(
+      document.getElementById("purchasePrice").value
+    );
+
+  if(!purchasePrice || purchasePrice <= 0){
+
+    message.className = "purchase-message error";
+    message.textContent =
+      "Please enter a valid purchase amount.";
+
+    return;
+  }
+
+
+  /*
+    At this stage we intentionally do not insert into a
+    made-up Supabase orders table.
+
+    The existing shop_products table is already being used
+    for the marketplace inventory.
+
+    Once we create the dedicated purchase/order table,
+    this button will record:
+      - customer
+      - selected asset
+      - listed price
+      - customer's purchase price
+      - status
+      - created_at
+
+    This prevents us from breaking the existing database
+    by guessing a table or column that does not exist.
+  */
+
+
+  message.className = "purchase-message success";
+
+  message.textContent =
+    "Your selection has been prepared successfully. " +
+    "The purchase-recording step will be connected next.";
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function scrollToProducts(){
+
+  document
+    .getElementById("productsSection")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
+
+function scrollToFeatured(){
+
+  document
+    .getElementById("featuredSection")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
+
+function focusCategory(category){
+
+  document.getElementById("categoryFilter").value =
+    category || "";
+
+  filterProducts();
+
+  scrollToProducts();
+
+}
+
+
+/* =========================================================
+   KEYBOARD SUPPORT
+   ========================================================= */
+
+document.addEventListener("keydown",event => {
+
+  if(event.key === "Escape"){
+
+    const overlay =
+      document.getElementById("purchaseOverlay");
+
+    if(overlay.classList.contains("show")){
+      closePurchase();
+    }
+
+  }
+
+});
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+loadProducts();
+
+</script>
+
+</body>
+</html>
