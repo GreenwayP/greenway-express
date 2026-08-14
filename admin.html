@@ -446,8 +446,8 @@ color:var(--muted)
 }
 
 /* =========================
-   CHAT
-========================= */
+   CUSTOMER CHAT
+   ========================= */
 
 .chat-layout{
 display:grid;
@@ -472,9 +472,7 @@ padding:15px;
 border-bottom:1px solid var(--border)
 }
 
-.conversation-top h3{
-margin:0 0 10px
-}
+.conversation-top h3{margin:0 0 10px}
 
 .chat-search{position:relative}
 .chat-search input{padding-left:38px}
@@ -489,7 +487,8 @@ color:#94a3b8
 
 .conversation-list{
 flex:1;
-overflow-y:auto
+overflow-y:auto;
+min-height:0
 }
 
 .conversation-item{
@@ -498,9 +497,7 @@ border-bottom:1px solid #edf0ef;
 cursor:pointer
 }
 
-.conversation-item:hover{
-background:#f1f8f5
-}
+.conversation-item:hover{background:#f1f8f5}
 
 .conversation-item.active{
 background:#e7f7f1;
@@ -569,8 +566,8 @@ font-size:9px
 display:flex;
 flex-direction:column;
 min-width:0;
-background:#f8faf9;
-position:relative
+min-height:0;
+background:#f8faf9
 }
 
 .chat-empty{
@@ -580,7 +577,8 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:30px;
-color:var(--muted)
+color:var(--muted);
+min-height:0
 }
 
 .chat-empty-icon{
@@ -596,7 +594,9 @@ justify-content:center;
 font-size:34px
 }
 
-/* Protected chat header */
+/* FIX:
+   Keep the chat header above normal message content.
+*/
 .active-chat-header{
 display:none;
 align-items:center;
@@ -606,13 +606,14 @@ background:white;
 border-bottom:1px solid var(--border);
 position:relative;
 z-index:20;
-flex-shrink:0;
+flex-shrink:0
 }
 
 .active-chat-user{
 display:flex;
 align-items:center;
-gap:10px
+gap:10px;
+min-width:0
 }
 
 .active-customer-id{
@@ -637,15 +638,20 @@ background:#16a34a;
 margin-right:3px
 }
 
+/* FIX:
+   Message area is the only scrolling region.
+*/
 .message-area{
 flex:1;
 padding:18px;
 overflow-y:auto;
+overflow-x:hidden;
 display:flex;
 flex-direction:column;
 gap:9px;
 min-height:0;
-position:relative
+position:relative;
+z-index:1
 }
 
 .message-row{
@@ -654,15 +660,13 @@ width:100%;
 min-width:0
 }
 
-.message-row.customer{
-justify-content:flex-start
-}
+.message-row.customer{justify-content:flex-start}
+.message-row.admin{justify-content:flex-end}
 
-.message-row.admin{
-justify-content:flex-end
-}
-
-/* Prevent received content from escaping the bubble */
+/* FIX:
+   Prevent images from forcing the bubble outside
+   the chat area.
+*/
 .message-bubble{
 max-width:min(75%,500px);
 min-width:0;
@@ -687,14 +691,10 @@ color:white;
 border-bottom-right-radius:5px
 }
 
-.message-text{
-font-size:14px;
-line-height:1.5;
-white-space:pre-wrap;
-overflow-wrap:anywhere
-}
-
-/* Keep received images inside their message bubble */
+/* FIX:
+   Received images remain strictly inside
+   the message bubble.
+*/
 .chat-message-image{
 display:block;
 width:auto;
@@ -709,6 +709,13 @@ position:relative;
 z-index:1
 }
 
+.message-text{
+font-size:14px;
+line-height:1.5;
+white-space:pre-wrap;
+overflow-wrap:anywhere
+}
+
 .message-time{
 font-size:9px;
 margin-top:4px;
@@ -716,7 +723,9 @@ opacity:.65;
 text-align:right
 }
 
-/* Protected composer */
+/* FIX:
+   Composer stays above normal chat content.
+*/
 .message-composer{
 display:none;
 padding:10px 12px;
@@ -724,7 +733,7 @@ background:white;
 border-top:1px solid var(--border);
 position:relative;
 z-index:20;
-flex-shrink:0;
+flex-shrink:0
 }
 
 .composer-row{
@@ -820,20 +829,12 @@ grid-template-columns:repeat(2,1fr)
 @media(max-width:700px){
 
 body{padding:10px}
-
 .header{padding:20px}
-
 .header h1{font-size:22px}
-
 .card{padding:14px}
 
-.form-grid{
-grid-template-columns:1fr
-}
-
-.full{
-grid-column:auto
-}
+.form-grid{grid-template-columns:1fr}
+.full{grid-column:auto}
 
 button{font-size:13px}
 
@@ -850,9 +851,7 @@ width:100%;
 height:190px
 }
 
-.shop-toolbar input{
-max-width:none
-}
+.shop-toolbar input{max-width:none}
 
 .chat-layout{
 height:780px
@@ -862,13 +861,13 @@ height:780px
 max-width:85%
 }
 
-.conversation-panel{
-height:245px
-}
-
 .chat-message-image{
 max-width:100%;
 max-height:220px
+}
+
+.conversation-panel{
+height:245px
 }
 
 }
@@ -953,7 +952,7 @@ onclick="adminLogout()">
 
 <!-- =========================
      SHIPMENTS
-========================= -->
+     ========================= -->
 
 <div id="shipmentsSection" class="admin-section active">
 
@@ -1182,8 +1181,7 @@ Service Approval
 
 </div>
 
-<button type="button"
-onclick="createShipment()">
+<button type="button" onclick="createShipment()">
 ➕ Create Shipment
 </button>
 
@@ -1259,7 +1257,7 @@ onclick="findShipment()">
 
 <!-- =========================
      SHOP
-========================= -->
+     ========================= -->
 
 <div id="shopSection" class="admin-section">
 
@@ -1389,8 +1387,7 @@ Uploaded images take priority.
 <div class="field full">
 <label>Description</label>
 <textarea id="shopDescription"
-placeholder="Describe the product or asset">
-</textarea>
+placeholder="Describe the product or asset"></textarea>
 </div>
 
 <div class="field">
@@ -1460,7 +1457,7 @@ Loading products...
 
 <!-- =========================
      CHAT
-========================= -->
+     ========================= -->
 
 <div id="chatSection" class="admin-section">
 
@@ -1608,7 +1605,8 @@ class="hidden-file"
 accept="image/*"
 onchange="handleImageSelection(event)">
 
-<textarea id="chatMessageInput"
+<textarea
+id="chatMessageInput"
 placeholder="Type a message..."
 rows="1"
 onkeydown="handleChatKeydown(event)">
@@ -1636,9 +1634,7 @@ class="chat-image-status">
 
 </div>
 
-<!-- =========================
-     IMAGE MODAL
-========================= -->
+<!-- IMAGE MODAL -->
 
 <div id="imageModal"
 style="
@@ -1671,10 +1667,7 @@ onclick="event.stopPropagation();closeImageModal()">
 <img id="modalImage"
 src=""
 alt="Chat image"
-style="
-max-width:95vw;
-max-height:90vh;
-border-radius:12px"
+style="max-width:95vw;max-height:90vh;border-radius:12px"
 onclick="event.stopPropagation()">
 
 </div>
@@ -1725,7 +1718,7 @@ file.name.includes(".")
 ?file.name.split(".").pop().toLowerCase()
 :"jpg";
 
-return(
+return (
 folder+
 "/"+
 Date.now()+
@@ -1740,7 +1733,7 @@ extension
 async function uploadImage(bucket,file,folder){
 
 if(!file){
-return{
+return {
 url:null,
 path:null,
 error:null
@@ -1749,7 +1742,7 @@ error:null
 
 if(!file.type.startsWith("image/")){
 
-return{
+return {
 url:null,
 path:null,
 error:"Please select an image file."
@@ -1759,7 +1752,7 @@ error:"Please select an image file."
 
 if(file.size>MAX_IMAGE_SIZE){
 
-return{
+return {
 url:null,
 path:null,
 error:"Image is too large. Maximum size is 10MB."
@@ -1769,9 +1762,7 @@ error:"Image is too large. Maximum size is 10MB."
 
 const path=createImagePath(folder,file);
 
-const{
-error:uploadError
-}=await supabaseClient
+const {error:uploadError}=await supabaseClient
 .storage
 .from(bucket)
 .upload(path,file,{
@@ -1782,7 +1773,7 @@ contentType:file.type
 
 if(uploadError){
 
-return{
+return {
 url:null,
 path:null,
 error:uploadError.message
@@ -1790,12 +1781,12 @@ error:uploadError.message
 
 }
 
-const{data}=supabaseClient
+const {data}=supabaseClient
 .storage
 .from(bucket)
 .getPublicUrl(path);
 
-return{
+return {
 url:data?.publicUrl||null,
 path,
 error:null
@@ -1811,6 +1802,7 @@ const isOpen=
 body.classList.contains("open");
 
 body.classList.toggle("open",!isOpen);
+
 header.classList.toggle("open",!isOpen);
 
 }
@@ -1832,8 +1824,7 @@ document.getElementById("loginCard").style.display="block";
 async function adminLogin(){
 
 const email=
-document.getElementById("adminEmail")
-.value.trim();
+document.getElementById("adminEmail").value.trim();
 
 const password=
 document.getElementById("adminPassword").value;
@@ -1852,7 +1843,7 @@ return;
 
 result.textContent="Logging in...";
 
-const{data,error}=
+const {data,error}=
 await supabaseClient.auth.signInWithPassword({
 email,
 password
@@ -1883,7 +1874,7 @@ startChatRefresh();
 
 async function checkAdminSession(){
 
-const{data,error}=
+const {data,error}=
 await supabaseClient.auth.getSession();
 
 if(error||!data.session){
@@ -1962,6 +1953,10 @@ document.getElementById("shipmentsNav")
 
 }
 
+/* =========================
+   SHIPMENTS
+   ========================= */
+
 async function createShipment(){
 
 const trackingNumber=
@@ -1972,17 +1967,14 @@ const status=
 document.getElementById("newStatus").value;
 
 const origin=
-document.getElementById("newOrigin")
-.value.trim();
+document.getElementById("newOrigin").value.trim();
 
 const destination=
-document.getElementById("newDestination")
-.value.trim();
+document.getElementById("newDestination").value.trim();
 
 if(!trackingNumber||!origin||!destination){
 
-document.getElementById("createResult")
-.textContent=
+document.getElementById("createResult").textContent=
 "Please enter tracking number, origin and destination.";
 
 return;
@@ -2068,7 +2060,8 @@ document.getElementById("newSpecialInstructions")
 .value.trim()||null,
 
 approval_status:
-document.getElementById("newApprovalStatus").value,
+document.getElementById("newApprovalStatus")
+.value,
 
 decline_reason:
 document.getElementById("newDeclineReason")
@@ -2076,8 +2069,7 @@ document.getElementById("newDeclineReason")
 
 };
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("Shipments")
 .insert(shipmentData);
 
@@ -2104,10 +2096,10 @@ async function loadAllShipments(){
 const container=
 document.getElementById("allShipments");
 
-container.innerHTML="Loading shipments...";
+container.innerHTML=
+"Loading shipments...";
 
-const{data,error}=
-await supabaseClient
+const {data,error}=await supabaseClient
 .from("Shipments")
 .select("*")
 .order("tracking_number",{ascending:false});
@@ -2143,7 +2135,7 @@ approval==="Declined"
 ?"declined":
 "pending";
 
-return`
+return `
 
 <div class="shipment-card">
 
@@ -2225,11 +2217,11 @@ onclick="deleteShipment('${escapeAttribute(shipment.tracking_number)}')">
 
 async function approveShipment(number){
 
-if(!confirm("Approve shipment "+number+"?"))
-return;
+if(!confirm(
+"Approve shipment "+number+"?"
+))return;
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("Shipments")
 .update({
 approval_status:"Approved",
@@ -2261,12 +2253,12 @@ if(reason===null)return;
 if(!reason.trim()){
 
 alert("Please enter a decline reason.");
+
 return;
 
 }
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("Shipments")
 .update({
 approval_status:"Declined",
@@ -2277,6 +2269,7 @@ decline_reason:reason.trim()
 if(error){
 
 alert("Decline failed: "+error.message);
+
 return;
 
 }
@@ -2293,8 +2286,7 @@ if(!confirm(
 "Are you sure you want to delete shipment "+number+"?"
 ))return;
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("Shipments")
 .delete()
 .eq("tracking_number",number);
@@ -2302,6 +2294,7 @@ await supabaseClient
 if(error){
 
 alert("Delete failed: "+error.message);
+
 return;
 
 }
@@ -2333,8 +2326,7 @@ return;
 
 result.innerHTML="Searching...";
 
-const{data,error}=
-await supabaseClient
+const {data,error}=await supabaseClient
 .from("Shipments")
 .select("*")
 .eq("tracking_number",number)
@@ -2530,8 +2522,10 @@ Declined
 
 <div class="field">
 <label>Decline Reason</label>
+
 <input id="editDeclineReason"
 value="${escapeAttribute(data.decline_reason||"")}">
+
 </div>
 
 </div>
@@ -2540,7 +2534,9 @@ value="${escapeAttribute(data.decline_reason||"")}">
 
 <button type="button"
 onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
+
 💾 Save All Changes
+
 </button>
 
 `;
@@ -2556,12 +2552,12 @@ document.getElementById("editTrackingNumber")
 if(!newNumber){
 
 alert("Tracking number cannot be empty.");
+
 return;
 
 }
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("Shipments")
 .update({
 
@@ -2571,52 +2567,40 @@ status:
 document.getElementById("editStatus").value,
 
 origin:
-document.getElementById("editOrigin")
-.value.trim(),
+document.getElementById("editOrigin").value.trim(),
 
 destination:
-document.getElementById("editDestination")
-.value.trim(),
+document.getElementById("editDestination").value.trim(),
 
 current_location:
-document.getElementById("editLocation")
-.value.trim()||null,
+document.getElementById("editLocation").value.trim()||null,
 
 estimated_delivery:
-document.getElementById("editDelivery")
-.value||null,
+document.getElementById("editDelivery").value||null,
 
 sender_name:
-document.getElementById("editSenderName")
-.value.trim()||null,
+document.getElementById("editSenderName").value.trim()||null,
 
 sender_phone:
-document.getElementById("editSenderPhone")
-.value.trim()||null,
+document.getElementById("editSenderPhone").value.trim()||null,
 
 sender_email:
-document.getElementById("editSenderEmail")
-.value.trim()||null,
+document.getElementById("editSenderEmail").value.trim()||null,
 
 receiver_name:
-document.getElementById("editReceiverName")
-.value.trim()||null,
+document.getElementById("editReceiverName").value.trim()||null,
 
 receiver_phone:
-document.getElementById("editReceiverPhone")
-.value.trim()||null,
+document.getElementById("editReceiverPhone").value.trim()||null,
 
 receiver_email:
-document.getElementById("editReceiverEmail")
-.value.trim()||null,
+document.getElementById("editReceiverEmail").value.trim()||null,
 
 package_type:
-document.getElementById("editPackageType")
-.value||null,
+document.getElementById("editPackageType").value||null,
 
 package_weight:
-document.getElementById("editPackageWeight")
-.value===""
+document.getElementById("editPackageWeight").value===""
 ?null
 :Number(
 document.getElementById("editPackageWeight").value
@@ -2627,12 +2611,10 @@ document.getElementById("editPackageDescription")
 .value.trim()||null,
 
 service_type:
-document.getElementById("editServiceType")
-.value||null,
+document.getElementById("editServiceType").value||null,
 
 order_total:
-document.getElementById("editOrderTotal")
-.value===""
+document.getElementById("editOrderTotal").value===""
 ?null
 :Number(
 document.getElementById("editOrderTotal").value
@@ -2647,8 +2629,7 @@ document.getElementById("editSpecialInstructions")
 .value.trim()||null,
 
 approval_status:
-document.getElementById("editApprovalStatus")
-.value,
+document.getElementById("editApprovalStatus").value,
 
 decline_reason:
 document.getElementById("editDeclineReason")
@@ -2660,6 +2641,7 @@ document.getElementById("editDeclineReason")
 if(error){
 
 alert("Update failed: "+error.message);
+
 return;
 
 }
@@ -2674,8 +2656,8 @@ loadAllShipments();
 }
 
 /* =========================
-   SHOP FUNCTIONS
-========================= */
+   SHOP
+   ========================= */
 
 async function loadShopProducts(){
 
@@ -2684,10 +2666,10 @@ document.getElementById("shopProducts");
 
 if(!container)return;
 
-container.innerHTML="Loading shop products...";
+container.innerHTML=
+"Loading shop products...";
 
-const{data,error}=
-await supabaseClient
+const {data,error}=await supabaseClient
 .from("shop_products")
 .select("*")
 .order("created_at",{ascending:false});
@@ -2705,20 +2687,23 @@ return;
 allShopProducts=data||[];
 
 updateShopStats();
+
 renderShopProducts(allShopProducts);
 
 }
 
 function updateShopStats(){
 
-const total=allShopProducts.length;
+const total=
+allShopProducts.length;
 
 const visible=
 allShopProducts.filter(
 x=>x.visible!==false
 ).length;
 
-const hidden=total-visible;
+const hidden=
+total-visible;
 
 const lowStock=
 allShopProducts.filter(
@@ -2757,8 +2742,7 @@ return;
 
 }
 
-container.innerHTML=
-products.map(product=>{
+container.innerHTML=products.map(product=>{
 
 const visible=
 product.visible!==false;
@@ -2766,16 +2750,17 @@ product.visible!==false;
 const stock=
 Number(product.stock||0);
 
-return`
+const imageUrl=
+product.image_url||
+"https://via.placeholder.com/300x300?text=Product";
+
+return `
 
 <div class="product-card">
 
 <img
 class="product-image"
-src="${escapeAttribute(
-product.image_url||
-"https://via.placeholder.com/300x300?text=Product"
-)}"
+src="${escapeAttribute(imageUrl)}"
 alt="${escapeAttribute(product.name||"Product")}"
 onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
 
@@ -2890,6 +2875,7 @@ if(!file){
 
 preview.style.display="none";
 preview.src="";
+
 status.textContent=
 "Choose an image from your device.";
 
@@ -3025,10 +3011,10 @@ document.getElementById("shopVisible")
 
 };
 
-result.textContent="Saving product...";
+result.textContent=
+"Saving product...";
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("shop_products")
 .insert(product);
 
@@ -3132,8 +3118,7 @@ product.image_url||""
 
 if(image===null)return;
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("shop_products")
 .update({
 
@@ -3187,8 +3172,7 @@ if(!confirm(
 " from the shop?"
 ))return;
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("shop_products")
 .delete()
 .eq("id",id);
@@ -3214,8 +3198,7 @@ loadShopProducts();
 
 async function toggleShopVisibility(id,current){
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("shop_products")
 .update({
 visible:!current
@@ -3238,8 +3221,8 @@ loadShopProducts();
 }
 
 /* =========================
-   CHAT FUNCTIONS
-========================= */
+   CHAT
+   ========================= */
 
 async function loadConversations(){
 
@@ -3249,8 +3232,7 @@ document.getElementById("conversationList");
 list.innerHTML=
 '<div class="chat-loading">Loading conversations...</div>';
 
-const{data,error}=
-await supabaseClient
+const {data,error}=await supabaseClient
 .from("chat_messages")
 .select("*")
 .order("created_at",{ascending:false});
@@ -3318,13 +3300,9 @@ map.get(customerId).count++;
 allConversations=
 Array.from(map.values());
 
-renderConversations(
-allConversations
-);
+renderConversations(allConversations);
 
-updateChatBadge(
-allConversations.length
-);
+updateChatBadge(allConversations.length);
 
 }
 
@@ -3363,7 +3341,7 @@ activeConversationUserId===c.userId
 ?"active"
 :"";
 
-return`
+return `
 
 <div
 class="conversation-item ${active}"
@@ -3385,8 +3363,7 @@ ${escapeHtml(name)}
 </div>
 
 <div class="customer-id">
-Customer ID:
-${escapeHtml(c.userId)}
+Customer ID: ${escapeHtml(c.userId)}
 </div>
 
 <div class="conversation-preview">
@@ -3422,9 +3399,9 @@ ${formatTime(m.created_at)}
 function filterConversations(){
 
 const q=
-document.getElementById(
-"conversationSearch"
-).value.toLowerCase().trim();
+document.getElementById("conversationSearch")
+.value.toLowerCase()
+.trim();
 
 const filtered=
 allConversations.filter(c=>{
@@ -3485,9 +3462,7 @@ activeConversationName
 .charAt(0)
 .toUpperCase();
 
-renderConversations(
-allConversations
-);
+renderConversations(allConversations);
 
 await loadActiveConversation();
 
@@ -3503,8 +3478,7 @@ document.getElementById("messageArea");
 area.innerHTML=
 '<div class="chat-loading">Loading messages...</div>';
 
-const{data,error}=
-await supabaseClient
+const {data,error}=await supabaseClient
 .from("chat_messages")
 .select("*")
 .eq("customer_id",activeConversationUserId)
@@ -3552,7 +3526,7 @@ message.image_url||
 message.attachment_url||
 null;
 
-return`
+return `
 
 <div class="message-row ${isAdmin?"admin":"customer"}">
 
@@ -3600,13 +3574,12 @@ selectedImageFile=
 event.target.files[0]||null;
 
 const status=
-document.getElementById(
-"chatImageStatus"
-);
+document.getElementById("chatImageStatus");
 
 if(!selectedImageFile){
 
 status.textContent="";
+
 return;
 
 }
@@ -3636,9 +3609,7 @@ return;
 }
 
 status.textContent=
-"📷 "+
-selectedImageFile.name+
-" selected";
+"📷 "+selectedImageFile.name+" selected";
 
 }
 
@@ -3649,15 +3620,12 @@ if(!activeConversationUserId)return;
 if(!currentAdminUser)return;
 
 const input=
-document.getElementById(
-"chatMessageInput"
-);
+document.getElementById("chatMessageInput");
 
 const message=
 input.value.trim();
 
-if(!message&&!selectedImageFile)
-return;
+if(!message&&!selectedImageFile)return;
 
 const sendButton=
 document.querySelector(".send-button");
@@ -3672,9 +3640,8 @@ let imageUrl=null;
 
 if(selectedImageFile){
 
-document.getElementById(
-"chatImageStatus"
-).textContent=
+document.getElementById("chatImageStatus")
+.textContent=
 "📤 Uploading image...";
 
 const upload=
@@ -3714,8 +3681,7 @@ imageUrl
 
 };
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("chat_messages")
 .insert(insertData);
 
@@ -3767,8 +3733,7 @@ if(!confirm(
 "Delete the entire chat with this customer?"
 ))return;
 
-const{error}=
-await supabaseClient
+const {error}=await supabaseClient
 .from("chat_messages")
 .delete()
 .eq("customer_id",customerId);
@@ -3852,9 +3817,7 @@ document.getElementById(
 function updateChatBadge(count){
 
 const badge=
-document.getElementById(
-"chatNavBadge"
-);
+document.getElementById("chatNavBadge");
 
 if(count>0){
 
@@ -3879,18 +3842,19 @@ if(!value)return"";
 
 const d=new Date(value);
 
-if(isNaN(d.getTime()))
-return"";
+if(isNaN(d.getTime()))return"";
 
 return d.toLocaleString();
 
 }
 
 /*
-IMPORTANT CHAT FIX:
-Refresh every 30 seconds instead of
-rebuilding the active conversation
-every 10 seconds.
+IMPORTANT FIX:
+The old refresh was every 10 seconds.
+That repeatedly rebuilt the active chat while
+the admin was viewing received images.
+
+Now it refreshes every 30 seconds.
 */
 
 function startChatRefresh(){
