@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b6b3a">
+
 <title>Greenway Express | Fast, Safe & Reliable Delivery</title>
 
 <style>
-*{box-sizing:border-box;scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
@@ -23,8 +27,14 @@ header{
   text-align:center;
 }
 
-header h1{margin:0;font-size:30px}
-header p{margin:6px 0 0}
+header h1{
+  margin:0;
+  font-size:30px;
+}
+
+header p{
+  margin:6px 0 0;
+}
 
 nav{
   margin-top:18px;
@@ -42,13 +52,12 @@ nav a{
   font-weight:bold;
 }
 
-nav a:hover{background:#084d2b}
+nav a:hover{
+  background:#084d2b;
+}
 
-.language-box{margin-top:15px}
-
-.language-box label{
-  font-size:14px;
-  margin-right:6px;
+.language-box{
+  margin-top:15px;
 }
 
 #languageSelect{
@@ -84,7 +93,7 @@ nav a:hover{background:#084d2b}
 }
 
 .shop-button:hover{
-  transform:translateY(-3px) scale(1.02);
+  transform:translateY(-3px);
   background:#effaf4;
 }
 
@@ -132,11 +141,15 @@ nav a:hover{background:#084d2b}
   font-weight:bold;
 }
 
-.hero-button:hover{background:#eaf5ef}
+.hero-button:hover{
+  background:#eaf5ef;
+}
 
 /* GENERAL */
 
-section{padding:55px 20px}
+section{
+  padding:55px 20px;
+}
 
 .section-title{
   text-align:center;
@@ -167,10 +180,12 @@ section{padding:55px 20px}
   border-radius:15px;
   overflow:hidden;
   box-shadow:0 5px 16px rgba(0,0,0,.1);
-  transition:transform .2s;
+  transition:.2s;
 }
 
-.service-card:hover{transform:translateY(-4px)}
+.service-card:hover{
+  transform:translateY(-4px);
+}
 
 .service-card img{
   width:100%;
@@ -178,14 +193,18 @@ section{padding:55px 20px}
   object-fit:cover;
 }
 
-.service-content{padding:22px}
+.service-content{
+  padding:22px;
+}
 
 .service-content h3{
   color:#0b6b3a;
   margin-top:0;
 }
 
-.service-content p{line-height:1.6}
+.service-content p{
+  line-height:1.6;
+}
 
 /* TRACKING */
 
@@ -203,7 +222,13 @@ section{padding:55px 20px}
   box-shadow:0 4px 14px rgba(0,0,0,.08);
 }
 
-input{
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+.tracking-box input{
   width:100%;
   padding:14px;
   border:1px solid #ccc;
@@ -222,9 +247,19 @@ button{
   cursor:pointer;
 }
 
-button:hover{background:#084d2b}
+button:hover{
+  background:#084d2b;
+}
 
-#result{margin-top:25px;text-align:left}
+button:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
+#result{
+  margin-top:25px;
+  text-align:left;
+}
 
 .tracking-result{
   background:white;
@@ -273,7 +308,10 @@ button:hover{background:#084d2b}
   padding:15px;
 }
 
-.info-icon{font-size:22px;margin-bottom:7px}
+.info-icon{
+  font-size:22px;
+  margin-bottom:7px;
+}
 
 .info-label{
   display:block;
@@ -298,7 +336,9 @@ button:hover{background:#084d2b}
   border-left:5px solid #0b6b3a;
 }
 
-.status-box strong{color:#0b6b3a}
+.status-box strong{
+  color:#0b6b3a;
+}
 
 .tracking-error{
   background:#fff4f4;
@@ -320,7 +360,9 @@ button:hover{background:#084d2b}
 
 /* GLOBAL */
 
-.global-section{background:#f4f7f5}
+.global-section{
+  background:#f4f7f5;
+}
 
 .global-grid{
   max-width:1100px;
@@ -365,12 +407,19 @@ button:hover{background:#084d2b}
   box-shadow:0 4px 14px rgba(0,0,0,.09);
 }
 
-.step h3{color:#0b6b3a}
-.step p{line-height:1.6}
+.step h3{
+  color:#0b6b3a;
+}
+
+.step p{
+  line-height:1.6;
+}
 
 /* TEAM */
 
-.team-section{background:white}
+.team-section{
+  background:white;
+}
 
 .team-card{
   max-width:900px;
@@ -414,7 +463,9 @@ button:hover{background:#084d2b}
   font-size:32px;
 }
 
-#contact p{line-height:1.7}
+#contact p{
+  line-height:1.7;
+}
 
 #contact a{
   color:#0b6b3a;
@@ -423,7 +474,7 @@ button:hover{background:#084d2b}
 }
 
 /* ==================================================
-   CUSTOMER SHOP
+   SHOP
 ================================================== */
 
 #shopPage{
@@ -476,7 +527,9 @@ button:hover{background:#084d2b}
   font-weight:bold;
 }
 
-.shop-back:hover{background:rgba(255,255,255,.12)}
+.shop-back:hover{
+  background:rgba(255,255,255,.12);
+}
 
 .shop-layout{
   display:grid;
@@ -502,194 +555,188 @@ button:hover{background:#084d2b}
 }
 
 .product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.11);
+  transform:translateY(-3px);
 }
 
 .product-image{
   width:100%;
-  height:210px;
+  height:200px;
   object-fit:cover;
-  background:#eaf5ef;
 }
 
-.product-body{padding:18px}
+.product-body{
+  padding:20px;
+}
 
 .product-body h3{
-  margin:0 0 8px;
   color:#0b6b3a;
-  font-size:20px;
+  margin:0 0 8px;
 }
 
 .product-description{
   color:#64748b;
-  font-size:14px;
   line-height:1.5;
-  min-height:42px;
+  min-height:45px;
 }
 
 .product-price{
-  color:#111827;
-  font-size:21px;
+  font-size:22px;
   font-weight:800;
-  margin:12px 0;
+  color:#111827;
+  margin-top:12px;
+}
+
+.small-note{
+  color:#64748b;
+  font-size:13px;
+  margin:7px 0;
 }
 
 .quantity-row{
-  display:flex;
-  gap:8px;
-  align-items:center;
+  margin-top:12px;
 }
 
 .quantity-row input{
-  margin:0;
-  text-align:center;
+  width:100%;
   padding:11px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
 }
 
 .add-cart{
   width:100%;
   margin-top:10px;
-  font-weight:bold;
 }
 
 .shop-empty{
   background:white;
-  border-radius:18px;
-  padding:45px 20px;
+  border-radius:16px;
+  padding:35px;
   text-align:center;
   color:#64748b;
   grid-column:1/-1;
-  border:1px solid #e2e8e5;
 }
 
 /* CART */
 
 .cart-card{
   background:white;
-  border-radius:20px;
-  padding:22px;
-  box-shadow:0 8px 25px rgba(0,0,0,.09);
-  border:1px solid #e2e8e5;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 7px 24px rgba(0,0,0,.08);
   position:sticky;
   top:15px;
 }
 
 .cart-card h3{
-  color:#0b6b3a;
   margin-top:0;
-  font-size:23px;
+  color:#0b6b3a;
 }
 
 .cart-items{
-  max-height:390px;
+  max-height:400px;
   overflow:auto;
+}
+
+.cart-empty{
+  padding:25px 10px;
+  text-align:center;
+  color:#64748b;
 }
 
 .cart-item{
   padding:13px 0;
-  border-bottom:1px solid #edf0ee;
+  border-bottom:1px solid #e5e7eb;
 }
 
 .cart-item-title{
   font-weight:bold;
-  color:#1f2937;
+  margin-bottom:7px;
 }
 
 .cart-item-row{
   display:flex;
   justify-content:space-between;
   gap:10px;
-  margin-top:7px;
-  font-size:14px;
 }
 
 .cart-qty{
   color:#64748b;
+  font-size:14px;
 }
 
 .remove-item{
-  background:#fee2e2;
-  color:#b91c1c;
-  padding:5px 8px;
+  background:#b91c1c;
+  padding:5px 9px;
   font-size:12px;
-  margin:0;
-}
-
-.cart-empty{
-  color:#94a3b8;
-  text-align:center;
-  padding:20px 0;
 }
 
 .cart-total{
   margin-top:18px;
-  padding-top:17px;
-  border-top:2px solid #e5e7eb;
 }
 
 .total-line{
   display:flex;
   justify-content:space-between;
-  margin-bottom:9px;
+  margin:10px 0;
 }
 
 .total-line.grand{
-  font-size:22px;
-  font-weight:800;
-  color:#0b6b3a;
+  font-size:21px;
+  font-weight:bold;
+  padding-top:12px;
+  border-top:1px solid #ddd;
 }
 
 .checkout-btn{
   width:100%;
-  margin-top:15px;
-  background:#0b6b3a;
-  font-weight:bold;
-  padding:15px;
-}
-
-.checkout-btn:disabled{
-  background:#94a3b8;
-  cursor:not-allowed;
+  margin-top:10px;
 }
 
 /* CHECKOUT */
 
-.checkout-box{
+#checkoutBox{
   display:none;
-  margin-top:25px;
   background:white;
+  border-radius:18px;
   padding:25px;
-  border-radius:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  margin-top:25px;
+  box-shadow:0 6px 22px rgba(0,0,0,.08);
 }
 
-.checkout-box h3{
+#checkoutBox h3{
   color:#0b6b3a;
 }
 
 .checkout-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:15px;
+  gap:12px;
 }
 
-.checkout-grid .full{grid-column:1/-1}
-
-.checkout-box label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:6px;
-}
-
-.checkout-box input,
-.checkout-box textarea{
-  margin:0;
-}
-
-.checkout-submit{
-  margin-top:15px;
+.checkout-grid input,
+.checkout-grid textarea{
   width:100%;
+  padding:13px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+}
+
+.checkout-grid textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.checkout-full{
+  grid-column:1/-1;
+}
+
+#submitOrderButton{
+  margin-top:15px;
+}
+
+#orderResult{
+  margin-top:10px;
 }
 
 /* CHAT */
@@ -698,111 +745,113 @@ button:hover{background:#084d2b}
   position:fixed;
   right:20px;
   bottom:20px;
-  width:62px;
-  height:62px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   background:#0b6b3a;
   color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:27px;
-  box-shadow:0 8px 25px rgba(0,0,0,.22);
-  z-index:1000;
+  font-size:28px;
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
   cursor:pointer;
+  z-index:9999;
 }
 
 .chat-window{
-  display:none;
   position:fixed;
   right:20px;
   bottom:92px;
   width:350px;
   max-width:calc(100vw - 30px);
-  height:500px;
   background:white;
-  border-radius:18px;
-  box-shadow:0 12px 40px rgba(0,0,0,.2);
+  border-radius:17px;
   overflow:hidden;
-  z-index:999;
-  border:1px solid #dce6e1;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  display:none;
+  z-index:10000;
 }
 
-.chat-window.active{display:flex;flex-direction:column}
+.chat-window.active{
+  display:block;
+}
 
 .chat-head{
   background:#0b6b3a;
   color:white;
-  padding:16px;
+  padding:15px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-.chat-head strong{font-size:17px}
-
 .chat-close{
-  background:transparent;
-  padding:4px 8px;
-  margin:0;
+  padding:4px 9px;
+  background:rgba(255,255,255,.15);
 }
 
 .chat-id{
-  padding:8px 12px;
+  padding:9px 14px;
   background:#eaf5ef;
-  color:#0b6b3a;
+  color:#075c45;
   font-size:12px;
-  font-weight:bold;
 }
 
 .chat-messages{
-  flex:1;
+  height:300px;
   overflow-y:auto;
   padding:14px;
-  background:#f6f9f7;
+  background:#f8faf9;
 }
 
 .message{
-  max-width:85%;
+  max-width:80%;
   padding:10px 12px;
   border-radius:12px;
   margin-bottom:9px;
-  font-size:14px;
-  line-height:1.45;
-}
-
-.message.admin{
-  background:white;
-  border:1px solid #e2e8e5;
-  margin-right:auto;
+  line-height:1.4;
+  word-break:break-word;
 }
 
 .message.customer{
+  margin-left:auto;
   background:#0b6b3a;
   color:white;
-  margin-left:auto;
+  border-bottom-right-radius:3px;
+}
+
+.message.admin{
+  margin-right:auto;
+  background:white;
+  color:#1f2937;
+  border:1px solid #e2e8e5;
+  border-bottom-left-radius:3px;
 }
 
 .chat-input{
-  padding:10px;
   display:flex;
   gap:7px;
+  padding:10px;
   border-top:1px solid #e5e7eb;
 }
 
 .chat-input input{
-  margin:0;
-  padding:10px;
+  flex:1;
+  min-width:0;
+  padding:11px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
 }
 
 .chat-input button{
-  padding:10px 13px;
+  padding:11px 15px;
 }
 
 /* FOOTER */
 
 footer{
-  background:#222;
+  background:#063a22;
   color:white;
   text-align:center;
   padding:30px 20px;
@@ -822,10 +871,6 @@ footer a{
     grid-template-columns:1fr;
   }
 
-  .steps{
-    grid-template-columns:1fr;
-  }
-
   .shop-layout{
     grid-template-columns:1fr;
   }
@@ -837,40 +882,30 @@ footer a{
   .shop-products{
     grid-template-columns:1fr;
   }
+
+  .hero-content h2{
+    font-size:34px;
+  }
+
 }
 
-@media(max-width:750px){
+@media(max-width:600px){
 
-  .hero-content h2{font-size:32px}
-  .hero-content p{font-size:17px}
-
-  .shipment-grid{
-    grid-template-columns:1fr;
-  }
-
-  nav a{
-    font-size:14px;
-    padding:7px 9px;
-  }
-
-  .tracking-box{padding:20px}
-
-  .tracking-result-header h3{font-size:20px}
-
-  .shop-top h2{font-size:30px}
-
+  .shipment-grid,
+  .steps,
   .checkout-grid{
     grid-template-columns:1fr;
   }
 
-  .checkout-grid .full{
-    grid-column:auto;
+  .hero-main{
+    min-height:430px;
   }
 
   .chat-window{
     right:10px;
     bottom:85px;
   }
+
 }
 </style>
 </head>
@@ -879,7 +914,7 @@ footer a{
 
 <header>
 
-  <h1>🚚 Greenway Express</h1>
+  <h1>Greenway Express</h1>
 
   <p data-i18n="tagline">
     Fast, Safe & Reliable Delivery
@@ -889,16 +924,17 @@ footer a{
     <a href="#home" data-i18n="home">Home</a>
     <a href="#services" data-i18n="services">Services</a>
     <a href="#tracking" data-i18n="track">Track</a>
-    <a href="#how-it-works" data-i18n="how">How It Works</a>
+    <a href="#how" data-i18n="how">How It Works</a>
     <a href="#contact" data-i18n="contact">Contact</a>
   </nav>
 
   <div class="language-box">
-    <label for="languageSelect">🌐</label>
+
+    <label for="languageSelect">🌐 Language</label>
 
     <select id="languageSelect">
       <option value="en">English</option>
-      <option value="zh">Chinese</option>
+      <option value="zh">中文</option>
       <option value="fr">Français</option>
       <option value="es">Español</option>
       <option value="pt">Português</option>
@@ -906,22 +942,24 @@ footer a{
       <option value="de">Deutsch</option>
       <option value="ru">Русский</option>
     </select>
+
   </div>
 
 </header>
 
 
-<!-- SHOP BUTTON -->
-<div class="shop-button-area">
+<section class="shop-button-area">
 
-  <a href="#shopPage" class="shop-button" id="openShopButton">
+  <a
+    href="#"
+    class="shop-button"
+    id="openShopButton"
+  >
     🛍️ <span data-i18n="visitShop">Visit Greenway Shop</span>
   </a>
 
-</div>
+</section>
 
-
-<!-- HERO -->
 
 <section class="hero-main" id="home">
 
@@ -932,11 +970,14 @@ footer a{
     </h2>
 
     <p data-i18n="heroText">
-      We deliver your packages safely and on time,
-      wherever they need to go.
+      We deliver your packages safely and on time, wherever they need to go.
     </p>
 
-    <a class="hero-button" href="#tracking" data-i18n="trackPackage">
+    <a
+      href="#tracking"
+      class="hero-button"
+      data-i18n="trackPackage"
+    >
       📦 Track Your Package
     </a>
 
@@ -945,17 +986,20 @@ footer a{
 </section>
 
 
-<!-- SERVICES -->
-
 <section id="services">
 
-  <h2 class="section-title" data-i18n="ourServices">
+  <h2
+    class="section-title"
+    data-i18n="ourServices"
+  >
     Our Services
   </h2>
 
-  <p class="section-intro" data-i18n="servicesIntro">
-    Reliable delivery solutions for individuals,
-    businesses and online sellers.
+  <p
+    class="section-intro"
+    data-i18n="servicesIntro"
+  >
+    Reliable delivery solutions for individuals, businesses and online sellers.
   </p>
 
   <div class="services-grid">
@@ -963,8 +1007,8 @@ footer a{
     <div class="service-card">
 
       <img
-        src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=900&q=80"
-        alt="Delivery truck"
+        src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+        alt="Express delivery"
       >
 
       <div class="service-content">
@@ -974,18 +1018,19 @@ footer a{
         </h3>
 
         <p data-i18n="expressText">
-          Fast delivery for urgent packages
-          and important shipments.
+          Fast delivery for urgent packages and important shipments.
         </p>
 
       </div>
+
     </div>
+
 
     <div class="service-card">
 
       <img
         src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80"
-        alt="Packages and logistics"
+        alt="Package delivery"
       >
 
       <div class="service-content">
@@ -995,17 +1040,18 @@ footer a{
         </h3>
 
         <p data-i18n="packageText">
-          Safe and reliable delivery for
-          your personal packages.
+          Safe and reliable delivery for your personal packages.
         </p>
 
       </div>
+
     </div>
+
 
     <div class="service-card">
 
       <img
-        src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+        src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80"
         alt="Business delivery"
       >
 
@@ -1016,11 +1062,11 @@ footer a{
         </h3>
 
         <p data-i18n="businessText">
-          Dependable delivery support for
-          businesses and online sellers.
+          Dependable delivery support for businesses and online sellers.
         </p>
 
       </div>
+
     </div>
 
   </div>
@@ -1028,26 +1074,32 @@ footer a{
 </section>
 
 
-<!-- TRACKING -->
+<section
+  id="tracking"
+  class="tracking-section"
+>
 
-<section class="tracking-section" id="tracking">
-
-  <h2 class="section-title" data-i18n="trackShipment">
+  <h2
+    class="section-title"
+    data-i18n="trackShipment"
+  >
     Track Your Shipment
   </h2>
 
-  <p class="section-intro" data-i18n="trackingIntro">
-    Enter your Greenway Express tracking number
-    below to see your shipment information.
+  <p
+    class="section-intro"
+    data-i18n="trackingIntro"
+  >
+    Enter your Greenway Express tracking number below to see your shipment information.
   </p>
 
   <div class="tracking-box">
 
     <input
       type="text"
-      id="trackingNumber"
-      placeholder="Enter tracking number"
+      id="trackingInput"
       data-placeholder="trackingPlaceholder"
+      placeholder="Enter tracking number"
     >
 
     <button
@@ -1065,17 +1117,20 @@ footer a{
 </section>
 
 
-<!-- GLOBAL DELIVERY -->
-
 <section class="global-section">
 
-  <h2 class="section-title" data-i18n="worldDelivery">
+  <h2
+    class="section-title"
+    data-i18n="worldDelivery"
+  >
     🌍 Delivery Around the World
   </h2>
 
-  <p class="section-intro" data-i18n="worldIntro">
-    Greenway Express connects shipments across
-    roads, air routes and sea routes.
+  <p
+    class="section-intro"
+    data-i18n="worldIntro"
+  >
+    Greenway Express connects shipments across roads, air routes and sea routes.
   </p>
 
   <div class="global-grid">
@@ -1083,20 +1138,24 @@ footer a{
     <div class="global-card">
 
       <img
-        src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80"
-        alt="Road transportation"
+        src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=80"
+        alt="Road delivery"
       >
 
       <div>
-        <h3 data-i18n="roadDelivery">🚚 Road Delivery</h3>
+
+        <h3 data-i18n="roadDelivery">
+          🚚 Road Delivery
+        </h3>
 
         <p data-i18n="roadText">
-          Reliable ground transportation
-          for packages and shipments.
+          Reliable ground transportation for packages and shipments.
         </p>
+
       </div>
 
     </div>
+
 
     <div class="global-card">
 
@@ -1106,30 +1165,37 @@ footer a{
       >
 
       <div>
-        <h3 data-i18n="airFreight">✈️ Air Freight</h3>
+
+        <h3 data-i18n="airFreight">
+          ✈️ Air Freight
+        </h3>
 
         <p data-i18n="airText">
-          Fast transportation for
-          time-sensitive shipments.
+          Fast transportation for time-sensitive shipments.
         </p>
+
       </div>
 
     </div>
 
+
     <div class="global-card">
 
       <img
-        src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=900&q=80"
-        alt="Cargo ship"
+        src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=900&q=80"
+        alt="Sea freight"
       >
 
       <div>
-        <h3 data-i18n="seaFreight">🚢 Sea Freight</h3>
+
+        <h3 data-i18n="seaFreight">
+          🚢 Sea Freight
+        </h3>
 
         <p data-i18n="seaText">
-          Reliable transportation for
-          larger international shipments.
+          Reliable transportation for larger international shipments.
         </p>
+
       </div>
 
     </div>
@@ -1139,17 +1205,20 @@ footer a{
 </section>
 
 
-<!-- HOW IT WORKS -->
+<section id="how">
 
-<section id="how-it-works">
-
-  <h2 class="section-title" data-i18n="howTitle">
+  <h2
+    class="section-title"
+    data-i18n="howTitle"
+  >
     How It Works
   </h2>
 
-  <p class="section-intro" data-i18n="howIntro">
-    Getting your package delivered with
-    Greenway Express is simple.
+  <p
+    class="section-intro"
+    data-i18n="howIntro"
+  >
+    Getting your package delivered with Greenway Express is simple.
   </p>
 
   <div class="steps">
@@ -1157,32 +1226,28 @@ footer a{
     <div class="step">
       <h3 data-i18n="step1">1️⃣ Book Your Delivery</h3>
       <p data-i18n="step1Text">
-        Contact Greenway Express and provide
-        your delivery details.
+        Contact Greenway Express and provide your delivery details.
       </p>
     </div>
 
     <div class="step">
       <h3 data-i18n="step2">2️⃣ We Pick It Up</h3>
       <p data-i18n="step2Text">
-        Our delivery team collects your
-        package safely.
+        Our delivery team collects your package safely.
       </p>
     </div>
 
     <div class="step">
       <h3 data-i18n="step3">3️⃣ Track Your Package</h3>
       <p data-i18n="step3Text">
-        Use your tracking number to follow
-        your shipment.
+        Use your tracking number to follow your shipment.
       </p>
     </div>
 
     <div class="step">
       <h3 data-i18n="step4">4️⃣ Delivered Safely</h3>
       <p data-i18n="step4Text">
-        Your package arrives safely at
-        its destination.
+        Your package arrives safely at its destination.
       </p>
     </div>
 
@@ -1191,19 +1256,13 @@ footer a{
 </section>
 
 
-<!-- TEAM -->
-
 <section class="team-section">
-
-  <h2 class="section-title" data-i18n="teamTitle">
-    👥 Our Delivery Team
-  </h2>
 
   <div class="team-card">
 
     <img
-      src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
-      alt="Professional logistics team"
+      src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=1200&q=80"
+      alt="Greenway Express team"
     >
 
     <div class="team-text">
@@ -1213,10 +1272,7 @@ footer a{
       </h3>
 
       <p data-i18n="teamText">
-        Our team focuses on safe handling,
-        reliable service and timely delivery.
-        Greenway Express is committed to making
-        package delivery simple and dependable.
+        Our team focuses on safe handling, reliable service and timely delivery. Greenway Express is committed to making package delivery simple and dependable.
       </p>
 
     </div>
@@ -1226,8 +1282,6 @@ footer a{
 </section>
 
 
-<!-- CONTACT -->
-
 <section id="contact">
 
   <h2 data-i18n="contactTitle">
@@ -1235,26 +1289,11 @@ footer a{
   </h2>
 
   <p data-i18n="contactIntro">
-    Need help with a delivery?
-    Our team is ready to assist you.
+    Need help with a delivery? Our team is ready to assist you.
   </p>
 
   <p>
-    📞 Phone:
-    <a href="tel:+12082973526">
-      +1 208 297 3526
-    </a>
-  </p>
-
-  <p>
-    💬 Telegram:
-    <a href="https://t.me/+12082973526">
-      Chat with us on Telegram
-    </a>
-  </p>
-
-  <p>
-    📧 Email:
+    📧
     <a href="mailto:greenwayexpress101@gmail.com">
       greenwayexpress101@gmail.com
     </a>
@@ -1264,8 +1303,7 @@ footer a{
 
 
 <!-- ==================================================
-     CUSTOMER SHOP
-     HIDDEN UNTIL CUSTOMER CLICKS SHOP BUTTON
+     SHOP PAGE
 ================================================== -->
 
 <section id="shopPage">
@@ -1274,14 +1312,16 @@ footer a{
 
     <div class="shop-top">
 
-      <h2>🛍️ Greenway Express Shop</h2>
+      <h2>🛍️ Greenway Shop</h2>
 
       <p>
-        Browse available products, choose your quantity,
-        and your total will be calculated automatically in USD.
+        Browse available products and place your order securely through Greenway Express.
       </p>
 
-      <a href="#home" class="shop-back">
+      <a
+        href="#"
+        class="shop-back"
+      >
         ← Back to Greenway Express
       </a>
 
@@ -1292,78 +1332,52 @@ footer a{
 
       <div>
 
-        <div id="productsGrid" class="shop-products">
-
-          <div class="shop-empty">
-            <div style="font-size:40px;">🛍️</div>
-            <h3>Loading Shop...</h3>
-            <p>Please wait while we load the available products.</p>
-          </div>
-
-        </div>
+        <div
+          id="productsGrid"
+          class="shop-products"
+        ></div>
 
 
-        <!-- CHECKOUT -->
+        <div id="checkoutBox">
 
-        <div id="checkoutBox" class="checkout-box">
-
-          <h3>🧾 Checkout</h3>
-
-          <p>
-            Enter your delivery details below.
-          </p>
+          <h3>📦 Checkout</h3>
 
           <div class="checkout-grid">
 
-            <div>
-              <label>Full Name</label>
-              <input
-                type="text"
-                id="customerName"
-                placeholder="Your full name"
-              >
-            </div>
+            <input
+              type="text"
+              id="customerName"
+              placeholder="Full name"
+            >
 
-            <div>
-              <label>Email</label>
-              <input
-                type="email"
-                id="customerEmail"
-                placeholder="Your email"
-              >
-            </div>
+            <input
+              type="email"
+              id="customerEmail"
+              placeholder="Email address"
+            >
 
-            <div>
-              <label>Phone</label>
-              <input
-                type="tel"
-                id="customerPhone"
-                placeholder="Your phone number"
-              >
-            </div>
+            <input
+              type="tel"
+              id="customerPhone"
+              placeholder="Phone number"
+            >
 
-            <div>
-              <label>Country</label>
-              <input
-                type="text"
-                id="customerCountry"
-                placeholder="Country"
-              >
-            </div>
+            <input
+              type="text"
+              id="customerCountry"
+              placeholder="Country"
+            >
 
-            <div class="full">
-              <label>Delivery Address</label>
-              <textarea
-                id="customerAddress"
-                placeholder="Full delivery address"
-              ></textarea>
-            </div>
+            <textarea
+              id="customerAddress"
+              class="checkout-full"
+              placeholder="Delivery address"
+            ></textarea>
 
           </div>
 
           <button
             type="button"
-            class="checkout-submit"
             id="submitOrderButton"
           >
             Confirm Order
@@ -1376,13 +1390,14 @@ footer a{
       </div>
 
 
-      <!-- CART -->
-
       <aside class="cart-card">
 
         <h3>🛒 Your Cart</h3>
 
-        <div id="cartItems" class="cart-items">
+        <div
+          id="cartItems"
+          class="cart-items"
+        >
 
           <div class="cart-empty">
             Your cart is empty.
@@ -1422,7 +1437,9 @@ footer a{
 </section>
 
 
-<!-- CHAT -->
+<!-- ==================================================
+     CUSTOMER CHAT
+================================================== -->
 
 <div
   class="chat-launch"
@@ -1433,7 +1450,10 @@ footer a{
 </div>
 
 
-<div class="chat-window" id="chatWindow">
+<div
+  class="chat-window"
+  id="chatWindow"
+>
 
   <div class="chat-head">
 
@@ -1450,15 +1470,18 @@ footer a{
   </div>
 
   <div class="chat-id">
+
     Customer ID:
-    <span id="customerIdDisplay">Creating...</span>
+    <span id="customerIdDisplay">
+      Creating...
+    </span>
+
   </div>
 
   <div
     class="chat-messages"
     id="chatMessages"
-  >
-  </div>
+  ></div>
 
   <div class="chat-input">
 
@@ -1482,27 +1505,31 @@ footer a{
 
 <footer>
 
-  <p><strong>Greenway Express</strong></p>
+  <p>
+    <strong>Greenway Express</strong>
+  </p>
 
-  <p data-i18n="tagline">
+  <p>
     Fast, Safe & Reliable Delivery
   </p>
 
   <p>
 
-    <a href="#home" data-i18n="home">Home</a> |
+    <a href="#home">Home</a> |
 
-    <a href="#services" data-i18n="services">Services</a> |
+    <a href="#services">Services</a> |
 
-    <a href="#tracking" data-i18n="track">Track</a> |
+    <a href="#tracking">Track</a> |
 
-    <a href="#contact" data-i18n="contact">Contact</a>
+    <a href="#contact">Contact</a>
 
   </p>
 
   <p>
     &copy; 2026 Greenway Express.
-    <span data-i18n="rights">All rights reserved.</span>
+    <span data-i18n="rights">
+      All rights reserved.
+    </span>
   </p>
 
 </footer>
@@ -1511,6 +1538,10 @@ footer a{
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+
+/* ==================================================
+   SUPABASE
+================================================== */
 
 const SUPABASE_URL =
   "https://zrmelabkasdnockpaylj.supabase.co";
@@ -1523,6 +1554,29 @@ const supabaseClient =
     SUPABASE_URL,
     SUPABASE_KEY
   );
+
+
+/* ==================================================
+   HELPERS
+================================================== */
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+  return escapeHtml(value);
+
+}
 
 
 /* ==================================================
@@ -1572,7 +1626,6 @@ const translations = {
     step3Text:"Use your tracking number to follow your shipment.",
     step4:"4️⃣ Delivered Safely",
     step4Text:"Your package arrives safely at its destination.",
-    teamTitle:"👥 Our Delivery Team",
     teamHeading:"People You Can Trust",
     teamText:"Our team focuses on safe handling, reliable service and timely delivery. Greenway Express is committed to making package delivery simple and dependable.",
     contactTitle:"Contact Greenway Express",
@@ -1621,7 +1674,6 @@ const translations = {
     step3Text:"使用追踪号码查看货物状态。",
     step4:"4️⃣ 安全送达",
     step4Text:"您的包裹安全到达目的地。",
-    teamTitle:"👥 我们的配送团队",
     teamHeading:"值得信赖的团队",
     teamText:"我们的团队专注于安全处理、可靠服务和准时配送。",
     contactTitle:"联系 Greenway Express",
@@ -1670,7 +1722,6 @@ const translations = {
     step3Text:"Utilisez votre numéro de suivi.",
     step4:"4️⃣ Livraison sécurisée",
     step4Text:"Votre colis arrive en toute sécurité.",
-    teamTitle:"👥 Notre équipe",
     teamHeading:"Des personnes de confiance",
     teamText:"Notre équipe se concentre sur la sécurité, la fiabilité et la ponctualité.",
     contactTitle:"Contacter Greenway Express",
@@ -1719,7 +1770,6 @@ const translations = {
     step3Text:"Utilice su número de seguimiento.",
     step4:"4️⃣ Entrega segura",
     step4Text:"Su paquete llega de forma segura.",
-    teamTitle:"👥 Nuestro equipo",
     teamHeading:"Personas de confianza",
     teamText:"Nuestro equipo se centra en la seguridad y la puntualidad.",
     contactTitle:"Contacte con Greenway Express",
@@ -1748,7 +1798,7 @@ const translations = {
     businessText:"Suporte confiável para empresas e vendedores.",
     trackShipment:"Rastrear sua remessa",
     trackingIntro:"Digite seu número de rastreamento.",
-    trackingPlaceholder:"Digite o número de rastreamento",
+    trackingPlaceholder:"Digite seu número de rastreamento",
     trackButton:"Rastrear remessa",
     worldDelivery:"🌍 Entrega ao redor do mundo",
     worldIntro:"A Greenway Express conecta remessas por estrada, ar e mar.",
@@ -1768,7 +1818,6 @@ const translations = {
     step3Text:"Use seu número de rastreamento.",
     step4:"4️⃣ Entrega segura",
     step4Text:"Seu pacote chega com segurança.",
-    teamTitle:"👥 Nossa equipe",
     teamHeading:"Pessoas em quem você pode confiar",
     teamText:"Nossa equipe se concentra em segurança, confiabilidade e pontualidade.",
     contactTitle:"Entre em contato com a Greenway Express",
@@ -1817,7 +1866,6 @@ const translations = {
     step3Text:"استخدم رقم التتبع.",
     step4:"4️⃣ التسليم الآمن",
     step4Text:"يصل طردك بأمان إلى وجهته.",
-    teamTitle:"👥 فريق التوصيل",
     teamHeading:"أشخاص يمكنك الوثوق بهم",
     teamText:"يركز فريقنا على السلامة والموثوقية والالتزام بالمواعيد.",
     contactTitle:"اتصل بـ Greenway Express",
@@ -1866,7 +1914,6 @@ const translations = {
     step3Text:"Verwenden Sie Ihre Sendungsnummer.",
     step4:"4️⃣ Sicher geliefert",
     step4Text:"Ihr Paket kommt sicher an.",
-    teamTitle:"👥 Unser Lieferteam",
     teamHeading:"Menschen, denen Sie vertrauen können",
     teamText:"Unser Team konzentriert sich auf Sicherheit, Zuverlässigkeit und Pünktlichkeit.",
     contactTitle:"Greenway Express kontaktieren",
@@ -1915,7 +1962,6 @@ const translations = {
     step3Text:"Используйте номер отслеживания.",
     step4:"4️⃣ Безопасная доставка",
     step4Text:"Посылка безопасно прибудет в пункт назначения.",
-    teamTitle:"👥 Наша команда",
     teamHeading:"Люди, которым можно доверять",
     teamText:"Наша команда уделяет внимание безопасности, надежности и пунктуальности.",
     contactTitle:"Связаться с Greenway Express",
@@ -1967,805 +2013,28 @@ function applyLanguage(language){
     "greenwayLanguage",
     language
   );
+
 }
 
 
 document
   .getElementById("languageSelect")
-  .addEventListener("change",function(){
-
-    applyLanguage(this.value);
-
-  });
+  .addEventListener(
+    "change",
+    function(){
+      applyLanguage(this.value);
+    }
+  );
 
 
 const savedLanguage =
   localStorage.getItem("greenwayLanguage") || "en";
 
-document.getElementById("languageSelect").value =
-  savedLanguage;
+document.getElementById(
+  "languageSelect"
+).value = savedLanguage;
 
 applyLanguage(savedLanguage);
-
-
-/* ==================================================
-   SHOP OPEN / CLOSE
-================================================== */
-
-const shopPage =
-  document.getElementById("shopPage");
-
-const openShopButton =
-  document.getElementById("openShopButton");
-
-
-openShopButton.addEventListener("click",function(){
-
-  shopPage.style.display = "block";
-
-  loadProducts();
-
-  setTimeout(function(){
-
-    shopPage.scrollIntoView({
-      behavior:"smooth"
-    });
-
-  },50);
-
-});
-
-
-document
-  .querySelector(".shop-back")
-  .addEventListener("click",function(){
-
-    shopPage.style.display = "none";
-
-    document
-      .getElementById("home")
-      .scrollIntoView({
-        behavior:"smooth"
-      });
-
-  });
-
-
-/* ==================================================
-   SHOP PRODUCTS
-================================================== */
-
-let products = [];
-let cart = [];
-
-
-async function loadProducts(){
-
-  const grid =
-    document.getElementById("productsGrid");
-
-  grid.innerHTML = `
-    <div class="shop-empty">
-      <div style="font-size:40px;">🔄</div>
-      <h3>Loading Shop...</h3>
-      <p>Getting the latest products.</p>
-    </div>
-  `;
-
-
-  try{
-
-    /*
-      The shop reads products from the Products table.
-
-      Expected columns:
-      id
-      name
-      description
-      price
-      image_url
-      stock
-      active
-    */
-
-    const {data,error} =
-      await supabaseClient
-        .from("Products")
-        .select("*")
-        .order("id",{ascending:false});
-
-
-    if(error){
-      console.error(error);
-
-      grid.innerHTML = `
-        <div class="shop-empty">
-          <div style="font-size:40px;">⚠️</div>
-          <h3>Shop temporarily unavailable</h3>
-          <p>${escapeHtml(error.message)}</p>
-        </div>
-      `;
-
-      return;
-    }
-
-
-    products =
-      (data || []).filter(function(product){
-
-        return product.active !== false;
-
-      });
-
-
-    renderProducts();
-
-  }catch(error){
-
-    console.error(error);
-
-    grid.innerHTML = `
-      <div class="shop-empty">
-        <div style="font-size:40px;">⚠️</div>
-        <h3>Unable to load the shop</h3>
-      </div>
-    `;
-
-  }
-
-}
-
-
-function renderProducts(){
-
-  const grid =
-    document.getElementById("productsGrid");
-
-
-  if(!products.length){
-
-    grid.innerHTML = `
-      <div class="shop-empty">
-        <div style="font-size:48px;">🛍️</div>
-        <h3>No products available yet</h3>
-        <p>Please check back soon.</p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  grid.innerHTML =
-    products.map(function(product){
-
-      const id =
-        product.id;
-
-      const name =
-        product.name || "Product";
-
-      const description =
-        product.description || "Greenway Express product";
-
-      const price =
-        Number(product.price || 0);
-
-      const image =
-        product.image_url ||
-        "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80";
-
-      const stock =
-        product.stock == null
-        ? ""
-        : `<div class="small-note">Available: ${product.stock}</div>`;
-
-
-      return `
-
-        <div class="product-card">
-
-          <img
-            class="product-image"
-            src="${escapeAttribute(image)}"
-            alt="${escapeAttribute(name)}"
-            onerror="this.src='https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80'"
-          >
-
-          <div class="product-body">
-
-            <h3>
-              ${escapeHtml(name)}
-            </h3>
-
-            <div class="product-description">
-              ${escapeHtml(description)}
-            </div>
-
-            <div class="product-price">
-              $${price.toFixed(2)}
-            </div>
-
-            ${stock}
-
-            <div class="quantity-row">
-
-              <input
-                type="number"
-                id="qty-${id}"
-                value="1"
-                min="1"
-                ${product.stock != null && product.stock <= 0 ? "disabled" : ""}
-              >
-
-            </div>
-
-            <button
-              type="button"
-              class="add-cart"
-              onclick="addToCart('${escapeAttribute(String(id))}')"
-              ${product.stock != null && product.stock <= 0 ? "disabled" : ""}
-            >
-              🛒 Add to Cart
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join("");
-
-}
-
-
-function addToCart(productId){
-
-  const product =
-    products.find(function(item){
-
-      return String(item.id) ===
-        String(productId);
-
-    });
-
-
-  if(!product)return;
-
-
-  const input =
-    document.getElementById(
-      "qty-" + productId
-    );
-
-
-  let quantity =
-    parseInt(input ? input.value : 1);
-
-
-  if(!Number.isFinite(quantity) || quantity < 1){
-    quantity = 1;
-  }
-
-
-  if(product.stock != null &&
-     quantity > Number(product.stock)){
-
-    quantity =
-      Number(product.stock);
-
-  }
-
-
-  const existing =
-    cart.find(function(item){
-
-      return String(item.id) ===
-        String(product.id);
-
-    });
-
-
-  if(existing){
-
-    existing.quantity += quantity;
-
-    if(product.stock != null &&
-       existing.quantity > Number(product.stock)){
-
-      existing.quantity =
-        Number(product.stock);
-
-    }
-
-  }else{
-
-    cart.push({
-      id:product.id,
-      name:product.name,
-      price:Number(product.price || 0),
-      quantity:quantity
-    });
-
-  }
-
-
-  renderCart();
-
-}
-
-
-function removeFromCart(productId){
-
-  cart =
-    cart.filter(function(item){
-
-      return String(item.id) !==
-        String(productId);
-
-    });
-
-  renderCart();
-
-}
-
-
-function changeCartQuantity(productId,change){
-
-  const item =
-    cart.find(function(item){
-
-      return String(item.id) ===
-        String(productId);
-
-    });
-
-
-  if(!item)return;
-
-
-  item.quantity += change;
-
-
-  if(item.quantity <= 0){
-
-    removeFromCart(productId);
-    return;
-
-  }
-
-
-  const product =
-    products.find(function(product){
-
-      return String(product.id) ===
-        String(productId);
-
-    });
-
-
-  if(product &&
-     product.stock != null &&
-     item.quantity > Number(product.stock)){
-
-    item.quantity =
-      Number(product.stock);
-
-  }
-
-
-  renderCart();
-
-}
-
-
-function renderCart(){
-
-  const container =
-    document.getElementById("cartItems");
-
-  const count =
-    document.getElementById("cartItemCount");
-
-  const totalElement =
-    document.getElementById("cartTotal");
-
-  const checkout =
-    document.getElementById("checkoutButton");
-
-
-  if(!cart.length){
-
-    container.innerHTML = `
-      <div class="cart-empty">
-        Your cart is empty.
-      </div>
-    `;
-
-    count.textContent = "0";
-
-    totalElement.textContent =
-      "$0.00";
-
-    checkout.disabled = true;
-
-    document
-      .getElementById("checkoutBox")
-      .style.display = "none";
-
-    return;
-
-  }
-
-
-  let total = 0;
-  let itemCount = 0;
-
-
-  container.innerHTML =
-    cart.map(function(item){
-
-      const subtotal =
-        item.price * item.quantity;
-
-      total += subtotal;
-
-      itemCount += item.quantity;
-
-
-      return `
-
-        <div class="cart-item">
-
-          <div class="cart-item-title">
-            ${escapeHtml(item.name)}
-          </div>
-
-          <div class="cart-item-row">
-
-            <span class="cart-qty">
-              ${item.quantity} × $${item.price.toFixed(2)}
-            </span>
-
-            <strong>
-              $${subtotal.toFixed(2)}
-            </strong>
-
-          </div>
-
-          <div
-            style="display:flex;gap:5px;margin-top:8px;"
-          >
-
-            <button
-              type="button"
-              onclick="changeCartQuantity('${escapeAttribute(String(item.id))}',-1)"
-              style="padding:5px 9px;"
-            >
-              −
-            </button>
-
-            <button
-              type="button"
-              onclick="changeCartQuantity('${escapeAttribute(String(item.id))}',1)"
-              style="padding:5px 9px;"
-            >
-              +
-            </button>
-
-            <button
-              type="button"
-              class="remove-item"
-              onclick="removeFromCart('${escapeAttribute(String(item.id))}')"
-            >
-              Remove
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join("");
-
-
-  count.textContent =
-    String(itemCount);
-
-  totalElement.textContent =
-    "$" + total.toFixed(2);
-
-  checkout.disabled = false;
-
-}
-
-
-function getCartTotal(){
-
-  return cart.reduce(function(total,item){
-
-    return total +
-      item.price * item.quantity;
-
-  },0);
-
-}
-
-
-/* ==================================================
-   CHECKOUT
-================================================== */
-
-document
-  .getElementById("checkoutButton")
-  .addEventListener("click",function(){
-
-    if(!cart.length)return;
-
-    const box =
-      document.getElementById("checkoutBox");
-
-    box.style.display = "block";
-
-    box.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
-
-  });
-
-
-document
-  .getElementById("submitOrderButton")
-  .addEventListener("click",async function(){
-
-    if(!cart.length)return;
-
-
-    const name =
-      document
-        .getElementById("customerName")
-        .value
-        .trim();
-
-    const email =
-      document
-        .getElementById("customerEmail")
-        .value
-        .trim();
-
-    const phone =
-      document
-        .getElementById("customerPhone")
-        .value
-        .trim();
-
-    const country =
-      document
-        .getElementById("customerCountry")
-        .value
-        .trim();
-
-    const address =
-      document
-        .getElementById("customerAddress")
-        .value
-        .trim();
-
-    const result =
-      document.getElementById("orderResult");
-
-
-    if(!name || !email || !phone || !country || !address){
-
-      result.innerHTML = `
-        <div
-          style="
-            margin-top:12px;
-            padding:12px;
-            border-radius:9px;
-            background:#fff4f4;
-            color:#b91c1c;
-          "
-        >
-          ⚠️ Please complete all checkout details.
-        </div>
-      `;
-
-      return;
-
-    }
-
-
-    const button =
-      document.getElementById("submitOrderButton");
-
-    button.disabled = true;
-    button.textContent =
-      "Submitting Order...";
-
-
-    const customerId =
-      getCustomerId();
-
-
-    const orderItems =
-      cart.map(function(item){
-
-        return {
-          product_id:item.id,
-          product_name:item.name,
-          quantity:item.quantity,
-          unit_price:item.price,
-          subtotal:item.price * item.quantity
-        };
-
-      });
-
-
-    const total =
-      getCartTotal();
-
-
-    /*
-      Order is sent to the Orders table.
-
-      Expected columns:
-      customer_id
-      customer_name
-      customer_email
-      customer_phone
-      country
-      delivery_address
-      items
-      total
-      currency
-      status
-    */
-
-    try{
-
-      const {data,error} =
-        await supabaseClient
-          .from("Orders")
-          .insert([{
-            customer_id:customerId,
-            customer_name:name,
-            customer_email:email,
-            customer_phone:phone,
-            country:country,
-            delivery_address:address,
-            items:orderItems,
-            total:total,
-            currency:"USD",
-            status:"Pending"
-          }])
-          .select()
-          .maybeSingle();
-
-
-      if(error){
-
-        console.error(error);
-
-        result.innerHTML = `
-          <div
-            style="
-              margin-top:12px;
-              padding:12px;
-              border-radius:9px;
-              background:#fff4f4;
-              color:#b91c1c;
-            "
-          >
-            ❌ ${escapeHtml(error.message)}
-          </div>
-        `;
-
-        button.disabled = false;
-        button.textContent =
-          "Confirm Order";
-
-        return;
-
-      }
-
-
-      const orderId =
-        data && data.id
-        ? data.id
-        : "Pending";
-
-
-      result.innerHTML = `
-        <div
-          style="
-            margin-top:12px;
-            padding:15px;
-            border-radius:10px;
-            background:#eaf5ef;
-            color:#075c45;
-          "
-        >
-
-          <strong>
-            ✅ Order submitted successfully
-          </strong>
-
-          <br><br>
-
-          Customer ID:
-          <strong>${escapeHtml(customerId)}</strong>
-
-          <br>
-
-          Order ID:
-          <strong>${escapeHtml(String(orderId))}</strong>
-
-          <br>
-
-          Total:
-          <strong>$${total.toFixed(2)}</strong>
-
-        </div>
-      `;
-
-
-      cart = [];
-
-      renderCart();
-
-
-      document
-        .getElementById("customerName")
-        .value = "";
-
-      document
-        .getElementById("customerEmail")
-        .value = "";
-
-      document
-        .getElementById("customerPhone")
-        .value = "";
-
-      document
-        .getElementById("customerCountry")
-        .value = "";
-
-      document
-        .getElementById("customerAddress")
-        .value = "";
-
-
-    }catch(error){
-
-      console.error(error);
-
-      result.innerHTML = `
-        <div
-          style="
-            margin-top:12px;
-            padding:12px;
-            border-radius:9px;
-            background:#fff4f4;
-            color:#b91c1c;
-          "
-        >
-          ❌ Unable to submit order.
-        </div>
-      `;
-
-    }
-
-
-    button.disabled = false;
-    button.textContent =
-      "Confirm Order";
-
-  });
 
 
 /* ==================================================
@@ -2792,11 +2061,9 @@ function getCustomerId(){
       "greenwayCustomerId"
     );
 
-
   if(!id){
 
-    id =
-      generateCustomerId();
+    id = generateCustomerId();
 
     localStorage.setItem(
       "greenwayCustomerId",
@@ -2804,7 +2071,6 @@ function getCustomerId(){
     );
 
   }
-
 
   return id;
 
@@ -2815,10 +2081,1162 @@ const customerId =
   getCustomerId();
 
 
+document.getElementById(
+  "customerIdDisplay"
+).textContent = customerId;
+
+
+/* ==================================================
+   TRACKING
+================================================== */
+
 document
-  .getElementById("customerIdDisplay")
-  .textContent =
-  customerId;
+  .getElementById("trackButton")
+  .addEventListener(
+    "click",
+    trackShipment
+  );
+
+
+document
+  .getElementById("trackingInput")
+  .addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Enter"){
+        event.preventDefault();
+        trackShipment();
+      }
+
+    }
+  );
+
+
+async function trackShipment(){
+
+  const input =
+    document.getElementById(
+      "trackingInput"
+    );
+
+  const result =
+    document.getElementById("result");
+
+  const trackingNumber =
+    input.value.trim();
+
+  if(!trackingNumber){
+
+    result.innerHTML = `
+      <div class="tracking-error">
+        Please enter a tracking number.
+      </div>
+    `;
+
+    return;
+
+  }
+
+  result.innerHTML = `
+    <div class="tracking-loading">
+      🔄 Searching for your shipment...
+    </div>
+  `;
+
+  try{
+
+    const {data,error} =
+      await supabaseClient
+        .from("Shipments")
+        .select("*")
+        .eq(
+          "tracking_number",
+          trackingNumber
+        )
+        .maybeSingle();
+
+    if(error){
+
+      console.error(
+        "Tracking error:",
+        error
+      );
+
+      result.innerHTML = `
+        <div class="tracking-error">
+          ❌ ${escapeHtml(error.message)}
+        </div>
+      `;
+
+      return;
+
+    }
+
+    if(!data){
+
+      result.innerHTML = `
+        <div class="tracking-error">
+          ❌ No shipment found for
+          <strong>${escapeHtml(trackingNumber)}</strong>.
+        </div>
+      `;
+
+      return;
+
+    }
+
+    const status =
+      data.status ||
+      "Processing";
+
+    const origin =
+      data.origin ||
+      data.pickup_location ||
+      "Not available";
+
+    const destination =
+      data.destination ||
+      "Not available";
+
+    const currentLocation =
+      data.current_location ||
+      data.currentLocation ||
+      "Not available";
+
+    const estimatedDelivery =
+      data.estimated_delivery ||
+      data.estimatedDelivery ||
+      "Not available";
+
+    result.innerHTML = `
+
+      <div class="tracking-result">
+
+        <div class="tracking-result-header">
+
+          <h3>📦 Shipment Found</h3>
+
+          <p>
+            Your shipment information is shown below.
+          </p>
+
+        </div>
+
+        <div class="tracking-number-display">
+
+          Tracking Number:
+          ${escapeHtml(
+            data.tracking_number ||
+            trackingNumber
+          )}
+
+        </div>
+
+        <div class="shipment-grid">
+
+          <div class="shipment-info">
+
+            <div class="info-icon">📍</div>
+
+            <span class="info-label">
+              Origin
+            </span>
+
+            <span class="info-value">
+              ${escapeHtml(origin)}
+            </span>
+
+          </div>
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">🎯</div>
+
+            <span class="info-label">
+              Destination
+            </span>
+
+            <span class="info-value">
+              ${escapeHtml(destination)}
+            </span>
+
+          </div>
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">🚚</div>
+
+            <span class="info-label">
+              Current Location
+            </span>
+
+            <span class="info-value">
+              ${escapeHtml(currentLocation)}
+            </span>
+
+          </div>
+
+
+          <div class="shipment-info">
+
+            <div class="info-icon">📅</div>
+
+            <span class="info-label">
+              Estimated Delivery
+            </span>
+
+            <span class="info-value">
+              ${escapeHtml(estimatedDelivery)}
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="status-box">
+
+          <strong>
+            Current Status:
+          </strong>
+
+          ${escapeHtml(status)}
+
+        </div>
+
+      </div>
+
+    `;
+
+  }catch(error){
+
+    console.error(error);
+
+    result.innerHTML = `
+      <div class="tracking-error">
+        ❌ Unable to check shipment right now.
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* ==================================================
+   SHOP
+================================================== */
+
+const shopPage =
+  document.getElementById("shopPage");
+
+const openShopButton =
+  document.getElementById("openShopButton");
+
+
+openShopButton.addEventListener(
+  "click",
+  function(event){
+
+    event.preventDefault();
+
+    shopPage.style.display = "block";
+
+    loadProducts();
+
+    setTimeout(function(){
+
+      shopPage.scrollIntoView({
+        behavior:"smooth"
+      });
+
+    },50);
+
+  }
+);
+
+
+document
+  .querySelector(".shop-back")
+  .addEventListener(
+    "click",
+    function(event){
+
+      event.preventDefault();
+
+      shopPage.style.display =
+        "none";
+
+      document
+        .getElementById("home")
+        .scrollIntoView({
+          behavior:"smooth"
+        });
+
+    }
+  );
+
+
+let products = [];
+let cart = [];
+
+
+async function loadProducts(){
+
+  const grid =
+    document.getElementById(
+      "productsGrid"
+    );
+
+  grid.innerHTML = `
+    <div class="shop-empty">
+
+      <div style="font-size:40px;">
+        🔄
+      </div>
+
+      <h3>
+        Loading Shop...
+      </h3>
+
+      <p>
+        Getting the latest products.
+      </p>
+
+    </div>
+  `;
+
+  try{
+
+    const {data,error} =
+      await supabaseClient
+        .from("shops_items")
+        .select("*")
+        .order(
+          "id",
+          {ascending:false}
+        );
+
+    if(error){
+
+      console.error(error);
+
+      grid.innerHTML = `
+        <div class="shop-empty">
+
+          <div style="font-size:40px;">
+            ⚠️
+          </div>
+
+          <h3>
+            Shop temporarily unavailable
+          </h3>
+
+          <p>
+            ${escapeHtml(error.message)}
+          </p>
+
+        </div>
+      `;
+
+      return;
+
+    }
+
+    products =
+      (data || [])
+        .filter(function(product){
+
+          return product.active !== false;
+
+        });
+
+    renderProducts();
+
+  }catch(error){
+
+    console.error(error);
+
+    grid.innerHTML = `
+      <div class="shop-empty">
+
+        <div style="font-size:40px;">
+          ⚠️
+        </div>
+
+        <h3>
+          Unable to load the shop
+        </h3>
+
+      </div>
+    `;
+
+  }
+
+}
+
+
+function renderProducts(){
+
+  const grid =
+    document.getElementById(
+      "productsGrid"
+    );
+
+  if(!products.length){
+
+    grid.innerHTML = `
+      <div class="shop-empty">
+
+        <div style="font-size:48px;">
+          🛍️
+        </div>
+
+        <h3>
+          No products available yet
+        </h3>
+
+        <p>
+          Please check back soon.
+        </p>
+
+      </div>
+    `;
+
+    return;
+
+  }
+
+  grid.innerHTML =
+    products.map(
+      function(product){
+
+        const id =
+          product.id;
+
+        const name =
+          product.name ||
+          product.title ||
+          "Product";
+
+        const description =
+          product.description ||
+          "Greenway Express product";
+
+        const price =
+          Number(
+            product.price ||
+            0
+          );
+
+        const image =
+          product.image_url ||
+          product.image ||
+          "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80";
+
+        const stock =
+          product.stock == null
+          ? ""
+          : `
+            <div class="small-note">
+              Available: ${escapeHtml(
+                product.stock
+              )}
+            </div>
+          `;
+
+        const unavailable =
+          product.stock != null &&
+          Number(product.stock) <= 0;
+
+        return `
+
+          <div class="product-card">
+
+            <img
+              class="product-image"
+              src="${escapeAttribute(image)}"
+              alt="${escapeAttribute(name)}"
+              onerror="this.src='https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80'"
+            >
+
+            <div class="product-body">
+
+              <h3>
+                ${escapeHtml(name)}
+              </h3>
+
+              <div class="product-description">
+                ${escapeHtml(description)}
+              </div>
+
+              <div class="product-price">
+                $${price.toFixed(2)}
+              </div>
+
+              ${stock}
+
+              <div class="quantity-row">
+
+                <input
+                  type="number"
+                  id="qty-${escapeAttribute(String(id))}"
+                  value="1"
+                  min="1"
+                  ${unavailable ? "disabled" : ""}
+                >
+
+              </div>
+
+              <button
+                type="button"
+                class="add-cart"
+                onclick="addToCart('${escapeAttribute(String(id))}')"
+                ${unavailable ? "disabled" : ""}
+              >
+                🛒 Add to Cart
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+    ).join("");
+
+}
+
+
+function addToCart(productId){
+
+  const product =
+    products.find(
+      function(item){
+
+        return String(item.id) ===
+          String(productId);
+
+      }
+    );
+
+  if(!product)return;
+
+  const input =
+    document.getElementById(
+      "qty-" + productId
+    );
+
+  let quantity =
+    parseInt(
+      input
+        ? input.value
+        : 1
+    );
+
+  if(
+    !Number.isFinite(quantity) ||
+    quantity < 1
+  ){
+
+    quantity = 1;
+
+  }
+
+  if(
+    product.stock != null &&
+    quantity > Number(product.stock)
+  ){
+
+    quantity =
+      Number(product.stock);
+
+  }
+
+  const existing =
+    cart.find(
+      function(item){
+
+        return String(item.id) ===
+          String(product.id);
+
+      }
+    );
+
+  if(existing){
+
+    existing.quantity +=
+      quantity;
+
+    if(
+      product.stock != null &&
+      existing.quantity >
+        Number(product.stock)
+    ){
+
+      existing.quantity =
+        Number(product.stock);
+
+    }
+
+  }else{
+
+    cart.push({
+
+      id:product.id,
+
+      name:
+        product.name ||
+        product.title ||
+        "Product",
+
+      price:
+        Number(product.price || 0),
+
+      quantity:quantity
+
+    });
+
+  }
+
+  renderCart();
+
+}
+
+
+function removeFromCart(productId){
+
+  cart =
+    cart.filter(
+      function(item){
+
+        return String(item.id) !==
+          String(productId);
+
+      }
+    );
+
+  renderCart();
+
+}
+
+
+function changeCartQuantity(
+  productId,
+  change
+){
+
+  const item =
+    cart.find(
+      function(item){
+
+        return String(item.id) ===
+          String(productId);
+
+      }
+    );
+
+  if(!item)return;
+
+  item.quantity +=
+    change;
+
+  if(item.quantity <= 0){
+
+    removeFromCart(productId);
+
+    return;
+
+  }
+
+  const product =
+    products.find(
+      function(product){
+
+        return String(product.id) ===
+          String(productId);
+
+      }
+    );
+
+  if(
+    product &&
+    product.stock != null &&
+    item.quantity >
+      Number(product.stock)
+  ){
+
+    item.quantity =
+      Number(product.stock);
+
+  }
+
+  renderCart();
+
+}
+
+
+function renderCart(){
+
+  const container =
+    document.getElementById(
+      "cartItems"
+    );
+
+  const count =
+    document.getElementById(
+      "cartItemCount"
+    );
+
+  const totalElement =
+    document.getElementById(
+      "cartTotal"
+    );
+
+  const checkout =
+    document.getElementById(
+      "checkoutButton"
+    );
+
+  const checkoutBox =
+    document.getElementById(
+      "checkoutBox"
+    );
+
+  if(!cart.length){
+
+    container.innerHTML = `
+      <div class="cart-empty">
+        Your cart is empty.
+      </div>
+    `;
+
+    count.textContent =
+      "0";
+
+    totalElement.textContent =
+      "$0.00";
+
+    checkout.disabled =
+      true;
+
+    checkoutBox.style.display =
+      "none";
+
+    return;
+
+  }
+
+  let total = 0;
+  let itemCount = 0;
+
+  container.innerHTML =
+    cart.map(
+      function(item){
+
+        const subtotal =
+          item.price *
+          item.quantity;
+
+        total +=
+          subtotal;
+
+        itemCount +=
+          item.quantity;
+
+        return `
+
+          <div class="cart-item">
+
+            <div class="cart-item-title">
+              ${escapeHtml(item.name)}
+            </div>
+
+            <div class="cart-item-row">
+
+              <span class="cart-qty">
+                ${item.quantity}
+                ×
+                $${item.price.toFixed(2)}
+              </span>
+
+              <strong>
+                $${subtotal.toFixed(2)}
+              </strong>
+
+            </div>
+
+            <div
+              style="
+                display:flex;
+                gap:5px;
+                margin-top:8px;
+              "
+            >
+
+              <button
+                type="button"
+                onclick="changeCartQuantity('${escapeAttribute(String(item.id))}',-1)"
+                style="padding:5px 9px;"
+              >
+                −
+              </button>
+
+              <button
+                type="button"
+                onclick="changeCartQuantity('${escapeAttribute(String(item.id))}',1)"
+                style="padding:5px 9px;"
+              >
+                +
+              </button>
+
+              <button
+                type="button"
+                class="remove-item"
+                onclick="removeFromCart('${escapeAttribute(String(item.id))}')"
+              >
+                Remove
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+    ).join("");
+
+  count.textContent =
+    String(itemCount);
+
+  totalElement.textContent =
+    "$" + total.toFixed(2);
+
+  checkout.disabled =
+    false;
+
+}
+
+
+function getCartTotal(){
+
+  return cart.reduce(
+    function(total,item){
+
+      return total +
+        item.price *
+        item.quantity;
+
+    },
+    0
+  );
+
+}
+
+
+/* ==================================================
+   CHECKOUT
+================================================== */
+
+document
+  .getElementById("checkoutButton")
+  .addEventListener(
+    "click",
+    function(){
+
+      if(!cart.length)return;
+
+      const box =
+        document.getElementById(
+          "checkoutBox"
+        );
+
+      box.style.display =
+        "block";
+
+      box.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+    }
+  );
+
+
+document
+  .getElementById("submitOrderButton")
+  .addEventListener(
+    "click",
+    submitOrder
+  );
+
+
+async function submitOrder(){
+
+  if(!cart.length)return;
+
+  const name =
+    document.getElementById(
+      "customerName"
+    ).value.trim();
+
+  const email =
+    document.getElementById(
+      "customerEmail"
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      "customerPhone"
+    ).value.trim();
+
+  const country =
+    document.getElementById(
+      "customerCountry"
+    ).value.trim();
+
+  const address =
+    document.getElementById(
+      "customerAddress"
+    ).value.trim();
+
+  const result =
+    document.getElementById(
+      "orderResult"
+    );
+
+  if(
+    !name ||
+    !email ||
+    !phone ||
+    !country ||
+    !address
+  ){
+
+    result.innerHTML = `
+      <div
+        style="
+          margin-top:12px;
+          padding:12px;
+          border-radius:9px;
+          background:#fff4f4;
+          color:#b91c1c;
+        "
+      >
+        ⚠️ Please complete all checkout details.
+      </div>
+    `;
+
+    return;
+
+  }
+
+  const button =
+    document.getElementById(
+      "submitOrderButton"
+    );
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "Submitting Order...";
+
+  const orderItems =
+    cart.map(
+      function(item){
+
+        return {
+
+          product_id:item.id,
+
+          product_name:item.name,
+
+          quantity:item.quantity,
+
+          unit_price:item.price,
+
+          subtotal:
+            item.price *
+            item.quantity
+
+        };
+
+      }
+    );
+
+  const total =
+    getCartTotal();
+
+  try{
+
+    const {data,error} =
+      await supabaseClient
+        .from("Orders")
+        .insert([{
+
+          customer_id:
+            customerId,
+
+          customer_name:
+            name,
+
+          customer_email:
+            email,
+
+          customer_phone:
+            phone,
+
+          country:
+            country,
+
+          delivery_address:
+            address,
+
+          items:
+            orderItems,
+
+          total:
+            total,
+
+          currency:
+            "USD",
+
+          status:
+            "Pending"
+
+        }])
+        .select()
+        .maybeSingle();
+
+    if(error){
+
+      console.error(error);
+
+      result.innerHTML = `
+        <div
+          style="
+            margin-top:12px;
+            padding:12px;
+            border-radius:9px;
+            background:#fff4f4;
+            color:#b91c1c;
+          "
+        >
+          ❌ ${escapeHtml(error.message)}
+        </div>
+      `;
+
+      button.disabled =
+        false;
+
+      button.textContent =
+        "Confirm Order";
+
+      return;
+
+    }
+
+    const orderId =
+      data && data.id
+      ? data.id
+      : "Pending";
+
+    result.innerHTML = `
+      <div
+        style="
+          margin-top:12px;
+          padding:15px;
+          border-radius:10px;
+          background:#eaf5ef;
+          color:#075c45;
+        "
+      >
+
+        <strong>
+          ✅ Order submitted successfully
+        </strong>
+
+        <br><br>
+
+        Customer ID:
+        <strong>
+          ${escapeHtml(customerId)}
+        </strong>
+
+        <br>
+
+        Order ID:
+        <strong>
+          ${escapeHtml(String(orderId))}
+        </strong>
+
+        <br>
+
+        Total:
+        <strong>
+          $${total.toFixed(2)}
+        </strong>
+
+      </div>
+    `;
+
+    cart = [];
+
+    renderCart();
+
+    document.getElementById(
+      "customerName"
+    ).value = "";
+
+    document.getElementById(
+      "customerEmail"
+    ).value = "";
+
+    document.getElementById(
+      "customerPhone"
+    ).value = "";
+
+    document.getElementById(
+      "customerCountry"
+    ).value = "";
+
+    document.getElementById(
+      "customerAddress"
+    ).value = "";
+
+  }catch(error){
+
+    console.error(error);
+
+    result.innerHTML = `
+      <div
+        style="
+          margin-top:12px;
+          padding:12px;
+          border-radius:9px;
+          background:#fff4f4;
+          color:#b91c1c;
+        "
+      >
+        ❌ Unable to submit order.
+      </div>
+    `;
+
+  }
+
+  button.disabled =
+    false;
+
+  button.textContent =
+    "Confirm Order";
+
+}
 
 
 /* ==================================================
@@ -2826,50 +3244,192 @@ document
 ================================================== */
 
 const chatLaunch =
-  document.getElementById("chatLaunch");
+  document.getElementById(
+    "chatLaunch"
+  );
 
 const chatWindow =
-  document.getElementById("chatWindow");
+  document.getElementById(
+    "chatWindow"
+  );
 
 const chatClose =
-  document.getElementById("chatClose");
+  document.getElementById(
+    "chatClose"
+  );
 
 
-chatLaunch.addEventListener("click",function(){
+chatLaunch.addEventListener(
+  "click",
+  function(){
 
-  chatWindow.classList.toggle("active");
+    chatWindow.classList.toggle(
+      "active"
+    );
 
-  if(chatWindow.classList.contains("active")){
+    if(
+      chatWindow.classList.contains(
+        "active"
+      )
+    ){
 
-    loadChatMessages();
+      loadChatMessages();
+
+    }
 
   }
+);
 
-});
+
+chatClose.addEventListener(
+  "click",
+  function(){
+
+    chatWindow.classList.remove(
+      "active"
+    );
+
+  }
+);
 
 
-chatClose.addEventListener("click",function(){
+/*
+  IMPORTANT:
 
-  chatWindow.classList.remove("active");
+  The existing Supabase table is:
 
-});
+  chat_messages
+
+  Existing columns shown in Supabase:
+
+  sender_id
+  receiver_id
+  message
+  image_url
+
+  We therefore do NOT use:
+
+  ChatMessages
+  customer_id
+  sender
+  sender_type
+*/
 
 
 async function loadChatMessages(){
 
   const messagesBox =
-    document.getElementById("chatMessages");
+    document.getElementById(
+      "chatMessages"
+    );
 
+  messagesBox.innerHTML = `
+    <div
+      style="
+        text-align:center;
+        color:#64748b;
+        padding:20px;
+      "
+    >
+      🔄 Loading conversation...
+    </div>
+  `;
 
-  const {data,error} =
-    await supabaseClient
-      .from("ChatMessages")
-      .select("*")
-      .eq("customer_id",customerId)
-      .order("created_at",{ascending:true});
+  try{
 
+    const {data,error} =
+      await supabaseClient
+        .from("chat_messages")
+        .select("*")
+        .or(
+          "sender_id.eq." +
+          customerId +
+          ",receiver_id.eq." +
+          customerId
+        )
+        .order(
+          "created_at",
+          {ascending:true}
+        );
 
-  if(error){
+    if(error){
+
+      console.error(
+        "Chat load error:",
+        error
+      );
+
+      messagesBox.innerHTML = `
+        <div
+          style="
+            text-align:center;
+            color:#b91c1c;
+            padding:20px;
+          "
+        >
+          Unable to load chat.
+          <br><br>
+          ${escapeHtml(error.message)}
+        </div>
+      `;
+
+      return;
+
+    }
+
+    if(!data || !data.length){
+
+      messagesBox.innerHTML = `
+        <div
+          style="
+            text-align:center;
+            color:#64748b;
+            padding:20px;
+          "
+        >
+          👋 Hello!
+          <br>
+          How can Greenway Express help you?
+        </div>
+      `;
+
+      return;
+
+    }
+
+    messagesBox.innerHTML =
+      data.map(
+        function(message){
+
+          const isCustomer =
+            String(
+              message.sender_id
+            ) ===
+            String(customerId);
+
+          return `
+
+            <div
+              class="message ${
+                isCustomer
+                  ? "customer"
+                  : "admin"
+              }"
+            >
+              ${escapeHtml(
+                message.message || ""
+              )}
+            </div>
+
+          `;
+
+        }
+      ).join("");
+
+    messagesBox.scrollTop =
+      messagesBox.scrollHeight;
+
+  }catch(error){
 
     console.error(error);
 
@@ -2877,59 +3437,15 @@ async function loadChatMessages(){
       <div
         style="
           text-align:center;
-          color:#64748b;
+          color:#b91c1c;
           padding:20px;
         "
       >
-        Start a conversation with Greenway Express.
+        Unable to load chat.
       </div>
     `;
 
-    return;
-
   }
-
-
-  if(!data || !data.length){
-
-    messagesBox.innerHTML = `
-      <div
-        style="
-          text-align:center;
-          color:#64748b;
-          padding:20px;
-        "
-      >
-        👋 Hello! How can Greenway Express help you?
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  messagesBox.innerHTML =
-    data.map(function(message){
-
-      const isCustomer =
-        message.sender === "customer" ||
-        message.sender_type === "customer";
-
-
-      return `
-        <div
-          class="message ${isCustomer ? "customer" : "admin"}"
-        >
-          ${escapeHtml(message.message || "")}
-        </div>
-      `;
-
-    }).join("");
-
-
-  messagesBox.scrollTop =
-    messagesBox.scrollHeight;
 
 }
 
@@ -2941,19 +3457,25 @@ async function sendChatMessage(){
       "chatMessageInput"
     );
 
+  const sendButton =
+    document.getElementById(
+      "sendChatButton"
+    );
+
   const message =
     input.value.trim();
 
-
   if(!message)return;
-
 
   input.value = "";
 
+  sendButton.disabled =
+    true;
 
   const messagesBox =
-    document.getElementById("chatMessages");
-
+    document.getElementById(
+      "chatMessages"
+    );
 
   messagesBox.innerHTML += `
     <div class="message customer">
@@ -2964,19 +3486,61 @@ async function sendChatMessage(){
   messagesBox.scrollTop =
     messagesBox.scrollHeight;
 
+  try{
 
-  const {error} =
-    await supabaseClient
-      .from("ChatMessages")
-      .insert([{
-        customer_id:customerId,
-        sender:"customer",
-        sender_type:"customer",
-        message:message
-      }]);
+    /*
+      ADMIN is the receiver identifier
+      used by the customer-side chat.
 
+      We are using the existing table:
 
-  if(error){
+      chat_messages
+    */
+
+    const {error} =
+      await supabaseClient
+        .from("chat_messages")
+        .insert([{
+
+          sender_id:
+            customerId,
+
+          receiver_id:
+            "ADMIN",
+
+          message:
+            message,
+
+          image_url:
+            null
+
+        }]);
+
+    if(error){
+
+      console.error(
+        "Chat send error:",
+        error
+      );
+
+      messagesBox.innerHTML += `
+        <div
+          style="
+            color:#b91c1c;
+            font-size:12px;
+            text-align:center;
+            padding:7px;
+          "
+        >
+          Message could not be sent.
+          <br>
+          ${escapeHtml(error.message)}
+        </div>
+      `;
+
+    }
+
+  }catch(error){
 
     console.error(error);
 
@@ -2986,7 +3550,7 @@ async function sendChatMessage(){
           color:#b91c1c;
           font-size:12px;
           text-align:center;
-          padding:5px;
+          padding:7px;
         "
       >
         Message could not be sent.
@@ -2995,252 +3559,44 @@ async function sendChatMessage(){
 
   }
 
+  sendButton.disabled =
+    false;
+
 }
 
 
 document
-  .getElementById("sendChatButton")
-  .addEventListener("click",sendChatMessage);
+  .getElementById(
+    "sendChatButton"
+  )
+  .addEventListener(
+    "click",
+    sendChatMessage
+  );
 
 
 document
-  .getElementById("chatMessageInput")
-  .addEventListener("keydown",function(event){
+  .getElementById(
+    "chatMessageInput"
+  )
+  .addEventListener(
+    "keydown",
+    function(event){
 
-    if(event.key === "Enter"){
+      if(event.key === "Enter"){
 
-      event.preventDefault();
+        event.preventDefault();
 
-      sendChatMessage();
-
-    }
-
-  });
-
-
-/* ==================================================
-   REAL-TIME CHAT UPDATES
-================================================== */
-
-try{
-
-  supabaseClient
-    .channel("greenway-customer-chat-" + customerId)
-    .on(
-      "postgres_changes",
-      {
-        event:"INSERT",
-        schema:"public",
-        table:"ChatMessages",
-        filter:"customer_id=eq." + customerId
-      },
-      function(){
-
-        if(chatWindow.classList.contains("active")){
-
-          loadChatMessages();
-
-        }
+        sendChatMessage();
 
       }
-    )
-    .subscribe();
 
-}catch(error){
-
-  console.error(error);
-
-}
+    }
+  );
 
 
 /* ==================================================
-   TRACK SHIPMENT
-================================================== */
-
-document
-  .getElementById("trackButton")
-  .addEventListener("click",async function(){
-
-    const number =
-      document
-        .getElementById("trackingNumber")
-        .value
-        .trim()
-        .toUpperCase();
-
-    const result =
-      document.getElementById("result");
-
-
-    if(number === ""){
-
-      result.innerHTML =
-        '<div class="tracking-error">⚠️ Please enter a tracking number.</div>';
-
-      return;
-
-    }
-
-
-    result.innerHTML =
-      '<div class="tracking-loading">🔍 Searching for your shipment...</div>';
-
-
-    const {data,error} =
-      await supabaseClient
-        .from("Shipments")
-        .select("*")
-        .eq("tracking_number",number)
-        .maybeSingle();
-
-
-    if(error){
-
-      console.error(error);
-
-      result.innerHTML =
-        '<div class="tracking-error">❌ Database error: ' +
-        escapeHtml(error.message) +
-        '</div>';
-
-      return;
-
-    }
-
-
-    if(!data){
-
-      result.innerHTML =
-        '<div class="tracking-error">❌ No shipment found for tracking number <strong>' +
-        escapeHtml(number) +
-        '</strong>.</div>';
-
-      return;
-
-    }
-
-
-    result.innerHTML = `
-
-      <div class="tracking-result">
-
-        <div class="tracking-result-header">
-
-          <h3>📦 Shipment Found ✅</h3>
-
-          <p>Your shipment information is shown below.</p>
-
-        </div>
-
-        <div class="tracking-number-display">
-
-          🔢 Tracking Number:
-          ${escapeHtml(data.tracking_number)}
-
-        </div>
-
-        <div class="shipment-grid">
-
-          <div class="shipment-info">
-
-            <div class="info-icon">📊</div>
-
-            <span class="info-label">
-              Status
-            </span>
-
-            <span class="info-value">
-              ${escapeHtml(data.status || "Not available")}
-            </span>
-
-          </div>
-
-          <div class="shipment-info">
-
-            <div class="info-icon">📍</div>
-
-            <span class="info-label">
-              Origin
-            </span>
-
-            <span class="info-value">
-              ${escapeHtml(data.origin || "Not available")}
-            </span>
-
-          </div>
-
-          <div class="shipment-info">
-
-            <div class="info-icon">🎯</div>
-
-            <span class="info-label">
-              Destination
-            </span>
-
-            <span class="info-value">
-              ${escapeHtml(data.destination || "Not available")}
-            </span>
-
-          </div>
-
-          <div class="shipment-info">
-
-            <div class="info-icon">🚚</div>
-
-            <span class="info-label">
-              Current Location
-            </span>
-
-            <span class="info-value">
-              ${escapeHtml(data.current_location || "Not available")}
-            </span>
-
-          </div>
-
-        </div>
-
-        <div class="status-box">
-
-          <strong>📅 Estimated Delivery</strong>
-
-          <br><br>
-
-          ${escapeHtml(data.estimated_delivery || "Not available")}
-
-        </div>
-
-      </div>
-
-    `;
-
-  });
-
-
-/* ==================================================
-   SECURITY / HTML HELPERS
-================================================== */
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function escapeAttribute(value){
-
-  return escapeHtml(value);
-
-}
-
-
-/* ==================================================
-   INITIAL SHOP/CART STATE
+   INITIAL CART
 ================================================== */
 
 renderCart();
@@ -3248,4 +3604,4 @@ renderCart();
 </script>
 
 </body>
-  </html>
+</html>
