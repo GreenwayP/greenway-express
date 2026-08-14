@@ -240,10 +240,12 @@ justify-content:center;
 font-weight:bold
 }
 
-/* SHOP */
+/* GENERAL SECTIONS */
 
 .admin-section{display:none}
 .admin-section.active{display:block}
+
+/* SHOP */
 
 .shop-toolbar{
 display:flex;
@@ -254,9 +256,7 @@ margin-bottom:18px;
 flex-wrap:wrap
 }
 
-.shop-toolbar input{
-max-width:400px
-}
+.shop-toolbar input{max-width:400px}
 
 .product-card{
 border:1px solid var(--border);
@@ -276,9 +276,7 @@ object-fit:cover;
 background:#f1f5f9
 }
 
-.product-content{
-padding:17px
-}
+.product-content{padding:17px}
 
 .product-top{
 display:flex;
@@ -343,9 +341,7 @@ background:#fff7ed;
 color:#c2410c
 }
 
-.product-actions{
-margin-top:12px
-}
+.product-actions{margin-top:12px}
 
 .shop-stats{
 display:grid;
@@ -414,26 +410,12 @@ margin-left:6px
 .approved{background:#ecfdf5;color:#047857}
 .declined{background:#fef2f2;color:#b91c1c}
 
-.approval-box{
-margin-top:14px;
-padding:12px;
-border-radius:10px;
-background:#f8fafc;
-border:1px solid var(--border)
-}
-
 .tracking-box{
 background:#eff6ff;
 border:1px solid #bfdbfe;
 padding:13px;
 border-radius:10px;
 margin-top:13px
-}
-
-.small-note{
-color:var(--muted);
-font-size:13px;
-margin-top:6px
 }
 
 .divider{
@@ -444,13 +426,8 @@ margin:20px 0
 
 /* CHAT */
 
-.chat-section{
-display:none
-}
-
-.chat-section.active{
-display:block
-}
+.chat-section{display:none}
+.chat-section.active{display:block}
 
 .chat-header{
 display:flex;
@@ -484,7 +461,7 @@ font-size:23px
 .chat-layout{
 display:grid;
 grid-template-columns:320px 1fr;
-min-height:650px;
+height:650px;
 border:1px solid var(--border);
 border-radius:18px;
 overflow:hidden;
@@ -496,12 +473,14 @@ box-shadow:0 8px 28px rgba(0,0,0,.06)
 border-right:1px solid var(--border);
 background:#fbfdfc;
 display:flex;
-flex-direction:column
+flex-direction:column;
+min-height:0
 }
 
 .conversation-top{
 padding:17px;
-border-bottom:1px solid var(--border)
+border-bottom:1px solid var(--border);
+flex-shrink:0
 }
 
 .conversation-top h3{
@@ -522,7 +501,10 @@ color:#94a3b8
 
 .conversation-list{
 flex:1;
-overflow-y:auto
+overflow-y:auto;
+overflow-x:hidden;
+min-height:0;
+-webkit-overflow-scrolling:touch
 }
 
 .conversation-item{
@@ -531,9 +513,7 @@ border-bottom:1px solid #edf0ef;
 cursor:pointer
 }
 
-.conversation-item:hover{
-background:#f1f8f5
-}
+.conversation-item:hover{background:#f1f8f5}
 
 .conversation-item.active{
 background:#e7f7f1;
@@ -596,7 +576,8 @@ gap:5px
 
 .conversation-time{
 color:#94a3b8;
-font-size:10px
+font-size:10px;
+white-space:nowrap
 }
 
 .no-conversations{
@@ -610,6 +591,7 @@ font-size:13px
 display:flex;
 flex-direction:column;
 min-width:0;
+min-height:0;
 background:#f8faf9
 }
 
@@ -640,15 +622,18 @@ font-size:36px
 display:none;
 align-items:center;
 justify-content:space-between;
+gap:10px;
 padding:15px 18px;
 background:white;
-border-bottom:1px solid var(--border)
+border-bottom:1px solid var(--border);
+flex-shrink:0
 }
 
 .active-chat-user{
 display:flex;
 align-items:center;
-gap:11px
+gap:11px;
+min-width:0
 }
 
 .online-status{
@@ -680,7 +665,7 @@ overflow-y:auto;
 display:flex;
 flex-direction:column;
 gap:10px;
-min-height:400px
+min-height:0
 }
 
 .message-row{
@@ -725,21 +710,12 @@ opacity:.65;
 text-align:right
 }
 
-.message-image{
-max-width:260px;
-max-height:300px;
-display:block;
-border-radius:11px;
-cursor:pointer;
-margin-bottom:7px;
-object-fit:cover
-}
-
 .message-composer{
 display:none;
 padding:12px 15px;
 background:white;
-border-top:1px solid var(--border)
+border-top:1px solid var(--border);
+flex-shrink:0
 }
 
 .composer-row{
@@ -777,13 +753,6 @@ color:#475569
 .send-button{background:var(--green)}
 
 .hidden-file{display:none}
-
-.typing-status{
-display:none;
-padding:0 18px 8px;
-color:#94a3b8;
-font-size:11px
-}
 
 .chat-loading{
 text-align:center;
@@ -828,32 +797,30 @@ font-size:20px
 /* RESPONSIVE */
 
 @media(max-width:900px){
+
 .chat-layout{
-grid-template-columns:1fr
+grid-template-columns:1fr;
+height:760px
 }
 
 .conversation-panel{
-height:250px;
+height:300px;
 border-right:none;
 border-bottom:1px solid var(--border)
 }
 
 .conversation-list{
-display:flex;
-overflow-x:auto
-}
-
-.conversation-item{
-min-width:250px;
-border-right:1px solid #edf0ef
+overflow-y:auto
 }
 
 .shop-stats{
 grid-template-columns:repeat(2,1fr)
 }
+
 }
 
 @media(max-width:700px){
+
 body{padding:12px}
 
 .header,.card{padding:16px}
@@ -882,6 +849,21 @@ height:190px
 .shop-stats{
 grid-template-columns:1fr 1fr
 }
+
+.chat-layout{
+height:780px
+}
+
+.active-chat-header{
+align-items:flex-start
+}
+
+.active-chat-header>div:last-child{
+display:flex;
+flex-wrap:wrap;
+justify-content:flex-end
+}
+
 }
 </style>
 </head>
@@ -894,6 +876,7 @@ grid-template-columns:1fr 1fr
 <h1>🚚 Greenway Express</h1>
 <p>Professional Admin Dashboard</p>
 </div>
+
 
 <!-- LOGIN -->
 
@@ -961,7 +944,7 @@ onclick="showAdminSection('chat')">
 </div>
 
 
-<!-- ================= SHIPMENTS ================= -->
+<!-- SHIPMENTS -->
 
 <div id="shipmentsSection" class="admin-section active">
 
@@ -1204,7 +1187,7 @@ onclick="adminLogout()">
 </div>
 
 
-<!-- ================= SHOP ================= -->
+<!-- SHOP -->
 
 <div id="shopSection" class="admin-section">
 
@@ -1242,8 +1225,6 @@ Low Stock
 
 </div>
 
-
-<!-- ADD PRODUCT -->
 
 <div class="card">
 
@@ -1323,8 +1304,6 @@ placeholder="Describe the product or asset"></textarea>
 </div>
 
 
-<!-- PRODUCTS -->
-
 <div class="card">
 
 <div class="shop-toolbar">
@@ -1349,7 +1328,7 @@ Loading products...
 </div>
 
 
-<!-- ================= CHAT ================= -->
+<!-- CUSTOMER CHAT -->
 
 <div id="chatSection" class="chat-section">
 
@@ -1383,7 +1362,7 @@ onclick="loadConversations()">
 
 <div class="conversation-top">
 
-<h3>Conversations</h3>
+<h3>Customers</h3>
 
 <div class="chat-search">
 
@@ -1401,9 +1380,11 @@ oninput="filterConversations()">
 <div
 class="conversation-list"
 id="conversationList">
+
 <div class="chat-loading">
-Loading conversations...
+Loading customers...
 </div>
+
 </div>
 
 </aside>
@@ -1455,11 +1436,23 @@ Active conversation
 
 </div>
 
+
+<div>
+
+<button
+type="button"
+class="delete-btn"
+onclick="deleteActiveConversation()">
+🗑️ Delete Chat
+</button>
+
 <button
 type="button"
 onclick="loadActiveConversation()">
 🔄
 </button>
+
+</div>
 
 </div>
 
@@ -1510,8 +1503,6 @@ onclick="sendChatMessage()">
 </div>
 
 </main>
-
-</div>
 
 </div>
 
@@ -1582,13 +1573,17 @@ return escapeHtml(value);
 /* ================= LOGIN ================= */
 
 function showAdminTools(){
+
 document.getElementById("adminTools").style.display="block";
 document.getElementById("loginCard").style.display="none";
+
 }
 
 function hideAdminTools(){
+
 document.getElementById("adminTools").style.display="none";
 document.getElementById("loginCard").style.display="block";
+
 }
 
 async function adminLogin(){
@@ -1598,8 +1593,11 @@ const password=document.getElementById("adminPassword").value;
 const result=document.getElementById("loginResult");
 
 if(!email||!password){
+
 result.textContent="Please enter your email and password.";
+
 return;
+
 }
 
 result.textContent="Logging in...";
@@ -1610,9 +1608,13 @@ password
 });
 
 if(error){
+
 result.textContent="Login failed: "+error.message;
+
 hideAdminTools();
+
 return;
+
 }
 
 currentAdminUser=data.user;
@@ -1632,8 +1634,11 @@ async function checkAdminSession(){
 const {data,error}=await supabaseClient.auth.getSession();
 
 if(error||!data.session){
+
 hideAdminTools();
+
 return;
+
 }
 
 currentAdminUser=data.session.user;
@@ -1677,10 +1682,12 @@ document.querySelectorAll(".nav-btn").forEach(x=>{
 x.classList.remove("active");
 });
 
+
 if(section==="shop"){
 
 document.getElementById("shopSection").classList.add("active");
 document.getElementById("shopNav").classList.add("active");
+
 loadShopProducts();
 
 }
@@ -1689,6 +1696,7 @@ else if(section==="chat"){
 
 document.getElementById("chatSection").classList.add("active");
 document.getElementById("chatNav").classList.add("active");
+
 loadConversations();
 
 }
@@ -1713,9 +1721,12 @@ const origin=document.getElementById("newOrigin").value.trim();
 const destination=document.getElementById("newDestination").value.trim();
 
 if(!trackingNumber||!origin||!destination){
+
 document.getElementById("createResult").textContent=
 "Please enter tracking number, origin and destination.";
+
 return;
+
 }
 
 const shipmentData={
@@ -1785,9 +1796,12 @@ const {error}=await supabaseClient
 .insert(shipmentData);
 
 if(error){
+
 document.getElementById("createResult").textContent=
 "Creation failed: "+error.message;
+
 return;
+
 }
 
 document.getElementById("createResult").textContent=
@@ -1809,13 +1823,21 @@ const {data,error}=await supabaseClient
 .order("tracking_number",{ascending:false});
 
 if(error){
-container.innerHTML="Failed to load shipments: "+error.message;
+
+container.innerHTML=
+"Failed to load shipments: "+error.message;
+
 return;
+
 }
 
 if(!data||!data.length){
-container.innerHTML='<div class="empty">📦 No shipments found.</div>';
+
+container.innerHTML=
+'<div class="empty">📦 No shipments found.</div>';
+
 return;
+
 }
 
 container.innerHTML=data.map(shipment=>{
@@ -1926,8 +1948,11 @@ decline_reason:null
 .eq("tracking_number",number);
 
 if(error){
+
 alert("Approval failed: "+error.message);
+
 return;
+
 }
 
 alert("Shipment approved successfully! ✅");
@@ -1938,13 +1963,18 @@ loadAllShipments();
 
 async function declineShipment(number){
 
-const reason=prompt("Enter the reason for declining this shipment:");
+const reason=prompt(
+"Enter the reason for declining this shipment:"
+);
 
 if(reason===null)return;
 
 if(!reason.trim()){
+
 alert("Please enter a decline reason.");
+
 return;
+
 }
 
 const {error}=await supabaseClient
@@ -1956,8 +1986,11 @@ decline_reason:reason.trim()
 .eq("tracking_number",number);
 
 if(error){
+
 alert("Decline failed: "+error.message);
+
 return;
+
 }
 
 alert("Shipment declined.");
@@ -1968,8 +2001,9 @@ loadAllShipments();
 
 async function deleteShipment(number){
 
-if(!confirm("Are you sure you want to delete shipment "+number+"?"))
-return;
+if(!confirm(
+"Are you sure you want to delete shipment "+number+"?"
+))return;
 
 const {error}=await supabaseClient
 .from("Shipments")
@@ -1977,8 +2011,11 @@ const {error}=await supabaseClient
 .eq("tracking_number",number);
 
 if(error){
+
 alert("Delete failed: "+error.message);
+
 return;
+
 }
 
 alert("Shipment deleted successfully! ✅");
@@ -2022,18 +2059,31 @@ function updateShopStats(){
 
 const total=allShopProducts.length;
 
-const visible=allShopProducts.filter(x=>x.visible!==false).length;
+const visible=allShopProducts.filter(
+x=>x.visible!==false
+).length;
 
 const hidden=total-visible;
 
-const lowStock=allShopProducts.filter(x=>
-Number(x.stock||0)<=5
+const lowStock=allShopProducts.filter(
+x=>Number(x.stock||0)<=5
 ).length;
 
-document.getElementById("shopTotalProducts").textContent=total;
-document.getElementById("shopVisibleProducts").textContent=visible;
-document.getElementById("shopHiddenProducts").textContent=hidden;
-document.getElementById("shopLowStock").textContent=lowStock;
+document.getElementById(
+"shopTotalProducts"
+).textContent=total;
+
+document.getElementById(
+"shopVisibleProducts"
+).textContent=visible;
+
+document.getElementById(
+"shopHiddenProducts"
+).textContent=hidden;
+
+document.getElementById(
+"shopLowStock"
+).textContent=lowStock;
 
 }
 
@@ -2062,7 +2112,10 @@ return `
 
 <img
 class="product-image"
-src="${escapeAttribute(product.image_url||"https://via.placeholder.com/300x300?text=Product")}"
+src="${escapeAttribute(
+product.image_url||
+"https://via.placeholder.com/300x300?text=Product"
+)}"
 alt="${escapeAttribute(product.name||"Product")}"
 onerror="this.src='https://via.placeholder.com/300x300?text=Product'">
 
@@ -2120,7 +2173,10 @@ onclick="deleteShopProduct('${escapeAttribute(product.id)}')">
 
 <button
 class="secondary-btn"
-onclick="toggleShopVisibility('${escapeAttribute(product.id)}',${visible})">
+onclick="toggleShopVisibility(
+'${escapeAttribute(product.id)}',
+${visible}
+)">
 ${visible?"🙈 Hide":"👁️ Show"}
 </button>
 
@@ -2138,12 +2194,24 @@ ${visible?"🙈 Hide":"👁️ Show"}
 
 function filterShopProducts(){
 
-const query=document.getElementById("shopSearch").value.toLowerCase().trim();
+const query=document
+.getElementById("shopSearch")
+.value
+.toLowerCase()
+.trim();
 
 const filtered=allShopProducts.filter(product=>
-String(product.name||"").toLowerCase().includes(query)||
-String(product.category||"").toLowerCase().includes(query)||
-String(product.description||"").toLowerCase().includes(query)
+String(product.name||"")
+.toLowerCase()
+.includes(query)||
+
+String(product.category||"")
+.toLowerCase()
+.includes(query)||
+
+String(product.description||"")
+.toLowerCase()
+.includes(query)
 );
 
 renderShopProducts(filtered);
@@ -2152,9 +2220,14 @@ renderShopProducts(filtered);
 
 async function addShopProduct(){
 
-const name=document.getElementById("shopName").value.trim();
+const name=document
+.getElementById("shopName")
+.value
+.trim();
 
-const price=document.getElementById("shopPrice").value;
+const price=document
+.getElementById("shopPrice")
+.value;
 
 if(!name||price===""){
 
@@ -2170,21 +2243,31 @@ const product={
 name,
 
 category:
-document.getElementById("shopCategory").value.trim()||"General",
+document.getElementById("shopCategory")
+.value
+.trim()||"General",
 
 price:Number(price),
 
 stock:
-Number(document.getElementById("shopStock").value||0),
+Number(
+document.getElementById("shopStock")
+.value||0
+),
 
 image_url:
-document.getElementById("shopImage").value.trim()||null,
+document.getElementById("shopImage")
+.value
+.trim()||null,
 
 description:
-document.getElementById("shopDescription").value.trim()||null,
+document.getElementById("shopDescription")
+.value
+.trim()||null,
 
 visible:
-document.getElementById("shopVisible").value==="true"
+document.getElementById("shopVisible")
+.value==="true"
 
 };
 
@@ -2290,13 +2373,18 @@ image_url:image.trim()||null
 
 if(error){
 
-alert("Product update failed: "+error.message);
+alert(
+"Product update failed: "+
+error.message
+);
 
 return;
 
 }
 
-alert("Product updated successfully! ✅");
+alert(
+"Product updated successfully! ✅"
+);
 
 loadShopProducts();
 
@@ -2309,9 +2397,10 @@ const product=allShopProducts.find(x=>x.id===id);
 if(!product)return;
 
 if(!confirm(
-"Delete "+(product.name||"this product")+" from the shop?"
-))
-return;
+"Delete "+
+(product.name||"this product")+
+" from the shop?"
+))return;
 
 const {error}=await supabaseClient
 .from("shop_products")
@@ -2320,13 +2409,18 @@ const {error}=await supabaseClient
 
 if(error){
 
-alert("Delete failed: "+error.message);
+alert(
+"Delete failed: "+
+error.message
+);
 
 return;
 
 }
 
-alert("Product deleted successfully! 🗑️");
+alert(
+"Product deleted successfully! 🗑️"
+);
 
 loadShopProducts();
 
@@ -2343,7 +2437,10 @@ visible:!current
 
 if(error){
 
-alert("Visibility update failed: "+error.message);
+alert(
+"Visibility update failed: "+
+error.message
+);
 
 return;
 
@@ -2360,13 +2457,17 @@ async function findShipment(numberFromList){
 
 const number=
 numberFromList||
-document.getElementById("trackingNumber").value.trim();
+document.getElementById("trackingNumber")
+.value
+.trim();
 
-const result=document.getElementById("shipmentResult");
+const result=
+document.getElementById("shipmentResult");
 
 if(!number){
 
-result.innerHTML="Please enter a tracking number.";
+result.innerHTML=
+"Please enter a tracking number.";
 
 return;
 
@@ -2382,7 +2483,9 @@ const {data,error}=await supabaseClient
 
 if(error){
 
-result.innerHTML="Database error: "+error.message;
+result.innerHTML=
+"Database error: "+
+error.message;
 
 return;
 
@@ -2390,7 +2493,8 @@ return;
 
 if(!data){
 
-result.innerHTML="Shipment not found.";
+result.innerHTML=
+"Shipment not found.";
 
 return;
 
@@ -2415,11 +2519,27 @@ value="${escapeAttribute(data.tracking_number||"")}">
 <div class="field">
 <label>Status</label>
 <select id="editStatus">
-<option ${data.status==="Pending"?"selected":""}>Pending</option>
-<option ${data.status==="Processing"?"selected":""}>Processing</option>
-<option ${data.status==="In Transit"?"selected":""}>In Transit</option>
-<option ${data.status==="Out for Delivery"?"selected":""}>Out for Delivery</option>
-<option ${data.status==="Delivered"?"selected":""}>Delivered</option>
+
+<option ${data.status==="Pending"?"selected":""}>
+Pending
+</option>
+
+<option ${data.status==="Processing"?"selected":""}>
+Processing
+</option>
+
+<option ${data.status==="In Transit"?"selected":""}>
+In Transit
+</option>
+
+<option ${data.status==="Out for Delivery"?"selected":""}>
+Out for Delivery
+</option>
+
+<option ${data.status==="Delivered"?"selected":""}>
+Delivered
+</option>
+
 </select>
 </div>
 
@@ -2443,7 +2563,8 @@ value="${escapeAttribute(data.current_location||"")}">
 
 <div class="field">
 <label>Estimated Delivery</label>
-<input type="date"
+<input
+type="date"
 id="editDelivery"
 value="${escapeAttribute(data.estimated_delivery||"")}">
 </div>
@@ -2462,7 +2583,8 @@ value="${escapeAttribute(data.sender_phone||"")}">
 
 <div class="field full">
 <label>Sender Email</label>
-<input id="editSenderEmail"
+<input
+id="editSenderEmail"
 value="${escapeAttribute(data.sender_email||"")}">
 </div>
 
@@ -2474,25 +2596,29 @@ value="${escapeAttribute(data.receiver_name||"")}">
 
 <div class="field">
 <label>Receiver Phone</label>
-<input id="editReceiverPhone"
+<input
+id="editReceiverPhone"
 value="${escapeAttribute(data.receiver_phone||"")}">
 </div>
 
 <div class="field full">
 <label>Receiver Email</label>
-<input id="editReceiverEmail"
+<input
+id="editReceiverEmail"
 value="${escapeAttribute(data.receiver_email||"")}">
 </div>
 
 <div class="field">
 <label>Package Type</label>
-<input id="editPackageType"
+<input
+id="editPackageType"
 value="${escapeAttribute(data.package_type||"")}">
 </div>
 
 <div class="field">
 <label>Package Weight</label>
-<input type="number"
+<input
+type="number"
 id="editPackageWeight"
 value="${data.package_weight??""}">
 </div>
@@ -2504,13 +2630,15 @@ value="${data.package_weight??""}">
 
 <div class="field">
 <label>Service Type</label>
-<input id="editServiceType"
+<input
+id="editServiceType"
 value="${escapeAttribute(data.service_type||"")}">
 </div>
 
 <div class="field">
 <label>Order Total — USD</label>
-<input type="number"
+<input
+type="number"
 id="editOrderTotal"
 value="${data.order_total??""}">
 </div>
@@ -2527,17 +2655,32 @@ value="${data.order_total??""}">
 
 <div class="field">
 <label>Approval Status</label>
+
 <select id="editApprovalStatus">
-<option ${data.approval_status==="Pending"?"selected":""}>Pending</option>
-<option ${data.approval_status==="Approved"?"selected":""}>Approved</option>
-<option ${data.approval_status==="Declined"?"selected":""}>Declined</option>
+
+<option ${data.approval_status==="Pending"?"selected":""}>
+Pending
+</option>
+
+<option ${data.approval_status==="Approved"?"selected":""}>
+Approved
+</option>
+
+<option ${data.approval_status==="Declined"?"selected":""}>
+Declined
+</option>
+
 </select>
+
 </div>
 
 <div class="field">
 <label>Decline Reason</label>
-<input id="editDeclineReason"
+
+<input
+id="editDeclineReason"
 value="${escapeAttribute(data.decline_reason||"")}">
+
 </div>
 
 </div>
@@ -2546,7 +2689,9 @@ value="${escapeAttribute(data.decline_reason||"")}">
 
 <button
 type="button"
-onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
+onclick="updateShipment(
+'${escapeAttribute(data.tracking_number)}'
+)">
 💾 Save All Changes
 </button>
 
@@ -2556,11 +2701,20 @@ onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
 
 async function updateShipment(oldTrackingNumber){
 
-const newNumber=document.getElementById("editTrackingNumber").value.trim();
+const newNumber=
+document.getElementById(
+"editTrackingNumber"
+).value
+.trim();
 
 if(!newNumber){
-alert("Tracking number cannot be empty.");
+
+alert(
+"Tracking number cannot be empty."
+);
+
 return;
+
 }
 
 const {error}=await supabaseClient
@@ -2569,103 +2723,167 @@ const {error}=await supabaseClient
 
 tracking_number:newNumber,
 
-status:document.getElementById("editStatus").value,
+status:
+document.getElementById("editStatus")
+.value,
 
-origin:document.getElementById("editOrigin").value.trim(),
+origin:
+document.getElementById("editOrigin")
+.value
+.trim(),
 
-destination:document.getElementById("editDestination").value.trim(),
+destination:
+document.getElementById("editDestination")
+.value
+.trim(),
 
 current_location:
-document.getElementById("editLocation").value.trim()||null,
+document.getElementById("editLocation")
+.value
+.trim()||null,
 
 estimated_delivery:
-document.getElementById("editDelivery").value||null,
+document.getElementById("editDelivery")
+.value||null,
 
 sender_name:
-document.getElementById("editSenderName").value.trim()||null,
+document.getElementById("editSenderName")
+.value
+.trim()||null,
 
 sender_phone:
-document.getElementById("editSenderPhone").value.trim()||null,
+document.getElementById("editSenderPhone")
+.value
+.trim()||null,
 
 sender_email:
-document.getElementById("editSenderEmail").value.trim()||null,
+document.getElementById("editSenderEmail")
+.value
+.trim()||null,
 
 receiver_name:
-document.getElementById("editReceiverName").value.trim()||null,
+document.getElementById("editReceiverName")
+.value
+.trim()||null,
 
 receiver_phone:
-document.getElementById("editReceiverPhone").value.trim()||null,
+document.getElementById("editReceiverPhone")
+.value
+.trim()||null,
 
 receiver_email:
-document.getElementById("editReceiverEmail").value.trim()||null,
+document.getElementById("editReceiverEmail")
+.value
+.trim()||null,
 
 package_type:
-document.getElementById("editPackageType").value||null,
+document.getElementById("editPackageType")
+.value||null,
 
 package_weight:
-document.getElementById("editPackageWeight").value===""
-?null:Number(document.getElementById("editPackageWeight").value),
+document.getElementById("editPackageWeight")
+.value===""
+?null
+:Number(
+document.getElementById("editPackageWeight")
+.value
+),
 
 package_description:
-document.getElementById("editPackageDescription").value.trim()||null,
+document.getElementById("editPackageDescription")
+.value
+.trim()||null,
 
 service_type:
-document.getElementById("editServiceType").value||null,
+document.getElementById("editServiceType")
+.value||null,
 
 order_total:
-document.getElementById("editOrderTotal").value===""
-?null:Number(document.getElementById("editOrderTotal").value),
+document.getElementById("editOrderTotal")
+.value===""
+?null
+:Number(
+document.getElementById("editOrderTotal")
+.value
+),
 
 order_items:
-document.getElementById("editOrderItems").value.trim()||null,
+document.getElementById("editOrderItems")
+.value
+.trim()||null,
 
 special_instructions:
-document.getElementById("editSpecialInstructions").value.trim()||null,
+document.getElementById("editSpecialInstructions")
+.value
+.trim()||null,
 
 approval_status:
-document.getElementById("editApprovalStatus").value,
+document.getElementById("editApprovalStatus")
+.value,
 
 decline_reason:
-document.getElementById("editDeclineReason").value.trim()||null
+document.getElementById("editDeclineReason")
+.value
+.trim()||null
 
 })
-.eq("tracking_number",oldTrackingNumber);
+.eq(
+"tracking_number",
+oldTrackingNumber
+);
 
 if(error){
 
-alert("Update failed: "+error.message);
+alert(
+"Update failed: "+
+error.message
+);
 
 return;
 
 }
 
-alert("Shipment updated successfully! ✅");
+alert(
+"Shipment updated successfully! ✅"
+);
 
-document.getElementById("shipmentResult").innerHTML="";
+document.getElementById(
+"shipmentResult"
+).innerHTML="";
 
 loadAllShipments();
 
 }
 
 
-/* ================= CHAT ================= */
+/* =====================================================
+   CUSTOMER CHAT
+   IMPORTANT:
+   Uses customer_id, sender, receiver_id.
+   ===================================================== */
 
 async function loadConversations(){
 
-const list=document.getElementById("conversationList");
+const list=
+document.getElementById(
+"conversationList"
+);
 
 list.innerHTML=
-'<div class="chat-loading">Loading conversations...</div>';
+'<div class="chat-loading">Loading customers...</div>';
+
 
 const {data,error}=await supabaseClient
 .from("chat_messages")
 .select("*")
 .order("created_at",{ascending:false});
 
+
 if(error){
 
 list.innerHTML=
-'<div class="no-conversations">Unable to load conversations.<br><br>'+
+'<div class="no-conversations">'+
+'Unable to load conversations.<br><br>'+
 escapeHtml(error.message)+
 '</div>';
 
@@ -2673,12 +2891,16 @@ return;
 
 }
 
+
 if(!data||!data.length){
 
 allConversations=[];
 
 list.innerHTML=
-'<div class="no-conversations">💬<br><br>No customer conversations yet.</div>';
+'<div class="no-conversations">'+
+'💬<br><br>'+
+'No customer conversations yet.'+
+'</div>';
 
 updateChatBadge(0);
 
@@ -2686,68 +2908,113 @@ return;
 
 }
 
+
+/*
+ * One conversation per customer.
+ *
+ * customer_id is the Greenway customer ID,
+ * for example GW-JM1JM3.
+ */
+
 const map=new Map();
 
 data.forEach(message=>{
 
-if(!message.sender_id)return;
+const customerId=message.customer_id;
 
-if(!map.has(message.sender_id)){
+if(!customerId)return;
 
-map.set(message.sender_id,{
-userId:message.sender_id,
+const key=String(customerId);
+
+if(!map.has(key)){
+
+map.set(key,{
+
+userId:key,
+
 lastMessage:message,
+
 count:0
+
 });
 
 }
 
-map.get(message.sender_id).count++;
+map.get(key).count++;
 
 });
 
-allConversations=Array.from(map.values());
 
-renderConversations(allConversations);
+allConversations=
+Array.from(map.values());
 
-updateChatBadge(allConversations.length);
+renderConversations(
+allConversations
+);
+
+updateChatBadge(
+allConversations.length
+);
 
 }
+
 
 function renderConversations(conversations){
 
-const list=document.getElementById("conversationList");
+const list=
+document.getElementById(
+"conversationList"
+);
 
 if(!conversations.length){
 
 list.innerHTML=
-'<div class="no-conversations">No matching customers found.</div>';
+'<div class="no-conversations">'+
+'No matching customers found.'+
+'</div>';
 
 return;
 
 }
 
-list.innerHTML=conversations.map(c=>{
+
+list.innerHTML=
+conversations.map(c=>{
 
 const m=c.lastMessage;
 
+const customerId=c.userId;
+
 const name=
-m.sender_name||
 m.customer_name||
+m.sender_name||
 "Customer";
 
 const initial=
-name.charAt(0).toUpperCase();
+name.charAt(0).toUpperCase()||
+"C";
 
 const active=
-activeConversationUserId===c.userId
-?"active":"";
+activeConversationUserId===
+customerId
+?"active"
+:"";
+
+
+const preview=
+m.message||
+m.content||
+(m.image_url?"📷 Image":"No message");
+
 
 return `
 
 <div
 class="conversation-item ${active}"
-onclick="openConversation('${escapeAttribute(c.userId)}','${escapeAttribute(name)}')">
+onclick="openConversation(
+'${escapeAttribute(customerId)}',
+'${escapeAttribute(name)}'
+)">
 
 <div class="conversation-row">
 
@@ -2762,11 +3029,11 @@ ${escapeHtml(name)}
 </div>
 
 <div class="customer-id">
-Customer ID: ${escapeHtml(c.userId)}
+Customer ID: ${escapeHtml(customerId)}
 </div>
 
 <div class="conversation-preview">
-${escapeHtml(m.message||m.content||"Image")}
+${escapeHtml(preview)}
 </div>
 
 </div>
@@ -2789,23 +3056,31 @@ ${formatTime(m.created_at)}
 
 }
 
+
 function filterConversations(){
 
-const q=document
-.getElementById("conversationSearch")
+const q=
+document.getElementById(
+"conversationSearch"
+)
 .value
 .toLowerCase()
 .trim();
 
-const filtered=allConversations.filter(c=>{
+
+const filtered=
+allConversations.filter(c=>{
 
 const m=c.lastMessage;
 
-return String(
-m.sender_name||
+const name=
 m.customer_name||
-"Customer"
-).toLowerCase().includes(q)
+m.sender_name||
+"Customer";
+
+return String(name)
+.toLowerCase()
+.includes(q)
 
 ||
 
@@ -2815,55 +3090,100 @@ String(c.userId)
 
 });
 
+
 renderConversations(filtered);
 
 }
 
-async function openConversation(userId,name){
 
-activeConversationUserId=userId;
-activeConversationName=name||"Customer";
+async function openConversation(
+userId,
+name
+){
 
-document.getElementById("chatEmpty").style.display="none";
+activeConversationUserId=
+String(userId);
 
-document.getElementById("activeChatHeader").style.display="flex";
+activeConversationName=
+name||"Customer";
 
-document.getElementById("messageArea").style.display="flex";
 
-document.getElementById("messageComposer").style.display="block";
+document.getElementById(
+"chatEmpty"
+).style.display="none";
 
-document.getElementById("activeChatName").textContent=
+
+document.getElementById(
+"activeChatHeader"
+).style.display="flex";
+
+
+document.getElementById(
+"messageArea"
+).style.display="flex";
+
+
+document.getElementById(
+"messageComposer"
+).style.display="block";
+
+
+document.getElementById(
+"activeChatName"
+).textContent=
 activeConversationName;
 
-document.getElementById("activeCustomerId").textContent=
-"Customer ID: "+userId;
 
-document.getElementById("activeChatAvatar").textContent=
-activeConversationName.charAt(0).toUpperCase();
+document.getElementById(
+"activeCustomerId"
+).textContent=
+"Customer ID: "+
+activeConversationUserId;
 
-renderConversations(allConversations);
+
+document.getElementById(
+"activeChatAvatar"
+).textContent=
+activeConversationName
+.charAt(0)
+.toUpperCase();
+
+
+renderConversations(
+allConversations
+);
 
 await loadActiveConversation();
 
 }
 
+
 async function loadActiveConversation(){
 
 if(!activeConversationUserId)return;
 
-const area=document.getElementById("messageArea");
+
+const area=
+document.getElementById(
+"messageArea"
+);
 
 area.innerHTML=
 '<div class="chat-loading">Loading messages...</div>';
 
+
 const {data,error}=await supabaseClient
 .from("chat_messages")
 .select("*")
-.or(
-"sender_id.eq."+activeConversationUserId+
-",receiver_id.eq."+activeConversationUserId
+.eq(
+"customer_id",
+activeConversationUserId
 )
-.order("created_at",{ascending:true});
+.order(
+"created_at",
+{ascending:true}
+);
+
 
 if(error){
 
@@ -2876,29 +3196,47 @@ return;
 
 }
 
+
 if(!data||!data.length){
 
 area.innerHTML=
-'<div class="chat-loading">No messages yet.</div>';
+'<div class="chat-loading">'+
+'No messages yet.'+
+'</div>';
 
 return;
 
 }
 
-area.innerHTML=data.map(message=>{
+
+area.innerHTML=
+data.map(message=>{
+
+const sender=
+String(
+message.sender||""
+)
+.toLowerCase()
+.trim();
+
 
 const isAdmin=
-message.sender_id===currentAdminUser?.id;
+sender==="admin"||
+sender==="support"||
+sender==="staff";
+
 
 const text=
 message.message||
 message.content||
 "";
 
+
 const image=
 message.image_url||
 message.attachment_url||
 null;
+
 
 return `
 
@@ -2907,16 +3245,25 @@ return `
 <div class="message-bubble">
 
 ${image?`
+
 <img
 class="message-image"
 src="${escapeAttribute(image)}"
-onclick="openImageModal('${escapeAttribute(image)}')">
+onclick="openImageModal(
+'${escapeAttribute(image)}'
+)">
+
 `:""}
 
-${text?
-`<div class="message-text">
+
+${text?`
+
+<div class="message-text">
 ${escapeHtml(text)}
-</div>`:""}
+</div>
+
+`:""}
+
 
 <div class="message-time">
 ${formatTime(message.created_at)}
@@ -2930,39 +3277,89 @@ ${formatTime(message.created_at)}
 
 }).join("");
 
-area.scrollTop=area.scrollHeight;
+
+area.scrollTop=
+area.scrollHeight;
 
 }
 
+
 async function sendChatMessage(){
 
-if(!activeConversationUserId)return;
+if(!activeConversationUserId){
 
-const input=document.getElementById("chatMessageInput");
-
-const message=input.value.trim();
-
-if(!message&&!selectedImageFile)return;
-
-const {error}=await supabaseClient
-.from("chat_messages")
-.insert({
-
-sender_id:currentAdminUser.id,
-receiver_id:activeConversationUserId,
-message:message||null
-
-});
-
-if(error){
-
-alert("Message failed: "+error.message);
+alert(
+"Please select a customer first."
+);
 
 return;
 
 }
 
+
+const input=
+document.getElementById(
+"chatMessageInput"
+);
+
+const message=
+input.value.trim();
+
+
+if(!message&&!selectedImageFile){
+
+return;
+
+}
+
+
+/*
+ * Uses the corrected chat schema.
+ */
+
+const insertData={
+
+customer_id:
+activeConversationUserId,
+
+sender:"admin",
+
+receiver_id:
+activeConversationUserId,
+
+message:
+message||null,
+
+image_url:null
+
+};
+
+
+const {error}=await supabaseClient
+.from("chat_messages")
+.insert(insertData);
+
+
+if(error){
+
+alert(
+"Message failed: "+
+error.message
+);
+
+return;
+
+}
+
+
 input.value="";
+
+selectedImageFile=null;
+
+document.getElementById(
+"chatImageInput"
+).value="";
+
 
 await loadActiveConversation();
 
@@ -2970,9 +3367,115 @@ await loadConversations();
 
 }
 
+
+/*
+ * Delete ALL messages belonging to
+ * the currently selected customer.
+ */
+
+async function deleteActiveConversation(){
+
+if(!activeConversationUserId){
+
+alert(
+"Please select a customer first."
+);
+
+return;
+
+}
+
+
+const customerId=
+activeConversationUserId;
+
+const customerName=
+activeConversationName||
+"this customer";
+
+
+const confirmed=confirm(
+
+"Delete the entire chat with "+
+customerName+
+" ("+
+customerId+
+")?\n\n"+
+"This will permanently delete all messages in this conversation."
+
+);
+
+
+if(!confirmed)return;
+
+
+const {error}=await supabaseClient
+.from("chat_messages")
+.delete()
+.eq(
+"customer_id",
+customerId
+);
+
+
+if(error){
+
+alert(
+"Unable to delete chat: "+
+error.message
+);
+
+return;
+
+}
+
+
+activeConversationUserId=null;
+
+activeConversationName="Customer";
+
+
+document.getElementById(
+"activeChatHeader"
+).style.display="none";
+
+
+document.getElementById(
+"messageArea"
+).style.display="none";
+
+
+document.getElementById(
+"messageComposer"
+).style.display="none";
+
+
+document.getElementById(
+"chatEmpty"
+).style.display="flex";
+
+
+document.getElementById(
+"messageArea"
+).innerHTML="";
+
+
+alert(
+"Conversation deleted successfully! 🗑️"
+);
+
+
+await loadConversations();
+
+}
+
+
 function handleChatKeydown(event){
 
-if(event.key==="Enter"&&!event.shiftKey){
+if(
+event.key==="Enter"&&
+!event.shiftKey
+){
 
 event.preventDefault();
 
@@ -2982,36 +3485,56 @@ sendChatMessage();
 
 }
 
+
 function handleImageSelection(event){
 
-selectedImageFile=event.target.files[0]||null;
+selectedImageFile=
+event.target.files[0]||null;
 
 }
+
 
 function openImageModal(url){
 
-document.getElementById("modalImage").src=url;
+document.getElementById(
+"modalImage"
+).src=url;
 
-document.getElementById("imageModal").classList.add("show");
+document.getElementById(
+"imageModal"
+).classList.add("show");
 
 }
+
 
 function closeImageModal(){
 
-document.getElementById("imageModal").classList.remove("show");
+document.getElementById(
+"imageModal"
+).classList.remove("show");
 
-document.getElementById("modalImage").src="";
+document.getElementById(
+"modalImage"
+).src="";
 
 }
 
+
 function updateChatBadge(count){
 
-const badge=document.getElementById("chatNavBadge");
+const badge=
+document.getElementById(
+"chatNavBadge"
+);
 
 if(count>0){
 
 badge.style.display="flex";
-badge.textContent=count>99?"99+":count;
+
+badge.textContent=
+count>99
+?"99+"
+:count;
 
 }else{
 
@@ -3020,6 +3543,7 @@ badge.style.display="none";
 }
 
 }
+
 
 function formatTime(value){
 
@@ -3031,11 +3555,13 @@ return d.toLocaleString();
 
 }
 
+
 function startChatRefresh(){
 
 stopChatRefresh();
 
-chatRefreshTimer=setInterval(()=>{
+chatRefreshTimer=
+setInterval(()=>{
 
 if(currentAdminUser){
 
@@ -3052,6 +3578,7 @@ loadActiveConversation();
 },10000);
 
 }
+
 
 function stopChatRefresh(){
 
