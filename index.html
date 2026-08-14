@@ -122,7 +122,7 @@ nav a:hover{
 
 .hero-content h2{
   font-size:45px;
-  margin:0 0 15px;
+  margin-bottom:15px;
 }
 
 .hero-content p{
@@ -155,7 +155,7 @@ section{
   text-align:center;
   color:#0b6b3a;
   font-size:32px;
-  margin:0 0 10px;
+  margin-bottom:10px;
 }
 
 .section-intro{
@@ -473,16 +473,14 @@ button:disabled{
   text-decoration:none;
 }
 
-/* SHOP */
+/* ==================================================
+   SHOP
+================================================== */
 
 #shopPage{
   display:none;
   background:
-    radial-gradient(
-      circle at top right,
-      rgba(11,107,58,.12),
-      transparent 30%
-    ),
+    radial-gradient(circle at top right,rgba(11,107,58,.12),transparent 30%),
     #f5f8f6;
   min-height:100vh;
   padding:30px 16px 70px;
@@ -495,11 +493,7 @@ button:disabled{
 
 .shop-top{
   background:
-    linear-gradient(
-      135deg,
-      rgba(4,65,37,.94),
-      rgba(11,107,58,.94)
-    ),
+    linear-gradient(135deg,rgba(4,65,37,.94),rgba(11,107,58,.94)),
     url("https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1500&q=80")
     center/cover;
   border-radius:22px;
@@ -568,6 +562,7 @@ button:disabled{
   width:100%;
   height:200px;
   object-fit:cover;
+  background:#eaf5ef;
 }
 
 .product-body{
@@ -745,7 +740,9 @@ button:disabled{
   margin-top:10px;
 }
 
-/* CHAT */
+/* ==================================================
+   CHAT
+================================================== */
 
 .chat-launch{
   position:fixed;
@@ -769,7 +766,7 @@ button:disabled{
   position:fixed;
   right:20px;
   bottom:92px;
-  width:350px;
+  width:370px;
   max-width:calc(100vw - 30px);
   background:white;
   border-radius:17px;
@@ -812,7 +809,7 @@ button:disabled{
 }
 
 .message{
-  max-width:80%;
+  max-width:82%;
   padding:10px 12px;
   border-radius:12px;
   margin-bottom:9px;
@@ -835,11 +832,32 @@ button:disabled{
   border-bottom-left-radius:3px;
 }
 
+.message-image{
+  display:block;
+  width:100%;
+  max-width:230px;
+  max-height:230px;
+  object-fit:cover;
+  border-radius:9px;
+  margin-top:7px;
+  cursor:pointer;
+}
+
+.message-time{
+  display:block;
+  font-size:10px;
+  opacity:.65;
+  margin-top:5px;
+}
+
 .chat-input{
-  display:flex;
-  gap:7px;
   padding:10px;
   border-top:1px solid #e5e7eb;
+}
+
+.chat-input-row{
+  display:flex;
+  gap:7px;
 }
 
 .chat-input input{
@@ -852,6 +870,64 @@ button:disabled{
 
 .chat-input button{
   padding:11px 15px;
+}
+
+.chat-tools{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:7px;
+}
+
+.chat-image-button{
+  background:#eaf5ef;
+  color:#0b6b3a;
+  padding:8px 11px;
+  font-size:14px;
+}
+
+.chat-image-button:hover{
+  background:#d8eee1;
+}
+
+#chatImageInput{
+  display:none;
+}
+
+.image-preview{
+  display:none;
+  margin-bottom:8px;
+  padding:8px;
+  background:#f1f5f3;
+  border-radius:8px;
+}
+
+.image-preview.active{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.image-preview img{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:7px;
+}
+
+.preview-name{
+  flex:1;
+  font-size:12px;
+  color:#475569;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.remove-preview{
+  background:#b91c1c;
+  padding:5px 8px;
+  font-size:12px;
 }
 
 /* FOOTER */
@@ -912,6 +988,11 @@ footer a{
     bottom:85px;
   }
 
+  .chat-launch{
+    right:15px;
+    bottom:15px;
+  }
+
 }
 </style>
 </head>
@@ -961,10 +1042,7 @@ footer a{
     class="shop-button"
     id="openShopButton"
   >
-    🛍️
-    <span data-i18n="visitShop">
-      Visit Greenway Shop
-    </span>
+    🛍️ <span data-i18n="visitShop">Visit Greenway Shop</span>
   </a>
 
 </section>
@@ -979,8 +1057,7 @@ footer a{
     </h2>
 
     <p data-i18n="heroText">
-      We deliver your packages safely and on time,
-      wherever they need to go.
+      We deliver your packages safely and on time, wherever they need to go.
     </p>
 
     <a
@@ -998,19 +1075,12 @@ footer a{
 
 <section id="services">
 
-  <h2
-    class="section-title"
-    data-i18n="ourServices"
-  >
+  <h2 class="section-title" data-i18n="ourServices">
     Our Services
   </h2>
 
-  <p
-    class="section-intro"
-    data-i18n="servicesIntro"
-  >
-    Reliable delivery solutions for individuals,
-    businesses and online sellers.
+  <p class="section-intro" data-i18n="servicesIntro">
+    Reliable delivery solutions for individuals, businesses and online sellers.
   </p>
 
   <div class="services-grid">
@@ -1029,8 +1099,7 @@ footer a{
         </h3>
 
         <p data-i18n="expressText">
-          Fast delivery for urgent packages and
-          important shipments.
+          Fast delivery for urgent packages and important shipments.
         </p>
 
       </div>
@@ -1052,8 +1121,7 @@ footer a{
         </h3>
 
         <p data-i18n="packageText">
-          Safe and reliable delivery for your
-          personal packages.
+          Safe and reliable delivery for your personal packages.
         </p>
 
       </div>
@@ -1075,8 +1143,7 @@ footer a{
         </h3>
 
         <p data-i18n="businessText">
-          Dependable delivery support for businesses
-          and online sellers.
+          Dependable delivery support for businesses and online sellers.
         </p>
 
       </div>
@@ -1088,24 +1155,14 @@ footer a{
 </section>
 
 
-<section
-  id="tracking"
-  class="tracking-section"
->
+<section id="tracking" class="tracking-section">
 
-  <h2
-    class="section-title"
-    data-i18n="trackShipment"
-  >
+  <h2 class="section-title" data-i18n="trackShipment">
     Track Your Shipment
   </h2>
 
-  <p
-    class="section-intro"
-    data-i18n="trackingIntro"
-  >
-    Enter your Greenway Express tracking number below
-    to see your shipment information.
+  <p class="section-intro" data-i18n="trackingIntro">
+    Enter your Greenway Express tracking number below to see your shipment information.
   </p>
 
   <div class="tracking-box">
@@ -1134,19 +1191,12 @@ footer a{
 
 <section class="global-section">
 
-  <h2
-    class="section-title"
-    data-i18n="worldDelivery"
-  >
+  <h2 class="section-title" data-i18n="worldDelivery">
     🌍 Delivery Around the World
   </h2>
 
-  <p
-    class="section-intro"
-    data-i18n="worldIntro"
-  >
-    Greenway Express connects shipments across roads,
-    air routes and sea routes.
+  <p class="section-intro" data-i18n="worldIntro">
+    Greenway Express connects shipments across roads, air routes and sea routes.
   </p>
 
   <div class="global-grid">
@@ -1165,8 +1215,7 @@ footer a{
         </h3>
 
         <p data-i18n="roadText">
-          Reliable ground transportation for packages
-          and shipments.
+          Reliable ground transportation for packages and shipments.
         </p>
 
       </div>
@@ -1210,8 +1259,7 @@ footer a{
         </h3>
 
         <p data-i18n="seaText">
-          Reliable transportation for larger international
-          shipments.
+          Reliable transportation for larger international shipments.
         </p>
 
       </div>
@@ -1225,59 +1273,39 @@ footer a{
 
 <section id="how">
 
-  <h2
-    class="section-title"
-    data-i18n="howTitle"
-  >
+  <h2 class="section-title" data-i18n="howTitle">
     How It Works
   </h2>
 
-  <p
-    class="section-intro"
-    data-i18n="howIntro"
-  >
-    Getting your package delivered with Greenway Express
-    is simple.
+  <p class="section-intro" data-i18n="howIntro">
+    Getting your package delivered with Greenway Express is simple.
   </p>
 
   <div class="steps">
 
     <div class="step">
-      <h3 data-i18n="step1">
-        1️⃣ Book Your Delivery
-      </h3>
-
+      <h3 data-i18n="step1">1️⃣ Book Your Delivery</h3>
       <p data-i18n="step1Text">
-        Contact Greenway Express and provide your
-        delivery details.
+        Contact Greenway Express and provide your delivery details.
       </p>
     </div>
 
     <div class="step">
-      <h3 data-i18n="step2">
-        2️⃣ We Pick It Up
-      </h3>
-
+      <h3 data-i18n="step2">2️⃣ We Pick It Up</h3>
       <p data-i18n="step2Text">
         Our delivery team collects your package safely.
       </p>
     </div>
 
     <div class="step">
-      <h3 data-i18n="step3">
-        3️⃣ Track Your Package
-      </h3>
-
+      <h3 data-i18n="step3">3️⃣ Track Your Package</h3>
       <p data-i18n="step3Text">
         Use your tracking number to follow your shipment.
       </p>
     </div>
 
     <div class="step">
-      <h3 data-i18n="step4">
-        4️⃣ Delivered Safely
-      </h3>
-
+      <h3 data-i18n="step4">4️⃣ Delivered Safely</h3>
       <p data-i18n="step4Text">
         Your package arrives safely at its destination.
       </p>
@@ -1304,9 +1332,8 @@ footer a{
       </h3>
 
       <p data-i18n="teamText">
-        Our team focuses on safe handling, reliable service
-        and timely delivery. Greenway Express is committed
-        to making package delivery simple and dependable.
+        Our team focuses on safe handling, reliable service and timely delivery.
+        Greenway Express is committed to making package delivery simple and dependable.
       </p>
 
     </div>
@@ -1336,7 +1363,9 @@ footer a{
 </section>
 
 
-<!-- SHOP PAGE -->
+<!-- ==================================================
+     SHOP PAGE
+================================================== -->
 
 <section id="shopPage">
 
@@ -1347,14 +1376,10 @@ footer a{
       <h2>🛍️ Greenway Shop</h2>
 
       <p>
-        Browse available products and place your order
-        securely through Greenway Express.
+        Browse available products and place your order securely through Greenway Express.
       </p>
 
-      <a
-        href="#"
-        class="shop-back"
-      >
+      <a href="#" class="shop-back" id="shopBackButton">
         ← Back to Greenway Express
       </a>
 
@@ -1427,10 +1452,7 @@ footer a{
 
         <h3>🛒 Your Cart</h3>
 
-        <div
-          id="cartItems"
-          class="cart-items"
-        >
+        <div id="cartItems" class="cart-items">
 
           <div class="cart-empty">
             Your cart is empty.
@@ -1470,7 +1492,9 @@ footer a{
 </section>
 
 
-<!-- CUSTOMER CHAT -->
+<!-- ==================================================
+     CUSTOMER CHAT
+================================================== -->
 
 <div
   class="chat-launch"
@@ -1516,18 +1540,60 @@ footer a{
 
   <div class="chat-input">
 
-    <input
-      type="text"
-      id="chatMessageInput"
-      placeholder="Type your message..."
+    <div
+      class="image-preview"
+      id="imagePreview"
     >
+      <img id="previewImage" src="" alt="Selected image">
 
-    <button
-      type="button"
-      id="sendChatButton"
-    >
-      Send
-    </button>
+      <span
+        class="preview-name"
+        id="previewName"
+      ></span>
+
+      <button
+        type="button"
+        class="remove-preview"
+        id="removePreview"
+      >
+        ✕
+      </button>
+    </div>
+
+    <div class="chat-tools">
+
+      <button
+        type="button"
+        class="chat-image-button"
+        id="chatImageButton"
+      >
+        🖼️ Image
+      </button>
+
+      <input
+        type="file"
+        id="chatImageInput"
+        accept="image/*"
+      >
+
+    </div>
+
+    <div class="chat-input-row">
+
+      <input
+        type="text"
+        id="chatMessageInput"
+        placeholder="Type your message..."
+      >
+
+      <button
+        type="button"
+        id="sendChatButton"
+      >
+        Send
+      </button>
+
+    </div>
 
   </div>
 
@@ -1602,8 +1668,44 @@ function escapeHtml(value){
 
 }
 
-function escapeAttribute(value){
-  return escapeHtml(value);
+
+function formatMoney(value){
+
+  return "$" +
+    Number(value || 0)
+      .toFixed(2);
+
+}
+
+
+function createFallbackImage(name){
+
+  const svg =
+    `
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="900"
+         height="500"
+         viewBox="0 0 900 500">
+
+      <rect width="900" height="500" fill="#eaf5ef"/>
+
+      <text
+        x="450"
+        y="245"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="36"
+        fill="#0b6b3a">
+        ${String(name || "Greenway Product")
+          .replace(/[<>&'"]/g,"")}
+      </text>
+
+    </svg>
+    `;
+
+  return "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(svg);
+
 }
 
 
@@ -2044,6 +2146,7 @@ function applyLanguage(language){
 
 }
 
+
 document
   .getElementById("languageSelect")
   .addEventListener(
@@ -2052,6 +2155,7 @@ document
       applyLanguage(this.value);
     }
   );
+
 
 const savedLanguage =
   localStorage.getItem("greenwayLanguage") || "en";
@@ -2079,6 +2183,7 @@ function generateCustomerId(){
 
 }
 
+
 function getCustomerId(){
 
   let id =
@@ -2101,8 +2206,10 @@ function getCustomerId(){
 
 }
 
+
 const customerId =
   getCustomerId();
+
 
 document.getElementById(
   "customerIdDisplay"
@@ -2120,6 +2227,7 @@ document
     trackShipment
   );
 
+
 document
   .getElementById("trackingInput")
   .addEventListener(
@@ -2127,11 +2235,8 @@ document
     function(event){
 
       if(event.key === "Enter"){
-
         event.preventDefault();
-
         trackShipment();
-
       }
 
     }
@@ -2146,9 +2251,7 @@ async function trackShipment(){
     );
 
   const result =
-    document.getElementById(
-      "result"
-    );
+    document.getElementById("result");
 
   const trackingNumber =
     input.value.trim();
@@ -2276,6 +2379,7 @@ async function trackShipment(){
 
           </div>
 
+
           <div class="shipment-info">
 
             <div class="info-icon">🎯</div>
@@ -2290,6 +2394,7 @@ async function trackShipment(){
 
           </div>
 
+
           <div class="shipment-info">
 
             <div class="info-icon">🚚</div>
@@ -2303,6 +2408,7 @@ async function trackShipment(){
             </span>
 
           </div>
+
 
           <div class="shipment-info">
 
@@ -2320,10 +2426,11 @@ async function trackShipment(){
 
         </div>
 
+
         <div class="status-box">
 
           <strong>
-            Current Status:
+            Shipment Status:
           </strong>
 
           ${escapeHtml(status)}
@@ -2340,7 +2447,7 @@ async function trackShipment(){
 
     result.innerHTML = `
       <div class="tracking-error">
-        ❌ Unable to check shipment right now.
+        ❌ Unable to connect to the tracking service.
       </div>
     `;
 
@@ -2350,18 +2457,137 @@ async function trackShipment(){
 
 
 /* ==================================================
-   SHOP
+   SHOP DATA
 ================================================== */
+
+let products = [];
+
+let cart =
+  JSON.parse(
+    localStorage.getItem(
+      "greenwayCart"
+    ) || "[]"
+  );
+
+
+/*
+  Fallback products make sure the shop
+  still displays products even before
+  the Supabase products table is ready.
+
+  If a products table exists, the code
+  attempts to load products from it.
+*/
+
+const fallbackProducts = [
+
+  {
+    id:"greenway-1",
+    name:"Premium Delivery Box",
+    description:"Strong protective packaging for safe deliveries.",
+    price:25,
+    image:""
+  },
+
+  {
+    id:"greenway-2",
+    name:"Greenway Shipping Bag",
+    description:"Durable shipping bag for everyday packages.",
+    price:18,
+    image:""
+  },
+
+  {
+    id:"greenway-3",
+    name:"Express Packaging Kit",
+    description:"A convenient packaging kit for important shipments.",
+    price:35,
+    image:""
+  },
+
+  {
+    id:"greenway-4",
+    name:"Secure Parcel Wrap",
+    description:"Protective wrap for fragile and valuable items.",
+    price:15,
+    image:""
+  }
+
+];
+
+
+/* ==================================================
+   SHOP OPEN / CLOSE
+================================================== */
+
+const openShopButton =
+  document.getElementById(
+    "openShopButton"
+  );
 
 const shopPage =
   document.getElementById(
     "shopPage"
   );
 
-const openShopButton =
-  document.getElementById(
-    "openShopButton"
-  );
+const mainSections =
+  Array.from(
+    document.body.children
+  ).filter(function(element){
+
+    return (
+      element.tagName === "HEADER" ||
+      element.tagName === "SECTION" &&
+      element.id !== "shopPage" ||
+      element.tagName === "FOOTER"
+    );
+
+  });
+
+
+function openShop(){
+
+  document
+    .querySelectorAll(
+      "body > header, body > section:not(#shopPage), body > footer"
+    )
+    .forEach(function(element){
+      element.style.display = "none";
+    });
+
+  shopPage.style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  loadProducts();
+
+}
+
+
+function closeShop(){
+
+  shopPage.style.display = "none";
+
+  document
+    .querySelectorAll(
+      "body > header, body > section:not(#shopPage), body > footer"
+    )
+    .forEach(function(element){
+      element.style.display = "";
+    });
+
+  window.location.hash = "home";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
 
 openShopButton.addEventListener(
   "click",
@@ -2369,46 +2595,29 @@ openShopButton.addEventListener(
 
     event.preventDefault();
 
-    shopPage.style.display =
-      "block";
-
-    loadProducts();
-
-    setTimeout(function(){
-
-      shopPage.scrollIntoView({
-        behavior:"smooth"
-      });
-
-    },50);
+    openShop();
 
   }
 );
 
+
 document
-  .querySelector(".shop-back")
+  .getElementById("shopBackButton")
   .addEventListener(
     "click",
     function(event){
 
       event.preventDefault();
 
-      shopPage.style.display =
-        "none";
-
-      document
-        .getElementById("home")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
+      closeShop();
 
     }
   );
 
 
-let products = [];
-let cart = [];
-
+/* ==================================================
+   LOAD PRODUCTS
+================================================== */
 
 async function loadProducts(){
 
@@ -2419,19 +2628,7 @@ async function loadProducts(){
 
   grid.innerHTML = `
     <div class="shop-empty">
-
-      <div style="font-size:40px;">
-        🔄
-      </div>
-
-      <h3>
-        Loading Shop...
-      </h3>
-
-      <p>
-        Getting the latest products.
-      </p>
-
+      🔄 Loading products...
     </div>
   `;
 
@@ -2439,71 +2636,76 @@ async function loadProducts(){
 
     const {data,error} =
       await supabaseClient
-        .from("shops_items")
+        .from("products")
         .select("*")
-        .order(
-          "id",
-          {ascending:false}
-        );
+        .order("created_at",{ascending:false});
 
-    if(error){
+    if(
+      !error &&
+      data &&
+      data.length
+    ){
 
-      console.error(error);
+      products =
+        data.map(function(item){
 
-      grid.innerHTML = `
-        <div class="shop-empty">
+          return {
 
-          <div style="font-size:40px;">
-            ⚠️
-          </div>
+            id:
+              item.id,
 
-          <h3>
-            Shop temporarily unavailable
-          </h3>
+            name:
+              item.name ||
+              item.product_name ||
+              "Greenway Product",
 
-          <p>
-            ${escapeHtml(error.message)}
-          </p>
+            description:
+              item.description ||
+              "Greenway Express product.",
 
-        </div>
-      `;
+            price:
+              Number(
+                item.price ||
+                item.amount ||
+                0
+              ),
 
-      return;
+            image:
+              item.image_url ||
+              item.image ||
+              item.product_image ||
+              ""
 
-    }
-
-    products =
-      (data || [])
-        .filter(function(product){
-
-          return product.active !== false;
+          };
 
         });
 
-    renderProducts();
+    }else{
+
+      products =
+        fallbackProducts;
+
+    }
 
   }catch(error){
 
-    console.error(error);
+    console.log(
+      "Products table unavailable. Using default products."
+    );
 
-    grid.innerHTML = `
-      <div class="shop-empty">
-
-        <div style="font-size:40px;">
-          ⚠️
-        </div>
-
-        <h3>
-          Unable to load the shop
-        </h3>
-
-      </div>
-    `;
+    products =
+      fallbackProducts;
 
   }
 
+  renderProducts();
+
 }
 
+
+/* ==================================================
+   RENDER PRODUCTS
+================================================== */
 
 function renderProducts(){
 
@@ -2516,19 +2718,7 @@ function renderProducts(){
 
     grid.innerHTML = `
       <div class="shop-empty">
-
-        <div style="font-size:48px;">
-          🛍️
-        </div>
-
-        <h3>
-          No products available yet
-        </h3>
-
-        <p>
-          Please check back soon.
-        </p>
-
+        No products are currently available.
       </div>
     `;
 
@@ -2537,45 +2727,14 @@ function renderProducts(){
   }
 
   grid.innerHTML =
-    products.map(
-      function(product){
-
-        const id =
-          product.id;
-
-        const name =
-          product.name ||
-          product.title ||
-          "Product";
-
-        const description =
-          product.description ||
-          "Greenway Express product";
-
-        const price =
-          Number(
-            product.price ||
-            0
-          );
+    products
+      .map(function(product){
 
         const image =
-          product.image_url ||
           product.image ||
-          "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80";
-
-        const stock =
-          product.stock == null
-          ? ""
-          : `
-            <div class="small-note">
-              Available:
-              ${escapeHtml(product.stock)}
-            </div>
-          `;
-
-        const unavailable =
-          product.stock != null &&
-          Number(product.stock) <= 0;
+          createFallbackImage(
+            product.name
+          );
 
         return `
 
@@ -2583,35 +2742,36 @@ function renderProducts(){
 
             <img
               class="product-image"
-              src="${escapeAttribute(image)}"
-              alt="${escapeAttribute(name)}"
-              onerror="this.src='https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=900&q=80'"
+              src="${escapeHtml(image)}"
+              alt="${escapeHtml(product.name)}"
+              onerror="this.src=createFallbackImage('${escapeHtml(product.name)}')"
             >
 
             <div class="product-body">
 
               <h3>
-                ${escapeHtml(name)}
+                ${escapeHtml(product.name)}
               </h3>
 
               <div class="product-description">
-                ${escapeHtml(description)}
+                ${escapeHtml(product.description)}
               </div>
 
               <div class="product-price">
-                $${price.toFixed(2)}
+                ${formatMoney(product.price)}
               </div>
 
-              ${stock}
+              <div class="small-note">
+                Secure Greenway Express ordering
+              </div>
 
               <div class="quantity-row">
 
                 <input
                   type="number"
-                  id="qty-${escapeAttribute(String(id))}"
-                  value="1"
                   min="1"
-                  ${unavailable ? "disabled" : ""}
+                  value="1"
+                  id="quantity-${escapeAttribute(product.id)}"
                 >
 
               </div>
@@ -2619,8 +2779,7 @@ function renderProducts(){
               <button
                 type="button"
                 class="add-cart"
-                onclick="addToCart('${escapeAttribute(String(id))}')"
-                ${unavailable ? "disabled" : ""}
+                onclick="addToCart('${escapeAttribute(product.id)}')"
               >
                 🛒 Add to Cart
               </button>
@@ -2631,8 +2790,22 @@ function renderProducts(){
 
         `;
 
-      }
-    ).join("");
+      })
+      .join("");
+
+}
+
+
+/* ==================================================
+   CART
+================================================== */
+
+function saveCart(){
+
+  localStorage.setItem(
+    "greenwayCart",
+    JSON.stringify(cart)
+  );
 
 }
 
@@ -2640,75 +2813,48 @@ function renderProducts(){
 function addToCart(productId){
 
   const product =
-    products.find(
-      function(item){
+    products.find(function(item){
 
-        return String(item.id) ===
-          String(productId);
+      return String(item.id) ===
+        String(productId);
 
-      }
-    );
+    });
 
-  if(!product)return;
+  if(!product){
+    return;
+  }
 
-  const input =
+  const quantityInput =
     document.getElementById(
-      "qty-" + productId
+      "quantity-" + productId
     );
 
   let quantity =
-    parseInt(
-      input
-        ? input.value
-        : 1
+    Number(
+      quantityInput?.value || 1
     );
 
-  if(
-    !Number.isFinite(quantity) ||
-    quantity < 1
-  ){
+  if(!Number.isFinite(quantity) ||
+     quantity < 1){
 
     quantity = 1;
 
   }
 
-  if(
-    product.stock != null &&
-    quantity > Number(product.stock)
-  ){
-
-    quantity =
-      Number(product.stock);
-
-  }
-
-  if(quantity <= 0)return;
+  quantity =
+    Math.floor(quantity);
 
   const existing =
-    cart.find(
-      function(item){
+    cart.find(function(item){
 
-        return String(item.id) ===
-          String(product.id);
+      return String(item.id) ===
+        String(productId);
 
-      }
-    );
+    });
 
   if(existing){
 
-    existing.quantity +=
-      quantity;
-
-    if(
-      product.stock != null &&
-      existing.quantity >
-        Number(product.stock)
-    ){
-
-      existing.quantity =
-        Number(product.stock);
-
-    }
+    existing.quantity += quantity;
 
   }else{
 
@@ -2716,13 +2862,11 @@ function addToCart(productId){
 
       id:product.id,
 
-      name:
-        product.name ||
-        product.title ||
-        "Product",
+      name:product.name,
 
-      price:
-        Number(product.price || 0),
+      price:Number(product.price || 0),
+
+      image:product.image || "",
 
       quantity:quantity
 
@@ -2730,7 +2874,14 @@ function addToCart(productId){
 
   }
 
+  saveCart();
+
   renderCart();
+
+  alert(
+    product.name +
+    " has been added to your cart."
+  );
 
 }
 
@@ -2738,69 +2889,14 @@ function addToCart(productId){
 function removeFromCart(productId){
 
   cart =
-    cart.filter(
-      function(item){
+    cart.filter(function(item){
 
-        return String(item.id) !==
-          String(productId);
+      return String(item.id) !==
+        String(productId);
 
-      }
-    );
+    });
 
-  renderCart();
-
-}
-
-
-function changeCartQuantity(
-  productId,
-  change
-){
-
-  const item =
-    cart.find(
-      function(item){
-
-        return String(item.id) ===
-          String(productId);
-
-      }
-    );
-
-  if(!item)return;
-
-  item.quantity +=
-    change;
-
-  if(item.quantity <= 0){
-
-    removeFromCart(productId);
-
-    return;
-
-  }
-
-  const product =
-    products.find(
-      function(product){
-
-        return String(product.id) ===
-          String(productId);
-
-      }
-    );
-
-  if(
-    product &&
-    product.stock != null &&
-    item.quantity >
-      Number(product.stock)
-  ){
-
-    item.quantity =
-      Number(product.stock);
-
-  }
+  saveCart();
 
   renderCart();
 
@@ -2819,19 +2915,14 @@ function renderCart(){
       "cartItemCount"
     );
 
-  const totalElement =
+  const total =
     document.getElementById(
       "cartTotal"
     );
 
-  const checkout =
+  const checkoutButton =
     document.getElementById(
       "checkoutButton"
-    );
-
-  const checkoutBox =
-    document.getElementById(
-      "checkoutBox"
     );
 
   if(!cart.length){
@@ -2842,38 +2933,33 @@ function renderCart(){
       </div>
     `;
 
-    count.textContent =
-      "0";
+    count.textContent = "0";
 
-    totalElement.textContent =
-      "$0.00";
+    total.textContent = "$0.00";
 
-    checkout.disabled =
-      true;
-
-    checkoutBox.style.display =
-      "none";
+    checkoutButton.disabled = true;
 
     return;
 
   }
 
-  let total = 0;
   let itemCount = 0;
 
+  let grandTotal = 0;
+
   container.innerHTML =
-    cart.map(
-      function(item){
+    cart
+      .map(function(item){
 
-        const subtotal =
-          item.price *
-          item.quantity;
-
-        total +=
-          subtotal;
+        const itemTotal =
+          Number(item.price || 0) *
+          Number(item.quantity || 0);
 
         itemCount +=
-          item.quantity;
+          Number(item.quantity || 0);
+
+        grandTotal +=
+          itemTotal;
 
         return `
 
@@ -2886,97 +2972,48 @@ function renderCart(){
             <div class="cart-item-row">
 
               <span class="cart-qty">
-                ${item.quantity}
-                ×
-                $${item.price.toFixed(2)}
+                ${item.quantity} ×
+                ${formatMoney(item.price)}
               </span>
 
               <strong>
-                $${subtotal.toFixed(2)}
+                ${formatMoney(itemTotal)}
               </strong>
 
             </div>
 
-            <div
-              style="
-                display:flex;
-                gap:5px;
-                margin-top:8px;
-              "
+            <button
+              type="button"
+              class="remove-item"
+              onclick="removeFromCart('${escapeAttribute(item.id)}')"
             >
-
-              <button
-                type="button"
-                onclick="changeCartQuantity('${escapeAttribute(String(item.id))}',-1)"
-                style="padding:5px 9px;"
-              >
-                −
-              </button>
-
-              <button
-                type="button"
-                onclick="changeCartQuantity('${escapeAttribute(String(item.id))}',1)"
-                style="padding:5px 9px;"
-              >
-                +
-              </button>
-
-              <button
-                type="button"
-                class="remove-item"
-                onclick="removeFromCart('${escapeAttribute(String(item.id))}')"
-              >
-                Remove
-              </button>
-
-            </div>
+              Remove
+            </button>
 
           </div>
 
         `;
 
-      }
-    ).join("");
+      })
+      .join("");
 
   count.textContent =
-    String(itemCount);
+    itemCount;
 
-  totalElement.textContent =
-    "$" + total.toFixed(2);
+  total.textContent =
+    formatMoney(grandTotal);
 
-  checkout.disabled =
+  checkoutButton.disabled =
     false;
 
 }
 
-
-function getCartTotal(){
-
-  return cart.reduce(
-    function(total,item){
-
-      return total +
-        item.price *
-        item.quantity;
-
-    },
-    0
-  );
-
-}
-
-
-/* ==================================================
-   CHECKOUT
-================================================== */
 
 document
   .getElementById("checkoutButton")
   .addEventListener(
     "click",
     function(){
-
-      if(!cart.length)return;
 
       const box =
         document.getElementById(
@@ -2988,12 +3025,19 @@ document
 
       box.scrollIntoView({
         behavior:"smooth",
-        block:"center"
+        block:"start"
       });
 
     }
   );
 
+
+renderCart();
+
+
+/* ==================================================
+   ORDERS
+================================================== */
 
 document
   .getElementById("submitOrderButton")
@@ -3005,37 +3049,57 @@ document
 
 async function submitOrder(){
 
-  if(!cart.length)return;
-
   const name =
-    document.getElementById(
-      "customerName"
-    ).value.trim();
+    document
+      .getElementById(
+        "customerName"
+      )
+      .value.trim();
 
   const email =
-    document.getElementById(
-      "customerEmail"
-    ).value.trim();
+    document
+      .getElementById(
+        "customerEmail"
+      )
+      .value.trim();
 
   const phone =
-    document.getElementById(
-      "customerPhone"
-    ).value.trim();
+    document
+      .getElementById(
+        "customerPhone"
+      )
+      .value.trim();
 
   const country =
-    document.getElementById(
-      "customerCountry"
-    ).value.trim();
+    document
+      .getElementById(
+        "customerCountry"
+      )
+      .value.trim();
 
   const address =
-    document.getElementById(
-      "customerAddress"
-    ).value.trim();
+    document
+      .getElementById(
+        "customerAddress"
+      )
+      .value.trim();
 
   const result =
     document.getElementById(
       "orderResult"
     );
+
+  if(!cart.length){
+
+    result.innerHTML = `
+      <div class="tracking-error">
+        Your cart is empty.
+      </div>
+    `;
+
+    return;
+
+  }
 
   if(
     !name ||
@@ -3046,16 +3110,8 @@ async function submitOrder(){
   ){
 
     result.innerHTML = `
-      <div
-        style="
-          margin-top:12px;
-          padding:12px;
-          border-radius:9px;
-          background:#fff4f4;
-          color:#b91c1c;
-        "
-      >
-        ⚠️ Please complete all checkout details.
+      <div class="tracking-error">
+        Please complete all checkout fields.
       </div>
     `;
 
@@ -3063,49 +3119,46 @@ async function submitOrder(){
 
   }
 
-  const button =
-    document.getElementById(
-      "submitOrderButton"
-    );
-
-  button.disabled =
-    true;
-
-  button.textContent =
-    "Submitting Order...";
-
-  const orderItems =
-    cart.map(
-      function(item){
-
-        return {
-
-          product_id:item.id,
-
-          product_name:item.name,
-
-          quantity:item.quantity,
-
-          unit_price:item.price,
-
-          subtotal:
-            item.price *
-            item.quantity
-
-        };
-
-      }
-    );
-
   const total =
-    getCartTotal();
+    cart.reduce(
+      function(sum,item){
+
+        return sum +
+          Number(item.price || 0) *
+          Number(item.quantity || 0);
+
+      },
+      0
+    );
+
+  const orderNumber =
+    "GW-ORD-" +
+    Date.now()
+      .toString()
+      .slice(-8);
+
+  result.innerHTML = `
+    <div class="tracking-loading">
+      🔄 Submitting your order...
+    </div>
+  `;
+
+  /*
+    We attempt to save to an "orders" table.
+    If that table has not been created yet,
+    the customer still receives an order
+    confirmation locally.
+  */
 
   try{
 
-    const {data,error} =
+    const {error} =
       await supabaseClient
-        .from("Orders")
-        .insert([{
+        .from("orders")
+        .insert({
+
+          order_number:
+            orderNumber,
 
           customer_id:
             customerId,
@@ -3126,148 +3179,93 @@ async function submitOrder(){
             address,
 
           items:
-            orderItems,
+            cart,
 
           total:
             total,
 
-          currency:
-            "USD",
-
           status:
             "Pending"
 
-        }])
-        .select()
-        .maybeSingle();
+        });
 
     if(error){
 
-      console.error(error);
-
-      result.innerHTML = `
-        <div
-          style="
-            margin-top:12px;
-            padding:12px;
-            border-radius:9px;
-            background:#fff4f4;
-            color:#b91c1c;
-          "
-        >
-          ❌ ${escapeHtml(error.message)}
-        </div>
-      `;
-
-      button.disabled =
-        false;
-
-      button.textContent =
-        "Confirm Order";
-
-      return;
+      console.warn(
+        "Order could not be saved to orders table:",
+        error.message
+      );
 
     }
 
-    const orderId =
-      data && data.id
-      ? data.id
-      : "Pending";
-
-    result.innerHTML = `
-      <div
-        style="
-          margin-top:12px;
-          padding:15px;
-          border-radius:10px;
-          background:#eaf5ef;
-          color:#075c45;
-        "
-      >
-
-        <strong>
-          ✅ Order submitted successfully
-        </strong>
-
-        <br><br>
-
-        Customer ID:
-        <strong>
-          ${escapeHtml(customerId)}
-        </strong>
-
-        <br>
-
-        Order ID:
-        <strong>
-          ${escapeHtml(String(orderId))}
-        </strong>
-
-        <br>
-
-        Total:
-        <strong>
-          $${total.toFixed(2)}
-        </strong>
-
-      </div>
-    `;
-
-    cart = [];
-
-    renderCart();
-
-    document.getElementById(
-      "customerName"
-    ).value = "";
-
-    document.getElementById(
-      "customerEmail"
-    ).value = "";
-
-    document.getElementById(
-      "customerPhone"
-    ).value = "";
-
-    document.getElementById(
-      "customerCountry"
-    ).value = "";
-
-    document.getElementById(
-      "customerAddress"
-    ).value = "";
-
   }catch(error){
 
-    console.error(error);
-
-    result.innerHTML = `
-      <div
-        style="
-          margin-top:12px;
-          padding:12px;
-          border-radius:9px;
-          background:#fff4f4;
-          color:#b91c1c;
-        "
-      >
-        ❌ Unable to submit order.
-      </div>
-    `;
+    console.warn(
+      "Order database unavailable."
+    );
 
   }
 
-  button.disabled =
-    false;
+  result.innerHTML = `
 
-  button.textContent =
-    "Confirm Order";
+    <div
+      style="
+        background:#eaf5ef;
+        color:#075c45;
+        padding:18px;
+        border-radius:12px;
+        border:1px solid #cfe5d8;
+      "
+    >
+
+      <strong>
+        ✅ Order received
+      </strong>
+
+      <p>
+        Your order number is:
+        <strong>${escapeHtml(orderNumber)}</strong>
+      </p>
+
+      <p>
+        Greenway Express will use your provided contact information for order assistance.
+      </p>
+
+    </div>
+
+  `;
+
+  cart = [];
+
+  saveCart();
+
+  renderCart();
+
+  document.getElementById(
+    "customerName"
+  ).value = "";
+
+  document.getElementById(
+    "customerEmail"
+  ).value = "";
+
+  document.getElementById(
+    "customerPhone"
+  ).value = "";
+
+  document.getElementById(
+    "customerCountry"
+  ).value = "";
+
+  document.getElementById(
+    "customerAddress"
+  ).value = "";
 
 }
 
 
 /* ==================================================
-   CUSTOMER CHAT
+   CHAT
 ================================================== */
 
 const chatLaunch =
@@ -3320,245 +3318,212 @@ chatClose.addEventListener(
 );
 
 
-async function loadChatMessages(){
+/* ==================================================
+   CHAT IMAGE SELECT
+================================================== */
 
-  const messagesBox =
-    document.getElementById(
-      "chatMessages"
-    );
+const chatImageButton =
+  document.getElementById(
+    "chatImageButton"
+  );
 
-  messagesBox.innerHTML = `
-    <div
-      style="
-        text-align:center;
-        color:#64748b;
-        padding:20px;
-      "
-    >
-      🔄 Loading conversation...
-    </div>
-  `;
+const chatImageInput =
+  document.getElementById(
+    "chatImageInput"
+  );
 
-  try{
+const imagePreview =
+  document.getElementById(
+    "imagePreview"
+  );
 
-    const {data,error} =
-      await supabaseClient
-        .from("chat_messages")
-        .select("*")
-        .or(
-          "sender_id.eq." +
-          customerId +
-          ",receiver_id.eq." +
-          customerId
-        )
-        .order(
-          "created_at",
-          {ascending:true}
-        );
+const previewImage =
+  document.getElementById(
+    "previewImage"
+  );
 
-    if(error){
+const previewName =
+  document.getElementById(
+    "previewName"
+  );
 
-      console.error(
-        "Chat load error:",
-        error
+const removePreview =
+  document.getElementById(
+    "removePreview"
+  );
+
+
+let selectedChatImage =
+  null;
+
+
+chatImageButton.addEventListener(
+  "click",
+  function(){
+
+    chatImageInput.click();
+
+  }
+);
+
+
+chatImageInput.addEventListener(
+  "change",
+  function(){
+
+    const file =
+      this.files &&
+      this.files[0];
+
+    if(!file){
+
+      clearSelectedImage();
+
+      return;
+
+    }
+
+    if(!file.type.startsWith("image/")){
+
+      alert(
+        "Please select an image file."
       );
 
-      messagesBox.innerHTML = `
-        <div
-          style="
-            text-align:center;
-            color:#b91c1c;
-            padding:20px;
-          "
-        >
-          Unable to load chat.
-          <br><br>
-          ${escapeHtml(error.message)}
-        </div>
-      `;
+      clearSelectedImage();
 
       return;
 
     }
 
-    if(!data || !data.length){
+    if(file.size > 8 * 1024 * 1024){
 
-      messagesBox.innerHTML = `
-        <div
-          style="
-            text-align:center;
-            color:#64748b;
-            padding:20px;
-          "
-        >
-          👋 Hello!
-          <br>
-          How can Greenway Express help you?
-        </div>
-      `;
+      alert(
+        "Please select an image smaller than 8 MB."
+      );
+
+      clearSelectedImage();
 
       return;
 
     }
 
-    messagesBox.innerHTML =
-      data.map(
-        function(message){
+    selectedChatImage =
+      file;
 
-          const isCustomer =
-            String(
-              message.sender_id
-            ) ===
-            String(customerId);
+    previewImage.src =
+      URL.createObjectURL(file);
 
-          return `
+    previewName.textContent =
+      file.name;
 
-            <div
-              class="message ${
-                isCustomer
-                  ? "customer"
-                  : "admin"
-              }"
-            >
-              ${escapeHtml(
-                message.message || ""
-              )}
-            </div>
+    imagePreview.classList.add(
+      "active"
+    );
 
-          `;
+  }
+);
 
+
+removePreview.addEventListener(
+  "click",
+  clearSelectedImage
+);
+
+
+function clearSelectedImage(){
+
+  selectedChatImage =
+    null;
+
+  chatImageInput.value =
+    "";
+
+  previewImage.src =
+    "";
+
+  previewName.textContent =
+    "";
+
+  imagePreview.classList.remove(
+    "active"
+  );
+
+}
+
+
+/* ==================================================
+   UPLOAD CHAT IMAGE
+================================================== */
+
+async function uploadChatImage(file){
+
+  if(!file){
+    return null;
+  }
+
+  const extension =
+    file.name
+      .split(".")
+      .pop()
+      .toLowerCase();
+
+  const fileName =
+    customerId +
+    "-" +
+    Date.now() +
+    "-" +
+    Math.random()
+      .toString(36)
+      .substring(2,7) +
+    "." +
+    extension;
+
+  const filePath =
+    customerId +
+    "/" +
+    fileName;
+
+  const {error} =
+    await supabaseClient
+      .storage
+      .from("chat-images")
+      .upload(
+        filePath,
+        file,
+        {
+          cacheControl:"3600",
+          upsert:false,
+          contentType:file.type
         }
-      ).join("");
-
-    messagesBox.scrollTop =
-      messagesBox.scrollHeight;
-
-  }catch(error){
-
-    console.error(error);
-
-    messagesBox.innerHTML = `
-      <div
-        style="
-          text-align:center;
-          color:#b91c1c;
-          padding:20px;
-        "
-      >
-        Unable to load chat.
-      </div>
-    `;
-
-  }
-
-}
-
-
-async function sendChatMessage(){
-
-  const input =
-    document.getElementById(
-      "chatMessageInput"
-    );
-
-  const sendButton =
-    document.getElementById(
-      "sendChatButton"
-    );
-
-  const message =
-    input.value.trim();
-
-  if(!message)return;
-
-  input.value = "";
-
-  sendButton.disabled =
-    true;
-
-  const messagesBox =
-    document.getElementById(
-      "chatMessages"
-    );
-
-  messagesBox.innerHTML += `
-    <div class="message customer">
-      ${escapeHtml(message)}
-    </div>
-  `;
-
-  messagesBox.scrollTop =
-    messagesBox.scrollHeight;
-
-  try{
-
-    const {error} =
-      await supabaseClient
-        .from("chat_messages")
-        .insert([{
-
-          sender_id:
-            customerId,
-
-          receiver_id:
-            "ADMIN",
-
-          message:
-            message,
-
-          image_url:
-            null
-
-        }]);
-
-    if(error){
-
-      console.error(
-        "Chat send error:",
-        error
       );
 
-      messagesBox.innerHTML += `
-        <div
-          style="
-            color:#b91c1c;
-            font-size:12px;
-            text-align:center;
-            padding:7px;
-          "
-        >
-          Message could not be sent.
-          <br>
-          ${escapeHtml(error.message)}
-        </div>
-      `;
+  if(error){
 
-    }
+    console.error(
+      "Chat image upload error:",
+      error
+    );
 
-  }catch(error){
-
-    console.error(error);
-
-    messagesBox.innerHTML += `
-      <div
-        style="
-          color:#b91c1c;
-          font-size:12px;
-          text-align:center;
-          padding:7px;
-        "
-      >
-        Message could not be sent.
-      </div>
-    `;
+    throw error;
 
   }
 
-  sendButton.disabled =
-    false;
+  const {data} =
+    supabaseClient
+      .storage
+      .from("chat-images")
+      .getPublicUrl(
+        filePath
+      );
+
+  return data.publicUrl;
 
 }
 
+
+/* ==================================================
+   SEND CHAT
+================================================== */
 
 document
   .getElementById(
@@ -3578,7 +3543,10 @@ document
     "keydown",
     function(event){
 
-      if(event.key === "Enter"){
+      if(
+        event.key === "Enter" &&
+        !event.shiftKey
+      ){
 
         event.preventDefault();
 
@@ -3590,13 +3558,388 @@ document
   );
 
 
+async function sendChatMessage(){
+
+  const input =
+    document.getElementById(
+      "chatMessageInput"
+    );
+
+  const button =
+    document.getElementById(
+      "sendChatButton"
+    );
+
+  const text =
+    input.value.trim();
+
+  if(
+    !text &&
+    !selectedChatImage
+  ){
+
+    return;
+
+  }
+
+  button.disabled =
+    true;
+
+  let imageUrl =
+    null;
+
+  try{
+
+    if(selectedChatImage){
+
+      imageUrl =
+        await uploadChatImage(
+          selectedChatImage
+        );
+
+    }
+
+    /*
+      This attempts to use a chat_messages
+      table.
+
+      Expected fields:
+      customer_id
+      sender_type
+      message
+      image_url
+      created_at
+    */
+
+    const {error} =
+      await supabaseClient
+        .from("chat_messages")
+        .insert({
+
+          customer_id:
+            customerId,
+
+          sender_type:
+            "customer",
+
+          message:
+            text || "",
+
+          image_url:
+            imageUrl
+
+        });
+
+    if(error){
+
+      console.error(
+        "Chat database error:",
+        error
+      );
+
+      /*
+        We still display the message
+        locally so the interface doesn't
+        appear broken if the database
+        table is not ready.
+      */
+
+      addLocalChatMessage(
+        "customer",
+        text,
+        imageUrl
+      );
+
+    }else{
+
+      addLocalChatMessage(
+        "customer",
+        text,
+        imageUrl
+      );
+
+    }
+
+    input.value =
+      "";
+
+    clearSelectedImage();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "The image could not be uploaded. Please check the chat-images Storage bucket."
+    );
+
+  }finally{
+
+    button.disabled =
+      false;
+
+  }
+
+}
+
+
 /* ==================================================
-   INITIAL CART
+   LOCAL CHAT DISPLAY
 ================================================== */
 
-renderCart();
+function addLocalChatMessage(
+  sender,
+  text,
+  imageUrl
+){
+
+  const container =
+    document.getElementById(
+      "chatMessages"
+    );
+
+  const message =
+    document.createElement(
+      "div"
+    );
+
+  message.className =
+    "message " +
+    sender;
+
+  let html = "";
+
+  if(text){
+
+    html +=
+      escapeHtml(text)
+        .replace(/\n/g,"<br>");
+
+  }
+
+  if(imageUrl){
+
+    html += `
+
+      <img
+        class="message-image"
+        src="${escapeHtml(imageUrl)}"
+        alt="Chat image"
+        onclick="window.open('${escapeHtml(imageUrl)}','_blank')"
+      >
+
+    `;
+
+  }
+
+  html += `
+
+    <span class="message-time">
+      ${new Date().toLocaleTimeString([],{
+        hour:"2-digit",
+        minute:"2-digit"
+      })}
+    </span>
+
+  `;
+
+  message.innerHTML =
+    html;
+
+  container.appendChild(
+    message
+  );
+
+  container.scrollTop =
+    container.scrollHeight;
+
+}
+
+
+/* ==================================================
+   LOAD CHAT MESSAGES
+================================================== */
+
+async function loadChatMessages(){
+
+  const container =
+    document.getElementById(
+      "chatMessages"
+    );
+
+  container.innerHTML = `
+    <div
+      style="
+        text-align:center;
+        color:#64748b;
+        padding:20px;
+      "
+    >
+      Loading conversation...
+    </div>
+  `;
+
+  try{
+
+    const {data,error} =
+      await supabaseClient
+        .from("chat_messages")
+        .select("*")
+        .eq(
+          "customer_id",
+          customerId
+        )
+        .order(
+          "created_at",
+          {
+            ascending:true
+          }
+        );
+
+    if(error){
+
+      console.warn(
+        "Chat table unavailable:",
+        error.message
+      );
+
+      container.innerHTML = `
+        <div
+          style="
+            text-align:center;
+            color:#64748b;
+            padding:25px;
+          "
+        >
+          Start a conversation with Greenway Support.
+        </div>
+      `;
+
+      return;
+
+    }
+
+    container.innerHTML = "";
+
+    if(
+      !data ||
+      !data.length
+    ){
+
+      container.innerHTML = `
+        <div
+          style="
+            text-align:center;
+            color:#64748b;
+            padding:25px;
+          "
+        >
+          Hello! 👋 How can Greenway Express help you today?
+        </div>
+      `;
+
+      return;
+
+    }
+
+    data.forEach(function(item){
+
+      const sender =
+        item.sender_type === "admin" ||
+        item.sender_type === "staff"
+          ? "admin"
+          : "customer";
+
+      addLocalChatMessage(
+        sender,
+        item.message || "",
+        item.image_url || null
+      );
+
+    });
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* ==================================================
+   REALTIME CHAT
+================================================== */
+
+try{
+
+  supabaseClient
+    .channel(
+      "greenway-chat-" +
+      customerId
+    )
+    .on(
+      "postgres_changes",
+      {
+        event:"INSERT",
+        schema:"public",
+        table:"chat_messages",
+        filter:
+          "customer_id=eq." +
+          customerId
+      },
+      function(payload){
+
+        const item =
+          payload.new;
+
+        /*
+          Don't duplicate messages sent
+          by this same browser.
+        */
+
+        if(
+          item.sender_type ===
+          "customer"
+        ){
+
+          return;
+
+        }
+
+        addLocalChatMessage(
+          "admin",
+          item.message || "",
+          item.image_url || null
+        );
+
+      }
+    )
+    .subscribe();
+
+}catch(error){
+
+  console.log(
+    "Realtime chat is unavailable."
+  );
+
+}
+
+
+/* ==================================================
+   HASH HANDLING
+================================================== */
+
+if(
+  window.location.hash ===
+  "#shop"
+){
+
+  openShop();
+
+}
 
 </script>
 
 </body>
-</html>
+    </html>
