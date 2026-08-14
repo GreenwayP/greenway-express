@@ -539,6 +539,22 @@ background:#fff7ed;
 color:#c2410c
 }
 
+.image-preview{
+display:none;
+margin-top:10px;
+max-width:180px;
+max-height:180px;
+border-radius:12px;
+border:1px solid var(--border);
+object-fit:cover
+}
+
+.upload-status{
+font-size:12px;
+margin-top:7px;
+color:var(--muted)
+}
+
 /* CHAT */
 
 .chat-layout{
@@ -778,6 +794,16 @@ line-height:1.5;
 white-space:pre-wrap
 }
 
+.chat-message-image{
+max-width:260px;
+max-height:300px;
+border-radius:10px;
+display:block;
+margin-bottom:7px;
+cursor:pointer;
+object-fit:cover
+}
+
 .message-time{
 font-size:9px;
 margin-top:4px;
@@ -830,6 +856,13 @@ background:var(--green)
 
 .hidden-file{
 display:none
+}
+
+.chat-image-status{
+font-size:11px;
+color:#64748b;
+margin-top:5px;
+padding-left:2px
 }
 
 .chat-loading{
@@ -956,14 +989,10 @@ border-radius:10px
 
 <div class="container">
 
-<!-- HEADER -->
-
 <div class="header">
 <h1>🚚 Greenway Express</h1>
 <p>Professional Admin Dashboard</p>
 </div>
-
-<!-- LOGIN -->
 
 <div class="card login-card" id="loginCard">
 
@@ -986,11 +1015,7 @@ border-radius:10px
 </div>
 
 
-<!-- ADMIN -->
-
 <div id="adminTools" style="display:none">
-
-<!-- NAV -->
 
 <div class="admin-nav">
 
@@ -1028,20 +1053,23 @@ id="chatNavBadge">
 
 </div>
 
+<button
+type="button"
+class="nav-btn"
+onclick="adminLogout()">
+🚪 Logout
+</button>
+
 </div>
 
 
 <!-- ================= SHIPMENTS ================= -->
 
-<div
-id="shipmentsSection"
-class="admin-section active">
+<div id="shipmentsSection" class="admin-section active">
 
 <div class="card">
 
 <h2>📦 Shipment Management</h2>
-
-<!-- CREATE SHIPMENT -->
 
 <div class="accordion">
 
@@ -1273,8 +1301,6 @@ onclick="createShipment()">
 </div>
 
 
-<!-- ALL SHIPMENTS -->
-
 <div class="accordion">
 
 <button
@@ -1306,8 +1332,6 @@ Loading shipments...
 </div>
 </div>
 
-
-<!-- FIND SHIPMENT -->
 
 <div class="accordion">
 
@@ -1345,16 +1369,13 @@ onclick="findShipment()">
 </div>
 </div>
 
-
 </div>
 </div>
 
 
 <!-- ================= SHOP ================= -->
 
-<div
-id="shopSection"
-class="admin-section">
+<div id="shopSection" class="admin-section">
 
 <div class="card">
 
@@ -1388,8 +1409,6 @@ Low Stock
 
 </div>
 
-
-<!-- ADD PRODUCT -->
 
 <div class="accordion">
 
@@ -1453,10 +1472,39 @@ placeholder="0">
 </div>
 
 <div class="field full">
-<label>Image URL</label>
+
+<label>Product Image</label>
+
+<input
+type="file"
+id="shopImageFile"
+accept="image/*"
+onchange="previewShopImage(event)">
+
+<div class="upload-status" id="shopImageStatus">
+Choose an image from your device.
+</div>
+
+<img
+id="shopImagePreview"
+class="image-preview"
+alt="Product image preview">
+
+</div>
+
+<div class="field full">
+
+<label>Image URL — Optional</label>
+
 <input
 id="shopImage"
 placeholder="https://...">
+
+<div class="upload-status">
+You can either upload an image above or paste an image URL here.
+Uploaded images take priority.
+</div>
+
 </div>
 
 <div class="field full">
@@ -1491,8 +1539,6 @@ onclick="addShopProduct()">
 </div>
 
 
-<!-- PRODUCTS -->
-
 <div class="accordion">
 
 <button
@@ -1518,7 +1564,7 @@ Shop Products
 <input
 id="shopSearch"
 placeholder="Search products..."
-oninput="filterShopProducts">
+oninput="filterShopProducts()">
 
 </div>
 
@@ -1542,9 +1588,7 @@ Loading products...
 
 <!-- ================= CHAT ================= -->
 
-<div
-id="chatSection"
-class="admin-section">
+<div id="chatSection" class="admin-section">
 
 <div class="card">
 
@@ -1718,11 +1762,14 @@ onclick="sendChatMessage()">
 
 </div>
 
+<div
+id="chatImageStatus"
+class="chat-image-status">
+</div>
+
 </div>
 
 </main>
-
-</div>
 
 </div>
 
@@ -1759,7 +1806,7 @@ margin:0;
 border-radius:50%;
 background:rgba(255,255,255,.15);
 font-size:20px"
-onclick="closeImageModal()">
+onclick="event.stopPropagation();closeImageModal()">
 ✕
 </button>
 
@@ -1782,16 +1829,34 @@ const supabaseClient=supabase.createClient(
 "sb_publishable_QwtALZvU6GUH-tD2ewMPQQ_R3kmrmVt"
 );
 
+
+/* ==================================================
+   STORAGE CONFIGURATION
+================================================== */
+
+const CHAT_IMAGE_BUCKET="chat-images";
+const SHOP_IMAGE_BUCKET="shop-images";
+
+const MAX_IMAGE_SIZE=10*1024*1024;
+
+
+/* ==================================================
+   GLOBAL STATE
+================================================== */
+
 let currentAdminUser=null;
 let activeConversationUserId=null;
 let activeConversationName="Customer";
 let selectedImageFile=null;
+let selectedShopImageFile=null;
 let allConversations=[];
 let allShopProducts=[];
 let chatRefreshTimer=null;
 
 
-/* ================= UTILITIES ================= */
+/* ==================================================
+   UTILITIES
+================================================== */
 
 function escapeHtml(value){
 return String(value??"")
@@ -1807,7 +1872,104 @@ return escapeHtml(value);
 }
 
 
-/* ================= ACCORDION ================= */
+function sanitizeFileName(name){
+
+return String(name||"image")
+.replace(/[^a-zA-Z0-9._-]/g,"_");
+
+}
+
+
+function createImagePath(folder,file){
+
+const extension=
+file.name.includes(".")
+?file.name.split(".").pop().toLowerCase()
+:"jpg";
+
+return (
+folder+
+"/"+
+Date.now()+
+"-"+
+Math.random().toString(36).slice(2,10)+
+"."+
+extension
+);
+
+}
+
+
+async function uploadImage(bucket,file,folder){
+
+if(!file){
+
+return {
+url:null,
+path:null,
+error:null
+};
+
+}
+
+if(!file.type.startsWith("image/")){
+
+return {
+url:null,
+path:null,
+error:"Please select an image file."
+};
+
+}
+
+if(file.size>MAX_IMAGE_SIZE){
+
+return {
+url:null,
+path:null,
+error:"Image is too large. Maximum size is 10MB."
+};
+
+}
+
+const path=createImagePath(folder,file);
+
+const {error:uploadError}=await supabaseClient
+.storage
+.from(bucket)
+.upload(path,file,{
+cacheControl:"3600",
+upsert:false,
+contentType:file.type
+});
+
+if(uploadError){
+
+return {
+url:null,
+path:null,
+error:uploadError.message
+};
+
+}
+
+const {data}=supabaseClient
+.storage
+.from(bucket)
+.getPublicUrl(path);
+
+return {
+url:data?.publicUrl||null,
+path,
+error:null
+};
+
+}
+
+
+/* ==================================================
+   ACCORDION
+================================================== */
 
 function toggleAccordion(header){
 
@@ -1821,7 +1983,9 @@ header.classList.toggle("open",!isOpen);
 }
 
 
-/* ================= LOGIN ================= */
+/* ==================================================
+   LOGIN
+================================================== */
 
 function showAdminTools(){
 
@@ -1925,7 +2089,9 @@ document.getElementById("adminPassword").value="";
 }
 
 
-/* ================= NAVIGATION ================= */
+/* ==================================================
+   NAVIGATION
+================================================== */
 
 function showAdminSection(section){
 
@@ -1972,7 +2138,9 @@ document.getElementById("shipmentsNav")
 }
 
 
-/* ================= SHIPMENTS ================= */
+/* ==================================================
+   SHIPMENTS
+================================================== */
 
 async function createShipment(){
 
@@ -2295,7 +2463,9 @@ loadAllShipments();
 }
 
 
-/* ================= FIND SHIPMENT ================= */
+/* ==================================================
+   FIND SHIPMENT
+================================================== */
 
 async function findShipment(numberFromList){
 
@@ -2618,7 +2788,9 @@ loadAllShipments();
 }
 
 
-/* ================= SHOP ================= */
+/* ==================================================
+   SHOP
+================================================== */
 
 async function loadShopProducts(){
 
@@ -2803,6 +2975,75 @@ renderShopProducts(filtered);
 }
 
 
+/* SHOP IMAGE PREVIEW */
+
+function previewShopImage(event){
+
+const file=
+event.target.files[0]||null;
+
+selectedShopImageFile=file;
+
+const preview=
+document.getElementById("shopImagePreview");
+
+const status=
+document.getElementById("shopImageStatus");
+
+if(!file){
+
+preview.style.display="none";
+preview.src="";
+status.textContent="Choose an image from your device.";
+return;
+
+}
+
+if(!file.type.startsWith("image/")){
+
+selectedShopImageFile=null;
+
+preview.style.display="none";
+preview.src="";
+
+status.textContent="Please choose an image file.";
+
+return;
+
+}
+
+if(file.size>MAX_IMAGE_SIZE){
+
+selectedShopImageFile=null;
+
+preview.style.display="none";
+preview.src="";
+
+status.textContent="Image is too large. Maximum size is 10MB.";
+
+return;
+
+}
+
+const reader=new FileReader();
+
+reader.onload=function(e){
+
+preview.src=e.target.result;
+preview.style.display="block";
+
+};
+
+reader.readAsDataURL(file);
+
+status.textContent=
+"Selected: "+file.name;
+
+}
+
+
+/* ADD SHOP PRODUCT */
+
 async function addShopProduct(){
 
 const name=
@@ -2811,12 +3052,53 @@ document.getElementById("shopName").value.trim();
 const price=
 document.getElementById("shopPrice").value;
 
+const result=
+document.getElementById("shopResult");
+
 if(!name||price===""){
 
-document.getElementById("shopResult").textContent=
+result.textContent=
 "Please enter a product name and price.";
 
 return;
+
+}
+
+result.textContent="Preparing product...";
+
+let imageUrl=
+document.getElementById("shopImage")
+.value
+.trim()||null;
+
+
+/*
+If an actual file was selected,
+upload it to Supabase Storage first.
+*/
+
+if(selectedShopImageFile){
+
+result.textContent="Uploading product image...";
+
+const upload=
+await uploadImage(
+SHOP_IMAGE_BUCKET,
+selectedShopImageFile,
+"products"
+);
+
+if(upload.error){
+
+result.textContent=
+"Product image upload failed: "+
+upload.error;
+
+return;
+
+}
+
+imageUrl=upload.url;
 
 }
 
@@ -2833,9 +3115,7 @@ price:Number(price),
 stock:
 Number(document.getElementById("shopStock").value||0),
 
-image_url:
-document.getElementById("shopImage")
-.value.trim()||null,
+image_url:imageUrl,
 
 description:
 document.getElementById("shopDescription")
@@ -2847,20 +3127,23 @@ document.getElementById("shopVisible")
 
 };
 
+result.textContent="Saving product...";
+
 const {error}=await supabaseClient
 .from("shop_products")
 .insert(product);
 
 if(error){
 
-document.getElementById("shopResult").textContent=
-"Product creation failed: "+error.message;
+result.textContent=
+"Product creation failed: "+
+error.message;
 
 return;
 
 }
 
-document.getElementById("shopResult").textContent=
+result.textContent=
 "Product added to shop successfully! ✅";
 
 [
@@ -2871,15 +3154,28 @@ document.getElementById("shopResult").textContent=
 "shopImage",
 "shopDescription"
 ].forEach(id=>{
+
 document.getElementById(id).value="";
+
 });
 
 document.getElementById("shopVisible").value="true";
+
+document.getElementById("shopImageFile").value="";
+
+selectedShopImageFile=null;
+
+document.getElementById("shopImagePreview").style.display="none";
+document.getElementById("shopImagePreview").src="";
+document.getElementById("shopImageStatus").textContent=
+"Choose an image from your device.";
 
 await loadShopProducts();
 
 }
 
+
+/* EDIT SHOP PRODUCT */
 
 async function editShopProduct(id){
 
@@ -3017,20 +3313,9 @@ loadShopProducts();
 }
 
 
-/* ================= CHAT ================= */
-
-/*
-IMPORTANT:
-The chat table was repaired earlier to use:
-customer_id
-sender
-message
-created_at
-
-We therefore identify conversations by customer_id
-instead of sender_id / receiver_id.
-*/
-
+/* ==================================================
+   CHAT
+================================================== */
 
 async function loadConversations(){
 
@@ -3178,7 +3463,9 @@ Customer ID: ${escapeHtml(c.userId)}
 ${escapeHtml(
 m.message||
 m.content||
-"Image"
+(m.image_url||m.attachment_url
+?"📷 Image"
+:"")
 )}
 </div>
 
@@ -3278,6 +3565,10 @@ await loadActiveConversation();
 }
 
 
+/* ==================================================
+   LOAD ACTIVE CHAT
+================================================== */
+
 async function loadActiveConversation(){
 
 if(!activeConversationUserId)return;
@@ -3347,8 +3638,9 @@ ${image?`
 <img
 src="${escapeAttribute(image)}"
 alt="Chat image"
-style="max-width:260px;max-height:300px;border-radius:10px;display:block;margin-bottom:7px;cursor:pointer"
-onclick="openImageModal('${escapeAttribute(image)}')">
+class="chat-message-image"
+onclick="openImageModal('${escapeAttribute(image)}')"
+onerror="this.style.display='none'">
 
 `:""}
 
@@ -3377,6 +3669,59 @@ area.scrollTop=area.scrollHeight;
 }
 
 
+/* ==================================================
+   CHAT IMAGE SELECTION
+================================================== */
+
+function handleImageSelection(event){
+
+selectedImageFile=
+event.target.files[0]||null;
+
+const status=
+document.getElementById("chatImageStatus");
+
+if(!selectedImageFile){
+
+status.textContent="";
+return;
+
+}
+
+if(!selectedImageFile.type.startsWith("image/")){
+
+selectedImageFile=null;
+event.target.value="";
+
+status.textContent=
+"Please select an image file.";
+
+return;
+
+}
+
+if(selectedImageFile.size>MAX_IMAGE_SIZE){
+
+selectedImageFile=null;
+event.target.value="";
+
+status.textContent=
+"Image is too large. Maximum size is 10MB.";
+
+return;
+
+}
+
+status.textContent=
+"📷 "+selectedImageFile.name+" selected";
+
+}
+
+
+/* ==================================================
+   SEND CHAT MESSAGE + IMAGE
+================================================== */
+
 async function sendChatMessage(){
 
 if(!activeConversationUserId)return;
@@ -3391,8 +3736,58 @@ input.value.trim();
 
 if(!message&&!selectedImageFile)return;
 
+const sendButton=
+document.querySelector(".send-button");
+
+if(sendButton){
+
+sendButton.disabled=true;
+}
+
+try{
+
+let imageUrl=null;
+
+
 /*
-The repaired chat table uses customer_id and sender.
+IMPORTANT FIX:
+
+If an admin selected an image,
+actually upload it to Supabase Storage.
+*/
+
+if(selectedImageFile){
+
+document.getElementById("chatImageStatus")
+.textContent=
+"📤 Uploading image...";
+
+const upload=
+await uploadImage(
+CHAT_IMAGE_BUCKET,
+selectedImageFile,
+"admin"
+);
+
+if(upload.error){
+
+alert(
+"Image upload failed: "+
+upload.error
+);
+
+return;
+
+}
+
+imageUrl=upload.url;
+
+}
+
+
+/*
+Now save BOTH the message and
+the uploaded image URL.
 */
 
 const insertData={
@@ -3401,7 +3796,9 @@ customer_id:activeConversationUserId,
 
 sender:"admin",
 
-message:message||null
+message:message||null,
+
+image_url:imageUrl
 
 };
 
@@ -3422,12 +3819,30 @@ selectedImageFile=null;
 
 document.getElementById("chatImageInput").value="";
 
+document.getElementById("chatImageStatus")
+.textContent="";
+
 await loadActiveConversation();
 
 await loadConversations();
 
 }
+finally{
 
+if(sendButton){
+
+sendButton.disabled=false;
+
+}
+
+}
+
+}
+
+
+/* ==================================================
+   DELETE CHAT
+================================================== */
 
 async function deleteActiveConversation(){
 
@@ -3474,6 +3889,10 @@ await loadConversations();
 }
 
 
+/* ==================================================
+   CHAT KEYBOARD
+================================================== */
+
 function handleChatKeydown(event){
 
 if(event.key==="Enter"&&!event.shiftKey){
@@ -3487,15 +3906,13 @@ sendChatMessage();
 }
 
 
-function handleImageSelection(event){
-
-selectedImageFile=
-event.target.files[0]||null;
-
-}
-
+/* ==================================================
+   IMAGE MODAL
+================================================== */
 
 function openImageModal(url){
+
+if(!url)return;
 
 document.getElementById("modalImage").src=url;
 
@@ -3512,6 +3929,10 @@ document.getElementById("modalImage").src="";
 
 }
 
+
+/* ==================================================
+   CHAT BADGE
+================================================== */
 
 function updateChatBadge(count){
 
@@ -3534,16 +3955,26 @@ badge.style.display="none";
 }
 
 
+/* ==================================================
+   TIME
+================================================== */
+
 function formatTime(value){
 
 if(!value)return"";
 
 const d=new Date(value);
 
+if(isNaN(d.getTime()))return"";
+
 return d.toLocaleString();
 
 }
 
+
+/* ==================================================
+   CHAT AUTO REFRESH
+================================================== */
 
 function startChatRefresh(){
 
@@ -3582,7 +4013,9 @@ chatRefreshTimer=null;
 }
 
 
-/* ================= START ================= */
+/* ==================================================
+   START
+================================================== */
 
 checkAdminSession();
 
