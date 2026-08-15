@@ -3,184 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b6b3a">
-
-<title>Greenway Express | Fast, Safe & Reliable Delivery</title>
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="Greenway Express - Fast, Safe & Reliable Delivery">
+<title>Greenway Express</title>
 
 <style>
-
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
   scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:#f4f7f5;
-  color:#222;
+  background:#f5f8fb;
+  color:#172033;
+  line-height:1.6;
+}
+
+body.rtl{
+  direction:rtl;
+}
+
+a{
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 header{
-  background:#0b6b3a;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#07111f;
   color:white;
-  padding:22px 20px;
-  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 5%;
+  box-shadow:0 4px 18px rgba(0,0,0,.15);
 }
 
-header h1{
-  margin:0;
-  font-size:30px;
+.logo{
+  color:white;
+  font-size:1.5rem;
+  font-weight:800;
+  white-space:nowrap;
 }
 
-header p{
-  margin:6px 0 0;
+.logo span{
+  color:#19b86b;
 }
 
 nav{
-  margin-top:18px;
   display:flex;
-  justify-content:center;
+  align-items:center;
+  gap:18px;
   flex-wrap:wrap;
-  gap:8px;
 }
 
 nav a{
-  color:white;
-  text-decoration:none;
-  padding:9px 13px;
-  border-radius:7px;
-  font-weight:bold;
+  color:#fff;
+  font-weight:600;
+  font-size:.94rem;
 }
 
 nav a:hover{
-  background:#084d2b;
+  color:#2bd67d;
 }
 
-.language-box{
-  margin-top:15px;
+.language-box select{
+  background:#101e30;
+  color:#fff;
+  border:1px solid #33465c;
+  border-radius:8px;
+  padding:8px 10px;
 }
-
-#languageSelect{
-  padding:8px 12px;
-  border:none;
-  border-radius:7px;
-  font-size:14px;
-}
-
-/* SHOP BUTTON */
 
 .shop-button-area{
-  background:linear-gradient(135deg,#064d2a,#0b6b3a);
-  padding:28px 20px;
+  background:#07111f;
   text-align:center;
+  padding:0 20px 22px;
 }
 
 .shop-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:16px 30px;
-  border-radius:12px;
-  background:white;
-  color:#0b6b3a;
-  font-size:18px;
+  display:inline-block;
+  background:#19b86b;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:999px;
   font-weight:800;
-  text-decoration:none;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
-  transition:.2s;
+  box-shadow:0 8px 20px rgba(25,184,107,.25);
 }
 
 .shop-button:hover{
-  transform:translateY(-3px);
-  background:#effaf4;
+  background:#129957;
+  transform:translateY(-1px);
 }
 
-/* HERO */
-
 .hero-main{
-  min-height:500px;
+  min-height:570px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:60px 20px;
+  padding:80px 6%;
   background:
-    linear-gradient(
-      rgba(0,70,40,.72),
-      rgba(0,70,40,.72)
-    ),
-    url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80")
+    linear-gradient(rgba(7,17,31,.72),rgba(7,17,31,.72)),
+    url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=85")
     center/cover;
+  color:#fff;
 }
 
 .hero-content{
-  max-width:750px;
-  color:white;
+  max-width:850px;
 }
 
 .hero-content h2{
-  font-size:45px;
-  margin-bottom:15px;
+  font-size:clamp(2.2rem,5vw,4.5rem);
+  line-height:1.1;
+  margin-bottom:22px;
 }
 
 .hero-content p{
-  font-size:20px;
-  line-height:1.6;
+  font-size:1.12rem;
+  max-width:700px;
+  margin:0 auto 30px;
+  color:#e7edf4;
 }
 
 .hero-button{
   display:inline-block;
-  margin-top:20px;
-  padding:14px 28px;
-  background:white;
-  color:#0b6b3a;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
+  background:#19b86b;
+  color:white;
+  padding:14px 25px;
+  border-radius:10px;
+  font-weight:800;
 }
 
-/* GENERAL */
-
 section{
-  padding:55px 20px;
+  padding:80px 6%;
 }
 
 .section-title{
   text-align:center;
-  color:#0b6b3a;
-  font-size:32px;
-  margin-bottom:10px;
+  font-size:2rem;
+  color:#07111f;
+  margin-bottom:12px;
 }
 
 .section-intro{
   text-align:center;
-  max-width:650px;
-  margin:0 auto 35px;
-  line-height:1.6;
+  max-width:760px;
+  margin:0 auto 40px;
+  color:#667085;
 }
 
-/* SERVICES */
-
-.services-grid{
-  max-width:1100px;
+.services-grid,
+.global-grid,
+.steps{
+  max-width:1150px;
   margin:auto;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:25px;
 }
 
-.service-card{
-  background:white;
-  border-radius:15px;
+.service-card,
+.global-card,
+.step,
+.team-card,
+.tracking-box,
+.tracking-result,
+.order-detail-card{
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 10px 35px rgba(15,23,42,.08);
   overflow:hidden;
-  box-shadow:0 5px 16px rgba(0,0,0,.1);
 }
 
 .service-card img{
   width:100%;
-  height:190px;
+  height:210px;
   object-fit:cover;
 }
 
@@ -188,225 +206,511 @@ section{
   padding:22px;
 }
 
-.service-content h3{
+.service-content h3,
+.global-card h3,
+.step h3{
   color:#0b6b3a;
-  margin-top:0;
+  margin-bottom:8px;
 }
 
-.service-content p{
-  line-height:1.6;
+.global-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
 }
 
-/* TRACKING */
+.global-card div{
+  padding:20px;
+}
 
-.tracking-section{
-  background:white;
+.steps{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.step{
+  padding:25px;
+}
+
+.team-card{
+  max-width:1100px;
+  margin:auto;
+}
+
+.team-card img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+}
+
+.team-text{
+  padding:30px;
+}
+
+.team-text h3{
+  color:#0b6b3a;
+  margin-bottom:10px;
+}
+
+#contact{
+  text-align:center;
+  background:#07111f;
+  color:white;
+}
+
+#contact h2{
+  margin-bottom:15px;
+}
+
+#contact a{
+  color:#2bd67d;
+  font-weight:700;
+}
+
+.customer-id-box{
+  max-width:700px;
+  margin:0 auto 20px;
+  background:#eaf8f0;
+  color:#0b6b3a;
+  padding:14px 18px;
+  border-radius:12px;
   text-align:center;
 }
 
 .tracking-box{
-  max-width:700px;
-  margin:30px auto 0;
-  padding:30px;
-  background:#f4f7f5;
-  border-radius:15px;
-  box-shadow:0 4px 14px rgba(0,0,0,.08);
+  max-width:850px;
+  margin:auto;
+  background:#fff;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 10px 35px rgba(15,23,42,.08);
 }
 
 .tracking-box input{
   width:100%;
-  padding:14px;
-  border:1px solid #ccc;
-  border-radius:7px;
-  font-size:16px;
-  margin-bottom:15px;
+  padding:15px;
+  border:1px solid #d4dbe4;
+  border-radius:10px;
+  outline:none;
+  margin-bottom:12px;
 }
 
-button{
-  padding:14px 25px;
+.tracking-box input:focus,
+.checkout-panel input:focus,
+.checkout-panel select:focus,
+.checkout-panel textarea:focus,
+.chat-input-row textarea:focus{
+  border-color:#19b86b;
+  box-shadow:0 0 0 3px rgba(25,184,107,.1);
+}
+
+#trackButton{
+  width:100%;
+  border:0;
   background:#0b6b3a;
   color:white;
-  border:none;
-  border-radius:7px;
-  font-size:16px;
-  cursor:pointer;
+  padding:14px;
+  border-radius:10px;
+  font-weight:800;
 }
 
-button:hover{
-  background:#084d2b;
+.tracking-loading,
+.tracking-error{
+  margin-top:18px;
+  padding:16px;
+  border-radius:10px;
 }
 
-button:disabled{
-  opacity:.55;
-  cursor:not-allowed;
+.tracking-loading{
+  background:#eef5ff;
+  color:#24517c;
 }
 
-#result{
-  margin-top:25px;
-  text-align:left;
+.tracking-error{
+  background:#fff0f0;
+  color:#b42318;
 }
 
 .tracking-result{
-  background:white;
-  border-radius:16px;
+  margin-top:20px;
+  padding:25px;
   overflow:hidden;
-  box-shadow:0 6px 20px rgba(0,0,0,.1);
-  border:1px solid #e1e8e4;
 }
 
 .tracking-result-header{
-  background:#0b6b3a;
-  color:white;
-  padding:20px;
+  margin-bottom:20px;
 }
 
 .tracking-result-header h3{
-  margin:0 0 6px;
-}
-
-.tracking-result-header p{
-  margin:0;
-  opacity:.9;
+  color:#0b6b3a;
+  margin-bottom:4px;
 }
 
 .tracking-number-display{
-  padding:15px 20px;
-  background:#eaf5ef;
-  color:#0b6b3a;
-  font-weight:bold;
+  background:#07111f;
+  color:white;
+  padding:17px;
+  border-radius:12px;
+  margin-bottom:18px;
+}
+
+.tracking-number-display strong{
+  color:#2bd67d;
 }
 
 .status-box{
-  margin:20px;
-  padding:15px;
-  border-radius:12px;
-  background:#eaf5ef;
-  border-left:5px solid #0b6b3a;
-}
-
-.status-box strong{
-  color:#0b6b3a;
+  background:#eaf8f0;
+  border-left:5px solid #19b86b;
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:20px;
 }
 
 .shipment-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  padding:0 20px 20px;
+  gap:14px;
 }
 
 .shipment-info{
-  background:#f7faf8;
-  border:1px solid #e2e9e5;
+  background:#f8fafc;
+  border:1px solid #e5eaf0;
   border-radius:12px;
-  padding:15px;
+  padding:16px;
 }
 
 .info-icon{
-  font-size:22px;
+  display:block;
+  font-size:1.35rem;
+  margin-bottom:5px;
 }
 
 .info-label{
   display:block;
-  color:#6b7280;
-  font-size:13px;
-  margin:5px 0;
+  color:#64748b;
+  font-size:.82rem;
+  margin-bottom:4px;
 }
 
 .info-value{
   display:block;
-  font-weight:bold;
-  line-height:1.4;
+  font-weight:700;
   word-break:break-word;
 }
 
-.tracking-error{
-  background:#fff4f4;
-  color:#a61b1b;
-  border:1px solid #f0cccc;
-  border-radius:12px;
-  padding:16px;
-  text-align:center;
-}
-
-.tracking-loading{
-  background:#eaf5ef;
-  color:#0b6b3a;
-  border-radius:12px;
-  padding:18px;
-  text-align:center;
-  font-weight:bold;
-}
-
-/* TIMELINE */
-
 .shipment-history{
-  padding:0 20px 25px;
+  margin-top:25px;
 }
 
 .shipment-history h3{
-  color:#0b6b3a;
   margin-bottom:15px;
+  color:#0b6b3a;
 }
 
 .timeline{
   position:relative;
-  margin-left:12px;
-  padding-left:25px;
-  border-left:2px solid #cfe4d8;
+  padding-left:28px;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:5px;
+  bottom:5px;
+  width:2px;
+  background:#cfe7da;
 }
 
 .timeline-item{
   position:relative;
-  padding:0 0 22px;
-}
-
-.timeline-item:last-child{
-  padding-bottom:0;
+  margin-bottom:18px;
 }
 
 .timeline-dot{
   position:absolute;
-  left:-34px;
-  top:2px;
-  width:16px;
-  height:16px;
+  left:-27px;
+  top:7px;
+  width:14px;
+  height:14px;
   border-radius:50%;
-  background:#0b6b3a;
-  border:3px solid #eaf5ef;
+  background:#19b86b;
+  border:3px solid #eaf8f0;
 }
 
 .timeline-card{
-  background:#f7faf8;
-  border:1px solid #e2e9e5;
+  background:#f8fafc;
+  border:1px solid #e5eaf0;
   border-radius:12px;
-  padding:14px;
+  padding:15px;
 }
 
 .timeline-status{
+  font-weight:800;
   color:#0b6b3a;
-  font-weight:bold;
 }
 
 .timeline-location{
-  font-weight:bold;
-  margin-top:5px;
+  margin-top:4px;
 }
 
 .timeline-date{
   color:#64748b;
-  font-size:12px;
-  margin-top:6px;
+  font-size:.82rem;
+  margin-top:5px;
 }
 
-/* ORDER */
+#shopPage{
+  display:none;
+  min-height:100vh;
+  padding-top:45px;
+  background:#f5f8fb;
+}
+
+.shop-container{
+  max-width:1250px;
+  margin:auto;
+}
+
+.shop-top{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.shop-top h2{
+  color:#0b6b3a;
+  font-size:2.2rem;
+}
+
+.shop-top p{
+  color:#667085;
+  margin:8px auto 15px;
+}
+
+.shop-back{
+  display:inline-block;
+  color:#0b6b3a;
+  font-weight:800;
+}
+
+.shop-layout{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:25px;
+  align-items:start;
+}
+
+.shop-products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.product-card{
+  background:#fff;
+  border-radius:17px;
+  overflow:hidden;
+  box-shadow:0 8px 28px rgba(15,23,42,.08);
+}
+
+.product-image,
+.product-no-image{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.product-no-image{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#edf3f7;
+  font-size:3rem;
+}
+
+.product-body{
+  padding:20px;
+}
+
+.product-category{
+  display:inline-block;
+  background:#eaf8f0;
+  color:#0b6b3a;
+  padding:4px 9px;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.product-body h3{
+  margin-bottom:7px;
+}
+
+.product-description{
+  color:#667085;
+  min-height:45px;
+  font-size:.9rem;
+}
+
+.product-price{
+  color:#0b6b3a;
+  font-size:1.3rem;
+  font-weight:900;
+  margin:12px 0 4px;
+}
+
+.small-note{
+  color:#64748b;
+  font-size:.82rem;
+  margin-bottom:10px;
+}
+
+.quantity-row input{
+  width:100%;
+  padding:10px;
+  border:1px solid #d4dbe4;
+  border-radius:8px;
+  margin-bottom:9px;
+}
+
+.add-cart,
+.checkout-button,
+#placeOrderButton{
+  width:100%;
+  border:0;
+  background:#0b6b3a;
+  color:#fff;
+  padding:12px;
+  border-radius:9px;
+  font-weight:800;
+}
+
+.add-cart:disabled{
+  background:#9ca3af;
+  cursor:not-allowed;
+}
+
+.cart-card{
+  background:#fff;
+  border-radius:17px;
+  padding:20px;
+  box-shadow:0 8px 28px rgba(15,23,42,.08);
+  position:sticky;
+  top:100px;
+}
+
+.cart-card h3{
+  color:#0b6b3a;
+  margin-bottom:15px;
+}
+
+.cart-item{
+  padding:12px 0;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.cart-item-title{
+  font-weight:800;
+}
+
+.cart-item-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-top:5px;
+}
+
+.cart-qty{
+  font-size:.82rem;
+  color:#64748b;
+}
+
+.remove-item{
+  border:0;
+  background:#fff0f0;
+  color:#b42318;
+  border-radius:7px;
+  padding:5px 8px;
+  font-size:.75rem;
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:900;
+  font-size:1.15rem;
+  padding:17px 0;
+}
+
+.checkout-button{
+  background:#19b86b;
+}
+
+.checkout-panel{
+  display:none;
+  margin-top:18px;
+  border-top:1px solid #e5e7eb;
+  padding-top:18px;
+}
+
+.checkout-panel.active{
+  display:block;
+}
+
+.checkout-panel h4{
+  margin-bottom:12px;
+}
+
+.checkout-panel input,
+.checkout-panel select,
+.checkout-panel textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d4dbe4;
+  border-radius:9px;
+  margin-bottom:10px;
+  outline:none;
+  background:#fff;
+}
+
+.checkout-panel textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.checkout-message{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  border-radius:8px;
+  font-size:.88rem;
+}
+
+.checkout-message.error{
+  display:block;
+  background:#fff0f0;
+  color:#b42318;
+}
+
+.checkout-message.success{
+  display:block;
+  background:#eaf8f0;
+  color:#0b6b3a;
+}
+
+.shop-empty,
+.cart-empty{
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  text-align:center;
+  color:#64748b;
+}
 
 .order-detail-card{
-  background:white;
-  border:1px solid #e1e8e4;
-  border-radius:12px;
-  padding:16px;
-  margin:12px 20px;
+  padding:20px;
+  margin-top:18px;
 }
 
 .order-items{
@@ -416,561 +720,117 @@ button:disabled{
 .order-item{
   display:flex;
   justify-content:space-between;
-  gap:12px;
-  padding:10px 0;
+  gap:15px;
+  padding:12px 0;
   border-bottom:1px solid #e5e7eb;
 }
-
-.order-item:last-child{
-  border-bottom:none;
-}
-
-.order-status{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:20px;
-  background:#eaf5ef;
-  color:#0b6b3a;
-  font-weight:bold;
-  font-size:13px;
-}
-
-/* GLOBAL */
-
-.global-section{
-  background:#f4f7f5;
-}
-
-.global-grid{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.global-card{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 4px 14px rgba(0,0,0,.09);
-}
-
-.global-card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-}
-
-.global-card div{
-  padding:20px;
-  text-align:center;
-}
-
-/* HOW */
-
-.steps{
-  max-width:900px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.step{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 4px 14px rgba(0,0,0,.09);
-}
-
-.step h3{
-  color:#0b6b3a;
-}
-
-.step p{
-  line-height:1.6;
-}
-
-/* TEAM */
-
-.team-section{
-  background:white;
-}
-
-.team-card{
-  max-width:900px;
-  margin:auto;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 5px 18px rgba(0,0,0,.1);
-}
-
-.team-card img{
-  width:100%;
-  max-height:420px;
-  object-fit:cover;
-}
-
-.team-text{
-  padding:25px;
-  text-align:center;
-}
-
-.team-text h3{
-  color:#0b6b3a;
-  font-size:25px;
-}
-
-.team-text p{
-  line-height:1.7;
-  max-width:700px;
-  margin:auto;
-}
-
-/* CONTACT */
-
-#contact{
-  background:#f4f7f5;
-  text-align:center;
-}
-
-#contact h2{
-  color:#0b6b3a;
-}
-
-#contact a{
-  color:#0b6b3a;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-/* SHOP */
-
-#shopPage{
-  display:none;
-  background:
-    radial-gradient(circle at top right,rgba(11,107,58,.12),transparent 30%),
-    #f5f8f6;
-  min-height:100vh;
-  padding:30px 16px 70px;
-}
-
-.shop-container{
-  max-width:1150px;
-  margin:auto;
-}
-
-.shop-top{
-  background:
-    linear-gradient(135deg,rgba(4,65,37,.94),rgba(11,107,58,.94)),
-    url("https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1500&q=80")
-    center/cover;
-  border-radius:22px;
-  padding:38px 25px;
-  color:white;
-  text-align:center;
-  box-shadow:0 12px 35px rgba(0,0,0,.16);
-}
-
-.shop-top h2{
-  color:white;
-  font-size:38px;
-  margin:0 0 8px;
-}
-
-.shop-top p{
-  max-width:650px;
-  margin:auto;
-  line-height:1.6;
-}
-
-.shop-back{
-  display:inline-block;
-  margin-top:20px;
-  padding:10px 18px;
-  border-radius:9px;
-  color:white;
-  border:1px solid rgba(255,255,255,.5);
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.shop-layout{
-  display:grid;
-  grid-template-columns:1fr 350px;
-  gap:22px;
-  margin-top:25px;
-  align-items:start;
-}
-
-.shop-products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.product-card{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #e3ebe6;
-  box-shadow:0 6px 22px rgba(0,0,0,.07);
-}
-
-.product-image{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  display:block;
-  background:#eaf5ef;
-}
-
-.product-no-image{
-  width:100%;
-  height:220px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#eaf5ef;
-  color:#0b6b3a;
-  font-size:55px;
-}
-
-.product-body{
-  padding:20px;
-}
-
-.product-body h3{
-  color:#0b6b3a;
-  margin:0 0 8px;
-}
-
-.product-category{
-  display:inline-block;
-  background:#eaf5ef;
-  color:#0b6b3a;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:12px;
-  margin-bottom:8px;
-}
-
-.product-description{
-  color:#64748b;
-  line-height:1.5;
-}
-
-.product-price{
-  font-size:22px;
-  font-weight:800;
-  color:#111827;
-  margin-top:12px;
-}
-
-.small-note{
-  color:#64748b;
-  font-size:13px;
-  margin:7px 0;
-}
-
-.quantity-row{
-  margin-top:12px;
-}
-
-.quantity-row input{
-  width:100%;
-  padding:11px;
-  border:1px solid #d1d5db;
-  border-radius:8px;
-}
-
-.add-cart{
-  width:100%;
-  margin-top:10px;
-}
-
-.shop-empty{
-  background:white;
-  border-radius:16px;
-  padding:35px;
-  text-align:center;
-  color:#64748b;
-  grid-column:1/-1;
-}
-
-/* CART */
-
-.cart-card{
-  background:white;
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 7px 24px rgba(0,0,0,.08);
-  position:sticky;
-  top:15px;
-}
-
-.cart-card h3{
-  margin-top:0;
-  color:#0b6b3a;
-}
-
-.cart-items{
-  max-height:400px;
-  overflow:auto;
-}
-
-.cart-empty{
-  padding:25px 10px;
-  text-align:center;
-  color:#64748b;
-}
-
-.cart-item{
-  padding:13px 0;
-  border-bottom:1px solid #e5e7eb;
-}
-
-.cart-item-title{
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.cart-item-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.cart-qty{
-  color:#64748b;
-  font-size:14px;
-}
-
-.remove-item{
-  background:#b91c1c;
-  padding:5px 9px;
-  font-size:12px;
-}
-
-.cart-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:20px;
-  font-weight:800;
-  margin:18px 0;
-}
-
-.checkout-button{
-  width:100%;
-}
-
-.checkout-panel{
-  display:none;
-  margin-top:18px;
-  padding-top:18px;
-  border-top:1px solid #e5e7eb;
-}
-
-.checkout-panel.active{
-  display:block;
-}
-
-.checkout-panel h4{
-  color:#0b6b3a;
-  margin-top:0;
-}
-
-.checkout-panel input,
-.checkout-panel textarea,
-.checkout-panel select{
-  width:100%;
-  padding:11px;
-  margin-bottom:10px;
-  border:1px solid #d1d5db;
-  border-radius:8px;
-}
-
-.checkout-panel textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-.checkout-message{
-  margin-top:10px;
-  padding:10px;
-  border-radius:8px;
-  display:none;
-}
-
-.checkout-message.success{
-  display:block;
-  background:#eaf5ef;
-  color:#0b6b3a;
-}
-
-.checkout-message.error{
-  display:block;
-  background:#fff4f4;
-  color:#a61b1b;
-}
-
-/* CUSTOMER ID */
-
-.customer-id-box{
-  max-width:900px;
-  margin:0 auto 30px;
-  background:white;
-  padding:18px 20px;
-  border-radius:13px;
-  border:1px solid #e1e8e4;
-  text-align:center;
-  box-shadow:0 4px 14px rgba(0,0,0,.06);
-}
-
-.customer-id-box strong{
-  color:#0b6b3a;
-}
-
-/* CHAT */
 
 .chat-launch{
   position:fixed;
-  right:20px;
-  bottom:20px;
+  right:22px;
+  bottom:22px;
   width:58px;
   height:58px;
+  border:0;
   border-radius:50%;
-  padding:0;
-  background:#0b6b3a;
-  color:white;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-  z-index:1000;
-  font-size:25px;
+  background:#19b86b;
+  color:#fff;
+  font-size:1.5rem;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  z-index:2000;
 }
 
 .chat-window{
-  position:fixed;
-  right:20px;
-  bottom:90px;
-  width:350px;
-  max-width:calc(100vw - 30px);
-  height:500px;
-  background:white;
-  border-radius:18px;
-  box-shadow:0 12px 40px rgba(0,0,0,.25);
-  overflow:hidden;
   display:none;
-  flex-direction:column;
-  z-index:999;
+  position:fixed;
+  right:22px;
+  bottom:90px;
+  width:min(390px,calc(100vw - 30px));
+  height:550px;
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 50px rgba(0,0,0,.25);
+  z-index:1999;
 }
 
 .chat-window.active{
   display:flex;
+  flex-direction:column;
 }
 
 .chat-header{
-  background:#0b6b3a;
-  color:white;
+  background:#07111f;
+  color:#fff;
   padding:15px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-}
-
-.chat-header strong{
-  font-size:16px;
+  align-items:center;
 }
 
 .chat-close{
+  border:0;
   background:transparent;
-  padding:4px 8px;
-  font-size:20px;
+  color:#fff;
+  font-size:1.5rem;
 }
 
 .chat-messages{
   flex:1;
-  overflow:auto;
+  overflow-y:auto;
   padding:15px;
-  background:#f4f7f5;
+  background:#f5f8fb;
 }
 
 .message{
   max-width:85%;
   padding:10px 12px;
-  margin-bottom:10px;
   border-radius:12px;
+  margin-bottom:10px;
   word-break:break-word;
-  position:relative;
 }
 
 .message.admin{
-  background:white;
-  border:1px solid #e1e8e4;
+  background:#fff;
+  border:1px solid #e5e7eb;
   margin-right:auto;
 }
 
 .message.customer{
   background:#0b6b3a;
-  color:white;
+  color:#fff;
   margin-left:auto;
 }
 
 .message-image{
   display:block;
   max-width:100%;
-  max-height:180px;
+  max-height:220px;
+  object-fit:contain;
   border-radius:8px;
   margin-top:8px;
 }
 
 .message-time{
   display:block;
-  font-size:10px;
+  font-size:.68rem;
   opacity:.65;
-  margin-top:6px;
+  margin-top:5px;
 }
 
 .chat-input-area{
-  padding:10px;
   border-top:1px solid #e5e7eb;
-  background:white;
-}
-
-.chat-input-row{
-  display:flex;
-  gap:6px;
-}
-
-.chat-input-row textarea{
-  flex:1;
-  min-height:42px;
-  max-height:90px;
-  resize:none;
-  border:1px solid #d1d5db;
-  border-radius:8px;
   padding:10px;
-}
-
-.chat-icon-button{
-  padding:9px 11px;
-  background:#eaf5ef;
-  color:#0b6b3a;
-}
-
-.send-chat-button{
-  padding:9px 12px;
 }
 
 .image-preview{
   display:none;
   align-items:center;
   gap:8px;
-  padding:7px;
-  background:#f7faf8;
-  border-radius:8px;
   margin-bottom:8px;
+  background:#f5f8fb;
+  padding:7px;
+  border-radius:8px;
 }
 
 .image-preview.active{
@@ -981,43 +841,80 @@ button:disabled{
   width:45px;
   height:45px;
   object-fit:cover;
-  border-radius:7px;
+  border-radius:6px;
 }
 
 .image-preview-name{
   flex:1;
-  font-size:12px;
+  font-size:.75rem;
   overflow:hidden;
   text-overflow:ellipsis;
-  white-space:nowrap;
 }
 
 .remove-preview{
-  background:#b91c1c;
-  padding:5px 8px;
-  font-size:12px;
+  border:0;
+  background:#fff0f0;
+  color:#b42318;
+  border-radius:50%;
+  width:25px;
+  height:25px;
 }
 
-/* FOOTER */
+.chat-input-row{
+  display:flex;
+  align-items:end;
+  gap:7px;
+}
+
+.chat-input-row textarea{
+  flex:1;
+  min-height:42px;
+  max-height:100px;
+  resize:none;
+  border:1px solid #d4dbe4;
+  border-radius:9px;
+  padding:10px;
+  outline:none;
+}
+
+.chat-icon-button,
+.send-chat-button{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:9px;
+}
+
+.chat-icon-button{
+  background:#eef2f6;
+}
+
+.send-chat-button{
+  background:#0b6b3a;
+  color:#fff;
+}
 
 footer{
-  background:#063d23;
-  color:white;
+  background:#040b14;
+  color:#b9c4d1;
   text-align:center;
-  padding:30px 20px;
+  padding:35px 20px;
 }
 
-footer p{
-  margin:6px 0;
+footer h3{
+  color:#fff;
+  margin-bottom:5px;
 }
-
-/* RESPONSIVE */
 
 @media(max-width:900px){
+  nav{
+    display:none;
+  }
 
   .services-grid,
-  .global-grid{
-    grid-template-columns:1fr 1fr;
+  .global-grid,
+  .steps{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .shop-layout{
@@ -1027,91 +924,66 @@ footer p{
   .cart-card{
     position:static;
   }
-
 }
 
 @media(max-width:650px){
-
-  header h1{
-    font-size:25px;
-  }
-
-  .hero-content h2{
-    font-size:34px;
-  }
-
-  .hero-content p{
-    font-size:17px;
-  }
-
   section{
-    padding:40px 15px;
+    padding:60px 5%;
   }
 
   .services-grid,
   .global-grid,
   .steps,
-  .shipment-grid,
-  .shop-products{
+  .shop-products,
+  .shipment-grid{
     grid-template-columns:1fr;
   }
 
-  .tracking-box{
-    padding:20px 15px;
+  .hero-main{
+    min-height:520px;
   }
 
-  .shop-top h2{
-    font-size:30px;
+  .hero-content h2{
+    font-size:2.35rem;
+  }
+
+  .team-card img{
+    height:250px;
   }
 
   .chat-window{
     right:10px;
-    bottom:82px;
-    height:470px;
+    bottom:80px;
   }
 
   .chat-launch{
-    right:12px;
-    bottom:12px;
+    right:15px;
+    bottom:15px;
   }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
-  <h1>Greenway Express</h1>
-
-  <p>Fast, Safe & Reliable Delivery</p>
+  <a href="#home" class="logo">
+    Greenway <span>Express</span>
+  </a>
 
   <nav>
-
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#tracking">Track</a>
-    <a href="#global">Global Delivery</a>
+    <a href="#global">Global</a>
     <a href="#how">How It Works</a>
-    <a href="#team">Our Team</a>
+    <a href="#team">Team</a>
     <a href="#contact">Contact</a>
-
-    <a
-      href="#shop"
-      id="openShopButton">
-      🛍️ Greenway Shop
-    </a>
-
   </nav>
 
   <div class="language-box">
-
     <select id="languageSelect">
-
       <option value="en">English</option>
       <option value="fr">Français</option>
       <option value="es">Español</option>
@@ -1120,41 +992,20 @@ footer p{
       <option value="pt">Português</option>
       <option value="ar">العربية</option>
       <option value="zh">中文</option>
-
     </select>
-
   </div>
 
 </header>
 
-
-<!-- SHOP QUICK ACCESS -->
-
 <div class="shop-button-area">
-
-  <a
-    href="#shop"
-    class="shop-button"
-    id="shopButtonMain">
-
+  <a href="#shop" class="shop-button" id="shopButtonMain">
     🛍️ Visit Greenway Shop
-
   </a>
-
 </div>
 
-
-<!-- HOME -->
-
-<section
-  id="home"
-  class="hero-main">
-
+<section id="home" class="hero-main">
   <div class="hero-content">
-
-    <h2>
-      Fast, Safe & Reliable Delivery
-    </h2>
+    <h2>Fast, Safe & Reliable Delivery</h2>
 
     <p>
       Greenway Express connects people and businesses
@@ -1162,26 +1013,14 @@ footer p{
       around the world.
     </p>
 
-    <a
-      href="#tracking"
-      class="hero-button">
-
+    <a href="#tracking" class="hero-button">
       Track Your Shipment
-
     </a>
-
   </div>
-
 </section>
 
-
-<!-- SERVICES -->
-
 <section id="services">
-
-  <h2 class="section-title">
-    Our Services
-  </h2>
+  <h2 class="section-title">Our Services</h2>
 
   <p class="section-intro">
     Professional delivery and logistics services
@@ -1192,93 +1031,67 @@ footer p{
   <div class="services-grid">
 
     <div class="service-card">
-
       <img
         src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1000&q=80"
         alt="Express delivery">
 
       <div class="service-content">
-
         <h3>Express Delivery</h3>
 
         <p>
           Fast and reliable delivery for urgent
           documents, parcels and business packages.
         </p>
-
       </div>
-
     </div>
 
-
     <div class="service-card">
-
       <img
         src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1000&q=80"
         alt="Global logistics">
 
       <div class="service-content">
-
         <h3>International Shipping</h3>
 
         <p>
           Move shipments across borders with
           dependable logistics support.
         </p>
-
       </div>
-
     </div>
 
-
     <div class="service-card">
-
       <img
         src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1000&q=80"
         alt="Warehouse logistics">
 
       <div class="service-content">
-
         <h3>Logistics Solutions</h3>
 
         <p>
           Flexible logistics support for businesses,
           retailers and individual customers.
         </p>
-
       </div>
-
     </div>
 
   </div>
-
 </section>
 
-
-<!-- TRACKING -->
-
-<section
-  id="tracking"
-  class="tracking-section">
+<section id="tracking">
 
   <h2 class="section-title">
     Track Your Shipment or Order
   </h2>
 
   <p class="section-intro">
-
     Enter your Greenway Express tracking number
     or Greenway Shop order number below.
-
   </p>
 
   <div class="customer-id-box">
-
     Your Customer ID:
-    <strong id="customerIdDisplay">
-      Loading...
-    </strong>
-
+    <strong id="customerIdDisplay">Loading...</strong>
   </div>
 
   <div class="tracking-box">
@@ -1289,12 +1102,8 @@ footer p{
       placeholder="Enter tracking number or order number"
       autocomplete="off">
 
-    <button
-      id="trackButton"
-      type="button">
-
+    <button id="trackButton" type="button">
       🔎 Track Now
-
     </button>
 
     <div id="result"></div>
@@ -1303,12 +1112,7 @@ footer p{
 
 </section>
 
-
-<!-- GLOBAL -->
-
-<section
-  id="global"
-  class="global-section">
+<section id="global">
 
   <h2 class="section-title">
     Global Delivery
@@ -1323,7 +1127,6 @@ footer p{
   <div class="global-grid">
 
     <div class="global-card">
-
       <img
         src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80"
         alt="Worldwide delivery">
@@ -1335,12 +1138,9 @@ footer p{
           international shipments.
         </p>
       </div>
-
     </div>
 
-
     <div class="global-card">
-
       <img
         src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1000&q=80"
         alt="Transport">
@@ -1352,12 +1152,9 @@ footer p{
           to destination.
         </p>
       </div>
-
     </div>
 
-
     <div class="global-card">
-
       <img
         src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1000&q=80"
         alt="Delivery logistics">
@@ -1369,15 +1166,10 @@ footer p{
           whenever you need it.
         </p>
       </div>
-
     </div>
 
   </div>
-
 </section>
-
-
-<!-- HOW IT WORKS -->
 
 <section id="how">
 
@@ -1393,59 +1185,41 @@ footer p{
   <div class="steps">
 
     <div class="step">
-
       <h3>1. Create Your Shipment</h3>
-
       <p>
         Provide the sender, receiver, package
         and delivery information.
       </p>
-
     </div>
 
     <div class="step">
-
       <h3>2. Get Your Tracking Number</h3>
-
       <p>
         Your shipment receives a Greenway
         tracking number.
       </p>
-
     </div>
 
     <div class="step">
-
       <h3>3. We Move Your Package</h3>
-
       <p>
         Your package moves through the delivery
         process while its status is updated.
       </p>
-
     </div>
 
     <div class="step">
-
       <h3>4. Track Anytime</h3>
-
       <p>
         Enter your tracking number to view
         the latest shipment information and history.
       </p>
-
     </div>
 
   </div>
-
 </section>
 
-
-<!-- TEAM -->
-
-<section
-  id="team"
-  class="team-section">
+<section id="team">
 
   <h2 class="section-title">
     Our Team
@@ -1476,9 +1250,6 @@ footer p{
 
 </section>
 
-
-<!-- CONTACT -->
-
 <section id="contact">
 
   <h2>
@@ -1503,11 +1274,11 @@ footer p{
 
 </section>
 
+<!-- ==================================================
+     SHOP
+================================================== -->
 
-<!-- SHOP PAGE -->
-
-<section
-  id="shopPage">
+<section id="shopPage">
 
   <div class="shop-container">
 
@@ -1533,7 +1304,6 @@ footer p{
 
     </div>
 
-
     <div class="shop-layout">
 
       <div>
@@ -1549,9 +1319,6 @@ footer p{
         </div>
 
       </div>
-
-
-      <!-- CART -->
 
       <aside class="cart-card">
 
@@ -1570,13 +1337,11 @@ footer p{
         </div>
 
         <div class="cart-total">
-
           <span>Total</span>
 
           <span id="cartTotal">
             $0.00
           </span>
-
         </div>
 
         <button
@@ -1587,7 +1352,6 @@ footer p{
           Proceed to Checkout
 
         </button>
-
 
         <div
           id="checkoutPanel"
@@ -1658,8 +1422,9 @@ footer p{
 
 </section>
 
-
-<!-- CHAT -->
+<!-- ==================================================
+     CHAT
+================================================== -->
 
 <button
   type="button"
@@ -1670,7 +1435,6 @@ footer p{
   💬
 
 </button>
-
 
 <div
   id="chatWindow"
@@ -1693,7 +1457,6 @@ footer p{
 
   </div>
 
-
   <div
     id="chatMessages"
     class="chat-messages">
@@ -1704,7 +1467,6 @@ footer p{
     </div>
 
   </div>
-
 
   <div class="chat-input-area">
 
@@ -1733,7 +1495,6 @@ footer p{
 
     </div>
 
-
     <div class="chat-input-row">
 
       <button
@@ -1752,11 +1513,9 @@ footer p{
         accept="image/*"
         style="display:none">
 
-
       <textarea
         id="chatMessageInput"
         placeholder="Type your message..."></textarea>
-
 
       <button
         type="button"
@@ -1773,9 +1532,6 @@ footer p{
 
 </div>
 
-
-<!-- FOOTER -->
-
 <footer>
 
   <h3>
@@ -1791,9 +1547,6 @@ footer p{
   </p>
 
 </footer>
-
-
-<!-- SUPABASE -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -1821,16 +1574,13 @@ const supabaseClient =
 ================================================== */
 
 let products = [];
-
 let cart = [];
 
 try{
 
   cart =
     JSON.parse(
-      localStorage.getItem(
-        "greenwayCart"
-      ) || "[]"
+      localStorage.getItem("greenwayCart") || "[]"
     );
 
   if(!Array.isArray(cart)){
@@ -1856,10 +1606,12 @@ function createCustomerId(){
       .substring(2,8)
       .toUpperCase();
 
-  return "GX-CUST-" +
+  return (
+    "GX-CUST-" +
     Date.now().toString(36).toUpperCase() +
     "-" +
-    random;
+    random
+  );
 
 }
 
@@ -1880,10 +1632,17 @@ if(!customerId){
 
 }
 
-document.getElementById(
-  "customerIdDisplay"
-).textContent =
-  customerId;
+const customerIdDisplay =
+  document.getElementById(
+    "customerIdDisplay"
+  );
+
+if(customerIdDisplay){
+
+  customerIdDisplay.textContent =
+    customerId;
+
+}
 
 
 /* ==================================================
@@ -1912,18 +1671,13 @@ function escapeAttribute(value){
 
 }
 
-function firstValue(
-  object,
-  keys
-){
+function firstValue(object,keys){
 
   if(!object){
     return null;
   }
 
-  for(
-    const key of keys
-  ){
+  for(const key of keys){
 
     if(
       object[key] !== undefined &&
@@ -1941,17 +1695,13 @@ function firstValue(
 
 }
 
-function formatMoney(
-  amount,
-  currency
-){
+function formatMoney(amount,currency){
 
   const value =
     Number(amount || 0);
 
   const code =
-    currency ||
-    "USD";
+    currency || "USD";
 
   try{
 
@@ -1965,9 +1715,11 @@ function formatMoney(
 
   }catch(error){
 
-    return code +
+    return (
+      code +
       " " +
-      value.toFixed(2);
+      value.toFixed(2)
+    );
 
   }
 
@@ -2051,9 +1803,7 @@ const translations = {
 
 };
 
-function applyLanguage(
-  language
-){
+function applyLanguage(language){
 
   const data =
     translations[language] ||
@@ -2094,28 +1844,33 @@ function applyLanguage(
 
 }
 
+const languageSelect =
+  document.getElementById(
+    "languageSelect"
+  );
+
 const savedLanguage =
   localStorage.getItem(
     "greenwayLanguage"
   ) || "en";
 
-document.getElementById(
-  "languageSelect"
-).value =
-  savedLanguage;
+if(languageSelect){
 
-document.getElementById(
-  "languageSelect"
-).addEventListener(
-  "change",
-  function(){
+  languageSelect.value =
+    savedLanguage;
 
-    applyLanguage(
-      this.value
-    );
+  languageSelect.addEventListener(
+    "change",
+    function(){
 
-  }
-);
+      applyLanguage(
+        this.value
+      );
+
+    }
+  );
+
+}
 
 applyLanguage(
   savedLanguage
@@ -2126,20 +1881,28 @@ applyLanguage(
    TRACKING
 ================================================== */
 
-document
-  .getElementById(
+const trackButton =
+  document.getElementById(
     "trackButton"
-  )
-  .addEventListener(
+  );
+
+const trackingInput =
+  document.getElementById(
+    "trackingInput"
+  );
+
+if(trackButton){
+
+  trackButton.addEventListener(
     "click",
     trackShipment
   );
 
-document
-  .getElementById(
-    "trackingInput"
-  )
-  .addEventListener(
+}
+
+if(trackingInput){
+
+  trackingInput.addEventListener(
     "keydown",
     function(event){
 
@@ -2154,6 +1917,8 @@ document
     }
   );
 
+}
+
 async function trackShipment(){
 
   const input =
@@ -2166,10 +1931,14 @@ async function trackShipment(){
       "result"
     );
 
-  const trackingNumber =
+  if(!input || !result){
+    return;
+  }
+
+  const cleanNumber =
     input.value.trim();
 
-  if(!trackingNumber){
+  if(!cleanNumber){
 
     result.innerHTML = `
       <div class="tracking-error">
@@ -2187,13 +1956,10 @@ async function trackShipment(){
     </div>
   `;
 
-  const cleanNumber =
-    trackingNumber.trim();
-
   try{
 
     /* ------------------------------------------
-       FIRST: NORMAL SHIPMENT
+       1. NORMAL GREENWAY SHIPMENT
     ------------------------------------------ */
 
     const shipmentResponse =
@@ -2204,11 +1970,8 @@ async function trackShipment(){
           "tracking_number",
           cleanNumber
         )
+        .limit(1)
         .maybeSingle();
-
-    let shipment =
-      shipmentResponse.data ||
-      null;
 
     if(
       shipmentResponse.error
@@ -2221,10 +1984,10 @@ async function trackShipment(){
 
     }
 
-    if(shipment){
+    if(shipmentResponse.data){
 
       await renderShipmentResult(
-        shipment
+        shipmentResponse.data
       );
 
       return;
@@ -2233,7 +1996,7 @@ async function trackShipment(){
 
 
     /* ------------------------------------------
-       SECOND: SHOP ORDER TRACKING NUMBER
+       2. SHOP ORDER BY OFFICIAL TRACKING NUMBER
     ------------------------------------------ */
 
     const orderTrackingResponse =
@@ -2244,6 +2007,7 @@ async function trackShipment(){
           "tracking_number",
           cleanNumber
         )
+        .limit(1)
         .maybeSingle();
 
     if(
@@ -2260,7 +2024,7 @@ async function trackShipment(){
 
 
     /* ------------------------------------------
-       THIRD: SHOP ORDER NUMBER
+       3. SHOP ORDER BY ORDER NUMBER
     ------------------------------------------ */
 
     const orderNumberResponse =
@@ -2271,6 +2035,7 @@ async function trackShipment(){
           "order_number",
           cleanNumber
         )
+        .limit(1)
         .maybeSingle();
 
     if(
@@ -2301,8 +2066,8 @@ async function trackShipment(){
 
         <br><br>
 
-        Please check the tracking number
-        and try again.
+        Please check the tracking number or
+        order number and try again.
 
       </div>
     `;
@@ -2333,17 +2098,19 @@ async function trackShipment(){
 
 
 /* ==================================================
-   RENDER FULL SHIPMENT
+   NORMAL SHIPMENT RESULT
 ================================================== */
 
-async function renderShipmentResult(
-  shipment
-){
+async function renderShipmentResult(shipment){
 
   const result =
     document.getElementById(
       "result"
     );
+
+  if(!result){
+    return;
+  }
 
   const trackingNumber =
     firstValue(
@@ -2528,7 +2295,6 @@ async function renderShipmentResult(
 
       </div>
 
-
       <div class="tracking-number-display">
 
         Tracking Number:
@@ -2538,7 +2304,6 @@ async function renderShipmentResult(
         </strong>
 
       </div>
-
 
       <div class="status-box">
 
@@ -2564,7 +2329,6 @@ async function renderShipmentResult(
 
       </div>
 
-
       <div class="shipment-grid">
 
         <div class="shipment-info">
@@ -2575,7 +2339,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">📞</span>
           <span class="info-label">Sender Phone</span>
@@ -2583,7 +2346,6 @@ async function renderShipmentResult(
             ${escapeHtml(senderPhone || "Not available")}
           </span>
         </div>
-
 
         <div class="shipment-info">
           <span class="info-icon">📧</span>
@@ -2593,7 +2355,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">👤</span>
           <span class="info-label">Receiver</span>
@@ -2601,7 +2362,6 @@ async function renderShipmentResult(
             ${escapeHtml(receiverName || "Not available")}
           </span>
         </div>
-
 
         <div class="shipment-info">
           <span class="info-icon">📞</span>
@@ -2611,7 +2371,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">📧</span>
           <span class="info-label">Receiver Email</span>
@@ -2619,7 +2378,6 @@ async function renderShipmentResult(
             ${escapeHtml(receiverEmail || "Not available")}
           </span>
         </div>
-
 
         <div class="shipment-info">
           <span class="info-icon">📍</span>
@@ -2629,7 +2387,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">🏁</span>
           <span class="info-label">Destination</span>
@@ -2637,7 +2394,6 @@ async function renderShipmentResult(
             ${escapeHtml(destination || "Not available")}
           </span>
         </div>
-
 
         <div class="shipment-info">
           <span class="info-icon">📦</span>
@@ -2647,7 +2403,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">⚖️</span>
           <span class="info-label">Weight</span>
@@ -2656,7 +2411,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">🚚</span>
           <span class="info-label">Service Type</span>
@@ -2664,7 +2418,6 @@ async function renderShipmentResult(
             ${escapeHtml(serviceType || "Not available")}
           </span>
         </div>
-
 
         <div class="shipment-info">
           <span class="info-icon">📅</span>
@@ -2684,7 +2437,6 @@ async function renderShipmentResult(
           </span>
         </div>
 
-
         <div class="shipment-info">
           <span class="info-icon">📝</span>
           <span class="info-label">Description</span>
@@ -2692,7 +2444,6 @@ async function renderShipmentResult(
             ${escapeHtml(description || "Not available")}
           </span>
         </div>
-
 
         <div class="shipment-info">
           <span class="info-icon">🕐</span>
@@ -2702,7 +2453,9 @@ async function renderShipmentResult(
               updatedAt
               ?
               escapeHtml(
-                formatDate(updatedAt)
+                formatDate(
+                  updatedAt
+                )
               )
               :
               "Not available"
@@ -2711,7 +2464,6 @@ async function renderShipmentResult(
         </div>
 
       </div>
-
 
       <div
         id="shipmentHistory"
@@ -2793,7 +2545,6 @@ async function loadShipmentEvents(
 
     }
 
-
     const byTracking =
       await supabaseClient
         .from("shipment_events")
@@ -2823,7 +2574,6 @@ async function loadShipmentEvents(
       return;
 
     }
-
 
     history.innerHTML = `
 
@@ -2870,9 +2620,7 @@ async function loadShipmentEvents(
       </h3>
 
       <div class="order-detail-card">
-
         Shipment history is currently unavailable.
-
       </div>
 
     `;
@@ -2880,7 +2628,6 @@ async function loadShipmentEvents(
   }
 
 }
-
 
 function renderTimeline(
   container,
@@ -2890,15 +2637,11 @@ function renderTimeline(
   if(!events.length){
 
     container.innerHTML = `
-
-      <h3>
-        📍 Shipment History
-      </h3>
+      <h3>📍 Shipment History</h3>
 
       <div class="order-detail-card">
         No shipment events have been recorded yet.
       </div>
-
     `;
 
     return;
@@ -3006,7 +2749,7 @@ function renderTimeline(
 
 
 /* ==================================================
-   SHOP
+   SHOP OPEN / CLOSE
 ================================================== */
 
 const shopPage =
@@ -3014,40 +2757,46 @@ const shopPage =
     "shopPage"
   );
 
-const openShopButton =
-  document.getElementById(
-    "openShopButton"
-  );
-
 const shopButtonMain =
   document.getElementById(
     "shopButtonMain"
   );
 
+/*
+  Some older versions of the page used
+  openShopButton. It may not exist anymore.
+  We safely support it if it exists.
+*/
+
+const openShopButton =
+  document.getElementById(
+    "openShopButton"
+  );
 
 function openShop(){
 
+  if(!shopPage){
+    return;
+  }
+
   document
     .querySelectorAll(
-      "body > header, body > section:not(#shopPage), body > div:not(.chat-window):not(.chat-launch), body > footer"
+      "body > header, body > section:not(#shopPage), body > div:not(.chat-window), body > footer"
     )
     .forEach(
       function(element){
 
-        if(
-          element.id !== "shopPage"
-        ){
-
-          element.style.display =
-            "none";
-
-        }
+        element.style.display =
+          "none";
 
       }
     );
 
   shopPage.style.display =
     "block";
+
+  window.location.hash =
+    "shop";
 
   window.scrollTo({
     top:0,
@@ -3059,14 +2808,54 @@ function openShop(){
 }
 
 
+/*
+  IMPORTANT FIX:
+  Never call addEventListener on
+  openShopButton unless it exists.
+*/
+
+if(openShopButton){
+
+  openShopButton.addEventListener(
+    "click",
+    function(event){
+
+      event.preventDefault();
+
+      openShop();
+
+    }
+  );
+
+}
+
+if(shopButtonMain){
+
+  shopButtonMain.addEventListener(
+    "click",
+    function(event){
+
+      event.preventDefault();
+
+      openShop();
+
+    }
+  );
+
+}
+
 function closeShop(){
+
+  if(!shopPage){
+    return;
+  }
 
   shopPage.style.display =
     "none";
 
   document
     .querySelectorAll(
-      "body > header, body > section:not(#shopPage), body > div:not(.chat-window):not(.chat-launch), body > footer"
+      "body > header, body > section:not(#shopPage), body > div:not(.chat-window), body > footer"
     )
     .forEach(
       function(element){
@@ -3087,36 +2876,14 @@ function closeShop(){
 
 }
 
-
-openShopButton.addEventListener(
-  "click",
-  function(event){
-
-    event.preventDefault();
-
-    openShop();
-
-  }
-);
-
-
-shopButtonMain.addEventListener(
-  "click",
-  function(event){
-
-    event.preventDefault();
-
-    openShop();
-
-  }
-);
-
-
-document
-  .getElementById(
+const shopBackButton =
+  document.getElementById(
     "shopBackButton"
-  )
-  .addEventListener(
+  );
+
+if(shopBackButton){
+
+  shopBackButton.addEventListener(
     "click",
     function(event){
 
@@ -3126,6 +2893,8 @@ document
 
     }
   );
+
+}
 
 
 /* ==================================================
@@ -3138,6 +2907,10 @@ async function loadProducts(){
     document.getElementById(
       "productsGrid"
     );
+
+  if(!grid){
+    return;
+  }
 
   grid.innerHTML = `
     <div class="shop-empty">
@@ -3241,6 +3014,7 @@ async function loadProducts(){
   }catch(error){
 
     console.error(
+      "Product loading error:",
       error
     );
 
@@ -3269,6 +3043,10 @@ function renderProducts(){
     document.getElementById(
       "productsGrid"
     );
+
+  if(!grid){
+    return;
+  }
 
   if(!products.length){
 
@@ -3301,7 +3079,9 @@ function renderProducts(){
               alt="${escapeAttribute(product.name)}"
               onerror="
                 this.style.display='none';
-                this.nextElementSibling.style.display='flex';
+                if(this.nextElementSibling){
+                  this.nextElementSibling.style.display='flex';
+                }
               "
             >
 
@@ -3350,12 +3130,10 @@ function renderProducts(){
                 </div>
 
                 <div class="product-price">
-
                   ${formatMoney(
                     product.price,
                     product.currency
                   )}
-
                 </div>
 
                 <div class="small-note">
@@ -3391,7 +3169,7 @@ function renderProducts(){
                     <input
                       type="number"
                       min="1"
-                      max="${product.stock}"
+                      max="${Number(product.stock)}"
                       value="1"
                       id="quantity-${escapeAttribute(product.id)}">
 
@@ -3417,7 +3195,6 @@ function renderProducts(){
         }
       )
       .join("");
-
 
   document
     .querySelectorAll(
@@ -3459,6 +3236,26 @@ function renderProducts(){
 
             }
 
+            const product =
+              products.find(
+                function(item){
+
+                  return String(item.id) ===
+                    String(productId);
+
+                }
+              );
+
+            if(product){
+
+              quantity =
+                Math.min(
+                  Number(product.stock),
+                  Math.floor(quantity)
+                );
+
+            }
+
             addToCart(
               productId,
               quantity
@@ -3485,8 +3282,10 @@ function addToCart(
   const product =
     products.find(
       function(item){
+
         return String(item.id) ===
           String(productId);
+
       }
     );
 
@@ -3494,11 +3293,31 @@ function addToCart(
     return;
   }
 
+  const stock =
+    Number(product.stock);
+
+  if(stock <= 0){
+    return;
+  }
+
+  const safeQuantity =
+    Math.min(
+      stock,
+      Math.max(
+        1,
+        Math.floor(
+          Number(quantity) || 1
+        )
+      )
+    );
+
   const existing =
     cart.find(
       function(item){
+
         return String(item.id) ===
           String(productId);
+
       }
     );
 
@@ -3506,9 +3325,9 @@ function addToCart(
 
     existing.quantity =
       Math.min(
-        Number(product.stock),
-        existing.quantity +
-        quantity
+        stock,
+        Number(existing.quantity || 0) +
+        safeQuantity
       );
 
   }else{
@@ -3525,25 +3344,18 @@ function addToCart(
 
       image:product.image,
 
-      quantity:Math.min(
-        Number(product.stock),
-        quantity
-      )
+      quantity:safeQuantity
 
     });
 
   }
 
   saveCart();
-
   renderCart();
 
 }
 
-
-function removeFromCart(
-  productId
-){
+function removeFromCart(productId){
 
   cart =
     cart.filter(
@@ -3556,11 +3368,9 @@ function removeFromCart(
     );
 
   saveCart();
-
   renderCart();
 
 }
-
 
 function saveCart(){
 
@@ -3570,7 +3380,6 @@ function saveCart(){
   );
 
 }
-
 
 function renderCart(){
 
@@ -3597,8 +3406,10 @@ function renderCart(){
     `;
 
     if(totalElement){
+
       totalElement.textContent =
         "$0.00";
+
     }
 
     return;
@@ -3624,9 +3435,7 @@ function renderCart(){
             <div class="cart-item">
 
               <div class="cart-item-title">
-
                 ${escapeHtml(item.name)}
-
               </div>
 
               <div class="cart-item-row">
@@ -3664,7 +3473,6 @@ function renderCart(){
       )
       .join("");
 
-
   container
     .querySelectorAll(
       "[data-remove-id]"
@@ -3688,7 +3496,6 @@ function renderCart(){
       }
     );
 
-
   if(totalElement){
 
     const currency =
@@ -3710,11 +3517,14 @@ function renderCart(){
    CHECKOUT
 ================================================== */
 
-document
-  .getElementById(
+const checkoutButton =
+  document.getElementById(
     "checkoutButton"
-  )
-  .addEventListener(
+  );
+
+if(checkoutButton){
+
+  checkoutButton.addEventListener(
     "click",
     function(){
 
@@ -3728,27 +3538,37 @@ document
 
       }
 
-      document
-        .getElementById(
+      const panel =
+        document.getElementById(
           "checkoutPanel"
-        )
-        .classList.toggle(
+        );
+
+      if(panel){
+
+        panel.classList.toggle(
           "active"
         );
+
+      }
 
     }
   );
 
+}
 
-document
-  .getElementById(
+const placeOrderButton =
+  document.getElementById(
     "placeOrderButton"
-  )
-  .addEventListener(
+  );
+
+if(placeOrderButton){
+
+  placeOrderButton.addEventListener(
     "click",
     placeShopOrder
   );
 
+}
 
 async function placeShopOrder(){
 
@@ -3803,7 +3623,6 @@ async function placeShopOrder(){
       .value
       .trim();
 
-
   if(
     !name ||
     !email ||
@@ -3821,7 +3640,6 @@ async function placeShopOrder(){
 
   }
 
-
   let total = 0;
 
   cart.forEach(
@@ -3834,24 +3652,9 @@ async function placeShopOrder(){
     }
   );
 
-
   const currency =
     cart[0].currency ||
     "USD";
-
-
-  /*
-    IMPORTANT:
-
-    The customer does NOT create the official
-    GW- tracking number here.
-
-    The admin generates/assigns the official
-    Greenway tracking number after approval.
-
-    The customer can later track using that
-    official tracking number.
-  */
 
   const orderItems =
     cart.map(
@@ -3883,18 +3686,16 @@ async function placeShopOrder(){
       }
     );
 
-
-  const placeButton =
+  const button =
     document.getElementById(
       "placeOrderButton"
     );
 
-  placeButton.disabled =
+  button.disabled =
     true;
 
-  placeButton.textContent =
+  button.textContent =
     "Submitting Order...";
-
 
   try{
 
@@ -3940,7 +3741,6 @@ async function placeShopOrder(){
         .select()
         .single();
 
-
     if(error){
 
       console.error(
@@ -3957,13 +3757,10 @@ async function placeShopOrder(){
 
     }
 
-
     cart = [];
 
     saveCart();
-
     renderCart();
-
 
     document
       .getElementById(
@@ -3973,67 +3770,83 @@ async function placeShopOrder(){
         "active"
       );
 
-
     const orderNumber =
       data &&
       data.order_number
       ?
       data.order_number
       :
-      "Your order has been received";
+      "Order received";
 
-
-    document
-      .getElementById(
+    const result =
+      document.getElementById(
         "result"
-      )
-      .innerHTML = `
+      );
 
-        <div class="tracking-result">
+    result.innerHTML = `
 
-          <div class="tracking-result-header">
+      <div class="tracking-result">
 
-            <h3>
-              ✅ Order Submitted Successfully
-            </h3>
+        <div class="tracking-result-header">
 
-            <p>
-              Greenway Shop has received your order.
-            </p>
+          <h3>
+            ✅ Order Submitted Successfully
+          </h3>
 
-          </div>
-
-          <div class="tracking-number-display">
-
-            Order Number:
-
-            <strong>
-              ${escapeHtml(orderNumber)}
-            </strong>
-
-          </div>
-
-          <div class="order-detail-card">
-
-            <strong>
-              Your official Greenway tracking number
-              will be available after your order is
-              approved and processed by Greenway Express.
-            </strong>
-
-            <br><br>
-
-            Once your order receives its official
-            <strong>GW- tracking number</strong>,
-            enter that number in the tracking box
-            to follow your delivery.
-
-          </div>
+          <p>
+            Greenway Shop has received your order.
+          </p>
 
         </div>
 
-      `;
+        <div class="tracking-number-display">
 
+          Order Number:
+
+          <strong>
+            ${escapeHtml(orderNumber)}
+          </strong>
+
+        </div>
+
+        <div class="status-box">
+
+          <strong>
+            Order Status:
+          </strong>
+
+          Pending
+
+          <br><br>
+
+          Your official Greenway tracking number
+          will be assigned after your order is
+          approved and processed.
+
+        </div>
+
+        <div class="order-detail-card">
+
+          <strong>
+            Save your order number:
+          </strong>
+
+          <br><br>
+
+          <span>
+            ${escapeHtml(orderNumber)}
+          </span>
+
+          <br><br>
+
+          You can enter this order number in
+          the tracking box to check your order.
+
+        </div>
+
+      </div>
+
+    `;
 
     document
       .getElementById(
@@ -4043,10 +3856,10 @@ async function placeShopOrder(){
         behavior:"smooth"
       });
 
-
   }catch(error){
 
     console.error(
+      "Place order exception:",
       error
     );
 
@@ -4057,16 +3870,15 @@ async function placeShopOrder(){
 
   }finally{
 
-    placeButton.disabled =
+    button.disabled =
       false;
 
-    placeButton.textContent =
+    button.textContent =
       "🛍️ Place Order";
 
   }
 
 }
-
 
 function showCheckoutMessage(
   message,
@@ -4077,6 +3889,10 @@ function showCheckoutMessage(
     document.getElementById(
       "checkoutMessage"
     );
+
+  if(!element){
+    return;
+  }
 
   element.textContent =
     message;
@@ -4092,15 +3908,16 @@ function showCheckoutMessage(
    SHOP ORDER TRACKING
 ================================================== */
 
-function renderShopOrderTracking(
-  order
-){
+function renderShopOrderTracking(order){
 
   const result =
     document.getElementById(
       "result"
     );
 
+  if(!result){
+    return;
+  }
 
   const trackingNumber =
     firstValue(
@@ -4112,7 +3929,6 @@ function renderShopOrderTracking(
       ]
     );
 
-
   const orderNumber =
     firstValue(
       order,
@@ -4121,7 +3937,6 @@ function renderShopOrderTracking(
         "orderNumber"
       ]
     );
-
 
   const status =
     firstValue(
@@ -4133,7 +3948,6 @@ function renderShopOrderTracking(
     ) ||
     "Pending";
 
-
   const customerName =
     firstValue(
       order,
@@ -4142,7 +3956,6 @@ function renderShopOrderTracking(
         "name"
       ]
     );
-
 
   const customerEmail =
     firstValue(
@@ -4153,7 +3966,6 @@ function renderShopOrderTracking(
       ]
     );
 
-
   const customerPhone =
     firstValue(
       order,
@@ -4162,7 +3974,6 @@ function renderShopOrderTracking(
         "phone"
       ]
     );
-
 
   const country =
     firstValue(
@@ -4173,7 +3984,6 @@ function renderShopOrderTracking(
       ]
     );
 
-
   const address =
     firstValue(
       order,
@@ -4183,22 +3993,18 @@ function renderShopOrderTracking(
       ]
     );
 
-
   const total =
     Number(
       order.total || 0
     );
 
-
   const currency =
     order.currency ||
     "USD";
 
-
   let items =
     order.items ||
     [];
-
 
   if(
     typeof items === "string"
@@ -4217,7 +4023,6 @@ function renderShopOrderTracking(
 
   }
 
-
   if(
     !Array.isArray(items)
   ){
@@ -4225,7 +4030,6 @@ function renderShopOrderTracking(
     items = [];
 
   }
-
 
   result.innerHTML = `
 
@@ -4242,7 +4046,6 @@ function renderShopOrderTracking(
         </p>
 
       </div>
-
 
       ${
         trackingNumber
@@ -4275,16 +4078,13 @@ function renderShopOrderTracking(
         `
       }
 
-
       <div class="status-box">
 
         <strong>
           Order Status:
         </strong>
 
-        <span class="order-status">
-          ${escapeHtml(status)}
-        </span>
+        ${escapeHtml(status)}
 
         ${
           !trackingNumber
@@ -4294,7 +4094,7 @@ function renderShopOrderTracking(
 
           Your official Greenway tracking number
           will appear after the order is approved
-          by Greenway Express.
+          and processed by Greenway Express.
           `
           :
           ""
@@ -4302,15 +4102,11 @@ function renderShopOrderTracking(
 
       </div>
 
-
       <div class="shipment-grid">
-
 
         <div class="shipment-info">
 
-          <span class="info-icon">
-            🧾
-          </span>
+          <span class="info-icon">🧾</span>
 
           <span class="info-label">
             Order Number
@@ -4325,12 +4121,9 @@ function renderShopOrderTracking(
 
         </div>
 
-
         <div class="shipment-info">
 
-          <span class="info-icon">
-            👤
-          </span>
+          <span class="info-icon">👤</span>
 
           <span class="info-label">
             Customer
@@ -4345,12 +4138,9 @@ function renderShopOrderTracking(
 
         </div>
 
-
         <div class="shipment-info">
 
-          <span class="info-icon">
-            📧
-          </span>
+          <span class="info-icon">📧</span>
 
           <span class="info-label">
             Email
@@ -4365,12 +4155,9 @@ function renderShopOrderTracking(
 
         </div>
 
-
         <div class="shipment-info">
 
-          <span class="info-icon">
-            📞
-          </span>
+          <span class="info-icon">📞</span>
 
           <span class="info-label">
             Phone
@@ -4385,12 +4172,9 @@ function renderShopOrderTracking(
 
         </div>
 
-
         <div class="shipment-info">
 
-          <span class="info-icon">
-            🌍
-          </span>
+          <span class="info-icon">🌍</span>
 
           <span class="info-label">
             Country
@@ -4405,12 +4189,9 @@ function renderShopOrderTracking(
 
         </div>
 
-
         <div class="shipment-info">
 
-          <span class="info-icon">
-            📍
-          </span>
+          <span class="info-icon">📍</span>
 
           <span class="info-label">
             Delivery Address
@@ -4425,12 +4206,9 @@ function renderShopOrderTracking(
 
         </div>
 
-
         <div class="shipment-info">
 
-          <span class="info-icon">
-            💰
-          </span>
+          <span class="info-icon">💰</span>
 
           <span class="info-label">
             Order Total
@@ -4447,13 +4225,11 @@ function renderShopOrderTracking(
 
       </div>
 
-
       <div class="order-detail-card">
 
         <h3 style="color:#0b6b3a;margin-top:0;">
           🛒 Ordered Items
         </h3>
-
 
         <div class="order-items">
 
@@ -4490,8 +4266,7 @@ function renderShopOrderTracking(
 
                         <br>
 
-                        <span
-                          style="color:#64748b;">
+                        <span style="color:#64748b;">
 
                           Quantity:
                           ${quantity}
@@ -4499,7 +4274,6 @@ function renderShopOrderTracking(
                         </span>
 
                       </div>
-
 
                       <strong>
 
@@ -4530,7 +4304,6 @@ function renderShopOrderTracking(
 
       </div>
 
-
       <div class="order-detail-card">
 
         <strong>
@@ -4548,7 +4321,6 @@ function renderShopOrderTracking(
           :
           "Not available"
         }
-
 
         ${
           order.updated_at
@@ -4571,7 +4343,6 @@ function renderShopOrderTracking(
         }
 
       </div>
-
 
     </div>
 
@@ -4599,39 +4370,53 @@ const chatClose =
     "chatClose"
   );
 
+if(chatLaunch){
 
-chatLaunch.addEventListener(
-  "click",
-  function(){
+  chatLaunch.addEventListener(
+    "click",
+    function(){
 
-    chatWindow.classList.toggle(
-      "active"
-    );
+      if(!chatWindow){
+        return;
+      }
 
-    if(
-      chatWindow.classList.contains(
+      chatWindow.classList.toggle(
         "active"
-      )
-    ){
+      );
 
-      loadChatMessages();
+      if(
+        chatWindow.classList.contains(
+          "active"
+        )
+      ){
+
+        loadChatMessages();
+
+      }
 
     }
+  );
 
-  }
-);
+}
 
+if(chatClose){
 
-chatClose.addEventListener(
-  "click",
-  function(){
+  chatClose.addEventListener(
+    "click",
+    function(){
 
-    chatWindow.classList.remove(
-      "active"
-    );
+      if(chatWindow){
 
-  }
-);
+        chatWindow.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
 
 
 /* ==================================================
@@ -4641,129 +4426,158 @@ chatClose.addEventListener(
 let selectedChatImage =
   null;
 
-
 const chatImageButton =
   document.getElementById(
     "chatImageButton"
   );
-
 
 const chatImageInput =
   document.getElementById(
     "chatImageInput"
   );
 
-
 const imagePreview =
   document.getElementById(
     "imagePreview"
   );
-
 
 const previewImage =
   document.getElementById(
     "previewImage"
   );
 
-
 const previewName =
   document.getElementById(
     "previewName"
   );
-
 
 const removePreview =
   document.getElementById(
     "removePreview"
   );
 
+if(chatImageButton){
 
-chatImageButton.addEventListener(
-  "click",
-  function(){
+  chatImageButton.addEventListener(
+    "click",
+    function(){
 
-    chatImageInput.click();
+      if(chatImageInput){
 
-  }
-);
+        chatImageInput.click();
 
-
-chatImageInput.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files &&
-      this.files[0];
-
-    if(!file){
-      return;
-    }
-
-
-    if(
-      !file.type.startsWith(
-        "image/"
-      )
-    ){
-
-      alert(
-        "Please select an image."
-      );
-
-      this.value =
-        "";
-
-      return;
+      }
 
     }
+  );
 
+}
 
-    selectedChatImage =
-      file;
+if(chatImageInput){
 
+  chatImageInput.addEventListener(
+    "change",
+    function(){
 
-    previewImage.src =
-      URL.createObjectURL(
-        file
-      );
+      const file =
+        this.files &&
+        this.files[0];
 
+      if(!file){
+        return;
+      }
 
-    previewName.textContent =
-      file.name;
+      if(
+        !file.type.startsWith(
+          "image/"
+        )
+      ){
 
+        alert(
+          "Please select an image."
+        );
 
-    imagePreview.classList.add(
-      "active"
-    );
+        this.value =
+          "";
 
-  }
-);
+        return;
 
+      }
 
-removePreview.addEventListener(
-  "click",
-  clearChatImage
-);
+      selectedChatImage =
+        file;
 
+      if(previewImage){
+
+        previewImage.src =
+          URL.createObjectURL(
+            file
+          );
+
+      }
+
+      if(previewName){
+
+        previewName.textContent =
+          file.name;
+
+      }
+
+      if(imagePreview){
+
+        imagePreview.classList.add(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+if(removePreview){
+
+  removePreview.addEventListener(
+    "click",
+    clearChatImage
+  );
+
+}
 
 function clearChatImage(){
 
   selectedChatImage =
     null;
 
-  chatImageInput.value =
-    "";
+  if(chatImageInput){
 
-  previewImage.src =
-    "";
+    chatImageInput.value =
+      "";
 
-  previewName.textContent =
-    "";
+  }
 
-  imagePreview.classList.remove(
-    "active"
-  );
+  if(previewImage){
+
+    previewImage.src =
+      "";
+
+  }
+
+  if(previewName){
+
+    previewName.textContent =
+      "";
+
+  }
+
+  if(imagePreview){
+
+    imagePreview.classList.remove(
+      "active"
+    );
+
+  }
 
 }
 
@@ -4779,12 +4593,15 @@ async function loadChatMessages(){
       "chatMessages"
     );
 
+  if(!container){
+    return;
+  }
+
   container.innerHTML = `
     <div class="message admin">
       Loading messages...
     </div>
   `;
-
 
   try{
 
@@ -4806,7 +4623,6 @@ async function loadChatMessages(){
           }
         );
 
-
     if(error){
 
       console.error(
@@ -4825,7 +4641,6 @@ async function loadChatMessages(){
 
     }
 
-
     if(
       !data ||
       !data.length
@@ -4842,7 +4657,6 @@ async function loadChatMessages(){
 
     }
 
-
     container.innerHTML =
       data
         .map(
@@ -4855,21 +4669,17 @@ async function loadChatMessages(){
                 "admin"
               ).toLowerCase();
 
-
             const isCustomer =
               sender === "customer";
-
 
             const text =
               message.message ||
               message.content ||
               "";
 
-
             const image =
               message.image_url ||
               "";
-
 
             const time =
               message.created_at
@@ -4879,7 +4689,6 @@ async function loadChatMessages(){
               ).toLocaleString()
               :
               "";
-
 
             return `
 
@@ -4897,7 +4706,6 @@ async function loadChatMessages(){
                   ""
                 }
 
-
                 ${
                   image
                   ?
@@ -4910,7 +4718,6 @@ async function loadChatMessages(){
                   :
                   ""
                 }
-
 
                 ${
                   time
@@ -4932,14 +4739,13 @@ async function loadChatMessages(){
         )
         .join("");
 
-
     container.scrollTop =
       container.scrollHeight;
-
 
   }catch(error){
 
     console.error(
+      "Chat loading exception:",
       error
     );
 
@@ -4959,21 +4765,28 @@ async function loadChatMessages(){
    SEND CHAT MESSAGE
 ================================================== */
 
-document
-  .getElementById(
+const sendChatButton =
+  document.getElementById(
     "sendChatButton"
-  )
-  .addEventListener(
+  );
+
+const chatMessageInput =
+  document.getElementById(
+    "chatMessageInput"
+  );
+
+if(sendChatButton){
+
+  sendChatButton.addEventListener(
     "click",
     sendChatMessage
   );
 
+}
 
-document
-  .getElementById(
-    "chatMessageInput"
-  )
-  .addEventListener(
+if(chatMessageInput){
+
+  chatMessageInput.addEventListener(
     "keydown",
     function(event){
 
@@ -4991,6 +4804,7 @@ document
     }
   );
 
+}
 
 async function sendChatMessage(){
 
@@ -4999,10 +4813,12 @@ async function sendChatMessage(){
       "chatMessageInput"
     );
 
+  if(!input){
+    return;
+  }
 
   const text =
     input.value.trim();
-
 
   if(
     !text &&
@@ -5013,30 +4829,30 @@ async function sendChatMessage(){
 
   }
 
-
   const sendButton =
     document.getElementById(
       "sendChatButton"
     );
 
+  if(sendButton){
 
-  sendButton.disabled =
-    true;
+    sendButton.disabled =
+      true;
 
+  }
 
   try{
 
     let imageUrl =
       null;
 
-
     if(selectedChatImage){
 
       const extension =
         selectedChatImage.name
           .split(".")
-          .pop();
-
+          .pop()
+          .toLowerCase();
 
       const filePath =
         customerId +
@@ -5044,7 +4860,6 @@ async function sendChatMessage(){
         Date.now() +
         "." +
         extension;
-
 
       const upload =
         await supabaseClient
@@ -5058,7 +4873,6 @@ async function sendChatMessage(){
             }
           );
 
-
       if(upload.error){
 
         console.error(
@@ -5066,24 +4880,26 @@ async function sendChatMessage(){
           upload.error
         );
 
-      }else{
+        alert(
+          "The image could not be uploaded. Please try again or send the message without the image."
+        );
 
-        const publicUrl =
-          supabaseClient
-            .storage
-            .from("chat-images")
-            .getPublicUrl(
-              filePath
-            );
-
-
-        imageUrl =
-          publicUrl.data.publicUrl;
+        return;
 
       }
 
-    }
+      const publicUrl =
+        supabaseClient
+          .storage
+          .from("chat-images")
+          .getPublicUrl(
+            filePath
+          );
 
+      imageUrl =
+        publicUrl.data.publicUrl;
+
+    }
 
     const {
       error
@@ -5106,7 +4922,6 @@ async function sendChatMessage(){
 
         });
 
-
     if(error){
 
       console.error(
@@ -5122,7 +4937,6 @@ async function sendChatMessage(){
 
     }
 
-
     input.value =
       "";
 
@@ -5130,10 +4944,10 @@ async function sendChatMessage(){
 
     await loadChatMessages();
 
-
   }catch(error){
 
     console.error(
+      "Chat send exception:",
       error
     );
 
@@ -5143,8 +4957,12 @@ async function sendChatMessage(){
 
   }finally{
 
-    sendButton.disabled =
-      false;
+    if(sendButton){
+
+      sendButton.disabled =
+        false;
+
+    }
 
   }
 
@@ -5158,7 +4976,7 @@ async function sendChatMessage(){
 function handleInitialHash(){
 
   if(
-    window.location.hash ===
+    window.location.hash.toLowerCase() ===
     "#shop"
   ){
 
@@ -5168,12 +4986,68 @@ function handleInitialHash(){
 
 }
 
-
 renderCart();
 
 handleInitialHash();
 
+
+/* ==================================================
+   SAFETY: NORMALIZE CART
+================================================== */
+
+function cleanStoredCart(){
+
+  if(!Array.isArray(cart)){
+
+    cart = [];
+
+    saveCart();
+
+    return;
+
+  }
+
+  cart =
+    cart.filter(
+      function(item){
+
+        return (
+          item &&
+          item.id &&
+          Number(item.quantity) > 0
+        );
+
+      }
+    )
+    .map(
+      function(item){
+
+        return {
+
+          id:item.id,
+
+          name:item.name || "Product",
+
+          price:Number(item.price || 0),
+
+          currency:item.currency || "USD",
+
+          image:item.image || "",
+
+          quantity:Number(item.quantity || 1)
+
+        };
+
+      }
+    );
+
+  saveCart();
+
+}
+
+cleanStoredCart();
+
 </script>
 
 </body>
-</html>
+  </html>
