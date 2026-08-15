@@ -3778,83 +3778,82 @@ async function placeShopOrder(){
       :
       "Order received";
 
-    const result =
-      document.getElementById(
-        "result"
-      );
+    const checkoutMessage =
+  document.getElementById(
+    "checkoutMessage"
+  );
 
-    result.innerHTML = `
+if(checkoutMessage){
 
-      <div class="tracking-result">
+  checkoutMessage.innerHTML = `
 
-        <div class="tracking-result-header">
+    <div class="shop-order-success">
 
-          <h3>
-            ✅ Order Submitted Successfully
-          </h3>
+      <div class="tracking-result-header">
 
-          <p>
-            Greenway Shop has received your order.
-          </p>
+        <h3>
+          ✅ Order Submitted Successfully
+        </h3>
 
-        </div>
-
-        <div class="tracking-number-display">
-
-          Order Number:
-
-          <strong>
-            ${escapeHtml(orderNumber)}
-          </strong>
-
-        </div>
-
-        <div class="status-box">
-
-          <strong>
-            Order Status:
-          </strong>
-
-          Pending
-
-          <br><br>
-
-          Your official Greenway tracking number
-          will be assigned after your order is
-          approved and processed.
-
-        </div>
-
-        <div class="order-detail-card">
-
-          <strong>
-            Save your order number:
-          </strong>
-
-          <br><br>
-
-          <span>
-            ${escapeHtml(orderNumber)}
-          </span>
-
-          <br><br>
-
-          You can enter this order number in
-          the tracking box to check your order.
-
-        </div>
+        <p>
+          Greenway Shop has received your order.
+        </p>
 
       </div>
 
-    `;
+      <div class="tracking-number-display">
 
-    document
-      .getElementById(
-        "tracking"
-      )
-      .scrollIntoView({
-        behavior:"smooth"
-      });
+        Order Number:
+
+        <strong>
+          ${escapeHtml(orderNumber)}
+        </strong>
+
+      </div>
+
+      <div class="status-box">
+
+        <strong>
+          Order Status:
+        </strong>
+
+        Pending
+
+        <br><br>
+
+        Your official Greenway tracking number
+        will be assigned after your order is
+        approved and processed.
+
+      </div>
+
+      <div class="order-detail-card">
+
+        <strong>
+          Save your order number:
+        </strong>
+
+        <br><br>
+
+        <span>
+          ${escapeHtml(orderNumber)}
+        </span>
+
+        <br><br>
+
+        You can enter this order number in
+        the tracking box to check your order.
+
+      </div>
+
+    </div>
+
+  `;
+
+  checkoutMessage.className =
+    "checkout-message success";
+
+}
 
   }catch(error){
 
