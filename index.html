@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07111f">
-<meta name="description" content="Greenway Express - Fast, Safe & Reliable Delivery">
-<title>Greenway Express</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+  name="theme-color"
+  content="#07111f"
+>
+
+<meta
+  name="description"
+  content="Greenway Express — Fast, Safe & Reliable Delivery"
+>
+
+<title>Greenway Express — Fast, Safe & Reliable Delivery</title>
 
 <style>
+
+/* ==================================================
+   GLOBAL
+================================================== */
+
+:root{
+  --green:#0b6b3a;
+  --green-dark:#07502b;
+  --green-light:#eaf8f0;
+  --blue:#0b5ed7;
+  --navy:#07111f;
+  --text:#172033;
+  --muted:#64748b;
+  --white:#ffffff;
+  --border:#e2e8f0;
+  --bg:#f6f9fc;
+  --danger:#dc2626;
+  --shadow:0 14px 35px rgba(7,17,31,.10);
+  --radius:18px;
+}
+
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
 html{
@@ -19,24 +52,23 @@ html{
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f5f8fb;
-  color:#172033;
+  margin:0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color:var(--text);
+  background:var(--bg);
   line-height:1.6;
-}
-
-body.rtl{
-  direction:rtl;
-}
-
-a{
-  text-decoration:none;
 }
 
 button,
 input,
-select,
-textarea{
+textarea,
+select{
   font:inherit;
 }
 
@@ -44,357 +76,411 @@ button{
   cursor:pointer;
 }
 
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#07111f;
-  color:white;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  min-height:76px;
+  padding:12px 20px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:20px;
-  padding:16px 5%;
-  box-shadow:0 4px 18px rgba(0,0,0,.15);
 }
 
-.logo{
-  color:white;
-  font-size:1.5rem;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.logo span{
-  color:#19b86b;
-}
-
-nav{
+.brand{
   display:flex;
   align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
+  gap:11px;
+  min-width:max-content;
 }
 
-nav a{
-  color:#fff;
-  font-weight:600;
-  font-size:.94rem;
-}
-
-nav a:hover{
-  color:#2bd67d;
-}
-
-.language-box select{
-  background:#101e30;
-  color:#fff;
-  border:1px solid #33465c;
-  border-radius:8px;
-  padding:8px 10px;
-}
-
-.shop-button-area{
-  background:#07111f;
-  text-align:center;
-  padding:0 20px 22px;
-}
-
-.shop-button{
-  display:inline-block;
-  background:#19b86b;
-  color:#fff;
-  padding:12px 22px;
-  border-radius:999px;
-  font-weight:800;
-  box-shadow:0 8px 20px rgba(25,184,107,.25);
-}
-
-.shop-button:hover{
-  background:#129957;
-  transform:translateY(-1px);
-}
-
-.hero-main{
-  min-height:570px;
+.brand-logo{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:var(--green);
+  color:white;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:80px 6%;
-  background:
-    linear-gradient(rgba(7,17,31,.72),rgba(7,17,31,.72)),
-    url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=85")
-    center/cover;
-  color:#fff;
+  font-size:22px;
+  box-shadow:0 7px 18px rgba(11,107,58,.22);
 }
 
-.hero-content{
-  max-width:850px;
-}
-
-.hero-content h2{
-  font-size:clamp(2.2rem,5vw,4.5rem);
+.brand-text strong{
+  display:block;
+  font-size:18px;
   line-height:1.1;
-  margin-bottom:22px;
 }
 
-.hero-content p{
-  font-size:1.12rem;
-  max-width:700px;
-  margin:0 auto 30px;
-  color:#e7edf4;
+.brand-text span{
+  color:var(--muted);
+  font-size:11px;
 }
 
-.hero-button{
-  display:inline-block;
-  background:#19b86b;
-  color:white;
-  padding:14px 25px;
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.nav-links a,
+.nav-links button{
+  border:0;
+  background:transparent;
+  color:#334155;
+  padding:9px 11px;
   border-radius:10px;
-  font-weight:800;
-}
-
-section{
-  padding:80px 6%;
-}
-
-.section-title{
-  text-align:center;
-  font-size:2rem;
-  color:#07111f;
-  margin-bottom:12px;
-}
-
-.section-intro{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 40px;
-  color:#667085;
-}
-
-.services-grid,
-.global-grid,
-.steps{
-  max-width:1150px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-
-.service-card,
-.global-card,
-.step,
-.team-card,
-.tracking-box,
-.tracking-result,
-.order-detail-card{
-  background:#fff;
-  border-radius:18px;
-  box-shadow:0 10px 35px rgba(15,23,42,.08);
-  overflow:hidden;
-}
-
-.service-card img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-}
-
-.service-content{
-  padding:22px;
-}
-
-.service-content h3,
-.global-card h3,
-.step h3{
-  color:#0b6b3a;
-  margin-bottom:8px;
-}
-
-.global-card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-.global-card div{
-  padding:20px;
-}
-
-.steps{
-  grid-template-columns:repeat(4,1fr);
-}
-
-.step{
-  padding:25px;
-}
-
-.team-card{
-  max-width:1100px;
-  margin:auto;
-}
-
-.team-card img{
-  width:100%;
-  height:360px;
-  object-fit:cover;
-}
-
-.team-text{
-  padding:30px;
-}
-
-.team-text h3{
-  color:#0b6b3a;
-  margin-bottom:10px;
-}
-
-#contact{
-  text-align:center;
-  background:#07111f;
-  color:white;
-}
-
-#contact h2{
-  margin-bottom:15px;
-}
-
-#contact a{
-  color:#2bd67d;
   font-weight:700;
 }
 
-.customer-id-box{
-  max-width:700px;
-  margin:0 auto 20px;
-  background:#eaf8f0;
-  color:#0b6b3a;
-  padding:14px 18px;
+.nav-links a:hover,
+.nav-links button:hover{
+  background:var(--green-light);
+  color:var(--green);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.language-select{
+  border:1px solid var(--border);
+  background:white;
   border-radius:12px;
-  text-align:center;
-}
-
-.tracking-box{
-  max-width:850px;
-  margin:auto;
-  background:#fff;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 10px 35px rgba(15,23,42,.08);
-}
-
-.tracking-box input{
-  width:100%;
-  padding:15px;
-  border:1px solid #d4dbe4;
-  border-radius:10px;
+  padding:9px 10px;
+  color:#334155;
+  font-weight:700;
   outline:none;
-  margin-bottom:12px;
 }
 
-.tracking-box input:focus,
-.checkout-panel input:focus,
-.checkout-panel select:focus,
-.checkout-panel textarea:focus,
-.chat-input-row textarea:focus{
-  border-color:#19b86b;
-  box-shadow:0 0 0 3px rgba(25,184,107,.1);
+.language-select:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(11,107,58,.10);
 }
 
-#trackButton{
-  width:100%;
+.menu-button{
+  display:none;
   border:0;
-  background:#0b6b3a;
+  background:var(--navy);
   color:white;
-  padding:14px;
-  border-radius:10px;
-  font-weight:800;
+  border-radius:12px;
+  width:43px;
+  height:43px;
 }
 
-.tracking-loading,
-.tracking-error{
-  margin-top:18px;
-  padding:16px;
-  border-radius:10px;
-}
 
-.tracking-loading{
-  background:#eef5ff;
-  color:#24517c;
-}
+/* ==================================================
+   HERO
+================================================== */
 
-.tracking-error{
-  background:#fff0f0;
-  color:#b42318;
-}
-
-.tracking-result{
-  margin-top:20px;
-  padding:25px;
+.hero{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(38,192,112,.18),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(11,94,215,.16),transparent 30%),
+    linear-gradient(135deg,#07111f,#0b2630 55%,#0b6b3a);
+  color:white;
+  padding:82px 20px 70px;
   overflow:hidden;
 }
 
-.tracking-result-header{
-  margin-bottom:20px;
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:45px;
+  align-items:center;
 }
 
-.tracking-result-header h3{
-  color:#0b6b3a;
-  margin-bottom:4px;
+.hero-content h1{
+  font-size:clamp(38px,6vw,68px);
+  line-height:1.02;
+  margin:0 0 18px;
+  letter-spacing:-2px;
 }
 
-.tracking-number-display{
-  background:#07111f;
+.hero-content h2{
+  font-size:clamp(22px,3vw,34px);
+  margin:0 0 15px;
+}
+
+.hero-content p{
+  color:#d7e4e8;
+  max-width:650px;
+  font-size:18px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.hero-button,
+.primary-button{
+  border:0;
+  border-radius:13px;
+  padding:13px 19px;
+  font-weight:800;
+  background:#19a463;
   color:white;
-  padding:17px;
-  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.hero-button:hover,
+.primary-button:hover{
+  background:#23b875;
+  transform:translateY(-1px);
+}
+
+.secondary-button{
+  border:1px solid rgba(255,255,255,.30);
+  border-radius:13px;
+  padding:12px 18px;
+  background:rgba(255,255,255,.08);
+  color:white;
+  font-weight:800;
+}
+
+.hero-visual{
+  min-height:380px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-visual-card{
+  width:min(500px,100%);
+  min-height:330px;
+  border-radius:30px;
+  padding:28px;
+  background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 30px 80px rgba(0,0,0,.25);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-plane{
+  font-size:105px;
+  transform:rotate(-7deg);
+  text-align:center;
+  margin-top:25px;
+  filter:drop-shadow(0 15px 15px rgba(0,0,0,.25));
+}
+
+.hero-truck{
+  font-size:75px;
+  text-align:right;
+  margin-top:30px;
+}
+
+.hero-visual-label{
+  position:absolute;
+  bottom:24px;
+  left:24px;
+  right:24px;
+  padding:14px;
+  border-radius:14px;
+  background:rgba(0,0,0,.25);
+  font-weight:800;
+}
+
+
+/* ==================================================
+   SECTIONS
+================================================== */
+
+section{
+  padding:70px 20px;
+}
+
+.section-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 38px;
+}
+
+.section-heading h2{
+  margin:0 0 9px;
+  font-size:clamp(28px,4vw,42px);
+}
+
+.section-heading p{
+  color:var(--muted);
+  margin:0;
+}
+
+
+/* ==================================================
+   TRACKING
+================================================== */
+
+#tracking{
+  background:white;
+}
+
+.tracking-card{
+  max-width:850px;
+  margin:auto;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.tracking-form{
+  display:flex;
+  gap:10px;
+}
+
+.tracking-form input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:14px;
+  outline:none;
+}
+
+.tracking-form input:focus{
+  border-color:var(--green);
+}
+
+.tracking-form button{
+  border:0;
+  border-radius:13px;
+  background:var(--green);
+  color:white;
+  padding:13px 20px;
+  font-weight:800;
+}
+
+#result{
+  margin-top:22px;
+}
+
+.tracking-result{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  background:#fff;
+}
+
+.tracking-result-header{
   margin-bottom:18px;
 }
 
-.tracking-number-display strong{
-  color:#2bd67d;
+.tracking-result-header h3{
+  margin:0;
+  font-size:23px;
+}
+
+.tracking-result-header p{
+  margin:4px 0 0;
+  color:var(--muted);
+}
+
+.tracking-number-display{
+  padding:15px;
+  border-radius:13px;
+  background:var(--green-light);
+  color:var(--green-dark);
+  margin:12px 0;
 }
 
 .status-box{
-  background:#eaf8f0;
-  border-left:5px solid #19b86b;
-  padding:18px;
-  border-radius:10px;
-  margin-bottom:20px;
+  padding:16px;
+  border-radius:14px;
+  background:#f0f7ff;
+  border:1px solid #dbeafe;
+  margin:15px 0;
 }
 
 .shipment-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
 }
 
 .shipment-info{
-  background:#f8fafc;
-  border:1px solid #e5eaf0;
-  border-radius:12px;
-  padding:16px;
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
 }
 
 .info-icon{
   display:block;
-  font-size:1.35rem;
-  margin-bottom:5px;
+  font-size:21px;
+  margin-bottom:4px;
 }
 
 .info-label{
   display:block;
-  color:#64748b;
-  font-size:.82rem;
-  margin-bottom:4px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
 }
 
 .info-value{
   display:block;
   font-weight:700;
+  margin-top:3px;
   word-break:break-word;
+}
+
+.tracking-error{
+  padding:18px;
+  border-radius:14px;
+  background:#fff1f2;
+  border:1px solid #fecdd3;
+  color:#9f1239;
+}
+
+.tracking-loading{
+  padding:18px;
+  border-radius:14px;
+  background:#f8fafc;
+  color:var(--muted);
 }
 
 .shipment-history{
@@ -402,211 +488,366 @@ section{
 }
 
 .shipment-history h3{
-  margin-bottom:15px;
-  color:#0b6b3a;
+  margin-bottom:16px;
 }
 
 .timeline{
   position:relative;
-  padding-left:28px;
-}
-
-.timeline:before{
-  content:"";
-  position:absolute;
-  left:7px;
-  top:5px;
-  bottom:5px;
-  width:2px;
-  background:#cfe7da;
+  margin-left:10px;
+  padding-left:25px;
+  border-left:2px solid #d9e4dd;
 }
 
 .timeline-item{
   position:relative;
-  margin-bottom:18px;
+  margin-bottom:17px;
 }
 
 .timeline-dot{
   position:absolute;
-  left:-27px;
-  top:7px;
-  width:14px;
-  height:14px;
+  width:13px;
+  height:13px;
   border-radius:50%;
-  background:#19b86b;
-  border:3px solid #eaf8f0;
+  background:var(--green);
+  left:-32px;
+  top:17px;
+  border:3px solid white;
+  box-shadow:0 0 0 2px #b9dcc8;
 }
 
 .timeline-card{
-  background:#f8fafc;
-  border:1px solid #e5eaf0;
-  border-radius:12px;
   padding:15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:white;
 }
 
 .timeline-status{
   font-weight:800;
-  color:#0b6b3a;
+  color:var(--green-dark);
 }
 
 .timeline-location{
-  margin-top:4px;
+  color:#475569;
+  margin-top:3px;
 }
 
 .timeline-date{
-  color:#64748b;
-  font-size:.82rem;
-  margin-top:5px;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:7px;
 }
+
+
+/* ==================================================
+   PROMOTIONAL LOGISTICS
+================================================== */
+
+.promotions{
+  background:#f8fafc;
+}
+
+.promo-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.promo-card{
+  min-height:220px;
+  border-radius:22px;
+  padding:22px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background:linear-gradient(145deg,#0b6b3a,#073b29);
+}
+
+.promo-card:nth-child(2){
+  background:linear-gradient(145deg,#075985,#0c4a6e);
+}
+
+.promo-card:nth-child(3){
+  background:linear-gradient(145deg,#334155,#0f172a);
+}
+
+.promo-card:nth-child(4){
+  background:linear-gradient(145deg,#14532d,#166534);
+}
+
+.promo-icon{
+  font-size:58px;
+  margin-bottom:10px;
+  filter:drop-shadow(0 10px 12px rgba(0,0,0,.18));
+}
+
+.promo-card h3{
+  margin:0 0 6px;
+}
+
+.promo-card p{
+  color:#dbeafe;
+  margin:0;
+}
+
+.promo-badge{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.20);
+  padding:5px 9px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.live-bar{
+  margin-top:25px;
+  border-radius:16px;
+  background:white;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.live-bar-inner{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  padding:14px 18px;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.live-dot{
+  width:9px;
+  height:9px;
+  flex:0 0 auto;
+  background:#16a34a;
+  border-radius:50%;
+  box-shadow:0 0 0 5px #dcfce7;
+}
+
+
+/* ==================================================
+   SERVICES
+================================================== */
+
+.services{
+  background:white;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.service-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.service-icon{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--green-light);
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.service-card h3{
+  margin:0 0 7px;
+}
+
+.service-card p{
+  color:var(--muted);
+  margin:0;
+}
+
+
+/* ==================================================
+   SHOP
+================================================== */
 
 #shopPage{
   display:none;
+  background:#f7faf8;
   min-height:100vh;
-  padding-top:45px;
-  background:#f5f8fb;
+  padding-top:35px;
 }
 
 .shop-container{
   max-width:1250px;
   margin:auto;
+  padding:0 20px 60px;
 }
 
 .shop-top{
-  text-align:center;
-  margin-bottom:30px;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.14),transparent 30%),
+    linear-gradient(135deg,#07111f,#0b6b3a);
+  color:white;
+  padding:30px;
+  border-radius:24px;
+  margin-bottom:24px;
+  box-shadow:var(--shadow);
 }
 
 .shop-top h2{
-  color:#0b6b3a;
-  font-size:2.2rem;
+  margin:0;
+  font-size:32px;
 }
 
 .shop-top p{
-  color:#667085;
-  margin:8px auto 15px;
+  color:#d9f2e4;
+  margin:7px 0 17px;
 }
 
 .shop-back{
   display:inline-block;
-  color:#0b6b3a;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.20);
+  padding:9px 13px;
+  border-radius:11px;
   font-weight:800;
 }
 
 .shop-layout{
   display:grid;
-  grid-template-columns:1fr 340px;
-  gap:25px;
+  grid-template-columns:minmax(0,1fr) 350px;
+  gap:22px;
   align-items:start;
 }
 
 .shop-products{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:17px;
 }
 
 .product-card{
-  background:#fff;
-  border-radius:17px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 8px 28px rgba(15,23,42,.08);
+  box-shadow:0 8px 25px rgba(7,17,31,.07);
 }
 
-.product-image,
-.product-no-image{
+.product-image{
   width:100%;
-  height:220px;
+  height:210px;
   object-fit:cover;
+  display:block;
+  background:#eef2f7;
 }
 
 .product-no-image{
+  height:210px;
+  background:
+    radial-gradient(circle,#e7f5ed,#f8fafc);
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#edf3f7;
-  font-size:3rem;
+  font-size:75px;
 }
 
 .product-body{
-  padding:20px;
+  padding:18px;
 }
 
 .product-category{
   display:inline-block;
-  background:#eaf8f0;
-  color:#0b6b3a;
+  background:var(--green-light);
+  color:var(--green-dark);
+  border-radius:30px;
   padding:4px 9px;
-  border-radius:999px;
-  font-size:.75rem;
-  font-weight:700;
-  margin-bottom:8px;
+  font-size:11px;
+  font-weight:800;
 }
 
 .product-body h3{
-  margin-bottom:7px;
+  margin:9px 0 5px;
 }
 
 .product-description{
-  color:#667085;
-  min-height:45px;
-  font-size:.9rem;
+  color:var(--muted);
+  font-size:14px;
+  min-height:42px;
 }
 
 .product-price{
-  color:#0b6b3a;
-  font-size:1.3rem;
+  color:var(--green-dark);
+  font-size:22px;
   font-weight:900;
-  margin:12px 0 4px;
+  margin-top:10px;
 }
 
 .small-note{
-  color:#64748b;
-  font-size:.82rem;
-  margin-bottom:10px;
+  color:var(--muted);
+  font-size:12px;
+  margin:4px 0 12px;
 }
 
 .quantity-row input{
-  width:100%;
-  padding:10px;
-  border:1px solid #d4dbe4;
-  border-radius:8px;
+  width:90px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:9px;
   margin-bottom:9px;
 }
 
-.add-cart,
-.checkout-button,
-#placeOrderButton{
+.add-cart{
   width:100%;
   border:0;
-  background:#0b6b3a;
-  color:#fff;
-  padding:12px;
-  border-radius:9px;
+  border-radius:11px;
+  background:var(--green);
+  color:white;
+  padding:11px;
   font-weight:800;
 }
 
 .add-cart:disabled{
-  background:#9ca3af;
+  background:#94a3b8;
   cursor:not-allowed;
 }
 
 .cart-card{
-  background:#fff;
-  border-radius:17px;
-  padding:20px;
-  box-shadow:0 8px 28px rgba(15,23,42,.08);
   position:sticky;
-  top:100px;
+  top:95px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:var(--shadow);
 }
 
 .cart-card h3{
-  color:#0b6b3a;
-  margin-bottom:15px;
+  margin-top:0;
+}
+
+.cart-items{
+  max-height:430px;
+  overflow:auto;
+}
+
+.cart-empty{
+  color:var(--muted);
+  padding:15px 0;
 }
 
 .cart-item{
+  border-bottom:1px solid var(--border);
   padding:12px 0;
-  border-bottom:1px solid #e5e7eb;
 }
 
 .cart-item-title{
@@ -615,43 +856,50 @@ section{
 
 .cart-item-row{
   display:flex;
-  justify-content:space-between;
-  gap:10px;
   align-items:center;
-  margin-top:5px;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:6px;
 }
 
 .cart-qty{
-  font-size:.82rem;
-  color:#64748b;
+  color:var(--muted);
+  font-size:12px;
 }
 
 .remove-item{
   border:0;
-  background:#fff0f0;
-  color:#b42318;
-  border-radius:7px;
+  background:#fff1f2;
+  color:#be123c;
+  border-radius:8px;
   padding:5px 8px;
-  font-size:.75rem;
+  font-size:11px;
+  font-weight:800;
 }
 
 .cart-total{
   display:flex;
   justify-content:space-between;
+  font-size:20px;
   font-weight:900;
-  font-size:1.15rem;
-  padding:17px 0;
+  padding:18px 0;
 }
 
 .checkout-button{
-  background:#19b86b;
+  width:100%;
+  border:0;
+  border-radius:12px;
+  background:var(--navy);
+  color:white;
+  padding:13px;
+  font-weight:800;
 }
 
 .checkout-panel{
   display:none;
-  margin-top:18px;
-  border-top:1px solid #e5e7eb;
-  padding-top:18px;
+  margin-top:17px;
+  border-top:1px solid var(--border);
+  padding-top:17px;
 }
 
 .checkout-panel.active{
@@ -659,58 +907,88 @@ section{
 }
 
 .checkout-panel h4{
-  margin-bottom:12px;
+  margin-top:0;
 }
 
 .checkout-panel input,
 .checkout-panel select,
 .checkout-panel textarea{
   width:100%;
-  padding:12px;
-  border:1px solid #d4dbe4;
-  border-radius:9px;
-  margin-bottom:10px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:11px;
+  margin-bottom:9px;
   outline:none;
-  background:#fff;
+  background:white;
 }
 
 .checkout-panel textarea{
-  min-height:90px;
+  min-height:95px;
   resize:vertical;
 }
 
+.checkout-panel input:focus,
+.checkout-panel select:focus,
+.checkout-panel textarea:focus{
+  border-color:var(--green);
+}
+
+#placeOrderButton{
+  width:100%;
+  border:0;
+  border-radius:11px;
+  background:var(--green);
+  color:white;
+  padding:12px;
+  font-weight:800;
+}
+
+#placeOrderButton:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
 .checkout-message{
+  margin-top:13px;
   display:none;
-  margin-top:10px;
-  padding:10px;
-  border-radius:8px;
-  font-size:.88rem;
+}
+
+.checkout-message.success,
+.checkout-message.error{
+  display:block;
 }
 
 .checkout-message.error{
-  display:block;
-  background:#fff0f0;
-  color:#b42318;
-}
-
-.checkout-message.success{
-  display:block;
-  background:#eaf8f0;
-  color:#0b6b3a;
-}
-
-.shop-empty,
-.cart-empty{
-  background:#fff;
-  padding:25px;
+  background:#fff1f2;
+  border:1px solid #fecdd3;
+  color:#9f1239;
   border-radius:12px;
-  text-align:center;
-  color:#64748b;
+  padding:12px;
+}
+
+.shop-order-success{
+  margin-top:14px;
+  border:1px solid #bbf7d0;
+  background:#f0fdf4;
+  border-radius:16px;
+  padding:15px;
+}
+
+.shop-order-success .tracking-result-header h3{
+  color:var(--green-dark);
+}
+
+.shop-order-success .tracking-number-display{
+  background:white;
+  border:1px solid #bbf7d0;
 }
 
 .order-detail-card{
-  padding:20px;
-  margin-top:18px;
+  margin-top:15px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:15px;
+  padding:16px;
 }
 
 .order-items{
@@ -722,105 +1000,117 @@ section{
   justify-content:space-between;
   gap:15px;
   padding:12px 0;
-  border-bottom:1px solid #e5e7eb;
+  border-bottom:1px solid var(--border);
 }
+
+.order-item:last-child{
+  border-bottom:0;
+}
+
+
+/* ==================================================
+   CHAT
+================================================== */
 
 .chat-launch{
   position:fixed;
-  right:22px;
-  bottom:22px;
+  right:20px;
+  bottom:20px;
   width:58px;
   height:58px;
   border:0;
   border-radius:50%;
-  background:#19b86b;
-  color:#fff;
-  font-size:1.5rem;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  background:var(--green);
+  color:white;
+  font-size:25px;
+  box-shadow:0 15px 35px rgba(7,17,31,.25);
   z-index:2000;
 }
 
 .chat-window{
-  display:none;
   position:fixed;
-  right:22px;
+  right:20px;
   bottom:90px;
   width:min(390px,calc(100vw - 30px));
-  height:550px;
-  background:#fff;
-  border-radius:18px;
+  height:520px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:0 25px 70px rgba(7,17,31,.25);
+  display:none;
+  flex-direction:column;
   overflow:hidden;
-  box-shadow:0 15px 50px rgba(0,0,0,.25);
   z-index:1999;
 }
 
 .chat-window.active{
   display:flex;
-  flex-direction:column;
 }
 
 .chat-header{
-  background:#07111f;
-  color:#fff;
+  background:var(--navy);
+  color:white;
   padding:15px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .chat-close{
   border:0;
   background:transparent;
-  color:#fff;
-  font-size:1.5rem;
+  color:white;
+  font-size:25px;
 }
 
 .chat-messages{
   flex:1;
-  overflow-y:auto;
+  overflow:auto;
   padding:15px;
-  background:#f5f8fb;
+  background:#f8fafc;
 }
 
 .message{
-  max-width:85%;
-  padding:10px 12px;
-  border-radius:12px;
+  max-width:82%;
   margin-bottom:10px;
+  padding:10px 12px;
+  border-radius:14px;
   word-break:break-word;
+  position:relative;
 }
 
 .message.admin{
-  background:#fff;
-  border:1px solid #e5e7eb;
+  background:white;
+  border:1px solid var(--border);
   margin-right:auto;
 }
 
 .message.customer{
-  background:#0b6b3a;
-  color:#fff;
+  background:var(--green);
+  color:white;
   margin-left:auto;
-}
-
-.message-image{
-  display:block;
-  max-width:100%;
-  max-height:220px;
-  object-fit:contain;
-  border-radius:8px;
-  margin-top:8px;
 }
 
 .message-time{
   display:block;
-  font-size:.68rem;
+  font-size:9px;
   opacity:.65;
   margin-top:5px;
 }
 
+.message-image{
+  display:block;
+  width:100%;
+  max-height:220px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-top:8px;
+}
+
 .chat-input-area{
-  border-top:1px solid #e5e7eb;
+  border-top:1px solid var(--border);
   padding:10px;
+  background:white;
 }
 
 .image-preview{
@@ -828,9 +1118,10 @@ section{
   align-items:center;
   gap:8px;
   margin-bottom:8px;
-  background:#f5f8fb;
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:10px;
   padding:7px;
-  border-radius:8px;
 }
 
 .image-preview.active{
@@ -840,41 +1131,29 @@ section{
 .image-preview img{
   width:45px;
   height:45px;
+  border-radius:8px;
   object-fit:cover;
-  border-radius:6px;
 }
 
 .image-preview-name{
   flex:1;
-  font-size:.75rem;
+  font-size:11px;
   overflow:hidden;
   text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .remove-preview{
   border:0;
-  background:#fff0f0;
-  color:#b42318;
-  border-radius:50%;
-  width:25px;
-  height:25px;
+  background:#fee2e2;
+  color:#b91c1c;
+  border-radius:7px;
 }
 
 .chat-input-row{
   display:flex;
-  align-items:end;
+  align-items:flex-end;
   gap:7px;
-}
-
-.chat-input-row textarea{
-  flex:1;
-  min-height:42px;
-  max-height:100px;
-  resize:none;
-  border:1px solid #d4dbe4;
-  border-radius:9px;
-  padding:10px;
-  outline:none;
 }
 
 .chat-icon-button,
@@ -882,39 +1161,68 @@ section{
   width:42px;
   height:42px;
   border:0;
-  border-radius:9px;
+  border-radius:10px;
+  flex:0 0 auto;
 }
 
 .chat-icon-button{
-  background:#eef2f6;
+  background:#f1f5f9;
 }
 
 .send-chat-button{
-  background:#0b6b3a;
-  color:#fff;
+  background:var(--green);
+  color:white;
 }
 
+.chat-input-row textarea{
+  flex:1;
+  resize:none;
+  min-height:42px;
+  max-height:120px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  outline:none;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
 footer{
-  background:#040b14;
-  color:#b9c4d1;
+  background:var(--navy);
+  color:white;
+  padding:45px 20px;
   text-align:center;
-  padding:35px 20px;
 }
 
 footer h3{
-  color:#fff;
-  margin-bottom:5px;
+  margin:0;
 }
 
-@media(max-width:900px){
-  nav{
-    display:none;
+footer p{
+  color:#94a3b8;
+  margin:5px 0;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:950px){
+
+  .hero-inner{
+    grid-template-columns:1fr;
   }
 
-  .services-grid,
-  .global-grid,
-  .steps{
-    grid-template-columns:repeat(2,1fr);
+  .promo-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .service-grid{
+    grid-template-columns:1fr;
   }
 
   .shop-layout{
@@ -924,355 +1232,581 @@ footer h3{
   .cart-card{
     position:static;
   }
+
 }
 
-@media(max-width:650px){
-  section{
-    padding:60px 5%;
+@media(max-width:760px){
+
+  .navbar{
+    flex-wrap:wrap;
   }
 
-  .services-grid,
-  .global-grid,
-  .steps,
-  .shop-products,
+  .menu-button{
+    display:block;
+  }
+
+  .nav-links{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a,
+  .nav-links button{
+    width:100%;
+    text-align:left;
+  }
+
+  .nav-actions{
+    margin-left:auto;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .tracking-form{
+    flex-direction:column;
+  }
+
+  .tracking-form button{
+    width:100%;
+  }
+
   .shipment-grid{
     grid-template-columns:1fr;
   }
 
-  .hero-main{
-    min-height:520px;
+  .shop-products{
+    grid-template-columns:1fr;
   }
 
-  .hero-content h2{
-    font-size:2.35rem;
-  }
-
-  .team-card img{
-    height:250px;
-  }
-
-  .chat-window{
-    right:10px;
-    bottom:80px;
-  }
-
-  .chat-launch{
-    right:15px;
-    bottom:15px;
-  }
 }
+
+@media(max-width:560px){
+
+  section{
+    padding:55px 15px;
+  }
+
+  .hero{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .promo-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-visual-card{
+    min-height:280px;
+  }
+
+  .hero-plane{
+    font-size:80px;
+  }
+
+  .hero-truck{
+    font-size:60px;
+  }
+
+  .shop-container{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .shop-top{
+    padding:22px;
+  }
+
+  .shop-top h2{
+    font-size:27px;
+  }
+
+  .nav-actions{
+    width:100%;
+    justify-content:flex-end;
+  }
+
+  .language-select{
+    max-width:170px;
+  }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
+<!-- ==================================================
+     HEADER
+================================================== -->
+
 <header>
 
-  <a href="#home" class="logo">
-    Greenway <span>Express</span>
-  </a>
+  <div class="navbar">
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#tracking">Track</a>
-    <a href="#global">Global</a>
-    <a href="#how">How It Works</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <a
+      href="#home"
+      class="brand"
+      id="brandHome">
 
-  <div class="language-box">
-    <select id="languageSelect">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="es">Español</option>
-      <option value="de">Deutsch</option>
-      <option value="it">Italiano</option>
-      <option value="pt">Português</option>
-      <option value="ar">العربية</option>
-      <option value="zh">中文</option>
-    </select>
+      <div class="brand-logo">
+        🚚
+      </div>
+
+      <div class="brand-text">
+
+        <strong>
+          Greenway Express
+        </strong>
+
+        <span>
+          Fast, Safe & Reliable Delivery
+        </span>
+
+      </div>
+
+    </a>
+
+    <button
+      type="button"
+      class="menu-button"
+      id="menuButton">
+
+      ☰
+
+    </button>
+
+    <nav
+      class="nav-links"
+      id="navLinks">
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#tracking">
+        Track Shipment
+      </a>
+
+      <button
+        type="button"
+        id="shopButtonMain">
+
+        🛍️ Greenway Shop
+
+      </button>
+
+      <a href="#promotions">
+        Logistics
+      </a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+      <select
+        id="languageSelect"
+        class="language-select"
+        aria-label="Language">
+
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="uk">🇺🇦 Українська</option>
+
+      </select>
+
+    </div>
+
   </div>
 
 </header>
 
-<div class="shop-button-area">
-  <a href="#shop" class="shop-button" id="shopButtonMain">
-    🛍️ Visit Greenway Shop
-  </a>
-</div>
 
-<section id="home" class="hero-main">
-  <div class="hero-content">
-    <h2>Fast, Safe & Reliable Delivery</h2>
+<!-- ==================================================
+     HOME
+================================================== -->
 
-    <p>
-      Greenway Express connects people and businesses
-      with dependable delivery solutions locally and
-      around the world.
-    </p>
+<main id="home">
 
-    <a href="#tracking" class="hero-button">
-      Track Your Shipment
-    </a>
-  </div>
-</section>
+  <section class="hero">
 
-<section id="services">
-  <h2 class="section-title">Our Services</h2>
+    <div class="hero-inner">
 
-  <p class="section-intro">
-    Professional delivery and logistics services
-    designed to keep your packages moving safely
-    and efficiently.
-  </p>
+      <div class="hero-content">
 
-  <div class="services-grid">
+        <h1>
+          Greenway Express
+        </h1>
 
-    <div class="service-card">
-      <img
-        src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1000&q=80"
-        alt="Express delivery">
-
-      <div class="service-content">
-        <h3>Express Delivery</h3>
+        <h2>
+          Fast, Safe & Reliable Delivery
+        </h2>
 
         <p>
-          Fast and reliable delivery for urgent
-          documents, parcels and business packages.
+          Move packages, products and important shipments
+          with confidence. Greenway Express connects
+          reliable transportation with professional
+          delivery service.
         </p>
+
+        <div class="hero-buttons">
+
+          <button
+            type="button"
+            class="hero-button"
+            id="heroTrackButton">
+
+            Track Your Shipment
+
+          </button>
+
+          <button
+            type="button"
+            class="secondary-button"
+            id="heroShopButton">
+
+            🛍️ Visit Greenway Shop
+
+          </button>
+
+        </div>
+
       </div>
+
+      <div class="hero-visual">
+
+        <div class="hero-visual-card">
+
+          <div class="promo-badge">
+            GREENWAY EXPRESS
+          </div>
+
+          <div class="hero-plane">
+            ✈️
+          </div>
+
+          <div class="hero-truck">
+            🚚
+          </div>
+
+          <div class="hero-visual-label">
+            Air • Road • Freight • Delivery
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="service-card">
-      <img
-        src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1000&q=80"
-        alt="Global logistics">
+  </section>
 
-      <div class="service-content">
-        <h3>International Shipping</h3>
+
+  <!-- ==================================================
+       TRACKING
+  ================================================== -->
+
+  <section id="tracking">
+
+    <div class="section-container">
+
+      <div class="section-heading">
+
+        <h2>
+          📦 Track Your Shipment
+        </h2>
 
         <p>
-          Move shipments across borders with
-          dependable logistics support.
+          Enter your Greenway tracking number or
+          Greenway Shop order number.
         </p>
+
       </div>
+
+      <div class="tracking-card">
+
+        <div class="tracking-form">
+
+          <input
+            id="trackingInput"
+            type="text"
+            autocomplete="off"
+            placeholder="Enter tracking number or order number">
+
+          <button
+            type="button"
+            id="trackButton">
+
+            Track Shipment
+
+          </button>
+
+        </div>
+
+        <div id="result"></div>
+
+      </div>
+
     </div>
 
-    <div class="service-card">
-      <img
-        src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1000&q=80"
-        alt="Warehouse logistics">
+  </section>
 
-      <div class="service-content">
-        <h3>Logistics Solutions</h3>
+
+  <!-- ==================================================
+       PROMOTIONS / LOGISTICS
+  ================================================== -->
+
+  <section
+    id="promotions"
+    class="promotions">
+
+    <div class="section-container">
+
+      <div class="section-heading">
+
+        <h2>
+          🌍 Greenway Express Logistics
+        </h2>
 
         <p>
-          Flexible logistics support for businesses,
-          retailers and individual customers.
+          Professional transportation, packaging and
+          delivery solutions from collection to destination.
         </p>
+
       </div>
+
+      <div class="promo-grid">
+
+        <div class="promo-card">
+
+          <div class="promo-badge">
+            AIR FREIGHT
+          </div>
+
+          <div class="promo-icon">
+            ✈️
+          </div>
+
+          <h3>
+            Greenway Air Freight
+          </h3>
+
+          <p>
+            Fast international movement for
+            time-sensitive shipments.
+          </p>
+
+        </div>
+
+        <div class="promo-card">
+
+          <div class="promo-badge">
+            ROAD DELIVERY
+          </div>
+
+          <div class="promo-icon">
+            🚚
+          </div>
+
+          <h3>
+            Greenway Delivery Fleet
+          </h3>
+
+          <p>
+            Reliable trucks and delivery teams
+            moving packages safely.
+          </p>
+
+        </div>
+
+        <div class="promo-card">
+
+          <div class="promo-badge">
+            FREIGHT
+          </div>
+
+          <div class="promo-icon">
+            📦
+          </div>
+
+          <h3>
+            Containers & Freight
+          </h3>
+
+          <p>
+            Organized freight handling and secure
+            container transportation.
+          </p>
+
+        </div>
+
+        <div class="promo-card">
+
+          <div class="promo-badge">
+            PACKAGING
+          </div>
+
+          <div class="promo-icon">
+            📦
+          </div>
+
+          <h3>
+            Secure Packages
+          </h3>
+
+          <p>
+            Carefully prepared boxes and packages
+            ready for transportation.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="live-bar">
+
+        <div class="live-bar-inner">
+
+          <span class="live-dot"></span>
+
+          <strong>
+            GREENWAY EXPRESS LIVE
+          </strong>
+
+          <span>
+            ✈️ Air freight
+          </span>
+
+          <span>
+            🚚 Road delivery
+          </span>
+
+          <span>
+            📦 Secure packaging
+          </span>
+
+          <span>
+            👕 Branded delivery teams
+          </span>
+
+          <span>
+            📄 Shipment processing
+          </span>
+
+        </div>
+
+      </div>
+
     </div>
 
-  </div>
-</section>
+  </section>
 
-<section id="tracking">
 
-  <h2 class="section-title">
-    Track Your Shipment or Order
-  </h2>
+  <!-- ==================================================
+       SERVICES
+  ================================================== -->
 
-  <p class="section-intro">
-    Enter your Greenway Express tracking number
-    or Greenway Shop order number below.
-  </p>
+  <section
+    id="services"
+    class="services">
 
-  <div class="customer-id-box">
-    Your Customer ID:
-    <strong id="customerIdDisplay">Loading...</strong>
-  </div>
+    <div class="section-container">
 
-  <div class="tracking-box">
+      <div class="section-heading">
 
-    <input
-      id="trackingInput"
-      type="text"
-      placeholder="Enter tracking number or order number"
-      autocomplete="off">
+        <h2>
+          🚚 Our Services
+        </h2>
 
-    <button id="trackButton" type="button">
-      🔎 Track Now
-    </button>
-
-    <div id="result"></div>
-
-  </div>
-
-</section>
-
-<section id="global">
-
-  <h2 class="section-title">
-    Global Delivery
-  </h2>
-
-  <p class="section-intro">
-    From local destinations to international
-    locations, Greenway Express helps keep your
-    deliveries connected.
-  </p>
-
-  <div class="global-grid">
-
-    <div class="global-card">
-      <img
-        src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80"
-        alt="Worldwide delivery">
-
-      <div>
-        <h3>Worldwide Reach</h3>
         <p>
-          Reliable delivery solutions for
-          international shipments.
+          Flexible logistics solutions for packages,
+          freight and deliveries.
         </p>
+
       </div>
-    </div>
 
-    <div class="global-card">
-      <img
-        src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1000&q=80"
-        alt="Transport">
+      <div class="service-grid">
 
-      <div>
-        <h3>Reliable Transport</h3>
-        <p>
-          Professional handling from origin
-          to destination.
-        </p>
+        <div class="service-card">
+
+          <div class="service-icon">
+            📦
+          </div>
+
+          <h3>
+            Package Delivery
+          </h3>
+
+          <p>
+            Safe handling and delivery of packages
+            from origin to destination.
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            ✈️
+          </div>
+
+          <h3>
+            International Shipping
+          </h3>
+
+          <p>
+            Air and international transportation
+            solutions for shipments worldwide.
+          </p>
+
+        </div>
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            🚚
+          </div>
+
+          <h3>
+            Freight & Logistics
+          </h3>
+
+          <p>
+            Coordinated freight transportation,
+            containers and road delivery.
+          </p>
+
+        </div>
+
       </div>
-    </div>
-
-    <div class="global-card">
-      <img
-        src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1000&q=80"
-        alt="Delivery logistics">
-
-      <div>
-        <h3>Connected Logistics</h3>
-        <p>
-          Shipment information available
-          whenever you need it.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="how">
-
-  <h2 class="section-title">
-    How It Works
-  </h2>
-
-  <p class="section-intro">
-    Sending and tracking with Greenway Express
-    is simple.
-  </p>
-
-  <div class="steps">
-
-    <div class="step">
-      <h3>1. Create Your Shipment</h3>
-      <p>
-        Provide the sender, receiver, package
-        and delivery information.
-      </p>
-    </div>
-
-    <div class="step">
-      <h3>2. Get Your Tracking Number</h3>
-      <p>
-        Your shipment receives a Greenway
-        tracking number.
-      </p>
-    </div>
-
-    <div class="step">
-      <h3>3. We Move Your Package</h3>
-      <p>
-        Your package moves through the delivery
-        process while its status is updated.
-      </p>
-    </div>
-
-    <div class="step">
-      <h3>4. Track Anytime</h3>
-      <p>
-        Enter your tracking number to view
-        the latest shipment information and history.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section id="team">
-
-  <h2 class="section-title">
-    Our Team
-  </h2>
-
-  <div class="team-card">
-
-    <img
-      src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=80"
-      alt="Greenway Express team">
-
-    <div class="team-text">
-
-      <h3>
-        Moving Deliveries Forward
-      </h3>
-
-      <p>
-        Greenway Express is committed to providing
-        dependable delivery and logistics services
-        with clear communication and professional
-        customer support.
-      </p>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+</main>
 
-<section id="contact">
-
-  <h2>
-    Contact Greenway Express
-  </h2>
-
-  <p>
-    Need help with your shipment or order?
-  </p>
-
-  <p>
-    Email:
-    <a href="mailto:greenwayexpress101@gmail.com">
-      greenwayexpress101@gmail.com
-    </a>
-  </p>
-
-  <p>
-    Customer support is available through
-    our Greenway Support chat.
-  </p>
-
-</section>
 
 <!-- ==================================================
      SHOP
@@ -1337,11 +1871,15 @@ footer h3{
         </div>
 
         <div class="cart-total">
-          <span>Total</span>
+
+          <span>
+            Total
+          </span>
 
           <span id="cartTotal">
             $0.00
           </span>
+
         </div>
 
         <button
@@ -1391,6 +1929,9 @@ footer h3{
             <option>France</option>
             <option>Spain</option>
             <option>Italy</option>
+            <option>Poland</option>
+            <option>Netherlands</option>
+            <option>Ukraine</option>
             <option>Other</option>
 
           </select>
@@ -1407,6 +1948,13 @@ footer h3{
 
           </button>
 
+          <!--
+            IMPORTANT:
+            The checkout message belongs HERE.
+            It will not be written into the main
+            shipment tracking result.
+          -->
+
           <div
             id="checkoutMessage"
             class="checkout-message">
@@ -1421,6 +1969,7 @@ footer h3{
   </div>
 
 </section>
+
 
 <!-- ==================================================
      CHAT
@@ -1532,6 +2081,11 @@ footer h3{
 
 </div>
 
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
 <footer>
 
   <h3>
@@ -1543,10 +2097,15 @@ footer h3{
   </p>
 
   <p>
+    ✈️ Air Freight · 🚚 Road Delivery · 📦 Logistics
+  </p>
+
+  <p>
     © 2026 Greenway Express. All rights reserved.
   </p>
 
 </footer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -1629,18 +2188,6 @@ if(!customerId){
     "greenwayCustomerId",
     customerId
   );
-
-}
-
-const customerIdDisplay =
-  document.getElementById(
-    "customerIdDisplay"
-  );
-
-if(customerIdDisplay){
-
-  customerIdDisplay.textContent =
-    customerId;
 
 }
 
@@ -1799,6 +2346,21 @@ const translations = {
   zh:{
     hero:"快速、安全、可靠的配送",
     track:"追踪您的货物"
+  },
+
+  pl:{
+    hero:"Szybka, bezpieczna i niezawodna dostawa",
+    track:"Śledź przesyłkę"
+  },
+
+  nl:{
+    hero:"Snelle, veilige en betrouwbare levering",
+    track:"Volg uw zending"
+  },
+
+  uk:{
+    hero:"Швидка, безпечна та надійна доставка",
+    track:"Відстежити відправлення"
   }
 
 };
@@ -1878,6 +2440,36 @@ applyLanguage(
 
 
 /* ==================================================
+   MOBILE NAVIGATION
+================================================== */
+
+const menuButton =
+  document.getElementById(
+    "menuButton"
+  );
+
+const navLinks =
+  document.getElementById(
+    "navLinks"
+  );
+
+if(menuButton && navLinks){
+
+  menuButton.addEventListener(
+    "click",
+    function(){
+
+      navLinks.classList.toggle(
+        "active"
+      );
+
+    }
+  );
+
+}
+
+
+/* ==================================================
    TRACKING
 ================================================== */
 
@@ -1913,6 +2505,54 @@ if(trackingInput){
         trackShipment();
 
       }
+
+    }
+  );
+
+}
+
+
+/*
+  Today's Track Shipment fix:
+  The hero tracking button now takes the
+  customer directly to the tracking section.
+*/
+
+const heroTrackButton =
+  document.getElementById(
+    "heroTrackButton"
+  );
+
+if(heroTrackButton){
+
+  heroTrackButton.addEventListener(
+    "click",
+    function(){
+
+      const tracking =
+        document.getElementById(
+          "tracking"
+        );
+
+      if(tracking){
+
+        tracking.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+
+      }
+
+      setTimeout(
+        function(){
+
+          if(trackingInput){
+            trackingInput.focus();
+          }
+
+        },
+        500
+      );
 
     }
   );
@@ -1958,10 +2598,6 @@ async function trackShipment(){
 
   try{
 
-    /* ------------------------------------------
-       1. NORMAL GREENWAY SHIPMENT
-    ------------------------------------------ */
-
     const shipmentResponse =
       await supabaseClient
         .from("shipments")
@@ -1973,17 +2609,6 @@ async function trackShipment(){
         .limit(1)
         .maybeSingle();
 
-    if(
-      shipmentResponse.error
-    ){
-
-      console.warn(
-        "Shipment lookup:",
-        shipmentResponse.error
-      );
-
-    }
-
     if(shipmentResponse.data){
 
       await renderShipmentResult(
@@ -1993,11 +2618,6 @@ async function trackShipment(){
       return;
 
     }
-
-
-    /* ------------------------------------------
-       2. SHOP ORDER BY OFFICIAL TRACKING NUMBER
-    ------------------------------------------ */
 
     const orderTrackingResponse =
       await supabaseClient
@@ -2010,9 +2630,7 @@ async function trackShipment(){
         .limit(1)
         .maybeSingle();
 
-    if(
-      orderTrackingResponse.data
-    ){
+    if(orderTrackingResponse.data){
 
       renderShopOrderTracking(
         orderTrackingResponse.data
@@ -2021,11 +2639,6 @@ async function trackShipment(){
       return;
 
     }
-
-
-    /* ------------------------------------------
-       3. SHOP ORDER BY ORDER NUMBER
-    ------------------------------------------ */
 
     const orderNumberResponse =
       await supabaseClient
@@ -2038,9 +2651,7 @@ async function trackShipment(){
         .limit(1)
         .maybeSingle();
 
-    if(
-      orderNumberResponse.data
-    ){
+    if(orderNumberResponse.data){
 
       renderShopOrderTracking(
         orderNumberResponse.data
@@ -2049,11 +2660,6 @@ async function trackShipment(){
       return;
 
     }
-
-
-    /* ------------------------------------------
-       NOTHING FOUND
-    ------------------------------------------ */
 
     result.innerHTML = `
       <div class="tracking-error">
@@ -2762,11 +3368,10 @@ const shopButtonMain =
     "shopButtonMain"
   );
 
-/*
-  Some older versions of the page used
-  openShopButton. It may not exist anymore.
-  We safely support it if it exists.
-*/
+const heroShopButton =
+  document.getElementById(
+    "heroShopButton"
+  );
 
 const openShopButton =
   document.getElementById(
@@ -2781,7 +3386,7 @@ function openShop(){
 
   document
     .querySelectorAll(
-      "body > header, body > section:not(#shopPage), body > div:not(.chat-window), body > footer"
+      "body > header, body > main, body > section:not(#shopPage), body > footer"
     )
     .forEach(
       function(element){
@@ -2806,13 +3411,6 @@ function openShop(){
   loadProducts();
 
 }
-
-
-/*
-  IMPORTANT FIX:
-  Never call addEventListener on
-  openShopButton unless it exists.
-*/
 
 if(openShopButton){
 
@@ -2844,6 +3442,19 @@ if(shopButtonMain){
 
 }
 
+if(heroShopButton){
+
+  heroShopButton.addEventListener(
+    "click",
+    function(){
+
+      openShop();
+
+    }
+  );
+
+}
+
 function closeShop(){
 
   if(!shopPage){
@@ -2855,7 +3466,7 @@ function closeShop(){
 
   document
     .querySelectorAll(
-      "body > header, body > section:not(#shopPage), body > div:not(.chat-window), body > footer"
+      "body > header, body > main, body > section:not(#shopPage), body > footer"
     )
     .forEach(
       function(element){
@@ -3757,18 +4368,34 @@ async function placeShopOrder(){
 
     }
 
+    /*
+      Only clear the cart after successful
+      database insertion.
+    */
+
     cart = [];
 
     saveCart();
     renderCart();
 
-    document
-      .getElementById(
+    const panel =
+      document.getElementById(
         "checkoutPanel"
-      )
-      .classList.remove(
+      );
+
+    /*
+      Today's important fix:
+      Do NOT close the checkout panel before
+      displaying the success message.
+    */
+
+    if(panel){
+
+      panel.classList.add(
         "active"
       );
+
+    }
 
     const orderNumber =
       data &&
@@ -3779,81 +4406,86 @@ async function placeShopOrder(){
       "Order received";
 
     const checkoutMessage =
-  document.getElementById(
-    "checkoutMessage"
-  );
+      document.getElementById(
+        "checkoutMessage"
+      );
 
-if(checkoutMessage){
+    if(checkoutMessage){
 
-  checkoutMessage.innerHTML = `
+      checkoutMessage.innerHTML = `
 
-    <div class="shop-order-success">
+        <div class="shop-order-success">
 
-      <div class="tracking-result-header">
+          <div class="tracking-result-header">
 
-        <h3>
-          ✅ Order Submitted Successfully
-        </h3>
+            <h3>
+              ✅ Order Submitted Successfully
+            </h3>
 
-        <p>
-          Greenway Shop has received your order.
-        </p>
+            <p>
+              Greenway Shop has received your order.
+            </p>
 
-      </div>
+          </div>
 
-      <div class="tracking-number-display">
+          <div class="tracking-number-display">
 
-        Order Number:
+            Order Number:
 
-        <strong>
-          ${escapeHtml(orderNumber)}
-        </strong>
+            <strong>
+              ${escapeHtml(orderNumber)}
+            </strong>
 
-      </div>
+          </div>
 
-      <div class="status-box">
+          <div class="status-box">
 
-        <strong>
-          Order Status:
-        </strong>
+            <strong>
+              Order Status:
+            </strong>
 
-        Pending
+            Pending
 
-        <br><br>
+            <br><br>
 
-        Your official Greenway tracking number
-        will be assigned after your order is
-        approved and processed.
+            Your official Greenway tracking number
+            will be assigned after your order is
+            approved and processed.
 
-      </div>
+          </div>
 
-      <div class="order-detail-card">
+          <div class="order-detail-card">
 
-        <strong>
-          Save your order number:
-        </strong>
+            <strong>
+              Save your order number:
+            </strong>
 
-        <br><br>
+            <br><br>
 
-        <span>
-          ${escapeHtml(orderNumber)}
-        </span>
+            <span>
+              ${escapeHtml(orderNumber)}
+            </span>
 
-        <br><br>
+            <br><br>
 
-        You can enter this order number in
-        the tracking box to check your order.
+            You can enter this order number in
+            the tracking box to check your order.
 
-      </div>
+          </div>
 
-    </div>
+        </div>
 
-  `;
+      `;
 
-  checkoutMessage.className =
-    "checkout-message success";
+      checkoutMessage.className =
+        "checkout-message success";
 
-}
+      checkoutMessage.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest"
+      });
+
+    }
 
   }catch(error){
 
@@ -5046,7 +5678,45 @@ function cleanStoredCart(){
 
 cleanStoredCart();
 
+
+/* ==================================================
+   HOME HASH NAVIGATION
+================================================== */
+
+document
+  .querySelectorAll(
+    'a[href="#home"]'
+  )
+  .forEach(
+    function(link){
+
+      link.addEventListener(
+        "click",
+        function(event){
+
+          if(
+            shopPage &&
+            shopPage.style.display === "block"
+          ){
+
+            event.preventDefault();
+
+            closeShop();
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* ==================================================
+   END
+================================================== */
+
 </script>
 
 </body>
-  </html>
+</html>
