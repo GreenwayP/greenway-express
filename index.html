@@ -4438,9 +4438,12 @@ async function placeShopOrder(){
       "Order received";
 
     const checkoutMessage =
-      document.getElementById(
-        "checkoutMessage"
-      );
+  document.getElementById(
+    "checkoutMessage"
+  ) ||
+  document.getElementById(
+    "checkoutPanel"
+  );
 
     if(checkoutMessage){
 
