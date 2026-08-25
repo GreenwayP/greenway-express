@@ -2797,113 +2797,137 @@ onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
 
 async function updateShipment(oldTrackingNumber){
 
-const newNumber=
-document.getElementById("editTrackingNumber")
-.value.trim();
+    const newNumber =
+        document.getElementById("editTrackingNumber")
+        .value.trim();
 
-if(!newNumber){
+    if(!newNumber){
+        alert("Tracking number cannot be empty.");
+        return;
+    }
 
-alert("Tracking number cannot be empty.");
+    /*
+     * IMPORTANT:
+     * PostgreSQL date columns must receive either
+     * a valid YYYY-MM-DD date or null.
+     *
+     * Never send display text such as:
+     * "Not available"
+     */
+    const rawDeliveryDate =
+        document.getElementById("editDelivery").value.trim();
 
-return;
+    const estimatedDelivery =
+        /^\d{4}-\d{2}-\d{2}$/.test(rawDeliveryDate)
+        ? rawDeliveryDate
+        : null;
 
-}
+    const {error}=await supabaseClient
+        .from("Shipments")
+        .update({
 
-const {error}=await supabaseClient
-.from("Shipments")
-.update({
+            tracking_number:newNumber,
 
-tracking_number:newNumber,
+            status:
+                document.getElementById("editStatus").value,
 
-status:
-document.getElementById("editStatus").value,
+            origin:
+                document.getElementById("editOrigin")
+                .value.trim(),
 
-origin:
-document.getElementById("editOrigin").value.trim(),
+            destination:
+                document.getElementById("editDestination")
+                .value.trim(),
 
-destination:
-document.getElementById("editDestination").value.trim(),
+            current_location:
+                document.getElementById("editLocation")
+                .value.trim() || null,
 
-current_location:
-document.getElementById("editLocation").value.trim()||null,
+            estimated_delivery:
+                estimatedDelivery,
 
-estimated_delivery:
-document.getElementById("editDelivery").value||null,
+            sender_name:
+                document.getElementById("editSenderName")
+                .value.trim() || null,
 
-sender_name:
-document.getElementById("editSenderName").value.trim()||null,
+            sender_phone:
+                document.getElementById("editSenderPhone")
+                .value.trim() || null,
 
-sender_phone:
-document.getElementById("editSenderPhone").value.trim()||null,
+            sender_email:
+                document.getElementById("editSenderEmail")
+                .value.trim() || null,
 
-sender_email:
-document.getElementById("editSenderEmail").value.trim()||null,
+            receiver_name:
+                document.getElementById("editReceiverName")
+                .value.trim() || null,
 
-receiver_name:
-document.getElementById("editReceiverName").value.trim()||null,
+            receiver_phone:
+                document.getElementById("editReceiverPhone")
+                .value.trim() || null,
 
-receiver_phone:
-document.getElementById("editReceiverPhone").value.trim()||null,
+            receiver_email:
+                document.getElementById("editReceiverEmail")
+                .value.trim() || null,
 
-receiver_email:
-document.getElementById("editReceiverEmail").value.trim()||null,
+            package_type:
+                document.getElementById("editPackageType")
+                .value || null,
 
-package_type:
-document.getElementById("editPackageType").value||null,
+            package_weight:
+                document.getElementById("editPackageWeight").value === ""
+                ? null
+                : Number(
+                    document.getElementById("editPackageWeight").value
+                ),
 
-package_weight:
-document.getElementById("editPackageWeight").value===""
-?null
-:Number(
-document.getElementById("editPackageWeight").value
-),
+            package_description:
+                document.getElementById("editPackageDescription")
+                .value.trim() || null,
 
-package_description:
-document.getElementById("editPackageDescription")
-.value.trim()||null,
+            service_type:
+                document.getElementById("editServiceType")
+                .value || null,
 
-service_type:
-document.getElementById("editServiceType").value||null,
+            order_total:
+                document.getElementById("editOrderTotal").value === ""
+                ? null
+                : Number(
+                    document.getElementById("editOrderTotal").value
+                ),
 
-order_total:
-document.getElementById("editOrderTotal").value===""
-?null
-:Number(
-document.getElementById("editOrderTotal").value
-),
+            order_items:
+                document.getElementById("editOrderItems")
+                .value.trim() || null,
 
-order_items:
-document.getElementById("editOrderItems")
-.value.trim()||null,
+            special_instructions:
+                document.getElementById("editSpecialInstructions")
+                .value.trim() || null,
 
-special_instructions:
-document.getElementById("editSpecialInstructions")
-.value.trim()||null,
+            approval_status:
+                document.getElementById("editApprovalStatus")
+                .value,
 
-approval_status:
-document.getElementById("editApprovalStatus").value,
+            decline_reason:
+                document.getElementById("editDeclineReason")
+                .value.trim() || null
 
-decline_reason:
-document.getElementById("editDeclineReason")
-.value.trim()||null
+        })
+        .eq("tracking_number",oldTrackingNumber);
 
-})
-.eq("tracking_number",oldTrackingNumber);
+    if(error){
 
-if(error){
+        alert("Update failed: "+error.message);
+        return;
 
-alert("Update failed: "+error.message);
+    }
 
-return;
+    alert("Shipment updated successfully! ✅");
 
-}
+    document.getElementById("shipmentResult")
+        .innerHTML="";
 
-alert("Shipment updated successfully! ✅");
-
-document.getElementById("shipmentResult")
-.innerHTML="";
-
-loadAllShipments();
+    await loadAllShipments();
 
 }
 
