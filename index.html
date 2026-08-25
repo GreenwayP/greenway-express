@@ -1362,6 +1362,13 @@ footer p{
   }
 
 }
+
+
+/* Google Translate visual cleanup — language feature only */
+.goog-te-banner-frame.skiptranslate{display:none !important;}
+body{top:0 !important;}
+.goog-tooltip{display:none !important;}
+.goog-text-highlight{background:transparent !important;box-shadow:none !important;}
 </style>
 </head>
 
@@ -1380,16 +1387,20 @@ footer p{
 
   <div class="language-list">
     <span onclick="applyLanguage('en')">🇬🇧 English</span>
-    <span onclick="applyLanguage('fr')">🇫🇷 Français</span>
     <span onclick="applyLanguage('de')">🇩🇪 Deutsch</span>
+    <span onclick="applyLanguage('fr')">🇫🇷 Français</span>
     <span onclick="applyLanguage('es')">🇪🇸 Español</span>
     <span onclick="applyLanguage('it')">🇮🇹 Italiano</span>
     <span onclick="applyLanguage('pt')">🇵🇹 Português</span>
+    <span onclick="applyLanguage('nl')">🇳🇱 Nederlands</span>
+    <span onclick="applyLanguage('pl')">🇵🇱 Polski</span>
+    <span onclick="applyLanguage('tr')">🇹🇷 Türkçe</span>
     <span onclick="applyLanguage('ar')">🇸🇦 العربية</span>
     <span onclick="applyLanguage('zh')">🇨🇳 中文</span>
-    <span onclick="applyLanguage('pl')">🇵🇱 Polski</span>
-    <span onclick="applyLanguage('nl')">🇳🇱 Nederlands</span>
+    <span onclick="applyLanguage('id')">🇮🇩 Bahasa Indonesia</span>
     <span onclick="applyLanguage('uk')">🇺🇦 Українська</span>
+    <span onclick="applyLanguage('hi')">🇮🇳 हिन्दी</span>
+    <span onclick="applyLanguage('ru')">🇷🇺 Русский</span>
   </div>
 
 </div>
@@ -2407,104 +2418,95 @@ function formatDate(value){
 
 /* ==================================================
    LANGUAGE
+   Language-only enhancement. The existing page functionality is
+   preserved; this adds a complete multilingual translator.
 ================================================== */
-
-const translations = {
-
-  en:{
-    hero:"Fast, Safe & Reliable Delivery",
-    track:"Track Your Shipment"
-  },
-
-  fr:{
-    hero:"Livraison rapide, sûre et fiable",
-    track:"Suivre votre colis"
-  },
-
-  es:{
-    hero:"Entrega rápida, segura y fiable",
-    track:"Rastrear su envío"
-  },
-
-  de:{
-    hero:"Schnelle, sichere und zuverlässige Lieferung",
-    track:"Sendung verfolgen"
-  },
-
-  it:{
-    hero:"Consegna veloce, sicura e affidabile",
-    track:"Traccia la spedizione"
-  },
-
-  pt:{
-    hero:"Entrega rápida, segura e confiável",
-    track:"Rastrear sua encomenda"
-  },
-
-  ar:{
-    hero:"توصيل سريع وآمن وموثوق",
-    track:"تتبع شحنتك"
-  },
-
-  zh:{
-    hero:"快速、安全、可靠的配送",
-    track:"追踪您的货物"
-  },
-
-  pl:{
-    hero:"Szybka, bezpieczna i niezawodna dostawa",
-    track:"Śledź swoją przesyłkę"
-  },
-
-  nl:{
-    hero:"Snelle, veilige en betrouwbare bezorging",
-    track:"Volg uw zending"
-  },
-
-  uk:{
-    hero:"Швидка, безпечна та надійна доставка",
-    track:"Відстежити відправлення"
-  }
-
-};
 
 function applyLanguage(language){
 
-  const data =
-    translations[language] ||
-    translations.en;
+  const supportedLanguages = [
+    "en","de","fr","es","it","pt","nl","pl",
+    "tr","ar","zh","id","uk","hi","ru"
+  ];
 
-  const hero =
-    document.querySelector(
-      ".hero-content-subtitle"
-    );
-
-  if(hero){
-    hero.textContent =
-      data.hero;
+  if(!supportedLanguages.includes(language)){
+    language = "en";
   }
-
-  const trackButton =
-    document.getElementById(
-      "trackButton"
-    );
-
-  if(trackButton){
-    trackButton.textContent =
-      data.track;
-  }
-
-  document.documentElement.dir =
-    language === "ar"
-      ? "rtl"
-      : "ltr";
-
-  document.documentElement.lang =
-    language;
 
   localStorage.setItem(
     "greenwayLanguage",
     language
+  );
+
+  document.documentElement.lang = language;
+
+  document.documentElement.dir =
+    language === "ar" ? "rtl" : "ltr";
+
+  const select =
+    document.querySelector(
+      ".goog-te-combo"
+    );
+
+  if(language === "en"){
+
+    if(select){
+      select.value = "en";
+      select.dispatchEvent(
+        new Event("change")
+      );
+    }
+
+    return;
+  }
+
+  if(select){
+    select.value = language;
+    select.dispatchEvent(
+      new Event("change")
+    );
+    return;
+  }
+
+  // Google Translate may not have finished loading yet.
+  // Retry briefly without changing any other page function.
+  let attempts = 0;
+  const retry = setInterval(() => {
+
+    attempts++;
+
+    const translator =
+      document.querySelector(
+        ".goog-te-combo"
+      );
+
+    if(translator){
+      translator.value = language;
+      translator.dispatchEvent(
+        new Event("change")
+      );
+      clearInterval(retry);
+    }
+
+    if(attempts >= 30){
+      clearInterval(retry);
+    }
+
+  }, 300);
+
+}
+
+function googleTranslateElementInit(){
+
+  new google.translate.TranslateElement(
+    {
+      pageLanguage:"en",
+      includedLanguages:
+        "en,de,fr,es,it,pt,nl,pl,tr,ar,zh,id,uk,hi,ru",
+      autoDisplay:false,
+      multilanguagePage:true
+    },
+    "google_translate_element"
   );
 
 }
@@ -2516,6 +2518,60 @@ const savedLanguage =
 
 applyLanguage(savedLanguage);
 
+/* ==================================================
+   GOOGLE TRANSLATE SUPPORT
+   Language feature only.
+================================================== */
+
+(function(){
+
+  if(!document.getElementById("google_translate_element")){
+
+    const translatorHost =
+      document.createElement("div");
+
+    translatorHost.id =
+      "google_translate_element";
+
+    translatorHost.style.position = "fixed";
+    translatorHost.style.left = "-9999px";
+    translatorHost.style.top = "-9999px";
+    translatorHost.style.width = "1px";
+    translatorHost.style.height = "1px";
+    translatorHost.style.overflow = "hidden";
+    translatorHost.style.opacity = "0";
+    translatorHost.style.pointerEvents = "none";
+
+    document.body.appendChild(
+      translatorHost
+    );
+
+  }
+
+  if(!document.querySelector(
+    'script[data-greenway-google-translate="true"]'
+  )){
+
+    const translatorScript =
+      document.createElement("script");
+
+    translatorScript.src =
+      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+
+    translatorScript.async = true;
+
+    translatorScript.setAttribute(
+      "data-greenway-google-translate",
+      "true"
+    );
+
+    document.head.appendChild(
+      translatorScript
+    );
+
+  }
+
+})();
 
 /* ==================================================
    LIVE HERO ADVERTISEMENT
