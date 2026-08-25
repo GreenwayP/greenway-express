@@ -2809,13 +2809,7 @@ async function updateShipment(oldTrackingNumber){
         return;
     }
 
-    const rawDeliveryDate =
-        document.getElementById("editDelivery").value.trim();
-
-    const estimatedDelivery =
-        /^\d{4}-\d{2}-\d{2}$/.test(rawDeliveryDate)
-        ? rawDeliveryDate
-        : null;
+    
 
     const {error}=await supabaseClient
     .from("Shipments")
@@ -2839,8 +2833,10 @@ async function updateShipment(oldTrackingNumber){
             .value.trim() || null,
 
         estimated_delivery:
-            estimatedDelivery,
-
+    (() => {
+        const d = document.getElementById("editDelivery").value.trim();
+        return d ? d + "T00:00:00Z" : null;
+    })(),
         sender_name:
             document.getElementById("editSenderName")
             .value.trim() || null,
