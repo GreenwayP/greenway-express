@@ -74,65 +74,18 @@ a{
   flex-wrap:wrap;
 }
 
-/* LANGUAGE DROPDOWN */
-.language-dropdown{
-  position:relative;
-  display:block;
-  z-index:1100;
+.language-list{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-.language-dropdown summary{
-  list-style:none;
+.language-list span{
   cursor:pointer;
-  padding:9px 12px;
-  border:1px solid rgba(101,211,31,.45);
-  border-radius:8px;
-  color:#fff;
-  background:#0b1c14;
-  font-size:12px;
-  font-weight:800;
-  white-space:nowrap;
+  opacity:.9;
 }
 
-.language-dropdown summary::-webkit-details-marker{
-  display:none;
-}
-
-.language-dropdown summary::after{
-  content:" ▾";
-  color:#65d31f;
-}
-
-.language-dropdown summary:hover{
-  color:#65d31f;
-}
-
-.language-menu{
-  position:absolute;
-  right:0;
-  top:calc(100% + 8px);
-  width:190px;
-  max-height:300px;
-  overflow-y:auto;
-  padding:7px;
-  background:#07150f;
-  border:1px solid rgba(101,211,31,.35);
-  border-radius:10px;
-  box-shadow:0 12px 30px rgba(0,0,0,.35);
-}
-
-.language-menu span{
-  display:block;
-  padding:9px 10px;
-  border-radius:7px;
-  color:#fff;
-  cursor:pointer;
-  font-size:13px;
-  white-space:nowrap;
-}
-
-.language-menu span:hover{
-  background:rgba(101,211,31,.12);
+.language-list span:hover{
   color:#65d31f;
 }
 
@@ -202,20 +155,6 @@ header{
   display:flex;
   align-items:center;
   gap:10px;
-}
-
-.header-delivery{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:9px 14px;
-  border:1px solid rgba(101,211,31,.35);
-  border-radius:8px;
-  color:#65d31f;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.5px;
-  white-space:nowrap;
 }
 
 .nav-button{
@@ -1369,32 +1308,6 @@ footer p{
     font-size:11px;
   }
 
-  .nav-actions{
-    display:flex !important;
-    align-items:center;
-    gap:8px;
-  }
-
-  .language-dropdown{
-    display:block !important;
-    position:relative;
-    z-index:99999;
-  }
-
-  .language-dropdown summary{
-    display:block !important;
-    padding:8px 10px;
-    font-size:11px;
-  }
-
-  .language-menu{
-    right:0;
-    top:calc(100% + 6px);
-    width:185px;
-    max-height:280px;
-    z-index:100000;
-  }
-
   .hero,
   .hero-content{
     min-height:620px;
@@ -1453,6 +1366,20 @@ footer p{
     <span>📞 +44 7456 017196</span>
   </div>
 
+  <div class="language-list">
+    <span onclick="applyLanguage('en')">🇬🇧 English</span>
+    <span onclick="applyLanguage('fr')">🇫🇷 Français</span>
+    <span onclick="applyLanguage('de')">🇩🇪 Deutsch</span>
+    <span onclick="applyLanguage('es')">🇪🇸 Español</span>
+    <span onclick="applyLanguage('it')">🇮🇹 Italiano</span>
+    <span onclick="applyLanguage('pt')">🇵🇹 Português</span>
+    <span onclick="applyLanguage('ar')">🇸🇦 العربية</span>
+    <span onclick="applyLanguage('zh')">🇨🇳 中文</span>
+    <span onclick="applyLanguage('pl')">🇵🇱 Polski</span>
+    <span onclick="applyLanguage('nl')">🇳🇱 Nederlands</span>
+    <span onclick="applyLanguage('uk')">🇺🇦 Українська</span>
+  </div>
+
 </div>
 
 <!-- ==================================================
@@ -1493,67 +1420,7 @@ footer p{
 
     <div class="nav-actions">
 
-      <details class="language-dropdown">
-
-        <summary>🌐 Language</summary>
-
-        <div class="language-menu">
-
-          <span onclick="applyLanguage('en'); this.closest('details').removeAttribute('open')">
-            🇬🇧 English
-          </span>
-
-          <span onclick="applyLanguage('fr'); this.closest('details').removeAttribute('open')">
-            🇫🇷 Français
-          </span>
-
-          <span onclick="applyLanguage('de'); this.closest('details').removeAttribute('open')">
-            🇩🇪 Deutsch
-          </span>
-
-          <span onclick="applyLanguage('es'); this.closest('details').removeAttribute('open')">
-            🇪🇸 Español
-          </span>
-
-          <span onclick="applyLanguage('it'); this.closest('details').removeAttribute('open')">
-            🇮🇹 Italiano
-          </span>
-
-          <span onclick="applyLanguage('pt'); this.closest('details').removeAttribute('open')">
-            🇵🇹 Português
-          </span>
-
-          <span onclick="applyLanguage('ar'); this.closest('details').removeAttribute('open')">
-            🇸🇦 العربية
-          </span>
-
-          <span onclick="applyLanguage('zh'); this.closest('details').removeAttribute('open')">
-            🇨🇳 中文
-          </span>
-
-          <span onclick="applyLanguage('pl'); this.closest('details').removeAttribute('open')">
-            🇵🇱 Polski
-          </span>
-
-          <span onclick="applyLanguage('nl'); this.closest('details').removeAttribute('open')">
-            🇳🇱 Nederlands
-          </span>
-
-          <span onclick="applyLanguage('uk'); this.closest('details').removeAttribute('open')">
-            🇺🇦 Українська
-          </span>
-
-          <span onclick="applyLanguage('tr'); this.closest('details').removeAttribute('open')">
-            🇹🇷 Türkçe
-          </span>
-
-        </div>
-
-      </details>
-
-      <div class="header-delivery">
-        📦 FAST DELIVERY
-      </div>
+      
 
     </div>
 
@@ -1568,6 +1435,8 @@ footer p{
 <main id="home">
 
 <section class="hero">
+
+  <!-- LIVE ROTATING ADVERTISEMENT -->
 
   <div class="hero-ad-slider">
 
@@ -1678,6 +1547,7 @@ footer p{
 
 </section>
 
+
 <!-- ==================================================
      VISUAL STORY
 ================================================== -->
@@ -1762,6 +1632,7 @@ footer p{
 
 </section>
 
+
 <!-- ==================================================
      STAFF / OFFICE VISUAL
 ================================================== -->
@@ -1810,6 +1681,7 @@ footer p{
   </div>
 
 </section>
+
 
 <!-- ==================================================
      SERVICES
@@ -1908,6 +1780,7 @@ footer p{
 
 </section>
 
+
 <!-- ==================================================
      TRACKING
 ================================================== -->
@@ -1952,6 +1825,7 @@ footer p{
 
 </main>
 
+
 <!-- ==================================================
      SHOP
 ================================================== -->
@@ -1959,6 +1833,9 @@ footer p{
 <section id="shopPage">
 
   <div class="shop-container">
+
+    <!-- VISUAL SHOP ADVERTISEMENT.
+         This is separate from the actual product grid. -->
 
     <div class="shop-advertising">
 
@@ -2043,21 +1920,22 @@ footer p{
 
     </div>
 
+
     <div class="shop-top">
 
       <h2>
-        Greenway Express Shop
+        🛍️ Greenway Shop
       </h2>
 
       <p>
-        Browse our available products and order
-        directly from Greenway Express.
+        Browse available products, add items
+        to your cart and place your order.
       </p>
 
       <a
         href="#home"
-        id="shopBackButton"
-        class="shop-back">
+        class="shop-back"
+        id="shopBackButton">
 
         ← Back to Greenway Express
 
@@ -2099,9 +1977,7 @@ footer p{
 
         <div class="cart-total">
 
-          <span>
-            Total
-          </span>
+          <span>Total</span>
 
           <span id="cartTotal">
             $0.00
@@ -2116,1760 +1992,6 @@ footer p{
 
           Proceed to Checkout
 
-        </button>
-
-        <div
-          id="checkoutPanel"
-          class="checkout-panel">
-
-          <h3>
-            Checkout Details
-          </h3>
-
-          <input
-            id="customerName"
-            type="text"
-            placeholder="Full Name">
-
-          <input
-            id="customerPhone"
-            type="tel"
-            placeholder="Phone Number">
-
-          <input
-            id="customerEmail"
-            type="email"
-            placeholder="Email Address">
-
-          <input
-            id="deliveryAddress"
-            type="text"
-            placeholder="Delivery Address">
-
-          <textarea
-            id="orderNote"
-            placeholder="Additional delivery instructions (optional)"></textarea>
-
-          <button
-            type="button"
-            id="placeOrderButton">
-
-            Place Order
-
-          </button>
-
-          <div
-            id="checkoutMessage"
-            class="checkout-message">
-          </div>
-
-        </div>
-
-      </aside>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ==================================================
-     CHAT
-================================================== -->
-
-<button
-  type="button"
-  id="chatLaunch"
-  class="chat-launch">
-
-  💬
-
-</button>
-
-<div
-  id="chatWindow"
-  class="chat-window">
-
-  <div class="chat-header">
-
-    <strong>
-      Greenway Express Support
-    </strong>
-
-    <button
-      type="button"
-      id="chatClose"
-      class="chat-close">
-
-      ×
-
-    </button>
-
-  </div>
-
-  <div
-    id="chatMessages"
-    class="chat-messages">
-
-  </div>
-
-  <div class="chat-input-area">
-
-    <div
-      id="imagePreview"
-      class="image-preview">
-
-      <img
-        id="previewImage"
-        src=""
-        alt="Selected image">
-
-      <span
-        id="imagePreviewName"
-        class="image-preview-name">
-      </span>
-
-      <button
-        type="button"
-        id="removePreview"
-        class="remove-preview">
-
-        ×
-
-      </button>
-
-    </div>
-
-    <div class="chat-input-row">
-
-      <input
-        type="file"
-        id="chatImageInput"
-        accept="image/*"
-        hidden>
-
-      <button
-        type="button"
-        id="chatImageButton"
-        class="chat-icon-button">
-
-        📎
-
-      </button>
-
-      <textarea
-        id="chatMessageInput"
-        placeholder="Write a message..."></textarea>
-
-      <button
-        type="button"
-        id="sendChatButton"
-        class="send-chat-button">
-
-        ➤
-
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- ==================================================
-     FOOTER
-================================================== -->
-
-<footer id="contact">
-
-  <h3>
-    GREENWAY EXPRESS
-  </h3>
-
-  <p>
-    Fast, Safe & Reliable Delivery
-  </p>
-
-  <p>
-    ✉️ info@greenwayexpress.com
-    &nbsp; • &nbsp;
-    📞 +44 7456 017196
-  </p>
-
-  <p style="margin-top:20px;font-size:12px;">
-    © 2026 Greenway Express. All rights reserved.
-  </p>
-
-</footer>
-
-<script>
-
-const SUPABASE_URL =
-  "https://YOUR-SUPABASE-PROJECT.supabase.co";
-
-const SUPABASE_ANON_KEY =
-  "YOUR-SUPABASE-ANON-KEY";
-
-let supabaseClient = null;
-
-if(
-  typeof window.supabase !== "undefined" &&
-  SUPABASE_URL.indexOf("YOUR-SUPABASE") === -1
-){
-
-  supabaseClient =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_ANON_KEY
-    );
-
-}
-
-/* ==================================================
-   GENERAL HELPERS
-================================================== */
-
-function escapeHtml(value){
-
-  return String(
-    value ?? ""
-  )
-  .replace(/&/g,"&amp;")
-  .replace(/</g,"&lt;")
-  .replace(/>/g,"&gt;")
-  .replace(/"/g,"&quot;")
-  .replace(/'/g,"&#039;");
-
-}
-
-function escapeAttribute(value){
-
-  return escapeHtml(value);
-
-}
-
-function firstValue(
-  object,
-  keys
-){
-
-  for(
-    const key of keys
-  ){
-
-    if(
-      object &&
-      object[key] !== undefined &&
-      object[key] !== null &&
-      String(object[key]).trim() !== ""
-    ){
-
-      return object[key];
-
-    }
-
-  }
-
-  return "";
-
-}
-
-function formatDate(value){
-
-  if(!value){
-    return "";
-  }
-
-  const date =
-    new Date(value);
-
-  if(
-    Number.isNaN(
-      date.getTime()
-    )
-  ){
-
-    return String(value);
-
-  }
-
-  return date.toLocaleString(
-    undefined,
-    {
-      dateStyle:"medium",
-      timeStyle:"short"
-    }
-  );
-
-}
-
-/* ==================================================
-   LANGUAGE SUPPORT
-================================================== */
-
-const languageTranslations = {
-
-  en:{
-    hero:"Fast, Safe & Reliable Delivery",
-    track:"Track Your Shipment"
-  },
-
-  fr:{
-    hero:"Livraison Rapide, Sûre et Fiable",
-    track:"Suivre Votre Envoi"
-  },
-
-  de:{
-    hero:"Schnelle, sichere und zuverlässige Lieferung",
-    track:"Sendung Verfolgen"
-  },
-
-  es:{
-    hero:"Entrega Rápida, Segura y Confiable",
-    track:"Rastrear Su Envío"
-  },
-
-  it:{
-    hero:"Consegna Veloce, Sicura e Affidabile",
-    track:"Traccia la Tua Spedizione"
-  },
-
-  pt:{
-    hero:"Entrega Rápida, Segura e Confiável",
-    track:"Rastrear Sua Encomenda"
-  },
-
-  ar:{
-    hero:"توصيل سريع وآمن وموثوق",
-    track:"تتبع شحنتك"
-  },
-
-  zh:{
-    hero:"快速、安全、可靠的配送",
-    track:"追踪您的货件"
-  },
-
-  pl:{
-    hero:"Szybka, bezpieczna i niezawodna dostawa",
-    track:"Śledź swoją przesyłkę"
-  },
-
-  nl:{
-    hero:"Snelle, veilige en betrouwbare levering",
-    track:"Volg uw zending"
-  },
-
-  uk:{
-    hero:"Швидка, безпечна та надійна доставка",
-    track:"Відстежити відправлення"
-  },
-
-  tr:{
-    hero:"Hızlı, Güvenli ve Güvenilir Teslimat",
-    track:"Gönderinizi Takip Edin"
-  }
-
-};
-
-function applyLanguage(
-  language
-){
-
-  const selected =
-    languageTranslations[language];
-
-  if(!selected){
-    return;
-  }
-
-  const heroSubtitle =
-    document.querySelector(
-      ".hero-content-subtitle"
-    );
-
-  const trackingTitle =
-    document.querySelector(
-      ".tracking-box h2"
-    );
-
-  if(heroSubtitle){
-    heroSubtitle.textContent =
-      selected.hero;
-  }
-
-  if(trackingTitle){
-    trackingTitle.textContent =
-      selected.track;
-  }
-
-  document.documentElement.lang =
-    language;
-
-  try{
-
-    localStorage.setItem(
-      "greenway_language",
-      language
-    );
-
-  }catch(error){}
-
-}
-
-/* ==================================================
-   HERO SLIDER
-================================================== */
-
-const heroSlides =
-  document.querySelectorAll(
-    ".hero-ad-slide"
-  );
-
-const heroDots =
-  document.querySelectorAll(
-    ".hero-dot"
-  );
-
-const heroCaption =
-  document.getElementById(
-    "heroCaption"
-  );
-
-let currentHeroSlide = 0;
-
-function showHeroSlide(
-  index
-){
-
-  if(!heroSlides.length){
-    return;
-  }
-
-  currentHeroSlide =
-    index %
-    heroSlides.length;
-
-  heroSlides.forEach(
-    function(slide,i){
-
-      slide.classList.toggle(
-        "active",
-        i === currentHeroSlide
-      );
-
-    }
-  );
-
-  heroDots.forEach(
-    function(dot,i){
-
-      dot.classList.toggle(
-        "active",
-        i === currentHeroSlide
-      );
-
-    }
-  );
-
-  if(heroCaption){
-
-    const caption =
-      heroSlides[
-        currentHeroSlide
-      ].dataset.caption ||
-      "Greenway Express — Fast, Safe & Reliable Delivery";
-
-    heroCaption.querySelector(
-      "span"
-    ).textContent =
-      caption;
-
-  }
-
-}
-
-heroDots.forEach(
-  function(dot){
-
-    dot.addEventListener(
-      "click",
-      function(){
-
-        const index =
-          Number(
-            dot.dataset.slide
-          );
-
-        showHeroSlide(index);
-
-      }
-    );
-
-  }
-);
-
-if(heroSlides.length > 1){
-
-  setInterval(
-    function(){
-
-      showHeroSlide(
-        currentHeroSlide + 1
-      );
-
-    },
-    6000
-  );
-
-}
-
-/* ==================================================
-   SHOP ADVERTISEMENT SLIDER
-================================================== */
-
-const shopAdSlides =
-  document.querySelectorAll(
-    ".shop-ad-slide"
-  );
-
-let currentShopAd = 0;
-
-if(shopAdSlides.length > 1){
-
-  setInterval(
-    function(){
-
-      shopAdSlides[
-        currentShopAd
-      ].classList.remove(
-        "active"
-      );
-
-      currentShopAd =
-        (
-          currentShopAd + 1
-        ) %
-        shopAdSlides.length;
-
-      shopAdSlides[
-        currentShopAd
-      ].classList.add(
-        "active"
-      );
-
-    },
-    5000
-  );
-
-}
-
-/* ==================================================
-   TRACKING
-================================================== */
-
-const trackButton =
-  document.getElementById(
-    "trackButton"
-  );
-
-const trackingInput =
-  document.getElementById(
-    "trackingInput"
-  );
-
-if(trackButton){
-
-  trackButton.addEventListener(
-    "click",
-    trackShipment
-  );
-
-}
-
-if(trackingInput){
-
-  trackingInput.addEventListener(
-    "keydown",
-    function(event){
-
-      if(
-        event.key === "Enter"
-      ){
-
-        event.preventDefault();
-
-        trackShipment();
-
-      }
-
-    }
-  );
-
-}
-
-async function trackShipment(){
-
-  const result =
-    document.getElementById(
-      "result"
-    );
-
-  if(!result){
-    return;
-  }
-
-  const cleanNumber =
-    String(
-      trackingInput?.value || ""
-    ).trim();
-
-  if(!cleanNumber){
-
-    result.innerHTML = `
-      <div class="tracking-error">
-        ⚠️ Please enter a tracking number or order number.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  if(!supabaseClient){
-
-    result.innerHTML = `
-      <div class="tracking-error">
-        ❌ Tracking service is temporarily unavailable.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  result.innerHTML = `
-    <div class="tracking-loading">
-      🔄 Looking up your shipment...
-    </div>
-  `;
-
-  try{
-
-    const shipmentResponse =
-      await supabaseClient
-        .from("shipments")
-        .select("*")
-        .or(
-          [
-            `tracking_number.eq.${cleanNumber}`,
-            `trackingNumber.eq.${cleanNumber}`
-          ].join(",")
-        )
-        .limit(1)
-        .maybeSingle();
-
-    if(
-      !shipmentResponse.error &&
-      shipmentResponse.data
-    ){
-
-      await renderShipmentResult(
-        shipmentResponse.data
-      );
-
-      return;
-
-    }
-
-    const orderNumberResponse =
-      await supabaseClient
-        .from("shop_orders")
-        .select("*")
-        .eq(
-          "order_number",
-          cleanNumber
-        )
-        .limit(1)
-        .maybeSingle();
-
-    if(orderNumberResponse.data){
-
-      renderShopOrderTracking(
-        orderNumberResponse.data
-      );
-
-      return;
-
-    }
-
-    result.innerHTML = `
-      <div class="tracking-error">
-        ❌ No shipment or order was found for
-        <strong>
-          ${escapeHtml(cleanNumber)}
-        </strong>
-
-        <br><br>
-
-        Please check the tracking number or
-        order number and try again.
-      </div>
-    `;
-
-  }catch(error){
-
-    console.error(
-      "Tracking error:",
-      error
-    );
-
-    result.innerHTML = `
-      <div class="tracking-error">
-        ❌ We could not retrieve the shipment
-        or order right now.
-        <br><br>
-        Please try again shortly.
-      </div>
-    `;
-
-  }
-
-}
-
-/* ==================================================
-   NORMAL SHIPMENT RESULT
-================================================== */
-
-async function renderShipmentResult(
-  shipment
-){
-
-  const result =
-    document.getElementById(
-      "result"
-    );
-
-  if(!result){
-    return;
-  }
-
-  const trackingNumber =
-    firstValue(
-      shipment,
-      [
-        "tracking_number",
-        "trackingNumber",
-        "tracking"
-      ]
-    ) || "Not available";
-
-  const status =
-    firstValue(
-      shipment,
-      [
-        "status",
-        "shipment_status"
-      ]
-    ) || "Processing";
-
-  const senderName =
-    firstValue(
-      shipment,
-      [
-        "sender_name",
-        "senderName",
-        "sender"
-      ]
-    );
-
-  const senderPhone =
-    firstValue(
-      shipment,
-      [
-        "sender_phone",
-        "senderPhone"
-      ]
-    );
-
-  const senderEmail =
-    firstValue(
-      shipment,
-      [
-        "sender_email",
-        "senderEmail"
-      ]
-    );
-
-  const receiverName =
-    firstValue(
-      shipment,
-      [
-        "receiver_name",
-        "receiverName",
-        "recipient_name"
-      ]
-    );
-
-  const receiverPhone =
-    firstValue(
-      shipment,
-      [
-        "receiver_phone",
-        "receiverPhone",
-        "recipient_phone"
-      ]
-    );
-
-  const receiverEmail =
-    firstValue(
-      shipment,
-      [
-        "receiver_email",
-        "receiverEmail",
-        "recipient_email"
-      ]
-    );
-
-  const origin =
-    firstValue(
-      shipment,
-      [
-        "origin",
-        "pickup_location",
-        "pickup_address",
-        "pickup",
-        "from"
-      ]
-    );
-
-  const destination =
-    firstValue(
-      shipment,
-      [
-        "destination",
-        "delivery_address",
-        "destination_address",
-        "to"
-      ]
-    );
-
-  const currentLocation =
-    firstValue(
-      shipment,
-      [
-        "current_location",
-        "currentLocation",
-        "location"
-      ]
-    );
-
-  const packageType =
-    firstValue(
-      shipment,
-      [
-        "package_type",
-        "packageType",
-        "type"
-      ]
-    );
-
-  const description =
-    firstValue(
-      shipment,
-      [
-        "description",
-        "package_description"
-      ]
-    );
-
-  const weight =
-    firstValue(
-      shipment,
-      [
-        "weight",
-        "package_weight"
-      ]
-    );
-
-  const serviceType =
-    firstValue(
-      shipment,
-      [
-        "service_type",
-        "serviceType",
-        "shipping_service"
-      ]
-    );
-
-  const estimatedDelivery =
-    firstValue(
-      shipment,
-      [
-        "estimated_delivery",
-        "estimatedDelivery",
-        "delivery_date"
-      ]
-    );
-
-  const updatedAt =
-    firstValue(
-      shipment,
-      [
-        "updated_at",
-        "updatedAt"
-      ]
-    );
-
-  result.innerHTML = `
-
-    <div class="tracking-result">
-
-      <div class="tracking-result-header">
-
-        <h3>
-          📦 Shipment Details
-        </h3>
-
-        <p>
-          Complete information for your shipment
-        </p>
-
-      </div>
-
-      <div class="tracking-number-display">
-
-        Tracking Number:
-
-        <strong>
-          ${escapeHtml(trackingNumber)}
-        </strong>
-
-      </div>
-
-      <div class="status-box">
-
-        <strong>Status:</strong>
-
-        ${escapeHtml(status)}
-
-        ${
-          currentLocation
-          ?
-          `
-          <br><br>
-          <strong>Current Location:</strong>
-          ${escapeHtml(currentLocation)}
-          `
-          :
-          ""
-        }
-
-      </div>
-
-      <div class="shipment-grid">
-
-        <div class="shipment-info">
-          <span class="info-icon">👤</span>
-          <span class="info-label">Sender Name</span>
-          <span class="info-value">
-            ${escapeHtml(senderName || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📞</span>
-          <span class="info-label">Sender Phone</span>
-          <span class="info-value">
-            ${escapeHtml(senderPhone || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📧</span>
-          <span class="info-label">Sender Email</span>
-          <span class="info-value">
-            ${escapeHtml(senderEmail || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">👤</span>
-          <span class="info-label">Receiver</span>
-          <span class="info-value">
-            ${escapeHtml(receiverName || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📞</span>
-          <span class="info-label">Receiver Phone</span>
-          <span class="info-value">
-            ${escapeHtml(receiverPhone || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📧</span>
-          <span class="info-label">Receiver Email</span>
-          <span class="info-value">
-            ${escapeHtml(receiverEmail || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📍</span>
-          <span class="info-label">Origin / Pickup</span>
-          <span class="info-value">
-            ${escapeHtml(origin || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">🏁</span>
-          <span class="info-label">Destination</span>
-          <span class="info-value">
-            ${escapeHtml(destination || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📦</span>
-          <span class="info-label">Package Type</span>
-          <span class="info-value">
-            ${escapeHtml(packageType || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">⚖️</span>
-          <span class="info-label">Weight</span>
-          <span class="info-value">
-            ${escapeHtml(weight || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">🚚</span>
-          <span class="info-label">Service Type</span>
-          <span class="info-value">
-            ${escapeHtml(serviceType || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📅</span>
-          <span class="info-label">Estimated Delivery</span>
-          <span class="info-value">
-            ${
-              estimatedDelivery
-              ?
-              escapeHtml(
-                formatDate(
-                  estimatedDelivery
-                )
-              )
-              :
-              "Not available"
-            }
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">📝</span>
-          <span class="info-label">Description</span>
-          <span class="info-value">
-            ${escapeHtml(description || "Not available")}
-          </span>
-        </div>
-
-        <div class="shipment-info">
-          <span class="info-icon">🕐</span>
-          <span class="info-label">Last Updated</span>
-          <span class="info-value">
-            ${
-              updatedAt
-              ?
-              escapeHtml(
-                formatDate(
-                  updatedAt
-                )
-              )
-              :
-              "Not available"
-            }
-          </span>
-        </div>
-
-      </div>
-
-      <div
-        id="shipmentHistory"
-        class="shipment-history">
-
-        <h3>
-          📍 Shipment History
-        </h3>
-
-        <div>
-          Loading shipment history...
-        </div>
-
-      </div>
-
-    </div>
-
-  `;
-
-  await loadShipmentEvents(
-    trackingNumber,
-    shipment.id
-  );
-
-}
-
-/* ==================================================
-   SHIPMENT EVENTS
-================================================== */
-
-async function loadShipmentEvents(
-  trackingNumber,
-  shipmentId
-){
-
-  const history =
-    document.getElementById(
-      "shipmentHistory"
-    );
-
-  if(!history){
-    return;
-  }
-
-  try{
-
-    if(shipmentId){
-
-      const byId =
-        await supabaseClient
-          .from("shipment_events")
-          .select("*")
-          .eq(
-            "shipment_id",
-            shipmentId
-          )
-          .order(
-            "created_at",
-            {
-              ascending:false
-            }
-          );
-
-      if(
-        !byId.error &&
-        byId.data &&
-        byId.data.length
-      ){
-
-        renderTimeline(
-          history,
-          byId.data
-        );
-
-        return;
-
-      }
-
-    }
-
-    const byTracking =
-      await supabaseClient
-        .from("shipment_events")
-        .select("*")
-        .eq(
-          "tracking_number",
-          trackingNumber
-        )
-        .order(
-          "created_at",
-          {
-            ascending:false
-          }
-        );
-
-    if(
-      !byTracking.error &&
-      byTracking.data &&
-      byTracking.data.length
-    ){
-
-      renderTimeline(
-        history,
-        byTracking.data
-      );
-
-      return;
-
-    }
-
-    history.innerHTML = `
-
-      <h3>📍 Shipment History</h3>
-
-      <div class="order-detail-card">
-        Shipment Created — Your shipment is
-        registered with Greenway Express.
-      </div>
-
-    `;
-
-  }catch(error){
-
-    console.error(
-      "Shipment events error:",
-      error
-    );
-
-    history.innerHTML = `
-      <h3>📍 Shipment History</h3>
-      <div class="order-detail-card">
-        Shipment history is currently unavailable.
-      </div>
-    `;
-
-  }
-
-}
-
-function renderTimeline(
-  container,
-  events
-){
-
-  if(!events.length){
-
-    container.innerHTML = `
-      <h3>📍 Shipment History</h3>
-      <div class="order-detail-card">
-        No shipment events have been recorded yet.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  container.innerHTML = `
-
-    <h3>📍 Shipment History</h3>
-
-    <div class="timeline">
-
-      ${
-        events.map(
-          function(event){
-
-            const status =
-              firstValue(
-                event,
-                [
-                  "status",
-                  "event_type",
-                  "event",
-                  "title"
-                ]
-              ) ||
-              "Shipment Update";
-
-            const location =
-              firstValue(
-                event,
-                [
-                  "location",
-                  "current_location",
-                  "description",
-                  "details"
-                ]
-              );
-
-            const date =
-              firstValue(
-                event,
-                [
-                  "created_at",
-                  "event_time",
-                  "timestamp"
-                ]
-              );
-
-            return `
-
-              <div class="timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                  <div class="timeline-status">
-                    ${escapeHtml(status)}
-                  </div>
-
-                  ${
-                    location
-                    ?
-                    `
-                    <div class="timeline-location">
-                      ${escapeHtml(location)}
-                    </div>
-                    `
-                    :
-                    ""
-                  }
-
-                  ${
-                    date
-                    ?
-                    `
-                    <div class="timeline-date">
-                      ${escapeHtml(
-                        formatDate(date)
-                      )}
-                    </div>
-                    `
-                    :
-                    ""
-                  }
-
-                </div>
-
-              </div>
-
-            `;
-
-          }
-        ).join("")
-      }
-
-    </div>
-
-  `;
-
-}
-
-/* ==================================================
-   SHOP OPEN / CLOSE
-================================================== */
-
-const shopPage =
-  document.getElementById(
-    "shopPage"
-  );
-
-const shopButtonMain =
-  document.getElementById(
-    "shopButtonMain"
-  );
-
-function openShop(){
-
-  if(!shopPage){
-    return;
-  }
-
-  document
-    .querySelectorAll(
-      "body > header, body > main, body > section:not(#shopPage), body > footer"
-    )
-    .forEach(
-      function(element){
-
-        element.style.display =
-          "none";
-
-      }
-    );
-
-  shopPage.style.display =
-    "block";
-
-  window.location.hash =
-    "shop";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-  loadProducts();
-
-}
-
-if(shopButtonMain){
-
-  shopButtonMain.addEventListener(
-    "click",
-    function(event){
-
-      event.preventDefault();
-
-      openShop();
-
-    }
-  );
-
-}
-
-function closeShop(){
-
-  if(!shopPage){
-    return;
-  }
-
-  shopPage.style.display =
-    "none";
-
-  document
-    .querySelectorAll(
-      "body > header, body > main, body > section:not(#shopPage), body > footer"
-    )
-    .forEach(
-      function(element){
-
-        element.style.display =
-          "";
-
-      }
-    );
-
-  window.location.hash =
-    "home";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-const shopBackButton =
-  document.getElementById(
-    "shopBackButton"
-  );
-
-if(shopBackButton){
-
-  shopBackButton.addEventListener(
-    "click",
-    function(event){
-
-      event.preventDefault();
-
-      closeShop();
-
-    }
-  );
-
-}
-
-/* ==================================================
-   LOAD PRODUCTS
-================================================== */
-
-let products = [];
-let cart = [];
-
-async function loadProducts(){
-
-  const grid =
-    document.getElementById(
-      "productsGrid"
-    );
-
-  if(!grid){
-    return;
-  }
-
-  grid.innerHTML = `
-    <div class="shop-empty">
-      🔄 Loading available products...
-    </div>
-  `;
-
-  try{
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
-        .from("shop_products")
-        .select("*")
-        .eq(
-          "is_available",
-          true
-        )
-        .eq(
-          "visible",
-          true
-        )
-        .order(
-          "created_at",
-          {
-            ascending:false
-          }
-        );
-
-    if(error){
-
-      console.error(
-        "Shop products error:",
-        error
-      );
-
-      grid.innerHTML = `
-        <div class="shop-empty">
-          ❌ Unable to load the Greenway Shop right now.
-          <br><br>
-          Please try again shortly.
-        </div>
-      `;
-
-      products = [];
-
-      renderCart();
-
-      return;
-
-    }
-
-    products =
-      (data || [])
-        .map(
-          function(item){
-
-            return {
-
-              id:item.id,
-
-              name:
-                item.name ||
-                "Greenway Product",
-
-              description:
-                item.description ||
-                "",
-
-              category:
-                item.category ||
-                "",
-
-              price:
-                Number(
-                  item.price || 0
-                ),
-
-              currency:
-                item.currency ||
-                "USD",
-
-              image:
-                item.image_url ||
-                "",
-
-              stock:
-                Number(
-                  item.stock ?? 0
-                )
-
-            };
-
-          }
-        );
-
-    renderProducts();
-
-  }catch(error){
-
-    console.error(
-      "Product loading error:",
-      error
-    );
-
-    products = [];
-
-    grid.innerHTML = `
-      <div class="shop-empty">
-        ❌ Unable to connect to the Greenway Shop.
-      </div>
-    `;
-
-    renderCart();
-
-  }
-
-}
-
-/* ==================================================
-   RENDER PRODUCTS
-================================================== */
-
-function renderProducts(){
-
-  const grid =
-    document.getElementById(
-      "productsGrid"
-    );
-
-  if(!grid){
-    return;
-  }
-
-  if(!products.length){
-
-    grid.innerHTML = `
-      <div class="shop-empty">
-        No products are currently available.
-      </div>
-    `;
-
-    return;
-
-  }
-
-  grid.innerHTML =
-    products
-      .map(
-        function(product){
-
-          const hasImage =
-            product.image &&
-            product.image.trim() !== "";
-
-          const imageHtml =
-            hasImage
-            ?
-            `
-            <img
-              class="product-image"
-              src="${escapeAttribute(product.image)}"
-              alt="${escapeAttribute(product.name)}"
-              onerror="
-                this.style.display='none';
-                if(this.nextElementSibling){
-                  this.nextElementSibling.style.display='flex';
-                }
-              "
-            >
-
-            <div
-              class="product-no-image"
-              style="display:none">
-              📦
-            </div>
-            `
-            :
-            `
-            <div class="product-no-image">
-              📦
-            </div>
-            `;
-
-          const outOfStock =
-            Number(product.stock) <= 0;
-
-          return `
-
-            <article class="product-card">
-
-              ${imageHtml}
-
-              <div class="product-body">
-
-                <div class="product-category">
-                  ${escapeHtml(
-                    product.category
-                  )}
-                </div>
-
-                <h3>
-                  ${escapeHtml(
-                    product.name
-                  )}
-                </h3>
-
-                <p class="product-description">
-                  ${escapeHtml(
-                    product.description
-                  )}
-                </p>
-
-                <div class="product-price">
-                  ${escapeHtml(
-                    product.currency
-                  )}
-                  ${Number(
-                    product.price
-                  ).toFixed(2)}
-                </div>
-
-                <div class="small-note">
-                  ${
-                    outOfStock
-                    ?
-                    "Out of stock"
-                    :
-                    `Available: ${product.stock}`
-                  }
-                </div>
-
-                <div class="quantity-row">
-
-                  <input
-                    id="qty-${escapeAttribute(product.id)}"
-                    type="number"
-                    min="1"
-                    max="${escapeAttribute(product.stock)}"
-                    value="1"
-                    ${outOfStock ? "disabled" : ""}
-                  >
-
-                </div>
-
-                <button
-                  type="button"
-                  class="add-cart"
-                  onclick="addToCart('${escapeAttribute(product.id)}')"
-                  ${outOfStock ? "disabled" : ""}>
-
-                  ${
-                    outOfStock
-                    ?
-                    "OUT OF STOCK"
-                    :
-                    "ADD TO CART"
-                  }
-
-                </button>
-
-              </div>
-
-            </article>
-
-          `;
-
-        }
-      )
-      .join("");
-
-} 
-  $0.00
-          </span>
-        </div>
-
-        <button
-          type="button"
-          id="checkoutButton"
-          class="checkout-button">
-          Proceed to Checkout
         </button>
 
         <div
@@ -3896,6 +2018,7 @@ function renderProducts(){
             placeholder="Phone Number">
 
           <select id="customerCountry">
+
             <option value="">
               Select Country
             </option>
@@ -3910,6 +2033,7 @@ function renderProducts(){
             <option>Spain</option>
             <option>Italy</option>
             <option>Other</option>
+
           </select>
 
           <textarea
@@ -3919,7 +2043,9 @@ function renderProducts(){
           <button
             type="button"
             id="placeOrderButton">
+
             🛍️ Place Order
+
           </button>
 
           <div
@@ -4697,14 +2823,10 @@ async function trackShipment(){
 
     result.innerHTML = `
       <div class="tracking-error">
-
         ❌ We could not retrieve the shipment
         or order right now.
-
         <br><br>
-
         Please try again shortly.
-
       </div>
     `;
 
@@ -4863,1780 +2985,2514 @@ async function renderShipmentResult(shipment){
         "package_weight"
       ]
     );
-  const existing =
-      cart.find(
-        function(item){
-          return String(item.id) ===
-            String(product.id);
+
+  const serviceType =
+    firstValue(
+      shipment,
+      [
+        "service_type",
+        "serviceType",
+        "shipping_service"
+      ]
+    );
+
+  const estimatedDelivery =
+    firstValue(
+      shipment,
+      [
+        "estimated_delivery",
+        "estimatedDelivery",
+        "delivery_date"
+      ]
+    );
+
+  const updatedAt =
+    firstValue(
+      shipment,
+      [
+        "updated_at",
+        "updatedAt"
+      ]
+    );
+
+  result.innerHTML = `
+
+    <div class="tracking-result">
+
+      <div class="tracking-result-header">
+
+        <h3>
+          📦 Shipment Details
+        </h3>
+
+        <p>
+          Complete information for your shipment
+        </p>
+
+      </div>
+
+      <div class="tracking-number-display">
+
+        Tracking Number:
+
+        <strong>
+          ${escapeHtml(trackingNumber)}
+        </strong>
+
+      </div>
+
+      <div class="status-box">
+
+        <strong>Status:</strong>
+
+        ${escapeHtml(status)}
+
+        ${
+          currentLocation
+          ?
+          `
+          <br><br>
+          <strong>Current Location:</strong>
+          ${escapeHtml(currentLocation)}
+          `
+          :
+          ""
         }
-      );
 
-    if(existing){
+      </div>
 
-      existing.quantity =
-        Math.min(
-          stock,
-          existing.quantity + safeQuantity
-        );
+      <div class="shipment-grid">
 
-    }else{
-
-      cart.push({
-        id:product.id,
-        name:product.name,
-        description:product.description,
-        price:product.price,
-        currency:product.currency,
-        image:product.image,
-        quantity:safeQuantity
-      });
-
-    }
-
-    saveCart();
-    renderCart();
-
-  }
-
-  function saveCart(){
-
-    try{
-
-      localStorage.setItem(
-        "greenwayCart",
-        JSON.stringify(cart)
-      );
-
-    }catch(error){
-
-      console.error(
-        "Cart save error:",
-        error
-      );
-
-    }
-
-  }
-
-  function updateCartQuantity(
-    productId,
-    quantity
-  ){
-
-    const item =
-      cart.find(
-        function(cartItem){
-          return String(cartItem.id) ===
-            String(productId);
-        }
-      );
-
-    if(!item){
-      return;
-    }
-
-    const product =
-      products.find(
-        function(productItem){
-          return String(productItem.id) ===
-            String(productId);
-        }
-      );
-
-    const stock =
-      product
-      ?
-      Number(product.stock)
-      :
-      999999;
-
-    let safeQuantity =
-      Math.floor(
-        Number(quantity)
-      );
-
-    if(
-      !Number.isFinite(
-        safeQuantity
-      ) ||
-      safeQuantity < 1
-    ){
-
-      safeQuantity = 1;
-
-    }
-
-    safeQuantity =
-      Math.min(
-        stock,
-        safeQuantity
-      );
-
-    if(safeQuantity <= 0){
-
-      cart =
-        cart.filter(
-          function(cartItem){
-            return String(cartItem.id) !==
-              String(productId);
-          }
-        );
-
-    }else{
-
-      item.quantity =
-        safeQuantity;
-
-    }
-
-    saveCart();
-    renderCart();
-
-  }
-
-  function removeFromCart(
-    productId
-  ){
-
-    cart =
-      cart.filter(
-        function(item){
-          return String(item.id) !==
-            String(productId);
-        }
-      );
-
-    saveCart();
-    renderCart();
-
-  }
-
-  function renderCart(){
-
-    const cartItems =
-      document.getElementById(
-        "cartItems"
-      );
-
-    const cartCount =
-      document.getElementById(
-        "cartCount"
-      );
-
-    const cartTotal =
-      document.getElementById(
-        "cartTotal"
-      );
-
-    if(!cartItems){
-      return;
-    }
-
-    let total = 0;
-    let count = 0;
-
-    cartItems.innerHTML = "";
-
-    if(!cart.length){
-
-      cartItems.innerHTML = `
-        <div class="cart-empty">
-          🛒 Your cart is empty.
+        <div class="shipment-info">
+          <span class="info-icon">👤</span>
+          <span class="info-label">Sender Name</span>
+          <span class="info-value">
+            ${escapeHtml(senderName || "Not available")}
+          </span>
         </div>
-      `;
 
-    }else{
+        <div class="shipment-info">
+          <span class="info-icon">📞</span>
+          <span class="info-label">Sender Phone</span>
+          <span class="info-value">
+            ${escapeHtml(senderPhone || "Not available")}
+          </span>
+        </div>
 
-      cart.forEach(
-        function(item){
+        <div class="shipment-info">
+          <span class="info-icon">📧</span>
+          <span class="info-label">Sender Email</span>
+          <span class="info-value">
+            ${escapeHtml(senderEmail || "Not available")}
+          </span>
+        </div>
 
-          const quantity =
-            Number(item.quantity) || 1;
+        <div class="shipment-info">
+          <span class="info-icon">👤</span>
+          <span class="info-label">Receiver</span>
+          <span class="info-value">
+            ${escapeHtml(receiverName || "Not available")}
+          </span>
+        </div>
 
-          const price =
-            Number(item.price) || 0;
+        <div class="shipment-info">
+          <span class="info-icon">📞</span>
+          <span class="info-label">Receiver Phone</span>
+          <span class="info-value">
+            ${escapeHtml(receiverPhone || "Not available")}
+          </span>
+        </div>
 
-          const subtotal =
-            price * quantity;
+        <div class="shipment-info">
+          <span class="info-icon">📧</span>
+          <span class="info-label">Receiver Email</span>
+          <span class="info-value">
+            ${escapeHtml(receiverEmail || "Not available")}
+          </span>
+        </div>
 
-          total += subtotal;
-          count += quantity;
+        <div class="shipment-info">
+          <span class="info-icon">📍</span>
+          <span class="info-label">Origin / Pickup</span>
+          <span class="info-value">
+            ${escapeHtml(origin || "Not available")}
+          </span>
+        </div>
 
-          const wrapper =
-            document.createElement(
-              "div"
-            );
+        <div class="shipment-info">
+          <span class="info-icon">🏁</span>
+          <span class="info-label">Destination</span>
+          <span class="info-value">
+            ${escapeHtml(destination || "Not available")}
+          </span>
+        </div>
 
-          wrapper.className =
-            "cart-item";
+        <div class="shipment-info">
+          <span class="info-icon">📦</span>
+          <span class="info-label">Package Type</span>
+          <span class="info-value">
+            ${escapeHtml(packageType || "Not available")}
+          </span>
+        </div>
 
-          const image =
-            item.image &&
-            item.image.trim()
-            ?
-            `
-              <img
-                src="${escapeAttribute(item.image)}"
-                alt="${escapeAttribute(item.name)}"
-                class="cart-item-image"
-                onerror="
-                  this.style.display='none';
-                "
-              >
-            `
-            :
-            `
-              <div class="cart-item-image-placeholder">
-                📦
-              </div>
-            `;
+        <div class="shipment-info">
+          <span class="info-icon">⚖️</span>
+          <span class="info-label">Weight</span>
+          <span class="info-value">
+            ${escapeHtml(weight || "Not available")}
+          </span>
+        </div>
 
-          wrapper.innerHTML = `
+        <div class="shipment-info">
+          <span class="info-icon">🚚</span>
+          <span class="info-label">Service Type</span>
+          <span class="info-value">
+            ${escapeHtml(serviceType || "Not available")}
+          </span>
+        </div>
 
-            ${image}
+        <div class="shipment-info">
+          <span class="info-icon">📅</span>
+          <span class="info-label">Estimated Delivery</span>
+          <span class="info-value">
+            ${
+              estimatedDelivery
+              ?
+              escapeHtml(
+                formatDate(
+                  estimatedDelivery
+                )
+              )
+              :
+              "Not available"
+            }
+          </span>
+        </div>
 
-            <div class="cart-item-info">
+        <div class="shipment-info">
+          <span class="info-icon">📝</span>
+          <span class="info-label">Description</span>
+          <span class="info-value">
+            ${escapeHtml(description || "Not available")}
+          </span>
+        </div>
 
-              <strong>
-                ${escapeHtml(item.name)}
-              </strong>
+        <div class="shipment-info">
+          <span class="info-icon">🕐</span>
+          <span class="info-label">Last Updated</span>
+          <span class="info-value">
+            ${
+              updatedAt
+              ?
+              escapeHtml(
+                formatDate(
+                  updatedAt
+                )
+              )
+              :
+              "Not available"
+            }
+          </span>
+        </div>
 
-              <span>
-                ${formatMoney(
-                  price,
-                  item.currency
-                )}
-              </span>
+      </div>
 
-              <div class="cart-item-controls">
+      <div
+        id="shipmentHistory"
+        class="shipment-history">
 
-                <button
-                  type="button"
-                  class="cart-qty-button"
-                  data-action="decrease"
-                  data-id="${escapeAttribute(item.id)}">
-                  −
-                </button>
+        <h3>
+          📍 Shipment History
+        </h3>
 
-                <span class="cart-quantity">
-                  ${quantity}
-                </span>
+        <div>
+          Loading shipment history...
+        </div>
 
-                <button
-                  type="button"
-                  class="cart-qty-button"
-                  data-action="increase"
-                  data-id="${escapeAttribute(item.id)}">
-                  +
-                </button>
+      </div>
 
-                <button
-                  type="button"
-                  class="cart-remove"
-                  data-action="remove"
-                  data-id="${escapeAttribute(item.id)}">
-                  Remove
-                </button>
+    </div>
 
-              </div>
+  `;
 
-              <strong class="cart-subtotal">
-                ${formatMoney(
-                  subtotal,
-                  item.currency
-                )}
-              </strong>
+  await loadShipmentEvents(
+    trackingNumber,
+    shipment.id
+  );
 
-            </div>
+}
 
-          `;
 
-          cartItems.appendChild(
-            wrapper
-          );
+/* ==================================================
+   SHIPMENT EVENTS
+================================================== */
 
-        }
-      );
+async function loadShipmentEvents(
+  trackingNumber,
+  shipmentId
+){
 
-    }
+  const history =
+    document.getElementById(
+      "shipmentHistory"
+    );
 
-    if(cartCount){
+  if(!history){
+    return;
+  }
 
-      cartCount.textContent =
-        String(count);
+  try{
 
-    }
+    if(shipmentId){
 
-    if(cartTotal){
-
-      const currency =
-        cart.length
-        ?
-        cart[0].currency || "USD"
-        :
-        "USD";
-
-      cartTotal.textContent =
-        formatMoney(
-          total,
-          currency
-        );
-
-    }
-
-    document
-      .querySelectorAll(
-        ".cart-qty-button, .cart-remove"
-      )
-      .forEach(
-        function(button){
-
-          button.addEventListener(
-            "click",
-            function(){
-
-              const id =
-                this.getAttribute(
-                  "data-id"
-                );
-
-              const action =
-                this.getAttribute(
-                  "data-action"
-                );
-
-              const item =
-                cart.find(
-                  function(cartItem){
-                    return String(cartItem.id) ===
-                      String(id);
-                  }
-                );
-
-              if(!item){
-                return;
-              }
-
-              if(action === "remove"){
-
-                removeFromCart(id);
-                return;
-
-              }
-
-              if(action === "increase"){
-
-                updateCartQuantity(
-                  id,
-                  Number(item.quantity) + 1
-                );
-
-                return;
-
-              }
-
-              if(action === "decrease"){
-
-                updateCartQuantity(
-                  id,
-                  Number(item.quantity) - 1
-                );
-
-              }
-
+      const byId =
+        await supabaseClient
+          .from("shipment_events")
+          .select("*")
+          .eq(
+            "shipment_id",
+            shipmentId
+          )
+          .order(
+            "created_at",
+            {
+              ascending:false
             }
           );
 
-        }
-      );
+      if(
+        !byId.error &&
+        byId.data &&
+        byId.data.length
+      ){
 
-  }
-
-
-  /* ==================================================
-     CART OPEN / CLOSE
-  ================================================== */
-
-  const cartButton =
-    document.getElementById(
-      "cartButton"
-    );
-
-  const cartPanel =
-    document.getElementById(
-      "cartPanel"
-    );
-
-  const cartClose =
-    document.getElementById(
-      "cartClose"
-    );
-
-  if(cartButton){
-
-    cartButton.addEventListener(
-      "click",
-      function(){
-
-        if(!cartPanel){
-          return;
-        }
-
-        cartPanel.classList.toggle(
-          "open"
+        renderTimeline(
+          history,
+          byId.data
         );
 
-        renderCart();
+        return;
 
       }
-    );
-
-  }
-
-  if(cartClose){
-
-    cartClose.addEventListener(
-      "click",
-      function(){
-
-        if(cartPanel){
-
-          cartPanel.classList.remove(
-            "open"
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
-  /* ==================================================
-     CHECKOUT
-  ================================================== */
-
-  const checkoutButton =
-    document.getElementById(
-      "checkoutButton"
-    );
-
-  const checkoutPanel =
-    document.getElementById(
-      "checkoutPanel"
-    );
-
-  if(checkoutButton){
-
-    checkoutButton.addEventListener(
-      "click",
-      function(){
-
-        if(!cart.length){
-
-          alert(
-            "Your cart is empty."
-          );
-
-          return;
-
-        }
-
-        if(checkoutPanel){
-
-          checkoutPanel.classList.toggle(
-            "open"
-          );
-
-          checkoutPanel.scrollIntoView({
-            behavior:"smooth",
-            block:"nearest"
-          });
-
-        }
-
-      }
-    );
-
-  }
-
-
-  /* ==================================================
-     SHOP ORDER NUMBER
-  ================================================== */
-
-  function createOrderNumber(){
-
-    const timestamp =
-      Date.now()
-        .toString(36)
-        .toUpperCase();
-
-    const random =
-      Math.random()
-        .toString(36)
-        .substring(2,7)
-        .toUpperCase();
-
-    return (
-      "GX-" +
-      timestamp +
-      "-" +
-      random
-    );
-
-  }
-
-
-  /* ==================================================
-     PLACE SHOP ORDER
-  ================================================== */
-
-  const placeOrderButton =
-    document.getElementById(
-      "placeOrderButton"
-    );
-
-  if(placeOrderButton){
-
-    placeOrderButton.addEventListener(
-      "click",
-      placeShopOrder
-    );
-
-  }
-
-  async function placeShopOrder(){
-
-    const message =
-      document.getElementById(
-        "checkoutMessage"
-      );
-
-    const name =
-      document.getElementById(
-        "customerName"
-      )?.value.trim() || "";
-
-    const email =
-      document.getElementById(
-        "customerEmail"
-      )?.value.trim() || "";
-
-    const phone =
-      document.getElementById(
-        "customerPhone"
-      )?.value.trim() || "";
-
-    const country =
-      document.getElementById(
-        "customerCountry"
-      )?.value.trim() || "";
-
-    const address =
-      document.getElementById(
-        "deliveryAddress"
-      )?.value.trim() || "";
-
-    if(!cart.length){
-
-      if(message){
-
-        message.innerHTML = `
-          <div class="checkout-error">
-            Your cart is empty.
-          </div>
-        `;
-
-      }
-
-      return;
 
     }
+
+    const byTracking =
+      await supabaseClient
+        .from("shipment_events")
+        .select("*")
+        .eq(
+          "tracking_number",
+          trackingNumber
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
 
     if(
-      !name ||
-      !email ||
-      !phone ||
-      !country ||
-      !address
+      !byTracking.error &&
+      byTracking.data &&
+      byTracking.data.length
     ){
 
-      if(message){
-
-        message.innerHTML = `
-          <div class="checkout-error">
-            Please complete all customer and delivery
-            information before placing your order.
-          </div>
-        `;
-
-      }
+      renderTimeline(
+        history,
+        byTracking.data
+      );
 
       return;
 
     }
 
-    const originalText =
-      placeOrderButton.textContent;
+    history.innerHTML = `
 
-    placeOrderButton.disabled = true;
+      <h3>📍 Shipment History</h3>
 
-    placeOrderButton.textContent =
-      "⏳ Placing Order...";
+      <div class="order-detail-card">
+        Shipment Created — Your shipment is
+        registered with Greenway Express.
+      </div>
 
-    if(message){
+    `;
 
-      message.innerHTML = "";
+  }catch(error){
+
+    console.error(
+      "Shipment events error:",
+      error
+    );
+
+    history.innerHTML = `
+      <h3>📍 Shipment History</h3>
+      <div class="order-detail-card">
+        Shipment history is currently unavailable.
+      </div>
+    `;
+
+  }
+
+}
+
+function renderTimeline(
+  container,
+  events
+){
+
+  if(!events.length){
+
+    container.innerHTML = `
+      <h3>📍 Shipment History</h3>
+      <div class="order-detail-card">
+        No shipment events have been recorded yet.
+      </div>
+    `;
+
+    return;
+
+  }
+
+  container.innerHTML = `
+
+    <h3>📍 Shipment History</h3>
+
+    <div class="timeline">
+
+      ${
+        events.map(
+          function(event){
+
+            const status =
+              firstValue(
+                event,
+                [
+                  "status",
+                  "event_type",
+                  "event",
+                  "title"
+                ]
+              ) ||
+              "Shipment Update";
+
+            const location =
+              firstValue(
+                event,
+                [
+                  "location",
+                  "current_location",
+                  "description",
+                  "details"
+                ]
+              );
+
+            const date =
+              firstValue(
+                event,
+                [
+                  "created_at",
+                  "event_time",
+                  "timestamp"
+                ]
+              );
+
+            return `
+
+              <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                  <div class="timeline-status">
+                    ${escapeHtml(status)}
+                  </div>
+
+                  ${
+                    location
+                    ?
+                    `
+                    <div class="timeline-location">
+                      ${escapeHtml(location)}
+                    </div>
+                    `
+                    :
+                    ""
+                  }
+
+                  ${
+                    date
+                    ?
+                    `
+                    <div class="timeline-date">
+                      ${escapeHtml(
+                        formatDate(date)
+                      )}
+                    </div>
+                    `
+                    :
+                    ""
+                  }
+
+                </div>
+
+              </div>
+
+            `;
+
+          }
+        ).join("")
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   SHOP OPEN / CLOSE
+================================================== */
+
+const shopPage =
+  document.getElementById(
+    "shopPage"
+  );
+
+const shopButtonMain =
+  document.getElementById(
+    "shopButtonMain"
+  );
+
+function openShop(){
+
+  if(!shopPage){
+    return;
+  }
+
+  document
+    .querySelectorAll(
+      "body > header, body > main, body > section:not(#shopPage), body > footer"
+    )
+    .forEach(
+      function(element){
+
+        element.style.display =
+          "none";
+
+      }
+    );
+
+  shopPage.style.display =
+    "block";
+
+  window.location.hash =
+    "shop";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  loadProducts();
+
+}
+
+if(shopButtonMain){
+
+  shopButtonMain.addEventListener(
+    "click",
+    function(event){
+
+      event.preventDefault();
+
+      openShop();
+
+    }
+  );
+
+}
+
+function closeShop(){
+
+  if(!shopPage){
+    return;
+  }
+
+  shopPage.style.display =
+    "none";
+
+  document
+    .querySelectorAll(
+      "body > header, body > main, body > section:not(#shopPage), body > footer"
+    )
+    .forEach(
+      function(element){
+
+        element.style.display =
+          "";
+
+      }
+    );
+
+  window.location.hash =
+    "home";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+const shopBackButton =
+  document.getElementById(
+    "shopBackButton"
+  );
+
+if(shopBackButton){
+
+  shopBackButton.addEventListener(
+    "click",
+    function(event){
+
+      event.preventDefault();
+
+      closeShop();
+
+    }
+  );
+
+}
+
+
+/* ==================================================
+   LOAD PRODUCTS
+================================================== */
+
+async function loadProducts(){
+
+  const grid =
+    document.getElementById(
+      "productsGrid"
+    );
+
+  if(!grid){
+    return;
+  }
+
+  grid.innerHTML = `
+    <div class="shop-empty">
+      🔄 Loading available products...
+    </div>
+  `;
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("shop_products")
+        .select("*")
+        .eq(
+          "is_available",
+          true
+        )
+        .eq(
+          "visible",
+          true
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
+
+    if(error){
+
+      console.error(
+        "Shop products error:",
+        error
+      );
+
+      grid.innerHTML = `
+        <div class="shop-empty">
+          ❌ Unable to load the Greenway Shop right now.
+          <br><br>
+          Please try again shortly.
+        </div>
+      `;
+
+      products = [];
+
+      renderCart();
+
+      return;
 
     }
 
-    try{
-
-      const orderNumber =
-        createOrderNumber();
-
-      const total =
-        cart.reduce(
-          function(sum,item){
-
-            return sum +
-              (
-                Number(item.price) *
-                Number(item.quantity)
-              );
-
-          },
-          0
-        );
-
-      const currency =
-        cart[0]?.currency ||
-        "USD";
-
-      const orderItems =
-        cart.map(
+    products =
+      (data || [])
+        .map(
           function(item){
 
             return {
 
-              product_id:item.id,
+              id:item.id,
 
-              product_name:item.name,
+              name:
+                item.name ||
+                "Greenway Product",
 
-              quantity:
-                Number(item.quantity),
+              description:
+                item.description ||
+                "",
 
-              unit_price:
-                Number(item.price),
+              category:
+                item.category ||
+                "",
 
-              subtotal:
-                Number(item.price) *
-                Number(item.quantity),
+              price:
+                Number(
+                  item.price || 0
+                ),
 
               currency:
-                item.currency || "USD"
+                item.currency ||
+                "USD",
+
+              image:
+                item.image_url ||
+                "",
+
+              stock:
+                Number(
+                  item.stock ?? 0
+                )
 
             };
 
           }
         );
 
-      const orderPayload = {
+    renderProducts();
 
-        order_number:
-          orderNumber,
+  }catch(error){
 
-        customer_id:
-          customerId,
+    console.error(
+      "Product loading error:",
+      error
+    );
 
-        customer_name:
-          name,
+    products = [];
 
-        customer_email:
-          email,
+    grid.innerHTML = `
+      <div class="shop-empty">
+        ❌ Unable to connect to the Greenway Shop.
+      </div>
+    `;
 
-        customer_phone:
-          phone,
+    renderCart();
 
-        customer_country:
-          country,
+  }
 
-        delivery_address:
-          address,
+}
 
-        items:
-          orderItems,
 
-        total_amount:
-          total,
+/* ==================================================
+   RENDER PRODUCTS
+================================================== */
 
-        currency:
-          currency,
+function renderProducts(){
 
-        status:
-          "pending"
+  const grid =
+    document.getElementById(
+      "productsGrid"
+    );
 
-      };
+  if(!grid){
+    return;
+  }
 
-      const {
-        data,
-        error
-      } =
-        await supabaseClient
-          .from("shop_orders")
-          .insert(
-            orderPayload
-          )
-          .select("*")
-          .single();
+  if(!products.length){
 
-      if(error){
+    grid.innerHTML = `
+      <div class="shop-empty">
+        No products are currently available.
+      </div>
+    `;
 
-        console.error(
-          "Order insert error:",
-          error
+    return;
+
+  }
+
+  grid.innerHTML =
+    products
+      .map(
+        function(product){
+
+          const hasImage =
+            product.image &&
+            product.image.trim() !== "";
+
+          const imageHtml =
+            hasImage
+            ?
+            `
+            <img
+              class="product-image"
+              src="${escapeAttribute(product.image)}"
+              alt="${escapeAttribute(product.name)}"
+              onerror="
+                this.style.display='none';
+                if(this.nextElementSibling){
+                  this.nextElementSibling.style.display='flex';
+                }
+              "
+            >
+
+            <div
+              class="product-no-image"
+              style="display:none">
+              📦
+            </div>
+            `
+            :
+            `
+            <div class="product-no-image">
+              📦
+            </div>
+            `;
+
+          const outOfStock =
+            Number(product.stock) <= 0;
+
+          return `
+
+            <div class="product-card">
+
+              ${imageHtml}
+
+              <div class="product-body">
+
+                ${
+                  product.category
+                  ?
+                  `
+                  <span class="product-category">
+                    ${escapeHtml(product.category)}
+                  </span>
+                  `
+                  :
+                  ""
+                }
+
+                <h3>
+                  ${escapeHtml(product.name)}
+                </h3>
+
+                <div class="product-description">
+                  ${escapeHtml(product.description)}
+                </div>
+
+                <div class="product-price">
+                  ${formatMoney(
+                    product.price,
+                    product.currency
+                  )}
+                </div>
+
+                <div class="small-note">
+
+                  ${
+                    outOfStock
+                    ?
+                    "Out of stock"
+                    :
+                    "Available stock: " +
+                    product.stock
+                  }
+
+                </div>
+
+                ${
+                  outOfStock
+                  ?
+                  `
+                  <button
+                    type="button"
+                    class="add-cart"
+                    disabled>
+                    Out of Stock
+                  </button>
+                  `
+                  :
+                  `
+                  <div class="quantity-row">
+
+                    <input
+                      type="number"
+                      min="1"
+                      max="${Number(product.stock)}"
+                      value="1"
+                      id="quantity-${escapeAttribute(product.id)}">
+
+                  </div>
+
+                  <button
+                    type="button"
+                    class="add-cart"
+                    data-product-id="${escapeAttribute(product.id)}">
+
+                    🛒 Add to Cart
+
+                  </button>
+                  `
+                }
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+  document
+    .querySelectorAll(
+      ".add-cart[data-product-id]"
+    )
+    .forEach(
+      function(button){
+
+        button.addEventListener(
+          "click",
+          function(){
+
+            const productId =
+              this.getAttribute(
+                "data-product-id"
+              );
+
+            const quantityInput =
+              document.getElementById(
+                "quantity-" +
+                productId
+              );
+
+            let quantity =
+              Number(
+                quantityInput
+                ?
+                quantityInput.value
+                :
+                1
+              );
+
+            if(
+              !Number.isFinite(quantity) ||
+              quantity < 1
+            ){
+
+              quantity = 1;
+
+            }
+
+            const product =
+              products.find(
+                function(item){
+
+                  return String(item.id) ===
+                    String(productId);
+
+                }
+              );
+
+            if(product){
+
+              quantity =
+                Math.min(
+                  Number(product.stock),
+                  Math.floor(quantity)
+                );
+
+            }
+
+            addToCart(
+              productId,
+              quantity
+            );
+
+          }
         );
 
-        throw error;
+      }
+    );
+
+}
+
+
+/* ==================================================
+   CART
+================================================== */
+
+function addToCart(
+  productId,
+  quantity
+){
+
+  const product =
+    products.find(
+      function(item){
+
+        return String(item.id) ===
+          String(productId);
+
+      }
+    );
+
+  if(!product){
+    return;
+  }
+
+  const stock =
+    Number(product.stock);
+
+  if(stock <= 0){
+    return;
+  }
+
+  const safeQuantity =
+    Math.min(
+      stock,
+      Math.max(
+        1,
+        Math.floor(
+          Number(quantity) || 1
+        )
+      )
+    );
+
+  const existing =
+    cart.find(
+      function(item){
+
+        return String(item.id) ===
+          String(productId);
+
+      }
+    );
+
+  if(existing){
+
+    existing.quantity =
+      Math.min(
+        stock,
+        Number(existing.quantity || 0) +
+        safeQuantity
+      );
+
+  }else{
+
+    cart.push({
+
+      id:product.id,
+
+      name:product.name,
+
+      price:product.price,
+
+      currency:product.currency,
+
+      image:product.image,
+
+      quantity:safeQuantity
+
+    });
+
+  }
+
+  saveCart();
+  renderCart();
+
+}
+
+function removeFromCart(productId){
+
+  cart =
+    cart.filter(
+      function(item){
+
+        return String(item.id) !==
+          String(productId);
+
+      }
+    );
+
+  saveCart();
+  renderCart();
+
+}
+
+function saveCart(){
+
+  localStorage.setItem(
+    "greenwayCart",
+    JSON.stringify(cart)
+  );
+
+}
+
+function renderCart(){
+
+  const container =
+    document.getElementById(
+      "cartItems"
+    );
+
+  const totalElement =
+    document.getElementById(
+      "cartTotal"
+    );
+
+  const cartCount =
+    document.getElementById(
+      "cartCount"
+    );
+
+  if(!container){
+    return;
+  }
+
+  if(!cart.length){
+
+    container.innerHTML = `
+      <div class="cart-empty">
+        Your cart is empty.
+      </div>
+    `;
+
+    if(totalElement){
+      totalElement.textContent =
+        "$0.00";
+    }
+
+    if(cartCount){
+      cartCount.textContent = "0";
+    }
+
+    return;
+
+  }
+
+  let total = 0;
+  let count = 0;
+
+  container.innerHTML =
+    cart
+      .map(
+        function(item){
+
+          const itemTotal =
+            Number(item.price || 0) *
+            Number(item.quantity || 0);
+
+          total += itemTotal;
+          count += Number(item.quantity || 0);
+
+          return `
+
+            <div class="cart-item">
+
+              <div class="cart-item-title">
+                ${escapeHtml(item.name)}
+              </div>
+
+              <div class="cart-item-row">
+
+                <span>
+                  Qty:
+                  ${Number(item.quantity)}
+                  ×
+                  ${formatMoney(
+                    item.price,
+                    item.currency
+                  )}
+                </span>
+
+                <button
+                  type="button"
+                  class="remove-item"
+                  data-remove-id="${escapeAttribute(item.id)}">
+
+                  Remove
+
+                </button>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+  container
+    .querySelectorAll(
+      "[data-remove-id]"
+    )
+    .forEach(
+      function(button){
+
+        button.addEventListener(
+          "click",
+          function(){
+
+            removeFromCart(
+              this.getAttribute(
+                "data-remove-id"
+              )
+            );
+
+          }
+        );
+
+      }
+    );
+
+  if(totalElement){
+
+    totalElement.textContent =
+      formatMoney(
+        total,
+        cart[0].currency ||
+        "USD"
+      );
+
+  }
+
+  if(cartCount){
+    cartCount.textContent =
+      String(count);
+  }
+
+}
+
+
+/* ==================================================
+   CHECKOUT
+================================================== */
+
+const checkoutButton =
+  document.getElementById(
+    "checkoutButton"
+  );
+
+if(checkoutButton){
+
+  checkoutButton.addEventListener(
+    "click",
+    function(){
+
+      if(!cart.length){
+
+        alert(
+          "Your cart is empty."
+        );
+
+        return;
 
       }
 
-      cart = [];
-
-      saveCart();
-
-      renderCart();
-
-      const checkoutForm =
+      const panel =
         document.getElementById(
           "checkoutPanel"
         );
 
-      if(checkoutForm){
+      if(panel){
 
-        checkoutForm.innerHTML = `
-
-          <div class="order-success">
-
-            <div class="success-icon">
-              ✅
-            </div>
-
-            <h3>
-              Order Submitted Successfully
-            </h3>
-
-            <p>
-              Thank you,
-              <strong>
-                ${escapeHtml(name)}
-              </strong>.
-            </p>
-
-            <p>
-              Your order has been received by
-              Greenway Express and is currently
-              awaiting processing.
-            </p>
-
-            <div class="order-number-box">
-
-              <span>
-                Your Order Number
-              </span>
-
-              <strong>
-                ${escapeHtml(orderNumber)}
-              </strong>
-
-            </div>
-
-            <p class="small-note">
-
-              Please save this order number.
-              You can use it in the tracking section
-              to check your order status.
-
-            </p>
-
-            <button
-              type="button"
-              class="track-order-after"
-              id="trackNewOrderButton">
-
-              📦 Track This Order
-
-            </button>
-
-          </div>
-
-        `;
-
-        const trackNewOrderButton =
-          document.getElementById(
-            "trackNewOrderButton"
-          );
-
-        if(trackNewOrderButton){
-
-          trackNewOrderButton.addEventListener(
-            "click",
-            function(){
-
-              const input =
-                document.getElementById(
-                  "trackingInput"
-                );
-
-              if(input){
-
-                input.value =
-                  orderNumber;
-
-                input.scrollIntoView({
-                  behavior:"smooth",
-                  block:"center"
-                });
-
-                setTimeout(
-                  function(){
-
-                    trackShipment();
-
-                  },
-                  300
-                );
-
-              }
-
-            }
-          );
-
-        }
+        panel.classList.toggle(
+          "active"
+        );
 
       }
 
-    }catch(error){
+    }
+  );
+
+}
+
+const placeOrderButton =
+  document.getElementById(
+    "placeOrderButton"
+  );
+
+if(placeOrderButton){
+
+  placeOrderButton.addEventListener(
+    "click",
+    placeShopOrder
+  );
+
+}
+
+async function placeShopOrder(){
+
+  if(!cart.length){
+
+    showCheckoutMessage(
+      "Your cart is empty.",
+      "error"
+    );
+
+    return;
+
+  }
+
+  const name =
+    document.getElementById(
+      "customerName"
+    ).value.trim();
+
+  const email =
+    document.getElementById(
+      "customerEmail"
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      "customerPhone"
+    ).value.trim();
+
+  const country =
+    document.getElementById(
+      "customerCountry"
+    ).value.trim();
+
+  const address =
+    document.getElementById(
+      "deliveryAddress"
+    ).value.trim();
+
+  if(
+    !name ||
+    !email ||
+    !phone ||
+    !country ||
+    !address
+  ){
+
+    showCheckoutMessage(
+      "Please complete all customer and delivery information.",
+      "error"
+    );
+
+    return;
+
+  }
+
+  let total = 0;
+
+  cart.forEach(
+    function(item){
+
+      total +=
+        Number(item.price || 0) *
+        Number(item.quantity || 0);
+
+    }
+  );
+
+  const currency =
+    cart[0].currency ||
+    "USD";
+
+  const orderItems =
+    cart.map(
+      function(item){
+
+        return {
+
+          product_id:item.id,
+
+          product_name:item.name,
+
+          name:item.name,
+
+          price:Number(item.price || 0),
+
+          quantity:Number(item.quantity || 0),
+
+          currency:item.currency || currency
+
+        };
+
+      }
+    );
+
+  const button =
+    document.getElementById(
+      "placeOrderButton"
+    );
+
+  button.disabled = true;
+  button.textContent =
+    "Submitting Order...";
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("shop_orders")
+        .insert({
+
+          customer_id:customerId,
+
+          customer_name:name,
+
+          customer_email:email,
+
+          customer_phone:phone,
+
+          customer_country:country,
+
+          delivery_address:address,
+
+          items:orderItems,
+
+          total:total,
+
+          currency:currency,
+
+          status:"Pending"
+
+        })
+        .select()
+        .single();
+
+    if(error){
 
       console.error(
-        "Checkout error:",
+        "Shop order error:",
         error
       );
 
-      if(message){
+      showCheckoutMessage(
+        "Unable to place your order right now. Please try again.",
+        "error"
+      );
 
-        message.innerHTML = `
-          <div class="checkout-error">
+      return;
 
-            ❌ Unable to place your order right now.
+    }
+
+    cart = [];
+
+    saveCart();
+    renderCart();
+
+    document
+      .getElementById(
+        "checkoutPanel"
+      )
+      .classList.remove(
+        "active"
+      );
+
+    const orderNumber =
+      data &&
+      data.order_number
+      ?
+      data.order_number
+      :
+      "Order received";
+
+    const checkoutMessage =
+      document.getElementById(
+        "checkoutMessage"
+      );
+
+    if(checkoutMessage){
+
+      checkoutMessage.innerHTML = `
+
+        <div class="shop-order-success">
+
+          <div class="tracking-result-header">
+
+            <h3>
+              ✅ Order Submitted Successfully
+            </h3>
+
+            <p>
+              Greenway Shop has received your order.
+            </p>
+
+          </div>
+
+          <div class="tracking-number-display">
+
+            Order Number:
+
+            <strong>
+              ${escapeHtml(orderNumber)}
+            </strong>
+
+          </div>
+
+          <div class="status-box">
+
+            <strong>
+              Order Status:
+            </strong>
+
+            Pending
 
             <br><br>
 
-            Please check your information and
-            try again.
+            Your official Greenway tracking number
+            will be assigned after your order is
+            approved and processed.
 
           </div>
-        `;
 
-      }
+          <div class="order-detail-card">
 
-      placeOrderButton.disabled =
-        false;
+            <strong>
+              Save your order number:
+            </strong>
 
-      placeOrderButton.textContent =
-        originalText;
+            <br><br>
+
+            <span>
+              ${escapeHtml(orderNumber)}
+            </span>
+
+            <br><br>
+
+            You can enter this order number in
+            the tracking box to check your order.
+
+          </div>
+
+        </div>
+
+      `;
+
+      checkoutMessage.className =
+        "checkout-message success";
+
+    }
+
+  }catch(error){
+
+    console.error(
+      "Place order exception:",
+      error
+    );
+
+    showCheckoutMessage(
+      "Unable to place your order right now.",
+      "error"
+    );
+
+  }finally{
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "🛍️ Place Order";
+
+  }
+
+}
+
+function showCheckoutMessage(
+  message,
+  type
+){
+
+  const element =
+    document.getElementById(
+      "checkoutMessage"
+    );
+
+  if(!element){
+    return;
+  }
+
+  element.textContent =
+    message;
+
+  element.className =
+    "checkout-message " +
+    type;
+
+}
+
+
+/* ==================================================
+   SHOP ORDER TRACKING
+================================================== */
+
+function renderShopOrderTracking(order){
+
+  const result =
+    document.getElementById(
+      "result"
+    );
+
+  if(!result){
+    return;
+  }
+
+  const trackingNumber =
+    firstValue(
+      order,
+      [
+        "tracking_number",
+        "trackingNumber",
+        "tracking"
+      ]
+    );
+
+  const orderNumber =
+    firstValue(
+      order,
+      [
+        "order_number",
+        "orderNumber"
+      ]
+    );
+
+  const status =
+    firstValue(
+      order,
+      [
+        "status",
+        "order_status"
+      ]
+    ) || "Pending";
+
+  const customerName =
+    firstValue(
+      order,
+      [
+        "customer_name",
+        "name"
+      ]
+    );
+
+  const customerEmail =
+    firstValue(
+      order,
+      [
+        "customer_email",
+        "email"
+      ]
+    );
+
+  const customerPhone =
+    firstValue(
+      order,
+      [
+        "customer_phone",
+        "phone"
+      ]
+    );
+
+  const country =
+    firstValue(
+      order,
+      [
+        "customer_country",
+        "country"
+      ]
+    );
+
+  const address =
+    firstValue(
+      order,
+      [
+        "delivery_address",
+        "address"
+      ]
+    );
+
+  const total =
+    Number(
+      order.total || 0
+    );
+
+  const currency =
+    order.currency ||
+    "USD";
+
+  let items =
+    order.items || [];
+
+  if(typeof items === "string"){
+
+    try{
+
+      items =
+        JSON.parse(items);
+
+    }catch(error){
+
+      items = [];
 
     }
 
   }
 
+  if(!Array.isArray(items)){
+    items = [];
+  }
 
-  /* ==================================================
-     SHOP ORDER TRACKING
-  ================================================== */
+  result.innerHTML = `
 
-  function renderShopOrderTracking(
-    order
-  ){
+    <div class="tracking-result">
 
-    const result =
-      document.getElementById(
-        "result"
-      );
+      <div class="tracking-result-header">
 
-    if(!result){
-      return;
-    }
+        <h3>
+          🛍️ Your Greenway Shop Order
+        </h3>
 
-    const orderNumber =
-      firstValue(
-        order,
-        [
-          "order_number",
-          "orderNumber"
-        ]
-      ) ||
-      "Not available";
+        <p>
+          Order and delivery information
+        </p>
 
-    const trackingNumber =
-      firstValue(
-        order,
-        [
-          "tracking_number",
-          "trackingNumber"
-        ]
-      );
+      </div>
 
-    const status =
-      firstValue(
-        order,
-        [
-          "status",
-          "order_status"
-        ]
-      ) ||
-      "Pending";
+      ${
+        trackingNumber
+        ?
+        `
+        <div class="tracking-number-display">
 
-    const customerName =
-      firstValue(
-        order,
-        [
-          "customer_name",
-          "customerName"
-        ]
-      );
+          Official Greenway Tracking Number:
 
-    const total =
-      Number(
-        firstValue(
-          order,
-          [
-            "total_amount",
-            "total"
-          ]
-        ) || 0
-      );
-
-    const currency =
-      firstValue(
-        order,
-        [
-          "currency"
-        ]
-      ) ||
-      "USD";
-
-    const createdAt =
-      firstValue(
-        order,
-        [
-          "created_at",
-          "createdAt"
-        ]
-      );
-
-    result.innerHTML = `
-
-      <div class="tracking-result">
-
-        <div class="tracking-result-header">
-
-          <h3>
-            🛍️ Order Details
-          </h3>
-
-          <p>
-            Greenway Express Shop Order
-          </p>
+          <strong>
+            ${escapeHtml(trackingNumber)}
+          </strong>
 
         </div>
-
+        `
+        :
+        `
         <div class="tracking-number-display">
 
           Order Number:
 
           <strong>
-            ${escapeHtml(orderNumber)}
+            ${escapeHtml(
+              orderNumber ||
+              "Not available"
+            )}
           </strong>
+
+        </div>
+        `
+      }
+
+      <div class="status-box">
+
+        <strong>
+          Order Status:
+        </strong>
+
+        ${escapeHtml(status)}
+
+        ${
+          !trackingNumber
+          ?
+          `
+          <br><br>
+          Your official Greenway tracking number
+          will appear after the order is approved
+          and processed by Greenway Express.
+          `
+          :
+          ""
+        }
+
+      </div>
+
+      <div class="shipment-grid">
+
+        <div class="shipment-info">
+          <span class="info-icon">🧾</span>
+          <span class="info-label">Order Number</span>
+          <span class="info-value">
+            ${escapeHtml(
+              orderNumber ||
+              "Not available"
+            )}
+          </span>
+        </div>
+
+        <div class="shipment-info">
+          <span class="info-icon">👤</span>
+          <span class="info-label">Customer</span>
+          <span class="info-value">
+            ${escapeHtml(
+              customerName ||
+              "Not available"
+            )}
+          </span>
+        </div>
+
+        <div class="shipment-info">
+          <span class="info-icon">📧</span>
+          <span class="info-label">Email</span>
+          <span class="info-value">
+            ${escapeHtml(
+              customerEmail ||
+              "Not available"
+            )}
+          </span>
+        </div>
+
+        <div class="shipment-info">
+          <span class="info-icon">📞</span>
+          <span class="info-label">Phone</span>
+          <span class="info-value">
+            ${escapeHtml(
+              customerPhone ||
+              "Not available"
+            )}
+          </span>
+        </div>
+
+        <div class="shipment-info">
+          <span class="info-icon">🌍</span>
+          <span class="info-label">Country</span>
+          <span class="info-value">
+            ${escapeHtml(
+              country ||
+              "Not available"
+            )}
+          </span>
+        </div>
+
+        <div class="shipment-info">
+          <span class="info-icon">📍</span>
+          <span class="info-label">Delivery Address</span>
+          <span class="info-value">
+            ${escapeHtml(
+              address ||
+              "Not available"
+            )}
+          </span>
+        </div>
+
+        <div class="shipment-info">
+          <span class="info-icon">💰</span>
+          <span class="info-label">Order Total</span>
+          <span class="info-value">
+            ${formatMoney(
+              total,
+              currency
+            )}
+          </span>
+        </div>
+
+      </div>
+
+      <div class="order-detail-card">
+
+        <h3 style="color:#0b6b3a;margin-top:0;">
+          🛒 Ordered Items
+        </h3>
+
+        <div class="order-items">
 
           ${
-            trackingNumber
+            items.length
             ?
-            `
-              <br><br>
+            items
+              .map(
+                function(item){
 
-              Tracking Number:
+                  const quantity =
+                    Number(
+                      item.quantity || 0
+                    );
 
-              <strong>
-                ${escapeHtml(trackingNumber)}
-              </strong>
-            `
+                  const price =
+                    Number(
+                      item.price || 0
+                    );
+
+                  return `
+
+                    <div class="order-item">
+
+                      <div>
+
+                        <strong>
+                          ${escapeHtml(
+                            item.product_name ||
+                            item.name ||
+                            "Product"
+                          )}
+                        </strong>
+
+                        <br>
+
+                        <span style="color:#64748b;">
+                          Quantity:
+                          ${quantity}
+                        </span>
+
+                      </div>
+
+                      <strong>
+                        ${formatMoney(
+                          price * quantity,
+                          item.currency ||
+                          currency
+                        )}
+                      </strong>
+
+                    </div>
+
+                  `;
+
+                }
+              )
+              .join("")
             :
-            ""
+            `
+            <div>
+              Order items are not available.
+            </div>
+            `
           }
-
-        </div>
-
-        <div class="status-box">
-
-          <strong>
-            Order Status:
-          </strong>
-
-          ${escapeHtml(status)}
-
-        </div>
-
-        <div class="shipment-grid">
-
-          <div class="shipment-info">
-
-            <span class="info-icon">
-              👤
-            </span>
-
-            <span class="info-label">
-              Customer
-            </span>
-
-            <span class="info-value">
-              ${escapeHtml(
-                customerName ||
-                "Not available"
-              )}
-            </span>
-
-          </div>
-
-          <div class="shipment-info">
-
-            <span class="info-icon">
-              💰
-            </span>
-
-            <span class="info-label">
-              Order Total
-            </span>
-
-            <span class="info-value">
-              ${formatMoney(
-                total,
-                currency
-              )}
-            </span>
-
-          </div>
-
-          <div class="shipment-info">
-
-            <span class="info-icon">
-              📅
-            </span>
-
-            <span class="info-label">
-              Order Date
-            </span>
-
-            <span class="info-value">
-              ${
-                createdAt
-                ?
-                escapeHtml(
-                  formatDate(
-                    createdAt
-                  )
-                )
-                :
-                "Not available"
-              }
-            </span>
-
-          </div>
-
-        </div>
-
-        <div class="shipment-history">
-
-          <h3>
-            📦 Order Progress
-          </h3>
-
-          <div class="order-detail-card">
-
-            Your order has been received by
-            Greenway Express.
-
-            <br><br>
-
-            Current status:
-
-            <strong>
-              ${escapeHtml(status)}
-            </strong>
-
-          </div>
 
         </div>
 
       </div>
 
+      <div class="order-detail-card">
+
+        <strong>
+          🕐 Order Created:
+        </strong>
+
+        ${
+          order.created_at
+          ?
+          escapeHtml(
+            formatDate(
+              order.created_at
+            )
+          )
+          :
+          "Not available"
+        }
+
+        ${
+          order.updated_at
+          ?
+          `
+          <br><br>
+          <strong>
+            🔄 Last Updated:
+          </strong>
+
+          ${escapeHtml(
+            formatDate(
+              order.updated_at
+            )
+          )}
+          `
+          :
+          ""
+        }
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==================================================
+   CHAT
+================================================== */
+
+const chatLaunch =
+  document.getElementById(
+    "chatLaunch"
+  );
+
+const chatWindow =
+  document.getElementById(
+    "chatWindow"
+  );
+
+const chatClose =
+  document.getElementById(
+    "chatClose"
+  );
+
+if(chatLaunch){
+
+  chatLaunch.addEventListener(
+    "click",
+    function(){
+
+      if(!chatWindow){
+        return;
+      }
+
+      chatWindow.classList.toggle(
+        "active"
+      );
+
+      if(
+        chatWindow.classList.contains(
+          "active"
+        )
+      ){
+
+        loadChatMessages();
+
+      }
+
+    }
+  );
+
+}
+
+if(chatClose){
+
+  chatClose.addEventListener(
+    "click",
+    function(){
+
+      if(chatWindow){
+
+        chatWindow.classList.remove(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* ==================================================
+   CHAT IMAGE
+================================================== */
+
+let selectedChatImage = null;
+
+const chatImageButton =
+  document.getElementById(
+    "chatImageButton"
+  );
+
+const chatImageInput =
+  document.getElementById(
+    "chatImageInput"
+  );
+
+const imagePreview =
+  document.getElementById(
+    "imagePreview"
+  );
+
+const previewImage =
+  document.getElementById(
+    "previewImage"
+  );
+
+const previewName =
+  document.getElementById(
+    "previewName"
+  );
+
+const removePreview =
+  document.getElementById(
+    "removePreview"
+  );
+
+if(chatImageButton){
+
+  chatImageButton.addEventListener(
+    "click",
+    function(){
+
+      if(chatImageInput){
+        chatImageInput.click();
+      }
+
+    }
+  );
+
+}
+
+if(chatImageInput){
+
+  chatImageInput.addEventListener(
+    "change",
+    function(){
+
+      const file =
+        this.files &&
+        this.files[0];
+
+      if(!file){
+        return;
+      }
+
+      if(
+        !file.type.startsWith(
+          "image/"
+        )
+      ){
+
+        alert(
+          "Please select an image."
+        );
+
+        this.value = "";
+
+        return;
+
+      }
+
+      selectedChatImage =
+        file;
+
+      if(previewImage){
+
+        previewImage.src =
+          URL.createObjectURL(
+            file
+          );
+
+      }
+
+      if(previewName){
+
+        previewName.textContent =
+          file.name;
+
+      }
+
+      if(imagePreview){
+
+        imagePreview.classList.add(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+if(removePreview){
+
+  removePreview.addEventListener(
+    "click",
+    clearChatImage
+  );
+
+}
+
+function clearChatImage(){
+
+  selectedChatImage =
+    null;
+
+  if(chatImageInput){
+    chatImageInput.value = "";
+  }
+
+  if(previewImage){
+    previewImage.src = "";
+  }
+
+  if(previewName){
+    previewName.textContent = "";
+  }
+
+  if(imagePreview){
+
+    imagePreview.classList.remove(
+      "active"
+    );
+
+  }
+
+}
+
+
+/* ==================================================
+   CHAT MESSAGES
+================================================== */
+
+async function loadChatMessages(){
+
+  const container =
+    document.getElementById(
+      "chatMessages"
+    );
+
+  if(!container){
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="message admin">
+      Loading messages...
+    </div>
+  `;
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("chat_messages")
+        .select("*")
+        .eq(
+          "customer_id",
+          customerId
+        )
+        .order(
+          "created_at",
+          {
+            ascending:true
+          }
+        );
+
+    if(error){
+
+      console.error(
+        "Chat loading error:",
+        error
+      );
+
+      container.innerHTML = `
+        <div class="message admin">
+          Welcome to Greenway Support.
+          Please send us a message and our team will assist you.
+        </div>
+      `;
+
+      return;
+
+    }
+
+    if(
+      !data ||
+      !data.length
+    ){
+
+      container.innerHTML = `
+        <div class="message admin">
+          Welcome to Greenway Support.
+          How can we help you today?
+        </div>
+      `;
+
+      return;
+
+    }
+
+    container.innerHTML =
+      data
+        .map(
+          function(message){
+
+            const sender =
+              String(
+                message.sender_type ||
+                message.sender ||
+                "admin"
+              ).toLowerCase();
+
+            const isCustomer =
+              sender === "customer";
+
+            const text =
+              message.message ||
+              message.content ||
+              "";
+
+            const image =
+              message.image_url ||
+              "";
+
+            const time =
+              message.created_at
+              ?
+              new Date(
+                message.created_at
+              ).toLocaleString()
+              :
+              "";
+
+            return `
+
+              <div class="message ${
+                isCustomer
+                  ? "customer"
+                  : "admin"
+              }">
+
+                ${
+                  text
+                  ?
+                  escapeHtml(text)
+                  :
+                  ""
+                }
+
+                ${
+                  image
+                  ?
+                  `
+                  <img
+                    class="message-image"
+                    src="${escapeAttribute(image)}"
+                    alt="Chat image">
+                  `
+                  :
+                  ""
+                }
+
+                ${
+                  time
+                  ?
+                  `
+                  <span class="message-time">
+                    ${escapeHtml(time)}
+                  </span>
+                  `
+                  :
+                  ""
+                }
+
+              </div>
+
+            `;
+
+          }
+        )
+        .join("");
+
+    container.scrollTop =
+      container.scrollHeight;
+
+  }catch(error){
+
+    console.error(
+      "Chat loading exception:",
+      error
+    );
+
+    container.innerHTML = `
+      <div class="message admin">
+        Welcome to Greenway Support.
+        Please send us a message.
+      </div>
     `;
 
   }
 
+}
 
-  /* ==================================================
-     CHAT
-  ================================================== */
 
-  const chatLaunch =
-    document.getElementById(
-      "chatLaunch"
-    );
+/* ==================================================
+   SEND CHAT MESSAGE
+================================================== */
 
-  const chatWindow =
-    document.getElementById(
-      "chatWindow"
-    );
+const sendChatButton =
+  document.getElementById(
+    "sendChatButton"
+  );
 
-  const chatClose =
-    document.getElementById(
-      "chatClose"
-    );
+const chatMessageInput =
+  document.getElementById(
+    "chatMessageInput"
+  );
 
-  const chatImageButton =
-    document.getElementById(
-      "chatImageButton"
-    );
+if(sendChatButton){
 
-  const chatImageInput =
-    document.getElementById(
-      "chatImageInput"
-    );
+  sendChatButton.addEventListener(
+    "click",
+    sendChatMessage
+  );
 
-  const chatMessageInput =
+}
+
+if(chatMessageInput){
+
+  chatMessageInput.addEventListener(
+    "keydown",
+    function(event){
+
+      if(
+        event.key === "Enter" &&
+        !event.shiftKey
+      ){
+
+        event.preventDefault();
+
+        sendChatMessage();
+
+      }
+
+    }
+  );
+
+}
+
+async function sendChatMessage(){
+
+  const input =
     document.getElementById(
       "chatMessageInput"
     );
 
-  const sendChatButton =
+  if(!input){
+    return;
+  }
+
+  const text =
+    input.value.trim();
+
+  if(
+    !text &&
+    !selectedChatImage
+  ){
+
+    return;
+
+  }
+
+  const sendButton =
     document.getElementById(
       "sendChatButton"
     );
 
-  const imagePreview =
-    document.getElementById(
-      "imagePreview"
-    );
-
-  const previewImage =
-    document.getElementById(
-      "previewImage"
-    );
-
-  const previewName =
-    document.getElementById(
-      "previewName"
-    );
-
-  const removePreview =
-    document.getElementById(
-      "removePreview"
-    );
-
-  let selectedChatFile = null;
-
-
-  if(chatLaunch){
-
-    chatLaunch.addEventListener(
-      "click",
-      function(){
-
-        if(chatWindow){
-
-          chatWindow.classList.toggle(
-            "open"
-          );
-
-          if(
-            chatWindow.classList.contains(
-              "open"
-            )
-          ){
-
-            loadChatMessages();
-
-          }
-
-        }
-
-      }
-    );
-
+  if(sendButton){
+    sendButton.disabled = true;
   }
 
+  try{
 
-  if(chatClose){
+    let imageUrl = null;
 
-    chatClose.addEventListener(
-      "click",
-      function(){
+    if(selectedChatImage){
 
-        if(chatWindow){
+      const extension =
+        selectedChatImage.name
+          .split(".")
+          .pop()
+          .toLowerCase();
 
-          chatWindow.classList.remove(
-            "open"
-          );
+      const filePath =
+        customerId +
+        "/" +
+        Date.now() +
+        "." +
+        extension;
 
-        }
-
-      }
-    );
-
-  }
-
-
-  if(chatImageButton){
-
-    chatImageButton.addEventListener(
-      "click",
-      function(){
-
-        if(chatImageInput){
-
-          chatImageInput.click();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  if(chatImageInput){
-
-    chatImageInput.addEventListener(
-      "change",
-      function(){
-
-        const file =
-          this.files &&
-          this.files[0];
-
-        if(!file){
-          return;
-        }
-
-        if(
-          !file.type.startsWith(
-            "image/"
-          )
-        ){
-
-          alert(
-            "Please select an image file."
-          );
-
-          this.value = "";
-          return;
-
-        }
-
-        selectedChatFile =
-          file;
-
-        if(previewImage){
-
-          previewImage.src =
-            URL.createObjectURL(
-              file
-            );
-
-        }
-
-        if(previewName){
-
-          previewName.textContent =
-            file.name;
-
-        }
-
-        if(imagePreview){
-
-          imagePreview.classList.add(
-            "show"
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
-  if(removePreview){
-
-    removePreview.addEventListener(
-      "click",
-      function(){
-
-        selectedChatFile =
-          null;
-
-        if(chatImageInput){
-
-          chatImageInput.value =
-            "";
-
-        }
-
-        if(previewImage){
-
-          previewImage.src =
-            "";
-
-        }
-
-        if(previewName){
-
-          previewName.textContent =
-            "";
-
-        }
-
-        if(imagePreview){
-
-          imagePreview.classList.remove(
-            "show"
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
-  if(chatMessageInput){
-
-    chatMessageInput.addEventListener(
-      "keydown",
-      function(event){
-
-        if(
-          event.key === "Enter" &&
-          !event.shiftKey
-        ){
-
-          event.preventDefault();
-
-          sendChatMessage();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  if(sendChatButton){
-
-    sendChatButton.addEventListener(
-      "click",
-      sendChatMessage
-    );
-
-  }
-
-
-  function renderChatMessage(
-    message
-  ){
-
-    const container =
-      document.getElementById(
-        "chatMessages"
-      );
-
-    if(!container){
-      return;
-    }
-
-    const sender =
-      firstValue(
-        message,
-        [
-          "sender_type",
-          "sender",
-          "role"
-        ]
-      ) ||
-      "customer";
-
-    const text =
-      firstValue(
-        message,
-        [
-          "message",
-          "content",
-          "text"
-        ]
-      ) ||
-      "";
-
-    const imageUrl =
-      firstValue(
-        message,
-        [
-          "image_url",
-          "attachment_url",
-          "file_url"
-        ]
-      );
-
-    const time =
-      firstValue(
-        message,
-        [
-          "created_at",
-          "sent_at"
-        ]
-      );
-
-    const div =
-      document.createElement(
-        "div"
-      );
-
-    div.className =
-      "message " +
-      (
-        sender === "admin" ||
-        sender === "staff"
-        ?
-        "admin"
-        :
-        "customer"
-      );
-
-    div.innerHTML = `
-
-      ${
-        imageUrl
-        ?
-        `
-          <img
-            src="${escapeAttribute(imageUrl)}"
-            class="chat-message-image"
-            alt="Attached image"
-            onerror="
-              this.style.display='none';
-            "
-          >
-        `
-        :
-        ""
-      }
-
-      ${
-        text
-        ?
-        `
-          <div class="chat-message-text">
-            ${escapeHtml(text)}
-          </div>
-        `
-        :
-        ""
-      }
-
-      ${
-        time
-        ?
-        `
-          <small class="chat-message-time">
-            ${escapeHtml(
-              formatDate(time)
-            )}
-          </small>
-        `
-        :
-        ""
-      }
-
-    `;
-
-    container.appendChild(
-      div
-    );
-
-  }
-
-
-  async function loadChatMessages(){
-
-    const container =
-      document.getElementById(
-        "chatMessages"
-      );
-
-    if(!container){
-      return;
-    }
-
-    try{
-
-      const {
-        data,
-        error
-      } =
+      const upload =
         await supabaseClient
-          .from("chat_messages")
-          .select("*")
-          .eq(
-            "customer_id",
-            customerId
-          )
-          .order(
-            "created_at",
+          .storage
+          .from("chat-images")
+          .upload(
+            filePath,
+            selectedChatImage,
             {
-              ascending:true
+              upsert:false
             }
           );
 
-      if(error){
+      if(upload.error){
 
         console.error(
-          "Chat load error:",
-          error
-        );
-
-        return;
-
-      }
-
-      container.innerHTML = "";
-
-      if(
-        !data ||
-        !data.length
-      ){
-
-        container.innerHTML = `
-          <div class="message admin">
-            Welcome to Greenway Support.
-            How can we help you today?
-          </div>
-        `;
-
-        return;
-
-      }
-
-      data.forEach(
-        renderChatMessage
-      );
-
-      container.scrollTop =
-        container.scrollHeight;
-
-    }catch(error){
-
-      console.error(
-        "Chat error:",
-        error
-      );
-
-    }
-
-  }
-
-
-  async function uploadChatImage(
-    file
-  ){
-
-    if(!file){
-      return null;
-    }
-
-    const extension =
-      file.name
-        .split(".")
-        .pop()
-        .toLowerCase();
-
-    const path =
-      "customer-chat/" +
-      customerId +
-      "/" +
-      Date.now() +
-      "-" +
-      Math.random()
-        .toString(36)
-        .substring(2,8) +
-      "." +
-      extension;
-
-    const upload =
-      await supabaseClient
-        .storage
-        .from("chat-images")
-        .upload(
-          path,
-          file,
-          {
-            cacheControl:"3600",
-            upsert:false
-          }
-        );
-
-    if(upload.error){
-
-      console.error(
-        "Chat image upload error:",
-        upload.error
-      );
-
-      return null;
-
-    }
-
-    const publicUrl =
-      supabaseClient
-        .storage
-        .from("chat-images")
-        .getPublicUrl(
-          path
-        );
-
-    return publicUrl.data.publicUrl;
-
-  }
-
-
-  async function sendChatMessage(){
-
-    const text =
-      chatMessageInput
-      ?
-      chatMessageInput.value.trim()
-      :
-      "";
-
-    if(
-      !text &&
-      !selectedChatFile
-    ){
-
-      return;
-
-    }
-
-    if(sendChatButton){
-
-      sendChatButton.disabled =
-        true;
-
-    }
-
-    try{
-
-      let imageUrl =
-        null;
-
-      if(selectedChatFile){
-
-        imageUrl =
-          await uploadChatImage(
-            selectedChatFile
-          );
-
-      }
-
-      const payload = {
-
-        customer_id:
-          customerId,
-
-        sender_type:
-          "customer",
-
-        message:
-          text || null,
-
-        image_url:
-          imageUrl
-
-      };
-
-      const {
-        data,
-        error
-      } =
-        await supabaseClient
-          .from("chat_messages")
-          .insert(
-            payload
-          )
-          .select("*")
-          .single();
-
-      if(error){
-
-        console.error(
-          "Chat send error:",
-          error
+          "Image upload error:",
+          upload.error
         );
 
         alert(
-          "Unable to send your message right now."
+          "The image could not be uploaded. Please try again or send the message without the image."
         );
 
         return;
 
       }
 
-      if(chatMessageInput){
+      const publicUrl =
+        supabaseClient
+          .storage
+          .from("chat-images")
+          .getPublicUrl(
+            filePath
+          );
 
-        chatMessageInput.value =
-          "";
+      imageUrl =
+        publicUrl.data.publicUrl;
 
-      }
+    }
 
-      if(removePreview){
+    const {
+      error
+    } =
+      await supabaseClient
+        .from("chat_messages")
+        .insert({
 
-        removePreview.click();
+          customer_id:
+            customerId,
 
-      }
+          sender_type:
+            "customer",
 
-      const container =
-        document.getElementById(
-          "chatMessages"
-        );
+          message:
+            text || null,
 
-      if(container && data){
+          image_url:
+            imageUrl
 
-        renderChatMessage(
-          data
-        );
+        });
 
-        container.scrollTop =
-          container.scrollHeight;
-
-      }
-
-    }catch(error){
+    if(error){
 
       console.error(
-        "Chat send exception:",
+        "Chat send error:",
         error
       );
 
@@ -6644,234 +5500,117 @@ async function renderShipmentResult(shipment){
         "Unable to send your message right now."
       );
 
-    }finally{
+      return;
 
-      if(sendChatButton){
+    }
 
-        sendChatButton.disabled =
-          false;
+    input.value = "";
 
-      }
+    clearChatImage();
 
+    await loadChatMessages();
+
+  }catch(error){
+
+    console.error(
+      "Chat send exception:",
+      error
+    );
+
+    alert(
+      "Unable to send your message right now."
+    );
+
+  }finally{
+
+    if(sendButton){
+      sendButton.disabled = false;
     }
 
   }
 
+}
 
-  /* ==================================================
-     LANGUAGE DROPDOWN
-  ================================================== */
 
-  const languageToggle =
-    document.getElementById(
-      "languageToggle"
-    );
+/* ==================================================
+   CART NORMALIZATION
+================================================== */
 
-  const languageDropdown =
-    document.getElementById(
-      "languageDropdown"
-    );
+function cleanStoredCart(){
 
-  if(languageToggle){
+  if(!Array.isArray(cart)){
 
-    languageToggle.addEventListener(
-      "click",
-      function(event){
+    cart = [];
 
-        event.stopPropagation();
+    saveCart();
 
-        if(languageDropdown){
-
-          languageDropdown.classList.toggle(
-            "show"
-          );
-
-        }
-
-      }
-    );
+    return;
 
   }
 
-  document
-    .querySelectorAll(
-      "#languageDropdown [data-language]"
+  cart =
+    cart.filter(
+      function(item){
+
+        return (
+          item &&
+          item.id &&
+          Number(item.quantity) > 0
+        );
+
+      }
     )
-    .forEach(
-      function(languageItem){
+    .map(
+      function(item){
 
-        languageItem.addEventListener(
-          "click",
-          function(){
+        return {
 
-            const language =
-              this.getAttribute(
-                "data-language"
-              );
+          id:item.id,
 
-            if(language){
+          name:item.name || "Product",
 
-              applyLanguage(
-                language
-              );
+          price:Number(item.price || 0),
 
-            }
+          currency:item.currency || "USD",
 
-            if(languageDropdown){
+          image:item.image || "",
 
-              languageDropdown.classList.remove(
-                "show"
-              );
+          quantity:Number(item.quantity || 1)
 
-            }
-
-          }
-        );
+        };
 
       }
     );
 
-  document.addEventListener(
-    "click",
-    function(event){
+  saveCart();
 
-      if(
-        languageDropdown &&
-        languageToggle &&
-        !languageDropdown.contains(event.target) &&
-        !languageToggle.contains(event.target)
-      ){
-
-        languageDropdown.classList.remove(
-          "show"
-        );
-
-      }
-
-    }
-  );
+}
 
 
-  /* ==================================================
-     INITIALISE
-  ================================================== */
+/* ==================================================
+   INITIALIZATION
+================================================== */
 
-  renderCart();
+cleanStoredCart();
 
-  showHeroSlide(0);
+renderCart();
 
-  showShopAd(0);
+function handleInitialHash(){
 
   if(
-    window.location.hash ===
+    window.location.hash.toLowerCase() ===
     "#shop"
   ){
 
-    setTimeout(
-      function(){
-
-        openShop();
-
-      },
-      100
-    );
+    openShop();
 
   }
 
+}
 
-  /* ==================================================
-     MOBILE NAVIGATION
-  ================================================== */
-
-  const menuToggle =
-    document.getElementById(
-      "menuToggle"
-    );
-
-  const navMenu =
-    document.getElementById(
-      "navMenu"
-    );
-
-  if(menuToggle){
-
-    menuToggle.addEventListener(
-      "click",
-      function(){
-
-        if(navMenu){
-
-          navMenu.classList.toggle(
-            "open"
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-  document
-    .querySelectorAll(
-      "#navMenu a"
-    )
-    .forEach(
-      function(link){
-
-        link.addEventListener(
-          "click",
-          function(){
-
-            if(navMenu){
-
-              navMenu.classList.remove(
-                "open"
-              );
-
-            }
-
-          }
-        );
-
-      }
-    );
-
-
-  /* ==================================================
-     BACK BUTTON / SHOP STATE
-  ================================================== */
-
-  window.addEventListener(
-    "hashchange",
-    function(){
-
-      if(
-        window.location.hash ===
-        "#shop"
-      ){
-
-        openShop();
-
-      }else{
-
-        if(
-          shopPage &&
-          shopPage.style.display ===
-          "block"
-        ){
-
-          closeShop();
-
-        }
-
-      }
-
-    }
-  );
+handleInitialHash();
 
 </script>
 
 </body>
-
-</html>
+  </html>
