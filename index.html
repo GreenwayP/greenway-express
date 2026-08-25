@@ -1296,9 +1296,36 @@ footer p{
 }
 
 @media(max-width:650px){
+.top-bar{
+  display:block;
+  padding:6px 10px;
+  overflow:hidden;
+}
 
-  .top-bar{
-    display:flex;
+.top-contact{
+  display:none !important;
+}
+
+.language-list{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:14px !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  white-space:nowrap !important;
+  justify-content:flex-start !important;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+
+.language-list::-webkit-scrollbar{
+  display:none;
+}
+
+.language-list span{
+  flex:0 0 auto !important;
+  display:inline-block !important;
+  
   }
 
   .navbar{
