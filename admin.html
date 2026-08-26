@@ -2799,12 +2799,12 @@ onclick="updateShipment('${escapeAttribute(data.tracking_number)}')">
 
 }
 
-async function updateShipment(oldTrackingNumber){
+async function updateShipment(oldTrackingNumber) {
 
     const newNumber =
         document.getElementById("editTrackingNumber").value.trim();
 
-    if(!newNumber){
+    if (!newNumber) {
         alert("Tracking number cannot be empty.");
         return;
     }
@@ -2812,10 +2812,12 @@ async function updateShipment(oldTrackingNumber){
     const rawDeliveryDate =
         document.getElementById("editDelivery").value.trim();
 
+    // Shipments.estimated_delivery is a DATE column.
+    // Never send "Not available" or a timestamp.
     const estimatedDelivery =
         /^\d{4}-\d{2}-\d{2}$/.test(rawDeliveryDate)
-        ? rawDeliveryDate + "T00:00:00Z"
-        : null;
+            ? rawDeliveryDate
+            : null;
 
     const { error } = await supabaseClient
         .from("shipments")
@@ -2824,7 +2826,8 @@ async function updateShipment(oldTrackingNumber){
             tracking_number: newNumber,
 
             status:
-                document.getElementById("editStatus").value,
+                document.getElementById("editStatus")
+                .value,
 
             origin:
                 document.getElementById("editOrigin")
@@ -2884,7 +2887,7 @@ async function updateShipment(oldTrackingNumber){
         })
         .eq("tracking_number", oldTrackingNumber);
 
-    if(error){
+    if (error) {
         alert("Update failed: " + error.message);
         return;
     }
@@ -2895,6 +2898,7 @@ async function updateShipment(oldTrackingNumber){
 
     await loadAllShipments();
 }
+    
                 
                 
 /* =========================
