@@ -2206,138 +2206,122 @@ document.getElementById("shipmentsNav")
    SHIPMENTS
    ========================= */
 
-async function createShipment(){
+ async function createShipment(){
 
-const trackingNumber=
-document.getElementById("newTrackingNumber")
-.value.trim();
+    const trackingNumber =
+        document.getElementById("newTrackingNumber")
+        .value.trim();
 
-const status=
-document.getElementById("newStatus").value;
+    const status =
+        document.getElementById("newStatus").value;
 
-const origin=
-document.getElementById("newOrigin").value.trim();
+    const origin =
+        document.getElementById("newOrigin")
+        .value.trim();
 
-const destination=
-document.getElementById("newDestination").value.trim();
+    const destination =
+        document.getElementById("newDestination")
+        .value.trim();
 
-if(!trackingNumber||!origin||!destination){
+    if(!trackingNumber || !origin || !destination){
 
-document.getElementById("createResult").textContent=
-"Please enter tracking number, origin and destination.";
+        document.getElementById("createResult").textContent =
+            "Please enter tracking number, origin and destination.";
 
-return;
+        return;
+    }
 
-}
+    const rawDeliveryDate =
+        document.getElementById("newDelivery")
+        .value.trim();
 
-const shipmentData={
+    const estimatedDelivery =
+        /^\d{4}-\d{2}-\d{2}$/.test(rawDeliveryDate)
+            ? rawDeliveryDate
+            : null;
 
-tracking_number:trackingNumber,
+    const shipmentData = {
 
-status,
+        tracking_number: trackingNumber,
 
-origin,
+        status: status,
 
-destination,
+        origin: origin,
 
-current_location:
-document.getElementById("newLocation")
-.value.trim()||null,
+        destination: destination,
 
-estimated_delivery:
-document.getElementById("newDelivery")
-.value||null,
+        current_location:
+            document.getElementById("newLocation")
+            .value.trim() || null,
 
-sender_name:
-document.getElementById("newSenderName")
-.value.trim()||null,
+        estimated_delivery:
+            estimatedDelivery,
 
-sender_phone:
-document.getElementById("newSenderPhone")
-.value.trim()||null,
+        sender_name:
+            document.getElementById("newSenderName")
+            .value.trim() || null,
 
-sender_email:
-document.getElementById("newSenderEmail")
-.value.trim()||null,
+        sender_phone:
+            document.getElementById("newSenderPhone")
+            .value.trim() || null,
 
-receiver_name:
-document.getElementById("newReceiverName")
-.value.trim()||null,
+        sender_email:
+            document.getElementById("newSenderEmail")
+            .value.trim() || null,
 
-receiver_phone:
-document.getElementById("newReceiverPhone")
-.value.trim()||null,
+        receiver_name:
+            document.getElementById("newReceiverName")
+            .value.trim() || null,
 
-receiver_email:
-document.getElementById("newReceiverEmail")
-.value.trim()||null,
+        receiver_phone:
+            document.getElementById("newReceiverPhone")
+            .value.trim() || null,
 
-order_items:
-document.getElementById("newOrderItems")
-.value.trim()||null,
+        receiver_email:
+            document.getElementById("newReceiverEmail")
+            .value.trim() || null,
 
-order_total:
-document.getElementById("newOrderTotal")
-.value===""
-?null
-:Number(
-document.getElementById("newOrderTotal").value
-),
+        package_type:
+            document.getElementById("newPackageType")
+            .value || null,
 
-package_description:
-document.getElementById("newPackageDescription")
-.value.trim()||null,
+        description:
+            document.getElementById("newPackageDescription")
+            .value.trim() || null,
 
-package_type:
-document.getElementById("newPackageType")
-.value||null,
+        weight:
+            document.getElementById("newPackageWeight")
+            .value.trim() || null,
 
-package_weight:
-document.getElementById("newPackageWeight")
-.value===""
-?null
-:Number(
-document.getElementById("newPackageWeight").value
-),
+        service_type:
+            document.getElementById("newServiceType")
+            .value || null
+    };
 
-service_type:
-document.getElementById("newServiceType")
-.value||null,
+    const { data, error } =
+        await supabaseClient
+        .from("shipments")
+        .insert([shipmentData])
+        .select()
+        .single();
 
-special_instructions:
-document.getElementById("newSpecialInstructions")
-.value.trim()||null,
+    if(error){
 
-approval_status:
-document.getElementById("newApprovalStatus")
-.value,
+        console.error(
+            "Create shipment error:",
+            error
+        );
 
-decline_reason:
-document.getElementById("newDeclineReason")
-.value.trim()||null
+        document.getElementById("createResult").textContent =
+            "Failed to create shipment: " + error.message;
 
-};
+        return;
+    }
 
-const {error}=await supabaseClient
-.from("Shipments")
-.insert(shipmentData);
+    document.getElementById("createResult").textContent =
+        "Shipment created successfully.";
 
-if(error){
-
-document.getElementById("createResult")
-.textContent=
-"Creation failed: "+error.message;
-
-return;
-
-}
-
-document.getElementById("createResult")
-.textContent=
-"Shipment created successfully! ✅";
-
-await loadAllShipments();
-
+    await loadAllShipments();
 }
 
 async function loadAllShipments(){
