@@ -2818,7 +2818,7 @@ async function updateShipment(oldTrackingNumber){
         : null;
 
     const { error } = await supabaseClient
-        .from("Shipments")
+        .from("shipments")
         .update({
 
             tracking_number: newNumber,
@@ -2828,11 +2828,11 @@ async function updateShipment(oldTrackingNumber){
 
             origin:
                 document.getElementById("editOrigin")
-                .value.trim(),
+                .value.trim() || null,
 
             destination:
                 document.getElementById("editDestination")
-                .value.trim(),
+                .value.trim() || null,
 
             current_location:
                 document.getElementById("editLocation")
@@ -2869,12 +2869,12 @@ async function updateShipment(oldTrackingNumber){
                 document.getElementById("editPackageType")
                 .value || null,
 
-            weight:
-                document.getElementById("editPackageWeight")
-                .value.trim() || null,
-
             description:
                 document.getElementById("editPackageDescription")
+                .value.trim() || null,
+
+            weight:
+                document.getElementById("editPackageWeight")
                 .value.trim() || null,
 
             service_type:
@@ -2885,22 +2885,18 @@ async function updateShipment(oldTrackingNumber){
         .eq("tracking_number", oldTrackingNumber);
 
     if(error){
-
-        alert(
-            "Update failed: " +
-            error.message
-        );
-
+        alert("Update failed: " + error.message);
         return;
     }
 
-    alert("Shipment updated successfully!");
+    alert("Shipment updated successfully! ✅");
 
-    closeEditModal();
+    document.getElementById("shipmentResult").innerHTML = "";
 
-    await loadShipments();
+    await loadAllShipments();
 }
-
+                
+                
 /* =========================
    SHOP PRODUCTS
    ========================= */
