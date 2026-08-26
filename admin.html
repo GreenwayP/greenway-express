@@ -2812,99 +2812,82 @@ async function updateShipment(oldTrackingNumber){
     
 
     const {error}=await supabaseClient
-    .from("Shipments")
-    .update({
+.from("Shipments")
+.update({
 
-        tracking_number:newNumber,
+    tracking_number:newNumber,
 
-        status:
-            document.getElementById("editStatus").value,
+    status:
+        document.getElementById("editStatus")
+        .value,
 
-        origin:
-            document.getElementById("editOrigin")
-            .value.trim(),
+    origin:
+        document.getElementById("editOrigin")
+        .value.trim(),
 
-        destination:
-            document.getElementById("editDestination")
-            .value.trim(),
+    destination:
+        document.getElementById("editDestination")
+        .value.trim(),
 
-        current_location:
-            document.getElementById("editLocation")
-            .value.trim() || null,
+    current_location:
+        document.getElementById("editLocation")
+        .value.trim() || null,
 
-        estimated_delivery:
-    (() => {
-        const d = document.getElementById("editDelivery").value.trim();
-        return d ? d + "T00:00:00Z" : null;
-    })(),
-        sender_name:
-            document.getElementById("editSenderName")
-            .value.trim() || null,
+    estimated_delivery:
+        (() => {
 
-        sender_phone:
-            document.getElementById("editSenderPhone")
-            .value.trim() || null,
+            const d =
+                document.getElementById("editDelivery")
+                .value.trim();
 
-        sender_email:
-            document.getElementById("editSenderEmail")
-            .value.trim() || null,
+            return /^\d{4}-\d{2}-\d{2}$/.test(d)
+                ? d + "T00:00:00Z"
+                : null;
 
-        receiver_name:
-            document.getElementById("editReceiverName")
-            .value.trim() || null,
+        })(),
 
-        receiver_phone:
-            document.getElementById("editReceiverPhone")
-            .value.trim() || null,
+    sender_name:
+        document.getElementById("editSenderName")
+        .value.trim() || null,
 
-        receiver_email:
-            document.getElementById("editReceiverEmail")
-            .value.trim() || null,
+    sender_phone:
+        document.getElementById("editSenderPhone")
+        .value.trim() || null,
 
-        package_type:
-            document.getElementById("editPackageType")
-            .value || null,
+    sender_email:
+        document.getElementById("editSenderEmail")
+        .value.trim() || null,
 
-        package_weight:
-            document.getElementById("editPackageWeight").value === ""
-            ? null
-            : Number(
-                document.getElementById("editPackageWeight").value
-            ),
+    receiver_name:
+        document.getElementById("editReceiverName")
+        .value.trim() || null,
 
-        package_description:
-            document.getElementById("editPackageDescription")
-            .value.trim() || null,
+    receiver_phone:
+        document.getElementById("editReceiverPhone")
+        .value.trim() || null,
 
-        service_type:
-            document.getElementById("editServiceType")
-            .value || null,
+    receiver_email:
+        document.getElementById("editReceiverEmail")
+        .value.trim() || null,
 
-        order_total:
-            document.getElementById("editOrderTotal").value === ""
-            ? null
-            : Number(
-                document.getElementById("editOrderTotal").value
-            ),
+    package_type:
+        document.getElementById("editPackageType")
+        .value || null,
 
-        order_items:
-            document.getElementById("editOrderItems")
-            .value.trim() || null,
+    weight:
+        document.getElementById("editPackageWeight")
+        .value.trim() || null,
 
-        special_instructions:
-            document.getElementById("editSpecialInstructions")
-            .value.trim() || null,
+    description:
+        document.getElementById("editPackageDescription")
+        .value.trim() || null,
 
-        approval_status:
-            document.getElementById("editApprovalStatus")
-            .value,
+    service_type:
+        document.getElementById("editServiceType")
+        .value || null
 
-        decline_reason:
-            document.getElementById("editDeclineReason")
-            .value.trim() || null
-
-    })
-    .eq("tracking_number",oldTrackingNumber);
+})
+.eq("tracking_number",oldTrackingNumber);
 
     if(error){
         alert("Update failed: "+error.message);
