@@ -2809,98 +2809,97 @@ async function updateShipment(oldTrackingNumber){
         return;
     }
 
-    
+    const rawDeliveryDate =
+        document.getElementById("editDelivery").value.trim();
 
-    const {error}=await supabaseClient
-.from("Shipments")
-.update({
+    const estimatedDelivery =
+        /^\d{4}-\d{2}-\d{2}$/.test(rawDeliveryDate)
+        ? rawDeliveryDate + "T00:00:00Z"
+        : null;
 
-    tracking_number:newNumber,
+    const { error } = await supabaseClient
+        .from("Shipments")
+        .update({
 
-    status:
-        document.getElementById("editStatus")
-        .value,
+            tracking_number: newNumber,
 
-    origin:
-        document.getElementById("editOrigin")
-        .value.trim(),
+            status:
+                document.getElementById("editStatus").value,
 
-    destination:
-        document.getElementById("editDestination")
-        .value.trim(),
+            origin:
+                document.getElementById("editOrigin")
+                .value.trim(),
 
-    current_location:
-        document.getElementById("editLocation")
-        .value.trim() || null,
+            destination:
+                document.getElementById("editDestination")
+                .value.trim(),
 
-    estimated_delivery:
-        (() => {
+            current_location:
+                document.getElementById("editLocation")
+                .value.trim() || null,
 
-            const d =
-                document.getElementById("editDelivery")
-                .value.trim();
+            estimated_delivery:
+                estimatedDelivery,
 
-            return /^\d{4}-\d{2}-\d{2}$/.test(d)
-                ? d + "T00:00:00Z"
-                : null;
+            sender_name:
+                document.getElementById("editSenderName")
+                .value.trim() || null,
 
-        })(),
+            sender_phone:
+                document.getElementById("editSenderPhone")
+                .value.trim() || null,
 
-    sender_name:
-        document.getElementById("editSenderName")
-        .value.trim() || null,
+            sender_email:
+                document.getElementById("editSenderEmail")
+                .value.trim() || null,
 
-    sender_phone:
-        document.getElementById("editSenderPhone")
-        .value.trim() || null,
+            receiver_name:
+                document.getElementById("editReceiverName")
+                .value.trim() || null,
 
-    sender_email:
-        document.getElementById("editSenderEmail")
-        .value.trim() || null,
+            receiver_phone:
+                document.getElementById("editReceiverPhone")
+                .value.trim() || null,
 
-    receiver_name:
-        document.getElementById("editReceiverName")
-        .value.trim() || null,
+            receiver_email:
+                document.getElementById("editReceiverEmail")
+                .value.trim() || null,
 
-    receiver_phone:
-        document.getElementById("editReceiverPhone")
-        .value.trim() || null,
+            package_type:
+                document.getElementById("editPackageType")
+                .value || null,
 
-    receiver_email:
-        document.getElementById("editReceiverEmail")
-        .value.trim() || null,
+            weight:
+                document.getElementById("editPackageWeight")
+                .value.trim() || null,
 
-    package_type:
-        document.getElementById("editPackageType")
-        .value || null,
+            description:
+                document.getElementById("editPackageDescription")
+                .value.trim() || null,
 
-    weight:
-        document.getElementById("editPackageWeight")
-        .value.trim() || null,
+            service_type:
+                document.getElementById("editServiceType")
+                .value || null
 
-    description:
-        document.getElementById("editPackageDescription")
-        .value.trim() || null,
-
-    service_type:
-        document.getElementById("editServiceType")
-        .value || null
-
-})
-.eq("tracking_number",oldTrackingNumber);
+        })
+        .eq("tracking_number", oldTrackingNumber);
 
     if(error){
-        alert("Update failed: "+error.message);
+
+        alert(
+            "Update failed: " +
+            error.message
+        );
+
         return;
     }
 
-    alert("Shipment updated successfully! ✅");
+    alert("Shipment updated successfully!");
 
-    document.getElementById("shipmentResult")
-        .innerHTML="";
+    closeEditModal();
 
-    await loadAllShipments();
-   }
+    await loadShipments();
+}
 
 /* =========================
    SHOP PRODUCTS
