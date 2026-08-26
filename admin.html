@@ -2300,7 +2300,7 @@ document.getElementById("shipmentsNav")
 
     const { data, error } =
         await supabaseClient
-        .from("shipments")
+        .from("Shipmentsata")
         .insert([shipmentData])
         .select()
         .single();
