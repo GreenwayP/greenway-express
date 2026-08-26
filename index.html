@@ -2737,7 +2737,7 @@ async function trackShipment(){
 
     const shipmentResponse =
       await supabaseClient
-        .from("shipments")
+        .from("Shipments")
         .select("*")
         .eq(
           "tracking_number",
